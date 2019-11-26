@@ -14,7 +14,10 @@ Við komumst aðeins á stað með klasaritið og gerðu allir nokkrar kröfur �
 26. Nóvember: 
 Í dag ætlum við að halda áfram með klasa- og stöðurit, Friðrik og Davíð klára klasaritið á meðan 
 Héðinn og Eggert klára stöðuritið. Einnig ætlum við að vinna í use caseunum og notkunartilvinum. 
-
+Friðrik gerði grunnmyndir af nokkurm stöðuritum út frá virknikröfunum sem á eftir að klára og vanda betur, Davíð og Héðinn löguðu 
+og bættu við Notkunartilvikum og kröfum í kröfulistan, Eggert vann að klasaritinu og erum við í smá vandræðum með að setja 
+þau almennilega upp í 3-laga hönnun eins og kom fram í fyrirlestrinum. Byrjuðum að tala um og skissa hvernig gagnagrunnurinn
+á að líta út.
 
 
 27
