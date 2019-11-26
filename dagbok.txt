@@ -1,0 +1,18 @@
+***************************************************************
+* Hópur á Akureyri                                            *
+* NaN Air Dagbók                                              *
+* Nöfn: Davíð, Eggert, Friðrik og Héðinn                      *
+***************************************************************
+
+
+25. Nóvember: 
+Samræður um verkefnið og hvernig við viljum framkvæma það. Planið er að byrja á notendahópum, greiningu á þeim, 
+use cases og byrja á klasariti og mögulega stöðuriti. Allir voru að hjálpa öllum, enginn sérstök verkefni.
+
+
+26. Nóvember: 
+Í dag ætlum við að halda áfram með klasa- og stöðurit, Friðrik og Davíð klára klasaritið á meðan 
+Héðinn og Eggert klára stöðuritið.
+
+
+27
