@@ -7,7 +7,8 @@
 
 25. Nóvember: 
 Samræður um verkefnið og hvernig við viljum framkvæma það. Planið er að byrja á notendahópum, greiningu á þeim, 
-use cases og byrja á klasariti og mögulega stöðuriti. Allir voru að hjálpa öllum, enginn sérstök verkefni.
+use cases og byrja á klasariti og mögulega stöðuriti. Allir voru að hjálpa öllum, enginn sérstök verkefni. 
+Við komumst aðeins á stað með klasaritið og gerðu allir nokkrar kröfur í kröfulistan. 
 
 
 26. Nóvember: 
@@ -16,3 +17,4 @@ Héðinn og Eggert klára stöðuritið.
 
 
 27
+
