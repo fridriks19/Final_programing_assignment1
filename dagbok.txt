@@ -13,7 +13,8 @@ Við komumst aðeins á stað með klasaritið og gerðu allir nokkrar kröfur �
 
 26. Nóvember: 
 Í dag ætlum við að halda áfram með klasa- og stöðurit, Friðrik og Davíð klára klasaritið á meðan 
-Héðinn og Eggert klára stöðuritið.
+Héðinn og Eggert klára stöðuritið. Einnig ætlum við að vinna í use caseunum og notkunartilvinum. 
+
 
 
 27
