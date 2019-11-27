@@ -22,5 +22,8 @@ og bættu við Notkunartilvikum og kröfum í kröfulistan, Eggert vann að klas
 
 27. Nóvember:
 Planið er að Friðrik og Davíð ætla að gera góða wireframe mynd sem ætti lýta út eins og endaloks vinnan. Eggert ætlar að reyna að gera 3- laga hönnun 
-skv því sem Gylfi sagði á piazza.
+skv því sem Gylfi sagði á piazza. Héðinn ætlar að vinna í að setja upp skýrsluna. 
+Eggert komst langleiðinna með klasaritið. Wireframeið/TUI-ið er nánast tilbúið og á bara eftir að prófa það. Skýrslan 
+er byrjuð að lýta vel út. 
+bitch
 
