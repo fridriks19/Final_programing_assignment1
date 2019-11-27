@@ -26,5 +26,4 @@ skv því sem Gylfi sagði á piazza. Héðinn ætlar að vinna í að setja upp
 Eggert komst langleiðinna með klasaritið. Wireframeið/TUI-ið er nánast tilbúið og á bara eftir að prófa það. Skýrslan 
 er byrjuð að lýta vel út. 
 
-you a hoe
 
