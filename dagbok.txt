@@ -20,5 +20,7 @@ og bættu við Notkunartilvikum og kröfum í kröfulistan, Eggert vann að klas
 á að líta út.
 
 
-27
+27. Nóvember:
+Planið er að Friðrik og Davíð ætla að gera góða wireframe mynd sem ætti lýta út eins og endaloks vinnan. Eggert ætlar að reyna að gera 3- laga hönnun 
+skv því sem Gylfi sagði á piazza.
 
