@@ -27,3 +27,6 @@ Eggert komst langleiðinna með klasaritið. Wireframeið/TUI-ið er nánast til
 er byrjuð að lýta vel út. 
 
 
+28. Nóvember:
+Planið í dag er að reyna að klára sem mest af verkefninu. Friðrik og Davíð ætla að reyna að klára happy path, Héðinn ætlar að fara í 
+innganginn, og svo ætlum við allir að fara saman yfir stöðu- og klasaritin, klára þau og fínpússa.
