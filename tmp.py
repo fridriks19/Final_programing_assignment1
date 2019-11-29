@@ -1,10 +1,20 @@
-print("*"*15)
-print("*"[0]"*"[15])
+WITDH = 30
+LENGTH = 20
+PAGE = "*"
 page = ""
-for i in range(1,15):
-    page += "*"
-
-print(page)
 
 
+#Fyrri gerð af blaðsíðu
+print("*"*WITDH)
+for i in range(LENGTH):
+    print("{}{:>29}".format(PAGE,PAGE))
+print(PAGE*WITDH)
     
+
+#Seinni gerð 
+print(PAGE*WITDH)
+for i in range(LENGTH):
+    print(PAGE + " "*(WITDH-2) + PAGE)      # Geri -2 því án þess koma tvo auka bil 
+print(PAGE*WITDH)
+    
+
