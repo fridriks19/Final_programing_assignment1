@@ -38,5 +38,7 @@ við happy path. Kláruðum lang flest, eigum eftir að setja inn uppfærð use 
 og bættum við í stöðuritin. Við teljum okkur vera búna með fyrsta verkefnið. 
 
 2. Desember:
-Við ætlum að byrja á að leggja grunn að forritinu og ætlum að reyna að byggja upp útlitshönnun 
-forritsins 
+Við ætlum að byrja á að leggja grunn að forritinu og ætlum að reyna að kóða útlitshönnunina. 
+Til að byrja með vorum við allir að vinna saman og ræða um verkefnið. Friðrik og Davíð ætla að byrja skrifa grunn klasana.
+Eggert og Héðinn ætla að skrifa klasa um starfsmenn.
+Við náðum bara rétt svo að byrja á klösunum en er komnir með einhverja hugmynd um hvernig kerfið ætti að vera sett upp.
