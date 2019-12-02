@@ -74,12 +74,13 @@ while user_input != "q":
         while make_changes != "r":
             print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
             print(PICK +"\n")
-            print(QUIT+ " "*5 + GO_BACK +"\n\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" )
+            print(QUIT+ " "*5 + GO_BACK +"\n\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" ) 
             make_changes = input(USER_INPUT)
             print()
 
             #If the user input is 1 we want to change the employes attributes 
             if make_changes == "1":
+                employe_name_input = input("Nafn Starfsmanns: ")
                 change_employe = make_changes
                 while change_employe != "r":
                     print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
@@ -95,12 +96,13 @@ while user_input != "q":
                     change_employe = input(USER_INPUT)
                     print()
     ####!!! Gætum gert eitt fall sem gerir þessa skipun það eru bara nörfnin sem breytast ekkert annað###!!!! 
-
+### Fallið change_classes mydni virka ####
                     if change_employe == "1":    # breytum Starfsheiti ef 1 er valinn
                         change_role = change_employe  
                         while change_role != "r":
-                            change_role = input("Change role: ")
                             role = change_role
+                            change_role = input("Change role: ")
+                        
                             print(SAVE)
                             if change_role == "s":  # if they save the information
                                 print("Upplýsingar vistaðar")
