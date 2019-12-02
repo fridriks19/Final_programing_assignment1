@@ -20,3 +20,4 @@ class Starfsmadur:
             #if self.val.index(i) < (len(self.val)-1):
             #    prnt_str += "\n"
         return prnt_str
+
