@@ -90,10 +90,24 @@ def change_crew(dictionary, choice, name):
         else:
             return None
 
+#basically sama function og fyrir ofan
+def open_dest_file(filename):   
+    ''' Puts the destination into a dictionary with the id as key'''
+    dest_dictionary = {}
+    f = open(filename , "r")
+    for line in f:
+        line = line.split(",")
+        dest_dictionary[line[0]] = line[1]    # make the name the key and the values the rest of line
+    return dest_dictionary
 
+filename2 = "Destinations.csv"
+destination_dictionary = open_dest_file(filename2)
+print(destination_dictionary)
 
-
-
+def change_destination(dictionary, choice):
+    ''' Takes the dictionary for all destination and the inputed choice 
+        so we can change the destination that the user whants to change'''
+    pass
 
 
 
@@ -108,8 +122,7 @@ def change_crew(dictionary, choice, name):
 
 while user_input != "q":
     print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_MAIN))/2)*" " +  HEADER_MAIN  +   "\n" + BORDER * WITDH )
-    print(PICK +"\n")
-    print(QUIT+ "\n\n" + CHANGE + "\n" + MAKE + "\n" + GET + "\n")
+    print(PICK +"\n" + QUIT+ "\n\n" + CHANGE + "\n" + MAKE + "\n" + GET + "\n")
     user_input = input(USER_INPUT)
     print()
 
@@ -123,8 +136,7 @@ while user_input != "q":
         make_changes = user_input 
         while make_changes != "r":
             print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
-            print(PICK +"\n")
-            print(QUIT+ " "*5 + GO_BACK +"\n\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" ) 
+            print(PICK +"\n"+ QUIT+ " "*5 + GO_BACK +"\n\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" )
             make_changes = input(USER_INPUT)
             print()
 
@@ -134,7 +146,7 @@ while user_input != "q":
                 change_employee = make_changes
                 while change_employee != "r":
                     print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
-                    print(PICK +"\n")               
+                    print(PICK + "\n" + QUIT + " "*5 + GO_BACK +"\n\n")                
                     print("Nafn: {}".format(crew_dictionary[employee_name_input][1])) 
                     print("Kennitölu: {}".format(crew_dictionary[employee_name_input][0]))
                     print("'1' - Starfsheiti: {}".format(crew_dictionary[employee_name_input][2]))
@@ -148,16 +160,22 @@ while user_input != "q":
                     if change_employee != "r":   # Go back if you dont whant to edit what you picked
                         change_crew(crew_dictionary, change_employee, employee_name_input)   
 
-
-
             if make_changes == "2": 
                 change_place = make_changes
+                counter  = 1
                 while change_place != "r":
                     print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
-                    print(PICK +"\n")  
-                    
-                    
-                    
+                    print(PICK +"\n" + QUIT + " "*5 + GO_BACK +"\n\n")  
+                    #loop sem fer í gegnum listan af löndum og prentar þau öll í röð 
+                    for key in destination_dictionary:
+                        print("'{}' - {}.".format(counter, destination_dictionary[key]))   
+                        counter += 1
+                    print()
+                    change_place = input(USER_INPUT)   # Input what attribute you whant to change 
+                    print()
+                    if change_place != "r":
+                        change_destination(destination_dictionary, change_employee)  # for now
+                     
             if make_changes == "3":
                 change_work_flight
                 while change_work_flight != "r":
@@ -174,8 +192,8 @@ while user_input != "q":
         make_user = user_input 
         while make_user != "r":
             print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
-            print(PICK +"\n")
-            print(QUIT+ " "*5 + GO_BACK +"\n\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" + AIRPLANE +"\n" + AIRPLANE_TYPE +"\n")
+            print(PICK +"\n" + QUIT+ " "*5 + GO_BACK +"\n\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" 
+                            + AIRPLANE +"\n" + AIRPLANE_TYPE +"\n")
             make_user = input(USER_INPUT)
             print()
             #The result of a choisen input 
@@ -183,8 +201,7 @@ while user_input != "q":
                 make_employee = make_user 
                 while make_employee  != "r":
                     print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
-                    print(PICK +"\n")
-                    print(QUIT+ " "*5 + GO_BACK +"\n\n" + PILOT +"\n" + FLIGHT_ATTEND +"\n")
+                    print(PICK +"\n" + QUIT+ " "*5 + GO_BACK +"\n\n" + PILOT +"\n" + FLIGHT_ATTEND +"\n")
                     make_employee  = input(USER_INPUT)
                     print()
             elif make_user == "2":
@@ -192,8 +209,7 @@ while user_input != "q":
                 while make_place != "r":
                     print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
   
-                    print(PICK +"\n")
-                    print(QUIT+ " "*5 + GO_BACK +"\n")
+                    print(PICK +"\n" +QUIT+ " "*5 + GO_BACK +"\n")
 ## þarf að búa til sér klasa þar sem við writum í eh skjal sem heldur utan um áfangastaðina 
                     input(LAND_INPUT)
                     input(AIRPORT_INPUT)
@@ -212,8 +228,7 @@ while user_input != "q":
                 make_work_flight = make_user 
                 while make_work_flight != "r":
                     print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
-                    print(PICK +"\n")
-                    print(QUIT+ " "*5 + GO_BACK +"\n")
+                    print(PICK +"\n" + QUIT+ " "*5 + GO_BACK +"\n")
                     make_work_flight  = input(USER_INPUT)
                     print()
 
@@ -221,8 +236,7 @@ while user_input != "q":
                 make_airplane = make_user 
                 while make_airplane  != "r":
                     print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
-                    print(PICK +"\n")
-                    print(QUIT+ " "*5 + GO_BACK +"\n")
+                    print(PICK +"\n" + QUIT+ " "*5 + GO_BACK +"\n")
                     make_airplane  = input(USER_INPUT)
                     print()
 
@@ -230,8 +244,7 @@ while user_input != "q":
                 make_airplane_type = make_user 
                 while make_airplane_type  != "r":
                     print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
-                    print(PICK +"\n")
-                    print(QUIT+ " "*5 + GO_BACK +"\n")
+                    print(PICK +"\n" + QUIT+ " "*5 + GO_BACK +"\n")
                     make_airplane_type  = input(USER_INPUT)
                     print()
 
