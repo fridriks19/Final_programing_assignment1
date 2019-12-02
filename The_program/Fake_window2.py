@@ -45,7 +45,7 @@ ssn = "0303030303"
 role = "Pilot"
 rank ="Captain"
 liscense = "NAkor12"
-user = " "
+user_input = " "
 
 
 ###########################################################################
@@ -129,7 +129,7 @@ while user_input != "q":
 
 
     elif user_input == "2":
-        make_user = user 
+        make_user = user_input 
         while make_user != "r":
             print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
             print(PICK +"\n")
@@ -200,7 +200,7 @@ while user_input != "q":
 
 
     elif user_input == "3":
-        get_user = user 
+        get_user = user_input 
         while get_user != "r":
             print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_C))/2)*" " +  HEADER_SUB_C  +   "\n" + BORDER * WITDH )
   
