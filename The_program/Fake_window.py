@@ -12,9 +12,6 @@ def line_placement(WITDH, line):
     space = int((WITDH- len(line))/2)
     return space
 
-
-
-
 ################Fyrri gerð af blaðsíðu######################################## ########################## ########################## ########################## 
 # print("*"*WITDH)
 # for i in range(LENGTH):
@@ -26,11 +23,11 @@ def line_placement(WITDH, line):
 ##############Seinni gerð########################## ########################## ########################## ########################## ########################## 
 
 #########HEADER
-print(PAGE*30 + "\n" #Efsta línan
+print(PAGE*WITDH + "\n" #Efsta línan
     + PAGE + " "* int(HEADER_PLACEMENT/2) + HEADER +    #HEADER gætum inputað eh inn í hann  // Header placement bæði fyrir framan og aftan til að fá rétt magn af bilum
                 " "* int((HEADER_PLACEMENT/2)-1)        #Geri -1 því án þess kemur auka bil! og                        
                 + PAGE + "\n"   # endin á miðju línu 
-    + PAGE*30)  #Neðsta lína                              
+    + PAGE * WITDH)  #Neðsta lína                              
 
             #  " "*(WITDH-2-len(HEADER)*2)
 
@@ -39,8 +36,6 @@ print(PAGE*30 + "\n" #Efsta línan
 #     print(PAGE + " "*(WITDH-2) + PAGE)      # Geri -2 því án þess koma tvo auka bil!
 #     print(CHANGE)
 # print(PAGE*WITDH)
-
-
 
 ######EFRI HLTUI BLAÐSÍÐUNAR        
 for i in range(int(LENGTH/2)):
@@ -58,7 +53,7 @@ print(PAGE + " "* (line_placement(WITDH, MAKE_NEW)) + MAKE_NEW +    # ntoum def 
 ######NEÐRI HLUTI AF Blaðsíðunni 
 for i in range(int(LENGTH/2)):   
     print(PAGE + " "*(WITDH-2) + PAGE)
-print(PAGE*30)
+print(PAGE*WITDH)
 
 
 ###################################################################################################################### ########################## ########################## 
