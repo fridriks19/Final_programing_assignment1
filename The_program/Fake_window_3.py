@@ -41,6 +41,10 @@ EMERGENCY_PHONE_INPUT = "Neyðarsími"
 
 user_input = " "
 
+
+####### þurfum að geta búið til klassa með þessu og kallað á hann í staðinn 
+########    - fyrir að hafa kóðan bara hérna 
+
 def open_file(filename):   
     ''' Puts the crew members into a dictionary with values as ssn,name,role,rank,
         licence,address,phonenumber'''
@@ -48,18 +52,21 @@ def open_file(filename):
     f = open(filename , "r")
     for line in f:
         line = line.split(",")
-        crew_dictionary[line[1]] = line
+        crew_dictionary[line[1]] = line    # make the name the key and the values the rest of line
     return crew_dictionary
-        
+    
 filename = "Crew.csv"
 crew_dictionary = open_file(filename)
 
 
 def change_crew(dictionary, choice, name):
+    ''' Takes the crew member dictionary, the choice that the user inputs to 
+        indicate what he whants to change and the name of the crew member the 
+        user wanted to change'''
     change = choice
     placement = ""
     if choice == "1":
-        placement = 2   
+        placement = 2      # Beacause Role is number 2 in the values in crew_dictionary same goes for the other attributes they are 1 higher
         attribute = "role"
     elif choice == "2":
         placement = 3
@@ -74,11 +81,11 @@ def change_crew(dictionary, choice, name):
         placement = 6
         attribute = "phonenumber" 
 
-    change = input("Change {}: ".format(attribute))
+    change = input("Change {}: ".format(attribute))   #Change the attribute the user whants
     if change != "r":
         save = input("Do you whant to save the changes?: (y/n)")
         if save == "y":
-            dictionary[name][placement] = change
+            dictionary[name][placement] = change  #Rewrite the old value with the one that the user inputed
             return dictionary
         else:
             return None
@@ -112,7 +119,6 @@ while user_input != "q":
 ###########################################################################
 #If the user inputs 1 we go into the CHANGE menu 
 
-
     if user_input == "1":
         make_changes = user_input 
         while make_changes != "r":
@@ -125,7 +131,6 @@ while user_input != "q":
             #If the user input is 1 we want to change the employes attributes 
             if make_changes == "1":
                 employee_name_input = input("Nafn Starfsmanns: ")
-                
                 change_employee = make_changes
                 while change_employee != "r":
                     print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
@@ -140,17 +145,19 @@ while user_input != "q":
                     print()
                     change_employee = input(USER_INPUT)   # Input what attribute you whant to change 
                     print()
-                    if change_employee != "r":
-                        	change_crew(crew_dictionary, change_employee, employee_name_input)
+                    if change_employee != "r":   # Go back if you dont whant to edit what you picked
+                        change_crew(crew_dictionary, change_employee, employee_name_input)   
 
 
 
             if make_changes == "2": 
-                change_place
+                change_place = make_changes
                 while change_place != "r":
-                    pass
+                    print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
+                    print(PICK +"\n")  
                     
-
+                    
+                    
             if make_changes == "3":
                 change_work_flight
                 while change_work_flight != "r":
@@ -187,6 +194,7 @@ while user_input != "q":
   
                     print(PICK +"\n")
                     print(QUIT+ " "*5 + GO_BACK +"\n")
+## þarf að búa til sér klasa þar sem við writum í eh skjal sem heldur utan um áfangastaðina 
                     input(LAND_INPUT)
                     input(AIRPORT_INPUT)
                     input(FLIGHT_TIME_INPUT)
