@@ -36,3 +36,7 @@ við happy path. Kláruðum lang flest, eigum eftir að setja inn uppfærð use 
 29. Nóvember: 
 Í dag ætlum við að klára skissurnar og passa uppá samræmi milli skissa og use case-ana. Við kláruðum use case-in, gerðum smá lokaorð,
 og bættum við í stöðuritin. Við teljum okkur vera búna með fyrsta verkefnið. 
+
+2. Desember:
+Við ætlum að byrja á að leggja grunn að forritinu og ætlum að reyna að byggja upp útlitshönnun 
+forritsins 
