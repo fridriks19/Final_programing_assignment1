@@ -46,17 +46,29 @@ role = "Pilot"
 rank ="Captain"
 liscense = "NAkor12"
 user = " "
-########HEADER  main menu 
-while user != "q":
+
+
+###########################################################################
+############################### main menu #################################
+###########################################################################
+
+
+while user_input != "q":
     print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_MAIN))/2)*" " +  HEADER_MAIN  +   "\n" + BORDER * WITDH )
     print(PICK +"\n")
     print(QUIT+ "\n\n" + CHANGE + "\n" + MAKE + "\n" + GET + "\n")
-    user = input(USER_INPUT)
+    user_input = input(USER_INPUT)
     print()
 
+
+###########################################################################
+############################### change sub menu ###########################
+###########################################################################
 #If the user inputs 1 we go into the CHANGE menu 
-    if user == "1":
-        change_user = user 
+
+
+    if user_input == "1":
+        change_user = user_input 
         while change_user != "r":
             print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
             print(PICK +"\n")
@@ -78,10 +90,15 @@ while user != "q":
                     change_employe = input(USER_INPUT)
                     print()
                     if change_employe == "1":
-                        change_role = change_employe
-                        while change_role != "r":
-                            change_role = input("Change role: ")
-                            role = change_role
+                        while change_employe != "r":
+                            change_employe = input("Change role: ")
+                            print(SAVE)
+                            role = change_employe
+                        
+                            if change_employe == "s":  # if they save the information
+                                print("Upplýsingar vistaðar")
+                                change_employe= "r"   # so they go back to sub menu automatically
+
                     if change_employe == "2":
                         change_rank = change_employe
                         while change_rank != "r":
@@ -104,8 +121,14 @@ while user != "q":
                 while change_work_flight != "r":
                     pass
 
+
+###########################################################################
+############################### Make sub menu #############################
+###########################################################################
 #if the user inputs 2 we go into the MAKE menu
-    elif user == "2":
+
+
+    elif user_input == "2":
         make_user = user 
         while make_user != "r":
             print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
@@ -170,8 +193,13 @@ while user != "q":
                     print()
 
 
+###########################################################################
+############################### get sub menu ##############################
+###########################################################################
 #If the user inputs 3 we go into the GET menu
-    elif user == "3":
+
+
+    elif user_input == "3":
         get_user = user 
         while get_user != "r":
             print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_C))/2)*" " +  HEADER_SUB_C  +   "\n" + BORDER * WITDH )
