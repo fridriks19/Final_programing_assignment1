@@ -1,5 +1,5 @@
-WITDH = 30
-LENGTH = 10
+WITDH = 50
+LENGTH = 15
 PAGE = "*"
 HEADER = "NaN Air"
 CHANGE = "'1' - Change"
@@ -20,7 +20,7 @@ def line_placement(WITDH, line):
 
 
 
-##############Seinni gerð########################## ########################## ########################## ########################## ########################## 
+##############Seinni gerð################################################################################################################################# 
 
 #########HEADER
 print(PAGE*WITDH + "\n" #Efsta línan
@@ -42,18 +42,16 @@ for i in range(int(LENGTH/2)):
     print(PAGE + " "*(WITDH-2) + PAGE)      # Geri -2 því án þess koma tvo auka bil!
 
 #Change textinn
-print(PAGE + " "* (line_placement(WITDH, CHANGE)) + CHANGE +    # ntoum def falliuð í staðinn fyrir að hard codea þetta 
-        " "* (line_placement(WITDH, CHANGE)-2)        # -2 til að losna við bilin                       
+print(PAGE + " "* (line_placement(WITDH, CHANGE)-1) + CHANGE +    # ntoum def falliuð í staðinn fyrir að hard codea þetta 
+        " "* (line_placement(WITDH, CHANGE)-1)        # -2 til að losna við bilin                       
         + PAGE)
 #input textinn
 print(PAGE + " "* (line_placement(WITDH, MAKE_NEW)) + MAKE_NEW +    # ntoum def falliuð í staðinn fyrir að hard codea þetta 
         " "* (line_placement(WITDH, MAKE_NEW)-2)        # -2 til að losna við bilin                       
         + PAGE)
 
-######NEÐRI HLUTI AF Blaðsíðunni 
+######NEÐRI HLUTI AF Blaðsíðunni #################################
 for i in range(int(LENGTH/2)):   
     print(PAGE + " "*(WITDH-2) + PAGE)
 print(PAGE*WITDH)
-
-
-###################################################################################################################### ########################## ########################## 
+################################################################################################################################################ ########################## 
