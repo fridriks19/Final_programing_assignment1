@@ -6,7 +6,7 @@ CHANGE = "'1' - Change"
 MAKE_NEW = "'2' - Make new"
 HEADER_PLACEMENT =WITDH- len(HEADER) 
 USER_INPUT= ("Users input:")
-
+.
 
 def line_placement(WITDH, line):
     space = int((WITDH- len(line))/2)
