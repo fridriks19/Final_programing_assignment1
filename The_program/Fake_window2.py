@@ -47,34 +47,36 @@ while user != "q":
 
 
     elif user == "2":
-        user1 = user 
-        while user1 != "q":
+        user2 = user 
+        while user2 != "q":
             print(BORDER * WITDH +"\n" + int(HEADER_MID)*" " +  HEADER  +   "\n" + BORDER * WITDH )
   
             print(PICK +"\n")
             print(QUIT+ "\n")
             print(EMPLOYEE)
-        print(PLACE)
-        print(WORK_FLIGHT)
-        print(AIRPLANE)
-        print(AIRPLANE_TYPE)
-        print()
-        user = input(USER_INPUT)
-        print()
+            print(PLACE)
+            print(WORK_FLIGHT)
+            print(AIRPLANE)
+            print(AIRPLANE_TYPE)
+            print()
+            user = input(USER_INPUT)
+            print()
 
     elif user == "3":
-        print(BORDER * WITDH +"\n" + int(HEADER_MID)*" " +  HEADER  +   "\n" + BORDER * WITDH )
+        user3 = user 
+        while user3 != "q":
+            print(BORDER * WITDH +"\n" + int(HEADER_MID)*" " +  HEADER  +   "\n" + BORDER * WITDH )
   
-        print(PICK +"\n")
-        print(QUIT+ "\n")
-        print(EMPLOYEE)
-        print(PLACE)
-        print(WORK_FLIGHT)
-        print(AIRPLANE)
-        print(WORK_TIME)
-        print()
-        user = input(USER_INPUT)
-        print()
+            print(PICK +"\n")
+            print(QUIT+ "\n")
+            print(EMPLOYEE)
+            print(PLACE)
+            print(WORK_FLIGHT)
+            print(AIRPLANE)
+            print(WORK_TIME)
+            print()
+            user3 = input(USER_INPUT)
+            print()
 
 
 
