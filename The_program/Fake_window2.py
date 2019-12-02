@@ -20,7 +20,11 @@ WORK_TIME = "'5' - Vinnustund"
 AIRPLANE_TYPE = "'5' - Flugvélategund"
 FLIGHT_ATTEND = "'2' - Flugþjónn
 FLYER = "'1' - Flugmaður"
-
+Name_Input = "Nafn: "
+SSN_Input = "Kennitala: "
+ADDRESS_Input = "Heimilisfang: "
+GSM_Input = "GSM-Sími: "
+EMAIL_Input = "Netfang: "
 
 user = " "
 ########HEADER  main menu 
