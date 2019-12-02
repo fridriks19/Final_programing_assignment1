@@ -43,29 +43,50 @@ EMERGENCY_PHONE_INPUT = "Neyðarsími"
 
 class Menu():
     def __init__(self):
-        self.user_input = user_input
+        self.user_input = USER_INPUT
     
     def __str__(self):
         print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_MAIN))/2)*" " +  HEADER_MAIN  +   "\n" + BORDER * WITDH )
         print(PICK +"\n")
         print(QUIT+ "\n\n" + CHANGE + "\n" + MAKE + "\n" + GET + "\n")
-        user = input(USER_INPUT)
+        self.user_input = input(USER_INPUT)
         print()
         return self.user_input
-        
-
-class Make(Menu):
-    def __init__(self):
-        pass
-
-class Get(Menu):
-    def __init__(self):
-        pass
 
 class Change(Menu):
     def __init__(self):
         pass
 
-command = Menu()
-print(command)
+    def __str__(self):
+        pass
 
+class Make(Menu):
+    def __init__(self):
+        self.user_input
+
+    def __str__(self):
+        return "aids"
+
+class Get(Menu):
+    def __init__(self):
+        pass
+
+
+
+
+def main():
+    command = Menu()
+    while command != "q":
+        if command == "1":
+            command = Change()
+
+        if command == "2": 
+            print("make")
+            command = Make()
+            print(command)
+
+        if command == "3":
+            command = Get()
+    else:
+        print("Turning off!")
+main()
