@@ -25,7 +25,6 @@ AIRPLANE_TYPE = "'5' - Flugvélategund"
 FLIGHT_ATTEND = "'2' - Flugþjónn"
 FLYER = "'1' - Flugmaður"
 
-
 #Input síður#
 NAME_INPUT = "Nafn: "
 SSN_INPUT  = "Kennitala: "
@@ -55,7 +54,7 @@ while user != "q":
         while change_user != "r":
             print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
             print(PICK +"\n")
-            print(QUIT+ " "*5 + GO_BACK +"\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" )
+            print(QUIT+ " "*5 + GO_BACK +"\n\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" )
             change_user = input(USER_INPUT)
             print()
 
@@ -66,7 +65,7 @@ while user != "q":
         while make_user != "r":
             print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
             print(PICK +"\n")
-            print(QUIT+ " "*5 + GO_BACK +"\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" + AIRPLANE +"\n" + AIRPLANE_TYPE +"\n")
+            print(QUIT+ " "*5 + GO_BACK +"\n\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" + AIRPLANE +"\n" + AIRPLANE_TYPE +"\n")
             make_user = input(USER_INPUT)
             print()
             #The result of a choisen input 
@@ -75,7 +74,7 @@ while user != "q":
                 while make_employee  != "r":
                     print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
                     print(PICK +"\n")
-                    print(QUIT+ " "*5 + GO_BACK +"\n" + FLYER +"\n" + FLIGHT_ATTEND +"\n")
+                    print(QUIT+ " "*5 + GO_BACK +"\n\n" + FLYER +"\n" + FLIGHT_ATTEND +"\n")
                     make_employee  = input(USER_INPUT)
                     print()
             elif make_user == "2":
@@ -97,41 +96,28 @@ while user != "q":
                     if make_place == "s":  # if they save the information
                         print("Upplýsingar vistaðar")
                         make_place = "r"   # so they go back to sub menu automatically
-
             elif make_user == "3":
                 make_work_flight = make_user 
                 while make_work_flight != "r":
                     print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
-  
                     print(PICK +"\n")
                     print(QUIT+ " "*5 + GO_BACK +"\n")
-                    print(FLYER)
-                    print("work")
-                    print()
                     make_work_flight  = input(USER_INPUT)
                     print()
             elif make_user == "4":
                 make_airplane = make_user 
                 while make_airplane  != "r":
                     print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
-  
                     print(PICK +"\n")
                     print(QUIT+ " "*5 + GO_BACK +"\n")
-                    print(FLYER)
-                    print(FLIGHT_ATTEND)
-                    print()
                     make_airplane  = input(USER_INPUT)
                     print()
             elif make_user == "5":
                 make_airplane_type = make_user 
                 while make_airplane_type  != "r":
                     print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
-  
                     print(PICK +"\n")
                     print(QUIT+ " "*5 + GO_BACK +"\n")
-                    print(FLYER)
-                    print(FLIGHT_ATTEND)
-                    print()
                     make_airplane_type  = input(USER_INPUT)
                     print()
 
