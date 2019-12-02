@@ -39,4 +39,6 @@ og bættum við í stöðuritin. Við teljum okkur vera búna með fyrsta verkef
 
 2. Desember:
 Við ætlum að byrja á að leggja grunn að forritinu og ætlum að reyna að kóða útlitshönnunina. 
-Til að byrja með vorum við allir að vinna saman og ræða um verkefnið. 
+Til að byrja með vorum við allir að vinna saman og ræða um verkefnið. Friðrik og Davíð ætla að byrja skrifa grunn klasana.
+Eggert og Héðinn ætla að skrifa klasa um starfsmenn.
+Við náðum bara rétt svo að byrja á klösunum en er komnir með einhverja hugmynd um hvernig kerfið ætti að vera sett upp.
