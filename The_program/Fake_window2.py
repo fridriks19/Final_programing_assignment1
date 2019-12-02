@@ -45,6 +45,8 @@ ssn = "0303030303"
 role = "Pilot"
 rank ="Captain"
 liscense = "NAkor12"
+address = "Apa gata 20"
+phonenumber = "666 6666"
 user_input = " "
 
 
@@ -68,55 +70,86 @@ while user_input != "q":
 
 
     if user_input == "1":
-        change_user = user_input 
-        while change_user != "r":
+        make_changes = user_input 
+        while make_changes != "r":
             print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
             print(PICK +"\n")
             print(QUIT+ " "*5 + GO_BACK +"\n\n" + EMPLOYEE +"\n" + PLACE +"\n" + WORK_FLIGHT +"\n" )
-            change_user = input(USER_INPUT)
+            make_changes = input(USER_INPUT)
             print()
+
             #If the user input is 1 we want to change the employes attributes 
-            if change_user == "1":
-                change_employe = change_user
+            if make_changes == "1":
+                change_employe = make_changes
                 while change_employe != "r":
                     print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
-                    print(PICK +"\n")
-                    print("Nafn: {}".format(name1))
+                    print(PICK +"\n")               
+                    print("Nafn: {}".format(name1)) 
                     print("Kennitölu: {}".format(ssn))
                     print("'1' - Starfsheiti: {}".format(role))
                     print("'2' - Staða: {}".format(rank))
                     print("'3' - Leyfi: {}".format(liscense))
+                    print("'4' - Heimilisfang: {}".format(address))
+                    print("'5' - Símanúmer: {}".format(phonenumber))
                     print()
                     change_employe = input(USER_INPUT)
                     print()
-                    if change_employe == "1":
-                        while change_employe != "r":
-                            change_employe = input("Change role: ")
-                            print(SAVE)
-                            role = change_employe
-                        
-                            if change_employe == "s":  # if they save the information
-                                print("Upplýsingar vistaðar")
-                                change_employe= "r"   # so they go back to sub menu automatically
+    ####!!! Gætum gert eitt fall sem gerir þessa skipun það eru bara nörfnin sem breytast ekkert annað###!!!! 
 
+                    if change_employe == "1":    # breytum Starfsheiti ef 1 er valinn
+                        change_role = change_employe  
+                        while change_role != "r":
+                            change_role = input("Change role: ")
+                            role = change_role
+                            print(SAVE)
+                            if change_role == "s":  # if they save the information
+                                print("Upplýsingar vistaðar")
+                                change_role= "r"   # so they go back to sub menu automatically    
                     if change_employe == "2":
                         change_rank = change_employe
                         while change_rank != "r":
-                            change_rank = input("Change rank: ")
                             rank = change_rank
+                            change_rank = input("Change rank: ")
+                            print(SAVE)
+                            if change_rank == "s":  # if they save the information
+                                print("Upplýsingar vistaðar")
+                                change_rank= "r"   # so they go back to sub menu automatically                             
                     if change_employe == "3": 
                         change_liscense = change_employe
                         while change_liscense != "r":
-                            change_liscense = input("Change liscense: ")
-                            liscense = change_liscense
+                            liscense = change_liscense   #ssave the changes that were made 
+                            change_liscense = input("Change liscense: ")                       
+                            print(SAVE)
+                            if change_liscense == "s":  # if they save the information
+                                print("Upplýsingar vistaðar")
+                                change_liscense = "r"   # so they go back to sub menu automatically
+                    if change_employe == "4": 
+                        change_address = change_employe
+                        while change_address != "r":
+                            address = change_address   
+                            change_address = input("Change address: ")                       
+                            print(SAVE)
+                            if change_address == "s":  
+                                print("Upplýsingar vistaðar")
+                                change_address = "r"   
+                    if change_employe == "5": 
+                        change_phonenumber = change_employe
+                        while change_phonenumber != "r":
+                            phonenumber = change_phonenumber    
+                            change_phonenumber = input("Change phonenumber: ")                       
+                            print(SAVE)
+                            if change_phonenumber == "s": 
+                                print("Upplýsingar vistaðar")
+                                change_phonenumber = "r"   
+                    
 
-            if change_user == "2": 
+            if make_changes == "2": 
                 change_place
                 while change_place != "r":
                     pass
                     
 
-            if change_user == "3":
+            if make_changes == "3":
                 change_work_flight
                 while change_work_flight != "r":
                     pass
