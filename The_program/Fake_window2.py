@@ -1,7 +1,9 @@
 WITDH = 30
-HEADER = " NaN AIR"   
+HEADER_MAIN = "NaN AIR"  
+HEADER_SUB_A = "Breyta" 
+HEADER_SUB_B = "Nýskrá"
+HEADER_SUB_C = "Sækja"
 BORDER = "*"
-HEADER_MID = ((WITDH - len(HEADER))/2)
 
 CHANGE = "'1' - Breyta"
 MAKE = "'2' - Nýskrá"
@@ -16,12 +18,15 @@ WORK_FLIGHT = "'3' - Vinnuferð"
 AIRPLANE = "'4' - Flugvél"
 WORK_TIME = "'5' - Vinnustund"
 AIRPLANE_TYPE = "'5' - Flugvélategund"
+FLIGHT_ATTEND = "'2' - Flugþjónn
+FLYER = "'1' - Flugmaður"
+
 
 user = " "
 ########HEADER  main menu 
 while user != "q":
     
-    print(BORDER * WITDH +"\n" + int(HEADER_MID)*" " +  HEADER  +   "\n" + BORDER * WITDH )
+    print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_MAIN))/2)*" " +  HEADER_MAIN  +   "\n" + BORDER * WITDH )
   
     print(PICK +"\n")
     print(QUIT+ "\n")
@@ -35,7 +40,7 @@ while user != "q":
     if user == "1":
         user1 = user 
         while user1 != "r":
-            print(BORDER * WITDH +"\n" + int(HEADER_MID)*" " +  HEADER  +   "\n" + BORDER * WITDH )
+            print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
   
             print(PICK +"\n")
             print(QUIT+ " "*5 + GO_BACK +"\n")
@@ -50,7 +55,7 @@ while user != "q":
     elif user == "2":
         user2 = user 
         while user2 != "r":
-            print(BORDER * WITDH +"\n" + int(HEADER_MID)*" " +  HEADER  +   "\n" + BORDER * WITDH )
+            print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
   
             print(PICK +"\n")
             print(QUIT+ " "*5 + GO_BACK +"\n")
@@ -62,11 +67,25 @@ while user != "q":
             print()
             user2 = input(USER_INPUT)
             print()
+            if user2 == 1:
+                user2.1 = user 
+                while user2 != "r":
+                    print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_B))/2)*" " +  HEADER_SUB_B +   "\n" + BORDER * WITDH )
+  
+                    print(PICK +"\n")
+                    print(QUIT+ " "*5 + GO_BACK +"\n")
+                    print(FLYER)
+                    print(FLIGHT_ATTEND)
+                    print()
+                    user2 = input(USER_INPUT)
+                    print()
+
+
 
     elif user == "3":
         user3 = user 
         while user3 != "r":
-            print(BORDER * WITDH +"\n" + int(HEADER_MID)*" " +  HEADER  +   "\n" + BORDER * WITDH )
+            print(BORDER * WITDH +"\n" +  int((WITDH - len(HEADER_SUB_C))/2)*" " +  HEADER_SUB_C  +   "\n" + BORDER * WITDH )
   
             print(PICK +"\n")
             print(QUIT+ " "*5 + GO_BACK +"\n")
