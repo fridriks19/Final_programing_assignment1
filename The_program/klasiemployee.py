@@ -1,7 +1,7 @@
 class Starfsmadur:
 
     def __init__(self, empl_info_list):
-        self.stm_dict = {}
+        #self.stm_dict = {}
         self.empl_info_list = empl_info_list
         self.kennitala = self.empl_info_list[0]
         self.nafn = self.empl_info_list[1]
@@ -11,12 +11,10 @@ class Starfsmadur:
         self.heimilisfang = self.empl_info_list[5]
         self.gsmsimi = self.empl_info_list[6]
         self.val = self.empl_info_list[0:7]
-        self.val.pop(1)
-        self.stm_dict[self.nafn] = self.val      
+        #self.val.pop(1)
+        #self.stm_dict[self.nafn] = self.val      
   
     def __str__(self):
         #return "{}".format(self.stm_dict)
-        return "{}".format(self.stm_dict)
-
-
+        return "{}".format(self.empl_info_list)
 
