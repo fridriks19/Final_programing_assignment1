@@ -38,7 +38,6 @@ FLIGHT_TIME_INPUT = "Flugtími: "
 DISTANCE_INPUT = "Fjarlægð"
 CONTACT_INPUT = "Tengiliður"
 EMERGENCY_PHONE_INPUT = "Neyðarsími"
-
 user_input = " "
 
 
@@ -89,6 +88,8 @@ def change_crew(dictionary, choice, name):
             return dictionary
         else:
             return None
+
+
 
 #basically sama function og fyrir ofan
 def open_dest_file(filename):   
