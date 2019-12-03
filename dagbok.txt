@@ -37,8 +37,16 @@ við happy path. Kláruðum lang flest, eigum eftir að setja inn uppfærð use 
 Í dag ætlum við að klára skissurnar og passa uppá samræmi milli skissa og use case-ana. Við kláruðum use case-in, gerðum smá lokaorð,
 og bættum við í stöðuritin. Við teljum okkur vera búna með fyrsta verkefnið. 
 
+
 2. Desember:
 Við ætlum að byrja á að leggja grunn að forritinu og ætlum að reyna að kóða útlitshönnunina. 
 Til að byrja með vorum við allir að vinna saman og ræða um verkefnið. Friðrik og Davíð ætla að byrja skrifa grunn klasana.
 Eggert og Héðinn ætla að skrifa klasa um starfsmenn.
-Við náðum bara rétt svo að byrja á klösunum en er komnir með einhverja hugmynd um hvernig kerfið ætti að vera sett upp.
+Við náðum bara rétt svo að byrja á klösunum en er komnir með einhverja hugmynd um hvernig kerfið ætti að vera sett upp
+
+
+3. Desember:
+Byrjuðum að ræða saman hvaða klasa við þurfum, og hverjir ætla að gera hvað og hvað. Til að byrja með ætlum við að "Pair Programa"
+til að halda stöðuleika í kóðanum og nöfn breytunar eru skrifaðar á sama hátt. Davíð og Friðrik ætla að halda áfram með klasan um virkni á hönnuninni
+og Eggert og Héðinn ætla að halda áfram með klasan um virkni notanda.
+
