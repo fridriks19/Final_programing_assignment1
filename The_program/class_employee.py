@@ -1,4 +1,4 @@
-class Starfsmadur:
+class employee:
 
     def __init__(self, empl_info_list):
         #self.stm_dict = {}
