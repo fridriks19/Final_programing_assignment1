@@ -11,9 +11,11 @@ class PastFlightsIO():
         open_file_list = []
         for line in open_file:
             line = line.split("\n")
+            line.pop(1)
             open_file_list.append(line)
         for flight in open_file_list:
             flight  = ",".join(flight)
+            #print(flight)
             if flight == self.past_str:
                 open_file.close()
                 return flight
