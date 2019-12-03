@@ -1,8 +1,8 @@
-from class_employee import employee
+from models.class_employee import Employee
 
-class pilot(employee):
+class pilot(Employee):
     def __init__(self, empl_info_list):
-        employee.__init__(self, empl_info_list)
+        Employee.__init__(self, empl_info_list)
         self.empl_info_list[2] = "Pilot"
 
     def __str__(self):

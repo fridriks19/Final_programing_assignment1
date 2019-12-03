@@ -20,7 +20,7 @@ class Airplane:
     def __str__(self):
         prnt_str = ""
         for i in self.airplane_info_list:
-            if airplane_info_list.index(i) == 10:
+            if self.airplane_info_list.index(i) == 10:
                 prnt_str += i
             else:
                 prnt_str += i + ","

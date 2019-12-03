@@ -1,4 +1,4 @@
-from klasiPastflights import Past_flights
+from models.class_past_flights import Past_flights
 
 past_str = "NA5614,KEF,LYR,2019-11-02T06:21:00,2019-11-02T10:21:00,TF-TYQ,3009907461,2410876598,1600904199,3002688722,0505942924"
 

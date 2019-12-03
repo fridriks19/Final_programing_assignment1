@@ -1,10 +1,11 @@
-from class_employee import employee
+import sys
+print(sys.path)
+from models.class_employee import Employee
 from class_pilot import pilot
-
 
 empl_str = "111111-4189,Ekki Eggert Orri Hermannsson,Pilot,Main-Pilot,Jumbo999,Funalind,865-8996"
 
-class employeeIO:
+class EmployeeIO:
     def __init__(self, empl_str):
         self.empl_str = empl_str
     
@@ -50,7 +51,7 @@ change = "Egg"  # breytingin
 choice = 3   # hverju á að breyta 
 name = "Ekki Eggert Orri Hermannsson"  
 
-S1 = employeeIO(empl_str)
+S1 = EmployeeIO(empl_str)
 print(S1.save_employee())
 print(S1.load_employee())
 print(S1.change_employee(choice, change, name))
