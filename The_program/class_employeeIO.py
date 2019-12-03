@@ -29,4 +29,5 @@ class employeeIO:
         return "Starfsmaður fannst ekki"
 
 S1 = employeeIO(empl_str)
+#print(S1.save_employee())
 print(S1.load_employee())
