@@ -18,6 +18,15 @@ class Airplane:
 
 
     def __str__(self):
+<<<<<<< HEAD
+        prnt_str = ""
+        for i in self.airplane_info_list:
+            if airplane_info_list.index(i) == 10:
+                prnt_str += i
+            else:
+                prnt_str += i + ","
+        return prnt_str
+=======
         return "{}".format(self.airplane_info_list)
 
     def get_planeTypeId(self):
@@ -34,3 +43,4 @@ class Airplane:
 
 
                                                             
+>>>>>>> 8ac353a2232c5c2d80021f7974522c3a8255a294
