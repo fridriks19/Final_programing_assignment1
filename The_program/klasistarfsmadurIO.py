@@ -27,5 +27,5 @@ class StarfsmadurIO:
                 open_file.close()
                 return employee
 
-S1 = StarfsmadurIO(empl_str)
+S1 = (empl_str)
 print(S1.load_employee())
