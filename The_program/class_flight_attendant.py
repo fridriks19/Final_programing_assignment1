@@ -1,8 +1,8 @@
-from klasiemployee import Starfsmadur
+from class_employee import employee
 
-class Flugtjonn(Starfsmadur):
+class flight_attendant(employee):
     def __init__(self, empl_info_list):
-        Starfsmadur.__init__(self, empl_info_list)
+        employee.__init__(self, empl_info_list)
         self.empl_info_list[2] = "Cabincrew"
         self.empl_info_list[4] = "N/A"
 

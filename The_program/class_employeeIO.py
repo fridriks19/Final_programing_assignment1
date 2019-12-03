@@ -1,10 +1,10 @@
-from klasiemployee import Starfsmadur
-from klasiflugmadur import Flugmadur
+from class_employee import employee
+from class_pilot import pilot
 
 
 empl_str = "111111-4189,Ekki Eggert Orri Hermannsson,Pilot,Main-Pilot,Jumbo999,Funalind,865-8996"
 
-class StarfsmadurIO:
+class employeeIO:
     def __init__(self, empl_str):
         self.empl_str = empl_str
     
@@ -27,5 +27,5 @@ class StarfsmadurIO:
                 open_file.close()
                 return employee
 
-S1 = StarfsmadurIO(empl_str)
+S1 = employeeIO(empl_str)
 print(S1.load_employee())
