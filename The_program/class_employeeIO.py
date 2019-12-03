@@ -27,7 +27,30 @@ class employeeIO:
                 open_file.close()
                 return employee
         return "Starfsmaður fannst ekki"
+    
+    def change_employee(self, choice, change, name): 
+        crew_dictionary = {}
+        new_file = ""
+        open_file = open("crew2.csv" , "r")
+        for line in open_file:
+            line = line.split(",")
+            crew_dictionary[line[1]] = line    # make the name the key and the values the rest of line
+        crew_dictionary[name][choice] = change
+        for key in crew_dictionary.keys():  # go through all the values so we can add them to a new string 
+            new_file += ",".join(crew_dictionary[key])  
+        open_file = open("crew2.csv", "w")  #We replace the old crew file with the new file 
+        open_file.write(new_file)
+        open_file.close()
+        return "Upplýsingum breytt"
+        
+
+    
+
+change = "Egg"  # breytingin
+choice = 3   # hverju á að breyta 
+name = "Ekki Eggert Orri Hermannsson"  
 
 S1 = employeeIO(empl_str)
-#print(S1.save_employee())
+print(S1.save_employee())
 print(S1.load_employee())
+print(S1.change_employee(choice, change, name))
