@@ -17,4 +17,5 @@ flugmadur_listi.append(heimilisfang)
 simanr = input("Símanúmer: ")
 flugmadur_listi.append(simanr)
 nyr_flugmadur = Flugmadur(flugmadur_listi)
+print(nyr_flugmadur)
 

@@ -17,3 +17,8 @@ flugtjonn_listi.append(heimilisfang)
 simanr = input("Símanúmer: ")
 flugtjonn_listi.append(simanr)
 nyr_flugtjonn = Flugtjonn(flugtjonn_listi)
+
+write_string = ""
+for val in nyr_flugtjonn.values():
+    write_string += val + ","
+print(write_string)

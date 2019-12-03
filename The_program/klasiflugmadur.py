@@ -3,4 +3,15 @@ from klasiemployee import Starfsmadur
 class Flugmadur(Starfsmadur):
     def __init__(self, empl_info_list):
         Starfsmadur.__init__(self, empl_info_list)
-        self.val[1] = "Pilot"
+        self.empl_info_list[2] = "Pilot"
+
+    def __str__(self):
+        prnt_str = ""
+        prnt_str += self.kennitala + ","
+        prnt_str += self.nafn + ","
+        for i in self.empl_info_list[2:7]:
+            if self.empl_info_list.index(i) == 6:
+                prnt_str += i
+            else:
+                prnt_str += i + ","
+        return prnt_str
