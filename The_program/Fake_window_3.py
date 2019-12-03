@@ -82,7 +82,7 @@ def change_crew(dictionary, choice, name):
 
     change = input("Change {}: ".format(attribute))   #Change the attribute the user whants
     if change != "r":
-        save = input("Do you whant to save the changes?: (y/n)")
+        save = input("Do you whant to save the changes?: (y/n): ")
         if save == "y":
             dictionary[name][placement] = change  #Rewrite the old value with the one that the user inputed
             return dictionary
@@ -113,13 +113,9 @@ def change_destination(dictionary, choice):
 
 
 
-
-
-
 ###########################################################################
 ############################### main menu #################################
 ###########################################################################
-
 
 while user_input != "q":
     print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_MAIN))/2)*" " +  HEADER_MAIN  +   "\n" + BORDER * WITDH )
@@ -144,22 +140,23 @@ while user_input != "q":
             #If the user input is 1 we want to change the employes attributes 
             if make_changes == "1":
                 employee_name_input = input("Nafn Starfsmanns: ")
-                change_employee = make_changes
-                while change_employee != "r":
-                    print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
-                    print(PICK + "\n" + QUIT + " "*5 + GO_BACK +"\n\n")                
-                    print("Nafn: {}".format(crew_dictionary[employee_name_input][1])) 
-                    print("Kennitölu: {}".format(crew_dictionary[employee_name_input][0]))
-                    print("'1' - Starfsheiti: {}".format(crew_dictionary[employee_name_input][2]))
-                    print("'2' - Staða: {}".format(crew_dictionary[employee_name_input][3]))
-                    print("'3' - Leyfi: {}".format(crew_dictionary[employee_name_input][4]))
-                    print("'4' - Heimilisfang: {}".format(crew_dictionary[employee_name_input][5]))
-                    print("'5' - Símanúmer: {}".format(crew_dictionary[employee_name_input][6]))
-                    print()
-                    change_employee = input(USER_INPUT)   # Input what attribute you whant to change 
-                    print()
-                    if change_employee != "r":   # Go back if you dont whant to edit what you picked
-                        change_crew(crew_dictionary, change_employee, employee_name_input)   
+                while employee_name_input != "r":
+                    change_employee = make_changes
+                    while change_employee != "r":
+                        print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_SUB_A))/2)*" " +  HEADER_SUB_A  +   "\n" + BORDER * WITDH )
+                        print(PICK + "\n" + QUIT + " "*5 + GO_BACK +"\n\n")                
+                        print("Nafn: {}".format(crew_dictionary[employee_name_input][1])) 
+                        print("Kennitölu: {}".format(crew_dictionary[employee_name_input][0]))
+                        print("'1' - Starfsheiti: {}".format(crew_dictionary[employee_name_input][2]))
+                        print("'2' - Staða: {}".format(crew_dictionary[employee_name_input][3]))
+                        print("'3' - Leyfi: {}".format(crew_dictionary[employee_name_input][4]))
+                        print("'4' - Heimilisfang: {}".format(crew_dictionary[employee_name_input][5]))
+                        print("'5' - Símanúmer: {}".format(crew_dictionary[employee_name_input][6]))
+                        print()
+                        change_employee = input(USER_INPUT)   # Input what attribute you whant to change 
+                        print()
+                        if change_employee != "r":   # Go back if you dont whant to edit what you picked
+                            change_crew(crew_dictionary, change_employee, employee_name_input)   
 
             if make_changes == "2": 
                 change_place = make_changes
@@ -176,7 +173,7 @@ while user_input != "q":
                     print()
                     if change_place != "r":
                         change_destination(destination_dictionary, change_employee)  # for now
-                     
+                        
             if make_changes == "3":
                 change_work_flight
                 while change_work_flight != "r":
