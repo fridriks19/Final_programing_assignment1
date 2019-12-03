@@ -118,8 +118,21 @@ def change_destination(dictionary, choice):
 ###########################################################################
 
 while user_input != "q":
-    print(BORDER * WITDH +"\n" + int((WITDH - len(HEADER_MAIN))/2)*" " +  HEADER_MAIN  +   "\n" + BORDER * WITDH )
-    print(PICK +"\n" + QUIT+ "\n\n" + CHANGE + "\n" + MAKE + "\n" + GET + "\n")
+   import os 
+fd = "GFG.txt"
+  
+# popen() is similar to open() 
+file = open(fd, 'w') 
+file.write("Hello") 
+file.close() 
+file = open(fd, 'r') 
+text = file.read() 
+print(text) 
+  
+# popen() provides a pipe/gateway and accesses the file directly 
+file = os.popen(fd, 'w') 
+file.write("Hello") 
+# File not closed, shown in next function. 
     user_input = input(USER_INPUT)
     print()
 
