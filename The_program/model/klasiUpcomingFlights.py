@@ -11,7 +11,7 @@ class Upcoming_flights():
     def __inti__(self):
         return "{}".format(self.upcoming_flights_info_list)
 
-    def return_details(self):
+    def return_details(self):  # make a set with all the details 
         ''' Returns the order details in a dictionary'''
         return {"Flight numbers": self.__flightNumber,
                 "Departing from": self.__departingFrom,

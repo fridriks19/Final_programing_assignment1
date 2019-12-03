@@ -1,4 +1,4 @@
-﻿ssn,name,role,rank,licence,address,phonenumber
+ssn,name,role,rank,licence,address,phonenumber
 3009907461,William Carillo,Pilot,Captain,NAFokkerF100,Fellsmúli 1,8998801
 2910858778,Virginia Ho,Pilot,Captain,NABAE146,Fellsmúli 2,8998802
 2706838569,Gerard Nelson,Pilot,Captain,NAFokkerF100,Fellsmúli 3,8998803
@@ -23,7 +23,7 @@
 3003962187,Delores Whitfield,Cabincrew,Flight Attendant,N/A,Fellsmúli 22,8998822
 1311772221,Maribel Lucero,Cabincrew,Flight Attendant,N/A,Fellsmúli 23,8998823
 2509913418,Katherine Wernimont,Cabincrew,Flight Attendant,N/A,Fellsmúli 24,8998824
-1103647756,Wilma Horne,Cabincrew,Flight Attendant,N/A,Fellsmuli 25,8998825
+1103647756,Wilma Horne,Cabincrew,Flight Attendant,N/A,Fellsmúli 25,8998825
 2807755841,Bernard Carr,Cabincrew,Flight Attendant,N/A,Fellsmúli 26,8998826
 0409907212,Sara Davis,Cabincrew,Flight Attendant,N/A,Fellsmúli 27,8998827
 1103912131,Robert Swope,Cabincrew,Flight Attendant,N/A,Fellsmúli 28,8998828
@@ -34,5 +34,3 @@
 1110732819,Arthur Karr,Cabincrew,Flight Attendant,N/A,Fellsmúli 33,8998833
 2602806942,Teresa Thruman,Cabincrew,Flight Attendant,N/A,Fellsmúli 34,8998834
 1107951952,Elizabeth Mcfadden,Cabincrew,Flight Attendant,N/A,Fellsmúli 35,8998835
-290688-4189,Eggert Orri Hermannsson,Pilot,Co-Pilot,Jumbo999,Funalind,865-8995
-111111-4189,Ekki Eggert Orri Hermannsson,Pilot,Main-Pilot,Jumbo999,Funalind,865-8996

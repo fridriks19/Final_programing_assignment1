@@ -14,7 +14,7 @@ class PastFlightsIO():
             open_file_list.append(line)
         for flight in open_file_list:
             flight  = ",".join(flight)
-            if flight == self.empl_str:
+            if flight == self.past_str:
                 open_file.close()
                 return flight
 
