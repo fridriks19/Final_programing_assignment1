@@ -108,7 +108,7 @@ print(destination_dictionary)
 def change_destination(dictionary, choice):
     ''' Takes the dictionary for all destination and the inputed choice 
         so we can change the destination that the user whants to change'''
-    pass
+    
 
 
 
@@ -166,7 +166,7 @@ while user_input != "q":
                     print(PICK +"\n" + QUIT + " "*5 + GO_BACK +"\n\n")  
                     #loop sem fer í gegnum listan af löndum og prentar þau öll í röð 
                     for key in destination_dictionary:
-                        print("'{}' - {}.".format(counter, destination_dictionary[key]))   
+                        print("'{}' - {}".format(counter, destination_dictionary[key]))   
                         counter += 1
                     print()
                     change_place = input(USER_INPUT)   # Input what attribute you whant to change 
