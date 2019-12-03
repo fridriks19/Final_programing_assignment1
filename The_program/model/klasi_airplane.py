@@ -18,4 +18,10 @@ class Airplane:
 
 
     def __str__(self):
-        return "{}".format(self.airplane_info_list)
+        prnt_str = ""
+        for i in self.airplane_info_list:
+            if airplane_info_list.index(i) == 10:
+                prnt_str += i
+            else:
+                prnt_str += i + ","
+        return prnt_str

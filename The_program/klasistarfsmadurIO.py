@@ -1,8 +1,4 @@
-from klasiemployee import Starfsmadur
-from klasiflugmadur import Flugmadur
-
-
-empl_str = "111111-4189,Ekki Eggert Orri Hermannsson,Pilot,Main-Pilot,Jumbo999,Funalind,865-8996"
+empl_str = "1103647756,Wilma Horne,Cabincrew,Flight Attendant,N/A,Fellsmúli 25,8998825"
 
 class StarfsmadurIO:
     def __init__(self, empl_str):
@@ -26,6 +22,7 @@ class StarfsmadurIO:
             if employee == self.empl_str:
                 open_file.close()
                 return employee
+            return "Starfsmaður fannst ekki"
 
-S1 = StarfsmadurIO(empl_str)
-print(S1.load_employee())
+s1 = StarfsmadurIO(empl_str)
+print(s1.load_employee())
