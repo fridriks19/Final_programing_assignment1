@@ -19,6 +19,10 @@ class Employee:
         #return "{}".format(self.stm_dict)
         return "{}".format(self.empl_info_list)
     
+    def make_employee(self):
+        return ("{},{},{},{},{},{},{}".format(self.kennitala, self.nafn, self.starfsheiti, self.stodugildi, self.rettindi,
+         self.heimilisfang, self.gsmsimi))
+
     def get_name(self):
         return self.nafn
     
