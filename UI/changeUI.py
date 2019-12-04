@@ -5,7 +5,12 @@ from services.class_PastFlightsIO import PastFlightsIO
 
 class ChangeUI():
     def __init__(self ):  
-        pass
+        self.WITDH = 50
+        self.BORDER = "*"
+        self.QUIT = "'q' - Hætta"
+        self.GO_BACK = "'r' - Til baka"
+        self.PICK = "Veldu skipun:"
+        self.USER_INPUT = ("Valin skipun: ")
 
 
     ###########################################################################
@@ -14,11 +19,11 @@ class ChangeUI():
     def change_menu(self):
         change_input = ""  # til að maður geti bakkað um 1 í stað þess að quita bara 
         while change_input != "r":
-            print(BORDER * WITDH +"\n" + int((WITDH - len("Breyta"))/2)*" " +  "Breyta"  +   "\n" + BORDER * WITDH )
-            print(PICK +"\n")
-            print(QUIT+ " "*5 + GO_BACK +"\n")
+            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta"))/2)*" " +  "Breyta"  +   "\n" + self.BORDER * self.WITDH )
+            print(self.PICK +"\n")
+            print(self.QUIT+ " "*5 + self.GO_BACK +"\n")
             print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flugvél" + "\n" + "'5' - Flug/vinnutímar" + "\n")
-            change_input = input(USER_INPUT).lower()
+            change_input = input(self.USER_INPUT).lower()
             print()
             if change_input == "1":
                 pass
