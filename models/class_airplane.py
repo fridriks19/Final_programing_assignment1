@@ -25,7 +25,7 @@ class Airplane:
             else:
                 prnt_str += i + ","
         return prnt_str
-        return "{}".format(self.airplane_info_list)
+        #return "{}".format(self.airplane_info_list)
 
     def get_planeTypeId(self):
         return self.__planeTypeId
