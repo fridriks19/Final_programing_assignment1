@@ -52,3 +52,8 @@ og Eggert og Héðinn ætla að halda áfram með klasan um virkni notanda. Við
 og bættum við við virkni í nokkra þeirra. Sáum að skissunar eru ekki alveg nógu góðar og höfum góða hugmynd á því hvernig ui-ið á 
 að lýta út. 
 
+
+4. Desember:
+Fórum yfir uppsetninguna og nöfnin á breytunum og klösunum okkar til að halda samræmi. Eggert og Héðinn héldu áfram með 
+starfsmanna klasa, og Friðrik og Davíð héldu áfram með UI klasan. Davíð og Héðinn fór síðan yfir hvað við vorum búnir að gera öðruvísi
+miðan við hönnunarskýrsluna okkar og tóku saman hvað þyrfti að laga í skýrslunni.
