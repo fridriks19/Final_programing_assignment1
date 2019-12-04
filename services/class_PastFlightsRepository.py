@@ -6,7 +6,7 @@ class PastFlightsRepository():
     def __init__(self, past_str):
         self.past_str = past_str
     
-    def load_PastFlights(self):
+    def get_PastFlights(self):
         open_file = open("./data/PastFlights2.csv", "r")
         open_file_list = []
         for line in open_file:
