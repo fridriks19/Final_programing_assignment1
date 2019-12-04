@@ -1,28 +1,29 @@
-from models.class_employee import Employee
-from class_pilot import pilot
+#from models.class_employee import Employee
+#from class_pilot import pilot
 
-empl_str = ""
+empl_str = "111111-4189"
 
 #empl_str = "111111-4189,Ekki Eggert Orri Hermannsson,Pilot,Main-Pilot,Jumbo999,Funalind,865-8996"
 
-class EmployeeIO:
+class EmployeeRepository:
     def __init__(self, empl_str):
         self.empl_str = empl_str
     
-    def save_employee(self):
+    def add_employee(self):
         open_file = open("crew2.csv", "a")
         open_file.write(self.empl_str + "\n")
         open_file.close()
         return "Starfsmaður vistaður"
 
-    def load_employee(self):
+    def get_employee(self):
         open_file = open("crew2.csv", "r")
         open_file_list = []
         for line in open_file:
-            line = line.split("\n")
+            line = line.strip()
+            line = line.split(",")
             open_file_list.append(line)
+            print(line)
         for employee in open_file_list:
-            employee.pop(1)
             if employee[0] == self.empl_str:
                 open_file.close()
                 return employee
@@ -52,7 +53,7 @@ class EmployeeIO:
 #choice = 5   # hverju á að breyta 
 #name = "Ekki Eggert Orri Hermannsson"  
 
-S1 = EmployeeIO(empl_str)
+S1 = EmployeeRepository(empl_str)
 #print(S1.save_employee())
-print(S1.load_employee())
+print(S1.get_employee())
 #print(S1.change_employee(choice, change, name))
