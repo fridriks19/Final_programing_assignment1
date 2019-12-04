@@ -51,7 +51,7 @@ class MainUI():
                     
         else:    # if the user presses q
             print("Logging out.....")
-            return BORDER * WITDH 
+            return self.BORDER * self.WITDH 
 
 ui = MainUI()
 print(ui.main_menu())

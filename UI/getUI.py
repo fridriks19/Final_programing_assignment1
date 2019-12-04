@@ -5,7 +5,12 @@ from services.class_PastFlightsIO import PastFlightsIO
 
 class GetUI():
     def __init__(self):
-        pass
+        self.WITDH = 50
+        self.BORDER = "*"
+        self.QUIT = "'q' - Hætta"
+        self.GO_BACK = "'r' - Til baka"
+        self.PICK = "Veldu skipun:"
+        self.USER_INPUT = ("Valin skipun: ")
         
 
                 
@@ -17,7 +22,7 @@ class GetUI():
         while get_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja"))/2)*" " +  "Sækja"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
-            print(self.QUIT+ " "*5 + self.GET_BACK +"\n")
+            print(self.QUIT+ " "*5 + self.GO_BACK +"\n")
             print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flugvél" + "\n" + "'5' - Flug/vinnutímar" + "\n")
             get_input = input(self.USER_INPUT)
             print()
