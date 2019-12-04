@@ -1,8 +1,5 @@
-<<<<<<< HEAD:services/class_employeeIO.py
 from models.class_employee import Employee
-=======
 #from models.class_employee import Employee
->>>>>>> 47cb4bf5d5b904d31281cddcbfecb2f7c1b2d063:services/class_EmployeeRepository.py
 #from class_pilot import pilot
 
 empl_str = "111111-4189"
@@ -13,24 +10,14 @@ class EmployeeRepository:
     def __init__(self, empl_str):
         self.empl_str = empl_str
     
-<<<<<<< HEAD:services/class_employeeIO.py
-    def save_employee(self):
-        open_file = open("./data/crew2.csv", "a")
-=======
     def add_employee(self):
-        open_file = open("crew2.csv", "a")
->>>>>>> 47cb4bf5d5b904d31281cddcbfecb2f7c1b2d063:services/class_EmployeeRepository.py
+        open_file = open("./data/crew2.csv", "a")
         open_file.write(self.empl_str + "\n")
         open_file.close()
         return "Starfsmaður vistaður"
 
-<<<<<<< HEAD:services/class_employeeIO.py
-    def load_employee(self):
-        open_file = open("./data/crew2.csv", "r")
-=======
     def get_employee(self):
-        open_file = open("crew2.csv", "r")
->>>>>>> 47cb4bf5d5b904d31281cddcbfecb2f7c1b2d063:services/class_EmployeeRepository.py
+        open_file = open("./data/crew2.csv", "r")
         open_file_list = []
         for line in open_file:
             line = line.strip()
@@ -55,7 +42,7 @@ class EmployeeRepository:
         crew_dictionary[name][choice] = change
         for key in crew_dictionary.keys():  # go through all the values so we can add them to a new string 
             new_file += ",".join(crew_dictionary[key])  
-        open_file = open("crew2.csv", "w")  #We replace the old crew file with the new file 
+        open_file = open("./data/crew2.csv", "w")  #We replace the old crew file with the new file 
         open_file.write(new_file)
         open_file.close()
         return "Upplýsingum breytt"

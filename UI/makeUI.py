@@ -1,7 +1,7 @@
-from services.class_employeeIO import EmployeeIO
-from services.class_aircraft_typeIO import AircraftTypeIO
+from services.class_EmployeeRepository import EmployeeRepository
+from services.class_Aircraft_typeRepository import AircraftRepository
 from services.class_PastFlightsIO import PastFlightsIO
-from services.class_upcoming_flightsIO import Upcoming_flightsIO
+#from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
 class MakeUI():
     def __init__(self):
@@ -22,7 +22,9 @@ class MakeUI():
             make_input = input(USER_INPUT).lower()
             print()
             if make_input == "1":
-                pass
+                print(BORDER * WITDH +"\n" + int((WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + BORDER * WITDH )
+                print(PICK +"\n")
+
             if make_input == "2":
                 pass
             if make_input == "3":

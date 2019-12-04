@@ -1,7 +1,7 @@
-from services.class_employeeIO import EmployeeIO
-from services.class_aircraft_typeIO import AircraftTypeIO
+from services.class_EmployeeRepository import EmployeeRepository
+from services.class_Aircraft_typeRepository import AircraftRepository
 from services.class_PastFlightsIO import PastFlightsIO
-from services.class_upcoming_flightsIO import Upcoming_flightsIO
+#from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
 class GetUI():
     def __init__(self):

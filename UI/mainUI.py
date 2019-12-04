@@ -5,18 +5,8 @@ from UI.changeUI import ChangeUI
 
 
 
-WITDH = 50
-BORDER = "*"
-QUIT = "'q' - Hætta"
-GO_BACK = "'r' - Til baka"
-PICK = "Veldu skipun:"
-USER_INPUT = ("Valin skipun: ")
-
-
-
 class MainUI():
     def __init__(self):
-        pass
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
