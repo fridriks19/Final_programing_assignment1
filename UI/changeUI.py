@@ -26,15 +26,7 @@ class ChangeUI():
             change_input = input(self.USER_INPUT).lower()
             print()
             if change_input == "1":
-                ssn = input("Kennitala: ")
-                name = input("Nafn: ")
-                role = input("Starfsheiti: ")
-                rank= input("Stöðugildi: ")
-                licence= input("Réttindi: ")
-                address = input("Heimilisfang: ")
-                phonenumber = input("Símanúmer: ")
-           
-     
+                
             if change_input == "2":
                 pass
             if change_input == "3":
