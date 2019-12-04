@@ -26,6 +26,6 @@ class Upcoming_flightsIO():
     def change_upcoming_flights(self):
         pass
 
-U = Upcoming_flightsIO()
-U.get_upcoming_flights()
+# U = Upcoming_flightsIO()
+# U.get_upcoming_flights()
 
