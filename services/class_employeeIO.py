@@ -1,5 +1,5 @@
-from models.class_employee import Employee
-from class_pilot import pilot
+# from models.class_employee import Employee
+# from class_pilot import pilot
 
 empl_str = "111111-4189,Ekki Eggert Orri Hermannsson,Pilot,Main-Pilot,Jumbo999,Funalind,865-8996"
 
@@ -46,8 +46,8 @@ class EmployeeIO:
 
     
 
-change = "Egg"  # breytingin
-choice = 3   # hverju á að breyta 
+change = "Ananas"  # breytingin
+choice = 5   # hverju á að breyta 
 name = "Ekki Eggert Orri Hermannsson"  
 
 S1 = EmployeeIO(empl_str)
