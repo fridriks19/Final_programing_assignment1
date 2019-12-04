@@ -1,6 +1,10 @@
 from services.class_EmployeeRepository import EmployeeRepository
 from services.class_Aircraft_typeRepository import AircraftRepository
+<<<<<<< HEAD
 from services.class_PastFlightsIO import PastFlightsRepository
+=======
+from services.class_PastFlightsRepository import PastFlightsRepository
+>>>>>>> b26d185051b44da41477e30618ad410286880609
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
 class MakeUI():
