@@ -1,6 +1,6 @@
-from UI.getUI import GetUI
-from UI.makeUI import MakeUI
-from UI.changeUI import ChangeUI
+# from UI.getUI import GetUI
+# from UI.makeUI import MakeUI
+# from UI.changeUI import ChangeUI
 
 
 
@@ -16,7 +16,6 @@ USER_INPUT = ("Valin skipun: ")
 class MainUI():
     def __init__(self):
         pass
-
                         #The main menu starts here"       
     ###########################################################################
     ############################### main menu #################################
@@ -35,6 +34,7 @@ class MainUI():
     ###########################################################################           
             if user_input == "1":
                 next_page = ChangeUI()
+                next_page.change_menu()
 
 
     ###########################################################################
@@ -42,12 +42,14 @@ class MainUI():
     ###########################################################################        
             if user_input == "2":
                 next_page = MakeUI()
+                next_page.make_menu()
                 
     ###########################################################################
     ############################### get sub menu ##############################
     ###########################################################################
             if user_input == "3":
                 next_page = GetUI()
+                next_page.get_menu()
 
                     
         else:    # if the user presses q

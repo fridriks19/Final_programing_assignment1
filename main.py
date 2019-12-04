@@ -1,9 +1,7 @@
 from models.class_employee import Employee
-from class_pilot import pilot
+#from class_pilot import pilot
 
-empl_str = ""
-
-#empl_str = "111111-4189,Ekki Eggert Orri Hermannsson,Pilot,Main-Pilot,Jumbo999,Funalind,865-8996"
+empl_str = "111111-4189,Ekki Eggert Orri Hermannsson,Pilot,Main-Pilot,Jumbo999,Funalind,865-8996"
 
 class EmployeeIO:
     def __init__(self, empl_str):
@@ -23,10 +21,10 @@ class EmployeeIO:
             open_file_list.append(line)
         for employee in open_file_list:
             employee.pop(1)
-            if employee[0] == self.empl_str:
+            employee = ",".join(employee)
+            if employee == self.empl_str:
                 open_file.close()
                 return employee
-        open_file.close()
         return "Starfsmaður fannst ekki"
     
     def change_employee(self, choice, change, name): 
@@ -48,11 +46,11 @@ class EmployeeIO:
 
     
 
-#change = "Ananas"  # breytingin
-#choice = 5   # hverju á að breyta 
-#name = "Ekki Eggert Orri Hermannsson"  
+change = "Ananas"  # breytingin
+choice = 5   # hverju á að breyta 
+name = "Ekki Eggert Orri Hermannsson"  
 
 S1 = EmployeeIO(empl_str)
-#print(S1.save_employee())
+print(S1.save_employee())
 print(S1.load_employee())
-#print(S1.change_employee(choice, change, name))
+print(S1.change_employee(choice, change, name))
