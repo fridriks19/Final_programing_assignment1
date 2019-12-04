@@ -5,7 +5,12 @@ from services.class_PastFlightsIO import PastFlightsIO
 
 class MakeUI():
     def __init__(self):
-        pass
+        self.WITDH = 50
+        self.BORDER = "*"
+        self.QUIT = "'q' - Hætta"
+        self.GO_BACK = "'r' - Til baka"
+        self.PICK = "Veldu skipun:"
+        self.USER_INPUT = ("Valin skipun: ")
 
 
 
@@ -15,15 +20,15 @@ class MakeUI():
     def make_menu(self):
         make_input = ""
         while make_input != "r":
-            print(BORDER * WITDH +"\n" + int((WITDH - len("Nýskrá"))/2)*" " +  "Nýskrá"  +   "\n" + BORDER * WITDH )
-            print(PICK +"\n")
-            print(QUIT+ " "*5 + GO_BACK +"\n")
+            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá"))/2)*" " +  "Nýskrá"  +   "\n" + self.BORDER * self.WITDH )
+            print(self.PICK +"\n")
+            print(self.QUIT+ " "*5 + self.GO_BACK +"\n")
             print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flugvél" + "\n" + "'5' - Flug/vinnutímar" + "\n")
-            make_input = input(USER_INPUT).lower()
+            make_input = input(self.USER_INPUT).lower()
             print()
             if make_input == "1":
-                print(BORDER * WITDH +"\n" + int((WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + BORDER * WITDH )
-                print(PICK +"\n")
+                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH )
+                print(self.PICK +"\n")
 
             if make_input == "2":
                 pass
