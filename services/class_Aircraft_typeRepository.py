@@ -5,13 +5,13 @@ class AircraftRepository:
         self.aircr_type_str = aircr_type_str
     
     def add_aircraft_type(self):
-        open_file = open("AircraftType.csv", "a")
+        open_file = open("./data/AircraftType.csv", "a")
         open_file.write(self.aircr_type_str + "\n")
         open_file.close()
         return "Flugvél vistuð"
 
     def get_aircraft_type(self):
-        open_file = open("AircraftType.csv", "r")
+        open_file = open("./data/AircraftType.csv", "r")
         open_file_list = []
         for line in open_file:
             line = line.strip()

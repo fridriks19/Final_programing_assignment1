@@ -1,21 +1,18 @@
-# from UI.getUI import GetUI
-# from UI.makeUI import MakeUI
-# from UI.changeUI import ChangeUI
 
-
-
-WITDH = 50
-BORDER = "*"
-QUIT = "'q' - Hætta"
-GO_BACK = "'r' - Til baka"
-PICK = "Veldu skipun:"
-USER_INPUT = ("Valin skipun: ")
+from UI.makeUI import MakeUI
+from UI.getUI import GetUI
+from UI.changeUI import ChangeUI
 
 
 
 class MainUI():
     def __init__(self):
-        pass
+        self.WITDH = 50
+        self.BORDER = "*"
+        self.QUIT = "'q' - Hætta"
+        self.GO_BACK = "'r' - Til baka"
+        self.PICK = "Veldu skipun:"
+        self.USER_INPUT = ("Valin skipun: ")
                         #The main menu starts here"       
     ###########################################################################
     ############################### main menu #################################
@@ -23,11 +20,11 @@ class MainUI():
     def main_menu(self):
         user_input = ""
         while user_input != "q":
-            print(BORDER * WITDH +"\n" + int((WITDH - len("NaN Air"))/2)*" " +  "NaN Air"  +   "\n" + BORDER * WITDH ) # prints the header 
-            print(PICK + "\n")
-            print(QUIT+ "\n\n")
+            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("NaN Air"))/2)*" " +  "NaN Air"  +   "\n" + self.BORDER * self.WITDH ) # prints the header 
+            print(self.PICK + "\n")
+            print(self.QUIT+ "\n\n")
             print("'1' - Breyta" + "\n" + "'2' - Nýskrá" + "\n" + "'3' - Sækja" + "\n")
-            user_input = input(USER_INPUT).lower()
+            user_input = input(self.USER_INPUT).lower()
             print()
     ###########################################################################
     ############################### change sub menu ###########################
