@@ -1,8 +1,8 @@
-from class_employee import employee
+from models.class_employee import Employee
 
-class flight_attendant(employee):
+class flight_attendant(Employee):
     def __init__(self, empl_info_list):
-        employee.__init__(self, empl_info_list)
+        Employee.__init__(self, empl_info_list)
         self.empl_info_list[2] = "Cabincrew"
         self.empl_info_list[4] = "N/A"
 

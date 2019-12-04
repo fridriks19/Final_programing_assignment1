@@ -18,13 +18,11 @@ class AircraftTypeIO:
         for aircraft_type in open_file_list:
             aircraft_type.pop(1)
             aircraft_type = ",".join(aircraft_type)
-            print(aircraft_type)
             if aircraft_type == self.aircr_type_str:
                 open_file.close()
                 return aircraft_type
-            else:
-                open_file.close()
-                return "Flugvél fannst ekki"
+        open_file.close()
+        return "Flugvél fannst ekki"
 
 a1 = AircraftTypeIO("NEFokker99999,Fokk,F150,200,28574,64234,61.6,11000,35.53,8.50,28.08")
 #print(a1.save_aircraft_type())

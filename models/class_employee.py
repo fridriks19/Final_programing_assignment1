@@ -1,4 +1,4 @@
-class Starfsmadur:
+class Employee:
 
     def __init__(self, empl_info_list):
         #self.stm_dict = {}
@@ -18,4 +18,3 @@ class Starfsmadur:
         #return "{}".format(self.stm_dict)
         return "{}".format(self.empl_info_list)
 
-        
