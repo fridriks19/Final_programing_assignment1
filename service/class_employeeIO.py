@@ -1,5 +1,3 @@
-import sys
-print(sys.path)
 from models.class_employee import Employee
 from class_pilot import pilot
 
@@ -36,6 +34,7 @@ class EmployeeIO:
         for line in open_file:
             line = line.split(",")
             crew_dictionary[line[1]] = line    # make the name the key and the values the rest of line
+        
         crew_dictionary[name][choice] = change
         for key in crew_dictionary.keys():  # go through all the values so we can add them to a new string 
             new_file += ",".join(crew_dictionary[key])  
