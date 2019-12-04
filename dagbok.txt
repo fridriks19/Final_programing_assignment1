@@ -48,5 +48,12 @@ Við náðum bara rétt svo að byrja á klösunum en er komnir með einhverja h
 3. Desember:
 Byrjuðum að ræða saman hvaða klasa við þurfum, og hverjir ætla að gera hvað og hvað. Til að byrja með ætlum við að "Pair Programa"
 til að halda stöðuleika í kóðanum og nöfn breytunar eru skrifaðar á sama hátt. Davíð og Friðrik ætla að halda áfram með klasan um virkni á hönnuninni
-og Eggert og Héðinn ætla að halda áfram með klasan um virkni notanda.
+og Eggert og Héðinn ætla að halda áfram með klasan um virkni notanda. Við gerðum klasa fyrir flest allt og erum komnir góða leið með þá
+og bættum við við virkni í nokkra þeirra. Sáum að skissunar eru ekki alveg nógu góðar og höfum góða hugmynd á því hvernig ui-ið á 
+að lýta út. 
 
+
+4. Desember:
+Fórum yfir uppsetninguna og nöfnin á breytunum og klösunum okkar til að halda samræmi. Eggert og Héðinn héldu áfram með 
+starfsmanna klasa, og Friðrik og Davíð héldu áfram með UI klasan. Davíð og Héðinn fór síðan yfir hvað við vorum búnir að gera öðruvísi
+miðan við hönnunarskýrsluna okkar og tóku saman hvað þyrfti að laga í skýrslunni.
