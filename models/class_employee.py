@@ -1,3 +1,4 @@
+
 class Employee:
 
     def __init__(self, empl_info_list):
@@ -17,4 +18,13 @@ class Employee:
     def __str__(self):
         #return "{}".format(self.stm_dict)
         return "{}".format(self.empl_info_list)
+    
+    def get_name(self):
+        return self.nafn
+    
+    def get_role(self):
+        return self.starfsheiti
+
+    def get_ssn(self):
+        return self.kennitala
 
