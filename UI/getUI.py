@@ -6,7 +6,7 @@ from services.class_upcoming_flightsIO import Upcoming_flightsIO
 class GetUI():
     def __init__(self):
         pass
-
+        
 
                 
     ###########################################################################
@@ -15,13 +15,14 @@ class GetUI():
     def get_menu(self):
         get_input = ""
         while get_input != "r":
-            print(BORDER * WITDH +"\n" + int((WITDH - len("Sækja"))/2)*" " +  "Sækja"  +   "\n" + BORDER * WITDH )
-            print(PICK +"\n")
-            print(QUIT+ " "*5 + GO_BACK +"\n")
+            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja"))/2)*" " +  "Sækja"  +   "\n" + self.BORDER * self.WITDH )
+            print(self.PICK +"\n")
+            print(self.QUIT+ " "*5 + self.GET_BACK +"\n")
             print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flugvél" + "\n" + "'5' - Flug/vinnutímar" + "\n")
-            get_input = input(USER_INPUT)
+            get_input = input(self.USER_INPUT)
             print()
             if get_input == "1":
+                pass
                 
             if get_input == "2":
                 pass

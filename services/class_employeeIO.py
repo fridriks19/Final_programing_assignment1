@@ -1,5 +1,5 @@
 from models.class_employee import Employee
-from class_pilot import pilot
+#from class_pilot import pilot
 
 empl_str = ""
 
@@ -10,13 +10,13 @@ class EmployeeIO:
         self.empl_str = empl_str
     
     def save_employee(self):
-        open_file = open("crew2.csv", "a")
+        open_file = open("./data/crew2.csv", "a")
         open_file.write(self.empl_str + "\n")
         open_file.close()
         return "Starfsmaður vistaður"
 
     def load_employee(self):
-        open_file = open("crew2.csv", "r")
+        open_file = open("./data/crew2.csv", "r")
         open_file_list = []
         for line in open_file:
             line = line.split("\n")
@@ -32,7 +32,7 @@ class EmployeeIO:
     def change_employee(self, choice, change, name): 
         crew_dictionary = {}
         new_file = ""
-        open_file = open("crew2.csv" , "r")
+        open_file = open("./data/crew2.csv" , "r")
         for line in open_file:
             line = line.split(",")
             crew_dictionary[line[1]] = line    # make the name the key and the values the rest of line

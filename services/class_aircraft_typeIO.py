@@ -4,13 +4,13 @@ class AircraftTypeIO:
         self.aircr_type_str = aircr_type_str
     
     def save_aircraft_type(self):
-        open_file = open("AircraftType.csv", "a")
+        open_file = open("./data/AircraftType.csv", "a")
         open_file.write(self.aircr_type_str + "\n")
         open_file.close()
         return "Flugvél vistuð"
 
     def load_aircraft_type(self):
-        open_file = open("AircraftType.csv", "r")
+        open_file = open("./data/AircraftType.csv", "r")
         open_file_list = []
         for line in open_file:
             line = line.split("\n")
