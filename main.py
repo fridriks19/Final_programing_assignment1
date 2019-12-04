@@ -1,5 +1,5 @@
 from models.class_employee import Employee
-from class_pilot import pilot
+#from class_pilot import pilot
 
 empl_str = "111111-4189,Ekki Eggert Orri Hermannsson,Pilot,Main-Pilot,Jumbo999,Funalind,865-8996"
 
