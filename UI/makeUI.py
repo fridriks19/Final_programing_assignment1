@@ -13,9 +13,6 @@ class MakeUI():
         self.GO_BACK = "'r' - Til baka"
         self.PICK = "Veldu skipun:"
         self.USER_INPUT = ("Valin skipun: ")
-
-
-
     ###########################################################################
     ############################### Make sub menu #############################
     ###########################################################################  
@@ -31,7 +28,7 @@ class MakeUI():
             if make_input == "1":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
-                flugmadur_listi = []
+                new_string = " "
                 ssn = input("Kennitala: ")
                 name = input("Nafn: ")
                 role = input("Starfsheiti: ")
@@ -39,12 +36,28 @@ class MakeUI():
                 liscense = input("Réttindi: ")
                 address = input("Heimilisfang: ")
                 phonenumber = input("GSM-Sími:")
-                new_employee = EmployeeRepository([ssn,name,role,rank,liscense,address,phonenumber])
+
+                new_list = [ssn,name,role,rank,liscense,address,phonenumber]
+                new_string = ",".join(new_list)
+                new_employee = EmployeeRepository(new_string)
                 print(new_employee.add_employee())
                 
-    
             if make_input == "2":
-                pass
+                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá áfangastað"))/2)*" " +  "Nýskrá áfangastað"  +   "\n" + self.BORDER * self.WITDH )
+                print(self.PICK +"\n")
+                new_string = " "
+                destination = input("Áfangastaður: ")
+                airportID = input("Flugvöllur: ")
+                flight_time = input("Flugtími: ")
+                distance = input("Fjarlægð: ")
+                contact = input("Tengiliður: ")
+                emergency_phone = input("Neyðarsími: ")
+
+                new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
+                new_string = ",".join(new_list)
+                new_destination = EmployeeRepository(new_string)
+                print(new_destination.add_employee())
+
             if make_input == "3":
                 pass
             if make_input == "4":

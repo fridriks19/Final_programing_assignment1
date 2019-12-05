@@ -1,0 +1,10 @@
+ssn = input("Kennitala: ")
+name = input("Nafn: ")
+role = input("Starfsheiti: ")
+rank = input("Stöðugildi: ")
+liscense = input("Réttindi: ")
+address = input("Heimilisfang: ")
+phonenumber = input("GSM-Sími:")
+new = [ssn,name,role,rank,liscense,address,phonenumber]
+new = " ".join(new)
+print((new))
