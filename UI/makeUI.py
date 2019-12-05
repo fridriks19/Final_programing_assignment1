@@ -10,6 +10,8 @@ from models.class_flight_attendant import flight_attendant
 class MakeUI():
     def __init__(self):
         self.__new_employee = EmployeeRepository()
+        #self.__new_destination = DestinationRepository()
+        self.__new_aircraft = AircraftRepository()
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
@@ -31,9 +33,9 @@ class MakeUI():
             if make_input == "1":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
-                print ("'1' - Skrá fugmann" + "\n" + "'2' - Skrá flugþjón")
+                print ("'1' - Skrá fugmann" + "\n" + "'2' - Skrá flugþjón")   #Gefur valmöguleika um hvort það vilji skrá flugmann eða flugþjón
                 make_input = input(self.USER_INPUT).lower()
-                #new_list = EmployeeMaker()
+                # new_list = EmployeeMaker()
                 ssn = input("Kennitala: ")
                 name = input("Nafn: ")
                 rank = input("Stöðugildi: ")
@@ -41,24 +43,24 @@ class MakeUI():
                 address = input("Heimilisfang: ")
                 phonenumber = input("GSM-Sími:")
 
-                if make_input == "1":
-                    role =  ""
-                    new_list = [ssn,name,role,rank,liscense,address,phonenumber]
-                    new_employee = pilot(new_list)
-                    self.__new_employee.add_employee(str(new_employee))
-
-                if make_input == "2":
-                    role =  ""
-                    new_list = [ssn,name,role,rank,liscense,address,phonenumber]
-                    new_employee = flight_attendant(new_list)
-                    new = EmployeeRepository(str(new_employee))
-                    print(new.add_employee())
-
+                save_input = input("Viltu vista starfsmanninn \n '1' - Já   '2' - Nei")
+                if save_input == "1":   
+                    if make_input == "1": #Ef það er valið flugmann
+                        role =  ""
+                        new_list = [ssn,name,role,rank,liscense,address,phonenumber] #Gerum lista með öllum inputunum og sendum í pilot clasan og síðan öddum við employe-inum í csv fileið
+                        new_employee = pilot(new_list)
+                        self.__new_employee.add_employee(str(new_employee))
+                    if make_input == "2": #Ef það er valið flugþjón
+                        role =  ""
+                        new_list = [ssn,name,role,rank,liscense,address,phonenumber]
+                        new_employee = flight_attendant(new_list)
+                        self.__new_employee.add_employee(str(new_employee))
+                else:
+                    make_input = "1"  #Ef það er valið nei við að vista upplýsngar er notandi sendur aftur til baka á nýskrá síðu.
+                    
             if make_input == "2":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá áfangastað"))/2)*" " +  "Nýskrá áfangastað"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
-                new_string = " "
-
                 destination = input("Áfangastaður: ")
                 airportID = input("Flugvöllur: ")
                 flight_time = input("Flugtími: ")
@@ -67,9 +69,8 @@ class MakeUI():
                 emergency_phone = input("Neyðarsími: ")
 
                 new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
-                new_string = ",".join(new_list)
-                new_destination = EmployeeRepository(new_string)
-                print(new_destination.add_employee())
+                new_destination = destination(new_list)
+                self.__new_destination.add_destination(new_employee)
 
             if make_input == "3":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
