@@ -92,7 +92,8 @@ class MakeUI():
                     self.__show_dest.get_alldest()
                     make_input = input("Veldu áfangastað: ")
                     print()
-                    print(self.__show_dest.get_dest(make_input))
+                    chosen_dest = self.__show_dest.get_dest(make_input)
+                    print(chosen_dest)
 
 
 

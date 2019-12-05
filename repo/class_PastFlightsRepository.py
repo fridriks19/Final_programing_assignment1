@@ -1,7 +1,6 @@
 #from models.class_past_flights import Past_flights
 import datetime
-past_str = "2019-11-02T06:21:00"
-past_str2 = "2019-11-08T11:35:00"
+
 
 class PastFlightsRepository():
     def __init__(self, past_str, past_str2=0):
@@ -36,8 +35,3 @@ class PastFlightsRepository():
             # Checks if flight is within set date parameters
             if datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S") >= dt_str1 and datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S") <= dt_str2:
                 print(flight[3])
-
-
-F1 = PastFlightsRepository(past_str, past_str2)
-print(F1.get_pastflights())
-F1.get_pastflights_overtime()

@@ -9,7 +9,7 @@ class EmployeeRepository:
     def __init__(self, empl_str =""):
         self.empl_str = empl_str
     
-    def add_employee(self, new_empl = ""):
+    def add_employee(self, new_empl):
         self.new_empl = new_empl
         open_file = open("./data/crew2.csv", "a")
         open_file.write(self.new_empl + "\n")
