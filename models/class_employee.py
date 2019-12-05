@@ -16,16 +16,23 @@ class Employee:
         #return "{}".format(self.stm_dict)
         return "{}".format(self.empl_info_list)
     
-    # def make_employee(self):
-    #     return ("{},{},{},{},{},{},{}".format(self.ssn, self.name, self.role, self.rank, self.licence,
-    #      self.address, self.phone))
-
-    def get_name(self):
-        return self.name
-    
-    def get_role(self):
-        return self.role
-
     def get_ssn(self):
         return self.ssn
 
+    def get_name(self):
+        return self.name    
+
+    def get_role(self):
+        return self.role
+    
+    def get_rank(self):
+        return self.rank
+    
+    def get_licence(self):
+        return self.licence
+
+    def get_address(self):
+        return self.address
+
+    def get_phone(self):
+        return self.phone
