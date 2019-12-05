@@ -42,7 +42,6 @@ class MakeUI():
                 new_employee = EmployeeRepository(new_string)
                 print(new_employee.add_employee())
                 
-    
             if make_input == "2":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá áfangastað"))/2)*" " +  "Nýskrá áfangastað"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
@@ -53,7 +52,7 @@ class MakeUI():
                 distance = input("Fjarlægð: ")
                 contact = input("Tengiliður: ")
                 emergency_phone = input("Neyðarsími: ")
-                
+
                 new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
                 new_string = ",".join(new_list)
                 new_destination = EmployeeRepository(new_string)
