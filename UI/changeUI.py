@@ -26,6 +26,7 @@ class ChangeUI():
             change_input = input(self.USER_INPUT).lower()
             print()
             if change_input == "1":
+                pass
                 
             if change_input == "2":
                 pass
