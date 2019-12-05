@@ -22,19 +22,43 @@ class ChangeUI():
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta"))/2)*" " +  "Breyta"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
             print(self.QUIT+ " "*5 + self.GO_BACK +"\n")
-            print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flugvél" + "\n" + "'5' - Flug/vinnutímar" + "\n")
+            print("'1' - Starfmann" + "\n" + "'2' - Vinnuferð" + "\n" + "'3' - Áfangastað" + "\n")
             change_input = input(self.USER_INPUT).lower()
             print()
+            
             if change_input == "1":
-                pass
+                employee_name_input = input("Kennitala starfsmanns: ")
+                while employee_name_input != "r":
+                   #?? change_employee = change_input
+                    while employee_name_input != "r":
+                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta"))/2)*" " +  "Starfsmaður"  +   "\n" + self.BORDER * self.WITDH )
+                        print(self.PICK +"\n")              
+                        print("Nafn: {}".format(crew_dictionary[employee_name_input][1])) 
+                        print("Kennitölu: {}".format(crew_dictionary[employee_name_input][0]))
+                        print("'1' - Starfsheiti: {}".format(crew_dictionary[employee_name_input][2]))
+                        print("'2' - Staða: {}".format(crew_dictionary[employee_name_input][3]))
+                        print("'3' - Leyfi: {}".format(crew_dictionary[employee_name_input][4]))
+                        print("'4' - Heimilisfang: {}".format(crew_dictionary[employee_name_input][5]))
+                        print("'5' - Símanúmer: {}".format(crew_dictionary[employee_name_input][6]))
+                        print()
+                        change_employee = input(USER_INPUT)   # Input what attribute you whant to change 
+                        print()
+                        if change_employee != "r":   # Go back if you dont whant to edit what you picked
+                            change_crew(crew_dictionary, change_employee, employee_name_input)   
+
                 
             if change_input == "2":
-                pass
+                
+                
             if change_input == "3":
-                pass
-            if change_input == "4":
-                pass
-            if change_input == "5":
-                pass
+               destination_point_input = input("Nafn áfangastaðs: ")
+                while destination_point_input != "r":
+                    change_destination_point = change_input
+                    while destination_point_input != "r":
+                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta"))/2)*" " +  "Áfangastaður"  +   "\n" + self.BORDER * self.WITDH )
+                        print(self.PICK +"\n")     
+                        print("'1' - Tengiliður: {}".format(#eithvað tengt class_destination point))
+                        print("'2' - Neyðarsími: {}".format(#eitthvað tengt class_destination point))
+            
         else:
             return ""
