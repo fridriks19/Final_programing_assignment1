@@ -22,19 +22,17 @@ class ChangeUI():
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta"))/2)*" " +  "Breyta"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
             print(self.QUIT+ " "*5 + self.GO_BACK +"\n")
-            print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flugvél" + "\n" + "'5' - Flug/vinnutímar" + "\n")
+            print("'1' - Starfmann" + "\n" + "'2' - Vinnuferð" + "\n" + "'3' - Áfangastað" + "\n")
             change_input = input(self.USER_INPUT).lower()
             print()
+        
             if change_input == "1":
                 pass
-                
+
             if change_input == "2":
                 pass
+                
             if change_input == "3":
                 pass
-            if change_input == "4":
-                pass
-            if change_input == "5":
-                pass
-        else:
-            return ""
+            else:
+                return "" 

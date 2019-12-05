@@ -5,13 +5,13 @@
 ***************************************************************
 
 
-25. Nóvember: 
+25. nóvember: 
 Samræður um verkefnið og hvernig við viljum framkvæma það. Planið er að byrja á notendahópum, greiningu á þeim, 
 use cases og byrja á klasariti og mögulega stöðuriti. Allir voru að hjálpa öllum, enginn sérstök verkefni. 
 Við komumst aðeins á stað með klasaritið og gerðu allir nokkrar kröfur í kröfulistan. 
 
 
-26. Nóvember: 
+26. nóvember: 
 Í dag ætlum við að halda áfram með klasa- og stöðurit, Friðrik og Davíð klára klasaritið á meðan 
 Héðinn og Eggert klára stöðuritið. Einnig ætlum við að vinna í use caseunum og notkunartilvinum. 
 Friðrik gerði grunnmyndir af nokkurm stöðuritum út frá virknikröfunum sem á eftir að klára og vanda betur, Davíð og Héðinn löguðu 
@@ -20,32 +20,32 @@ og bættu við Notkunartilvikum og kröfum í kröfulistan, Eggert vann að klas
 á að líta út.
 
 
-27. Nóvember:
+27. nóvember:
 Planið er að Friðrik og Davíð ætla að gera góða wireframe mynd sem ætti lýta út eins og endaloks vinnan. Eggert ætlar að reyna að gera 3- laga hönnun 
 skv því sem Gylfi sagði á piazza. Héðinn ætlar að vinna í að setja upp skýrsluna. 
 Eggert komst langleiðinna með klasaritið. Wireframeið/TUI-ið er nánast tilbúið og á bara eftir að prófa það. Skýrslan 
 er byrjuð að lýta vel út. 
 
 
-28. Nóvember:
+28. nNóvember:
 Planið í dag er að reyna að klára sem mest af verkefninu. Friðrik og Davíð ætla að reyna að klára happy path, Héðinn ætlar að fara í 
 innganginn, og svo ætlum við allir að fara saman yfir stöðu- og klasaritin, klára þau og fínpússa. Eggert fer yfir use case til að samræma 
 við happy path. Kláruðum lang flest, eigum eftir að setja inn uppfærð use case og klasaritið. Ætlum heim og klára rest.
 
 
-29. Nóvember: 
+29. móvember: 
 Í dag ætlum við að klára skissurnar og passa uppá samræmi milli skissa og use case-ana. Við kláruðum use case-in, gerðum smá lokaorð,
 og bættum við í stöðuritin. Við teljum okkur vera búna með fyrsta verkefnið. 
 
 
-2. Desember:
+2. desember:
 Við ætlum að byrja á að leggja grunn að forritinu og ætlum að reyna að kóða útlitshönnunina. 
 Til að byrja með vorum við allir að vinna saman og ræða um verkefnið. Friðrik og Davíð ætla að byrja skrifa grunn klasana.
 Eggert og Héðinn ætla að skrifa klasa um starfsmenn.
 Við náðum bara rétt svo að byrja á klösunum en er komnir með einhverja hugmynd um hvernig kerfið ætti að vera sett upp
 
 
-3. Desember:
+3. desember:
 Byrjuðum að ræða saman hvaða klasa við þurfum, og hverjir ætla að gera hvað og hvað. Til að byrja með ætlum við að "Pair Programa"
 til að halda stöðuleika í kóðanum og nöfn breytunar eru skrifaðar á sama hátt. Davíð og Friðrik ætla að halda áfram með klasan um virkni á hönnuninni
 og Eggert og Héðinn ætla að halda áfram með klasan um virkni notanda. Við gerðum klasa fyrir flest allt og erum komnir góða leið með þá
@@ -53,7 +53,12 @@ og bættum við við virkni í nokkra þeirra. Sáum að skissunar eru ekki alve
 að lýta út. 
 
 
-4. Desember:
+4. desember:
 Fórum yfir uppsetninguna og nöfnin á breytunum og klösunum okkar til að halda samræmi. Eggert og Héðinn héldu áfram með 
 starfsmanna klasa, og Friðrik og Davíð héldu áfram með UI klasan. Davíð og Héðinn fór síðan yfir hvað við vorum búnir að gera öðruvísi
 miðan við hönnunarskýrsluna okkar og tóku saman hvað þyrfti að laga í skýrslunni.
+
+
+5. desember:
+Fórum yfir endurgjöfina á hönnunarskýrslunni. Héðinn og Davíð fóru að leiðrétta og laga samkvæmt endurgjöfinni. 
+Egget og Friðrik, fór yfir IO klasa UI klasa. Síðan fór Davíð að laga klasa í UI með Friðrik og Héðinn og Eggert héldu áfram að skrifa model/service og repo klasa.
