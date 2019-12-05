@@ -14,4 +14,4 @@ class Employee_service():
         #gsm
         #nafn  numbers
         #
-        pass
+        return True
