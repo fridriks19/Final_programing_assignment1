@@ -1,4 +1,5 @@
 from models.class_aircraft import Aircraft
+
 class AircraftRepository:
 
     def __init__(self, aircr_type_str):
