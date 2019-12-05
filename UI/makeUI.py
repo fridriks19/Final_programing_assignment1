@@ -33,35 +33,31 @@ class MakeUI():
             make_input = input(self.USER_INPUT).lower()
             print()
             if make_input == "1":
-                while make_input != "r":
-                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH )
-                    print(self.PICK +"\n")
-                    print ("'1' - Skrá fugmann" + "\n" + "'2' - Skrá flugþjón")   #Gefur valmöguleika um hvort það vilji skrá flugmann eða flugþjón
-                    make_input = input(self.USER_INPUT).lower()
-                    # new_list = EmployeeMaker()
-                    ssn = input("Kennitala: ")
-                    name = input("Nafn: ")
-                    rank = input("Stöðugildi: ")
-                    liscense = input("Réttindi: ")
-                    address = input("Heimilisfang: ")
-                    phonenumber = input("GSM-Sími:")
-                    save_input = input("Viltu vista starfsmanninn \n '1' - Já   '2' - Nei")
-                    if save_input == "1":   
-                        if make_input == "1": #Ef það er valið flugmann
-                            role =  ""
-                            new_list = [ssn,name,role,rank,liscense,address,phonenumber] #Gerum lista með öllum inputunum og sendum í pilot clasan og síðan öddum við employe-inum í csv fileið
-                            new_employee = pilot(new_list)
-                            self.__new_employee.add_employee(str(new_employee))
-                            make_input == "r"
-                        if make_input == "2": #Ef það er valið flugþjón
-                            role =  ""
-                            new_list = [ssn,name,role,rank,liscense,address,phonenumber]
-                            new_employee = flight_attendant(new_list)
-                            print(new_employee)
-                            self.__new_employee.add_employee(str(new_employee))
-                            make_input == "r"  
-                    else:
-                        make_input = "1"  #Ef það er valið nei við að vista upplýsngar er notandi sendur aftur til baka á nýskrá síðu.
+                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH )
+                print(self.PICK +"\n")
+                print ("'1' - Skrá flugmann" + "\n" + "'2' - Skrá flugþjón")   #Gefur valmöguleika um hvort það vilji skrá flugmann eða flugþjón
+                make_input = input(self.USER_INPUT).lower()
+                ssn = input("Kennitala: ")
+                name = input("Nafn: ")
+                rank = input("Stöðugildi: ")
+                license = input("Réttindi: ")
+                address = input("Heimilisfang: ")
+                phonenumber = input("GSM-Sími:")
+                save_input = input("Viltu vista starfsmanninn \n'1' - Já\n'2' - Nei\n Valin skipun: ")
+                if save_input == "1":   
+                    if make_input == "1": # If pilot is chosen
+                        role =  ""
+                        new_list = [ssn,name,role,rank,license,address,phonenumber] #Gerum lista með öllum inputunum og sendum í pilot clasan og síðan öddum við employe-inum í csv fileið
+                        new_employee = pilot(new_list)
+                        self.__new_employee.add_employee(str(new_employee))
+                    if make_input == "2": # If cabincrew is chosen
+                        role =  ""
+                        new_list = [ssn,name,role,rank,license,address,phonenumber]
+                        new_employee = flight_attendant(new_list)
+                        print(new_employee)
+                        self.__new_employee.add_employee(str(new_employee)) 
+                else:
+                    make_input = "1"  #Ef það er valið nei við að vista upplýsngar er notandi sendur aftur til baka á nýskrá síðu.
                     
             if make_input == "2":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá áfangastað"))/2)*" " +  "Nýskrá áfangastað"  +   "\n" + self.BORDER * self.WITDH )
