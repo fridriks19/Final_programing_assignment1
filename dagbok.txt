@@ -61,4 +61,4 @@ miðan við hönnunarskýrsluna okkar og tóku saman hvað þyrfti að laga í s
 
 5. desember:
 Fórum yfir endurgjöfina á hönnunarskýrslunni. Héðinn og Davíð fóru að leiðrétta og laga samkvæmt endurgjöfinni. 
-Egget og Friðrik, fór yfir IO klasa UI klasa. Síðan fór Davíð að laga klasa í UI með Friðrik og Héðinn og Eggert héldu áfram að skrifa model klasa.
+Eggert og Friðrik, fór yfir IO klasa UI klasa. Síðan fóru Davíð og Friðrik að laga klasa í UI og Héðinn og Eggert héldu áfram að skrifa model klasa.
