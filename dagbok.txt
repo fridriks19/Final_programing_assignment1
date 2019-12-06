@@ -62,3 +62,8 @@ miðan við hönnunarskýrsluna okkar og tóku saman hvað þyrfti að laga í s
 5. desember:
 Fórum yfir endurgjöfina á hönnunarskýrslunni. Héðinn og Davíð fóru að leiðrétta og laga samkvæmt endurgjöfinni. 
 Eggert og Friðrik, fór yfir IO klasa UI klasa. Síðan fóru Davíð og Friðrik að laga klasa í UI og Héðinn og Eggert héldu áfram að skrifa model klasa.
+
+
+6. desember: 
+Davíð og Friðrik voru að vinna í UI virkni og tengja klasa saman. Eggert og Héðinn voru að vinna í "repository" til að "savea" og sækja gögn 
+frá notendanum, ef þeir klára það ætla þeir að fara yfir hvaða kröfur við erum búnir að klára og hverju við viljum bæta við.
