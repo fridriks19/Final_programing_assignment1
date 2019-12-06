@@ -1,7 +1,7 @@
 
 class VoyageRepo():
     
-    def __init__(self, voyage_str):
+    def __init__(self, voyage_str=""):
         self.voyage_str = voyage_str
     
     def add_voyage(self, new_voyage):
