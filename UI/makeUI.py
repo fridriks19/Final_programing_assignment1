@@ -5,14 +5,17 @@ from models.class_pilot import pilot
 from models.class_flight_attendant import flight_attendant
 from services.class_employee_service import Employee_service
 from repo.class_DestinationRepo import DestinationRepo
+from repo.class_voyageRepo import VoyageRepo
 
 
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
 class MakeUI():
     def __init__(self):
+        
         self.__new_employee = Employee_service()
         self.__show_dest = DestinationRepo()
+        self.__new_voyage = VoyageRepo()
         #self.__new_destination = DestinationRepository()
         self.__new_aircraft = AircraftRepository()
         self.WITDH = 50
@@ -79,7 +82,7 @@ class MakeUI():
             if make_input == "3":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
-                new_string = ""
+                voyage_list = []
                 print("'1' - Áfangastaður")
                 date_time = "'2' - Dagsetning og tími"
                 airplane = "'3' - Flugvél"
@@ -94,6 +97,7 @@ class MakeUI():
                     print()
                     chosen_dest = self.__show_dest.get_dest(make_input)
                     print(chosen_dest)
+
 
 
 

@@ -25,9 +25,9 @@ class DestinationRepo(Destination):
         self.user_input = int(user_input)
         #print(self.dest_list)
         chosen_dest = self.dest_list[self.user_input]
-        return "Áfangastaður{} \nFlugvöllur: {}".format(chosen_dest[1],chosen_dest[0])
+        return "Áfangastaður: {} \nFlugvöllur: {}".format(chosen_dest[1],chosen_dest[0])
 
-        #for line in self.dest_list[1:]:
+    
 
 
    
