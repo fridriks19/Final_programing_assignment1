@@ -33,7 +33,33 @@ class Airplane:
     def get_planetype(self):
         return self.__planeType
 
+    def get_model(self):
+        return self.__model
 
+    def get_capacity(self):
+        return self.__capacity
+
+    def get_emptyWeight(self):
+        return self.__emptyWeight
+    
+    def get_maxTakeoffWeight(self):
+        return self.__maxTakeoffWeight
+
+    def get_unitThrust(self):
+        return self.__unitThrust
+    
+    def get_serviceCeiling(self):
+        return self.__serviceCeiling
+
+    def get_length(self):
+        return self.__length
+
+    def get_height(self):
+        return self.__height
+
+    def get_wingspan(self):
+        return self.__wingspan
+        
 
 
 
