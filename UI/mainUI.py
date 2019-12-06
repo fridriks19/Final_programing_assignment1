@@ -7,6 +7,9 @@ from UI.changeUI import ChangeUI
 
 class MainUI():
     def __init__(self):
+        self.__change = ChangeUI()
+        self.__get = GetUI()
+        self.__make = MakeUI()
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
@@ -30,23 +33,20 @@ class MainUI():
     ############################### change sub menu ###########################
     ###########################################################################           
             if user_input == "1":
-                next_page = ChangeUI()
-                next_page.change_menu()
+                self.__change.change_menu()
 
 
     ###########################################################################
     ############################### Make sub menu #############################
     ###########################################################################        
             if user_input == "2":
-                next_page = MakeUI()
-                next_page.make_menu()
+                self.__make.make_menu()
                 
     ###########################################################################
     ############################### get sub menu ##############################
     ###########################################################################
             if user_input == "3":
-                next_page = GetUI()
-                next_page.get_menu()
+                self.__get.get_menu()
 
                     
         else:    # if the user presses q
