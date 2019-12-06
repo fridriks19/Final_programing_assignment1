@@ -1,6 +1,6 @@
 from repo.class_EmployeeRepository import EmployeeRepository
 from repo.class_Aircraft_typeRepository import AircraftRepository
-from repo.class_PastFlightsRepository import PastFlightsRepository
+from repo.class_FlightRepository import FlightRepository
 from models.class_pilot import pilot
 from models.class_flight_attendant import flight_attendant
 from services.class_employee_service import Employee_service
@@ -59,7 +59,7 @@ class MakeUI():
 
                     save_input = ""
                     if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-                        print("Viltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
+                        print("\nViltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
                         save_input = input(str(self.USER_INPUT))
                         print()
                     if save_input == "1":   
@@ -103,14 +103,14 @@ class MakeUI():
                 make_input = input(self.USER_INPUT).lower()
                 if make_input == "1":
                     save_input = ""
-                if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-                    save_input = input(str("Viltu vista vinnuferð? \n'1' - Já: \n'2' - Nei: "))
-                if save_input == "1":
-                    new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
-                    new_destination = destination(new_list)
-                    self.__new_destination.add_destination(new_employee)
-                else:
-                    print("Áfangastaður ekki vistaður")
+                    if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                        save_input = input(str("Viltu vista vinnuferð? \n'1' - Já: \n'2' - Nei: "))
+                    if save_input == "1":
+                        new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
+                        new_destination = destination(new_list)
+                        self.__new_destination.add_destination(new_employee)
+                    else:
+                        print("Áfangastaður ekki vistaður")
 
 ###################VINNUFERÐ VALIN ################################################################################################################  
             elif make_input == "3":

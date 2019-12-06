@@ -1,6 +1,6 @@
 from repo.class_EmployeeRepository import EmployeeRepository
 from repo.class_Aircraft_typeRepository import AircraftRepository
-from repo.class_PastFlightsRepository import PastFlightsRepository
+from repo.class_FlightRepository import FlightRepository
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
 class GetUI():
@@ -27,8 +27,7 @@ class GetUI():
             get_input = input(self.USER_INPUT)
             print()
             if get_input == "1":
-                pass
-                
+                pass   
             if get_input == "2":
                 pass
             if get_input == "3":
