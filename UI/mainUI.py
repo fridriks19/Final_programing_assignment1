@@ -2,8 +2,20 @@
 from UI.makeUI import MakeUI
 from UI.getUI import GetUI
 from UI.changeUI import ChangeUI
+import time
+import sys
 
-
+def animate():
+    for i in range(0,4):
+        sys.stdout.write('\rLogging Out |')
+        time.sleep(0.1)
+        sys.stdout.write('\rLogging Out /')
+        time.sleep(0.1)
+        sys.stdout.write('\rLogging Out -')
+        time.sleep(0.1)
+        sys.stdout.write('\rLogging Out \\')
+        time.sleep(0.1)
+    sys.stdout.write('\rSuccess!     ')
 
 class MainUI():
     def __init__(self):
@@ -50,7 +62,9 @@ class MainUI():
 
                     
         else:    # if the user presses q
-            print("Logging out.....")
+            #print("Logging out.....")
+            animate()
+            print()
             return self.BORDER * self.WITDH 
 
 ui = MainUI()

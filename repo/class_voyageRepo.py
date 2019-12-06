@@ -12,4 +12,11 @@ class VoyageRepo():
         return "Vinnuferð vistuð"
     
     def get_voyage(self):
-        pass
+        voyage_list = []
+        open_file = open("./data/voyage.csv", "r")
+        for line in open_file:
+            line = line.strip()
+            line = line.split(",")
+            voyage_list.append(line)
+        open_file.close()
+        return voyage_list
