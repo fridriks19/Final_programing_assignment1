@@ -31,8 +31,8 @@ class EmployeeRepository:
             if employee[0] == self.fnd_empl_ssn:
                 open_file.close()
                 return employee
-        else:
-            return False
+        
+        return False
                 
     def get_allemployees(self):
         return_str  = ""
@@ -56,7 +56,7 @@ class EmployeeRepository:
             ssn_key = Employee(line)  
             crew_dictionary[ssn_key.get_ssn()] = line    # make the name the key and the values the rest of line, gerum 
         
-        crew_dictionary[ssn][int(choice)] = change #Finna starfsmanninn sem á að breyta og breyta því sem var valið í choice í change
+        crew_dictionary[ssn][int(choice)+1] = change #Finna starfsmanninn sem á að breyta og breyta því sem var valið í choice í change
         for key in crew_dictionary.keys():  # go through all the values so we can add them to a new string 
             new_file += ",".join(crew_dictionary[key])  
         open_file = open("./data/crew2.csv", "w")  #We replace the old crew file with the new file 

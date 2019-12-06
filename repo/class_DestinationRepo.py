@@ -21,11 +21,17 @@ class DestinationRepo(Destination):
             counter += 1
         print(str(prnt_str))
 
-    def get_dest(self, user_input):  #2
+    def get_dest(self, user_input):  #Gets the destination and id 
         self.user_input = int(user_input)
         #print(self.dest_list)
         chosen_dest = self.dest_list[self.user_input]
-        return "Áfangastaður: {} \nFlugvöllur: {}".format(chosen_dest[1],chosen_dest[0])
+        return "Áfangastaður: {}\nFlugvöllur: {}\nFlugtími: {}\nFjarlægð: {}\nTengiliður: {}\nNeyðarsímanúmer: {}".format(chosen_dest[1],chosen_dest[0], chosen_dest[2],chosen_dest[3],chosen_dest[4],chosen_dest[5])
+
+    def get_dest_change(self, user_input):  #only diffrence is that we whant to show what to input to chose. 
+        self.user_input = int(user_input)
+        #print(self.dest_list)
+        chosen_dest = self.dest_list[self.user_input]
+        return "Áfangastaður: {}\nFlugvöllur: {}\nFlugtími: {}\nFjarlægð: {}\n'1' - Tengiliður: {}\n'2' - Neyðarsímanúmer: {}".format(chosen_dest[1],chosen_dest[0], chosen_dest[2],chosen_dest[3],chosen_dest[4],chosen_dest[5])
 
     
 
