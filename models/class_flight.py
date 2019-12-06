@@ -1,5 +1,5 @@
 #flightNumber,departingFrom,arrivingAt,departure,arrival,aircraftID,captain,copilot,fsm,fa1,fa2
-class Past_flights():
+class Flight():
     def __init__(self, flight_info_list):
         self.flight_info_list = flight_info_list
         self.__flightNumber = self.flight_info_list[0]
@@ -15,7 +15,13 @@ class Past_flights():
         self.__fa2 = self.flight_info_list[10]
 
     def __str__(self):
-        return "{}".format(self.flight_info_list)
+        prnt_str = ""
+        for item in self.flight_info_list:
+            if self.flight_info_list.index(item) == 10:
+                prnt_str += item
+            else:
+                prnt_str += item + ","
+        return prnt_str
 
     def get_flightNumber(self):
         return self.__flightNumber
