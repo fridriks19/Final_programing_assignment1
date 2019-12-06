@@ -1,6 +1,6 @@
 from repo.class_EmployeeRepository import EmployeeRepository
 from repo.class_Aircraft_typeRepository import AircraftRepository
-from repo.class_PastFlightsRepository import PastFlightsRepository
+from repo.class_FlightRepository import FlightRepository
 from models.class_employee import Employee
 from repo.class_DestinationRepo import DestinationRepo
 from services.class_employee_service import Employee_service

@@ -1,10 +1,5 @@
 from models.class_employee import Employee
-#from models.class_employee import Employee
-#from class_pilot import pilot
 
-#empl_str = "111111-4189"
-#empl_str = "1111114189","Ekki Eggert Orri Hermannsson","Pilot","Main-Pilot","Jumbo999","Funalind","865-8996"
-# fnd_empl_ssn = "1600904199"#1600904199
 
 class EmployeeRepository:
     def __init__(self, empl_str =""):
@@ -63,17 +58,3 @@ class EmployeeRepository:
         open_file.write(new_file)
         open_file.close()
         return "Upplýsingum breytt"
-        
-
-    
-
-# change = "Ananas"  # breytingin
-# choice = 5   # hverju á að breyta 
-# name = "Ekki Eggert Orri Hermannsson"  
-
-# S1 = EmployeeRepository()
-#print(S1.add_employee(empl_str))
-# print(S1.get_employee(fnd_empl_ssn))
-#print(S1.change_employee(choice, change, name))
-#s1 = EmployeeRepository()
-#print(s1.get_allemployees())
