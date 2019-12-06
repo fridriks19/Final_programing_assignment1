@@ -104,7 +104,9 @@ class MakeUI():
                 if make_input == "1":
                     save_input = ""
                     if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-                        save_input = input(str("Viltu vista vinnuferð? \n'1' - Já: \n'2' - Nei: "))
+                        print("\nViltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
+                        save_input = input(str(self.USER_INPUT))
+                        print()
                     if save_input == "1":
                         new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
                         new_destination = destination(new_list)
