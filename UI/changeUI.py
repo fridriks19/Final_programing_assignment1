@@ -2,11 +2,13 @@ from repo.class_EmployeeRepository import EmployeeRepository
 from repo.class_Aircraft_typeRepository import AircraftRepository
 from repo.class_PastFlightsRepository import PastFlightsRepository
 from models.class_employee import Employee
+from repo.class_DestinationRepo import DestinationRepo
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
 class ChangeUI():
     def __init__(self):  
         self.__change_employee = EmployeeRepository()
+        self.__show_dest = DestinationRepo()
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
@@ -43,7 +45,7 @@ class ChangeUI():
                             self.change_menu()  
                     if change_employee_input != "r" :    
                         info_output = Employee(empl_info_lst)  
-                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta"))/2)*" " +  "Starfsmaður"  +   "\n" + self.BORDER * self.WITDH )
+                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta starfsmanni"))/2)*" " +  "Breyta starfsmanni"  +   "\n" + self.BORDER * self.WITDH )
                         print(self.PICK +"\n")
                         print(self.GO_BACK +"\n")  
                         print("Kennitala: {}".format(info_output.get_ssn()))        
@@ -73,7 +75,7 @@ class ChangeUI():
             if change_input == "2":
                 pass
                 while change_input != "r":
-                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
+                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta vinnuferð"))/2)*" " +  "Breyta vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                     print(self.PICK +"\n")
                     print(self.GO_BACK +"\n")
                     print("Áfangastaður: {}".format(Voyage()))
@@ -83,9 +85,15 @@ class ChangeUI():
                     make_input = input(self.USER_INPUT).lower()
 ################################## VINNUFERÐ VALINN###########################################################               
             if change_input == "3":
-                pass
-            else:
-                return "" 
+                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta áfangastað"))/2)*" " +  "Breyta áfangastað"  +   "\n" + self.BORDER * self.WITDH )
+                print(self.PICK +"\n")
+                print(self.GO_BACK +"\n")
+                print(self.show_dest.get_alldest())
+                #new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
+                #new_destination = destination(new_list)
+                #self.__new_destination.add_destination(new_employee)
+                print("Áfangastaður ekki vistaður")
+           
 
     # ###########################################################################
     # ############################### change sub menu ###########################
