@@ -20,14 +20,14 @@ class EmployeeRepository:
         for line in open_file:
             line = line.strip()
             line = line.split(",")
-            output = Employee(line)  #Svo við getum sótt réttar staðsetningar úr model clasanum
+            #output = Employee(line)  #Svo við getum sótt réttar staðsetningar úr model clasanum
             open_file_list.append(line)
         for employee in open_file_list[1:]:
             if employee[0] == self.fnd_empl_ssn:
                 open_file.close()
                 return employee
-            else:
-                return False
+        else:
+            return False
                 
     def get_allemployees(self):
         return_str  = ""

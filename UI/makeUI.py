@@ -59,7 +59,8 @@ class MakeUI():
 
                     save_input = ""
                     if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-                        save_input = input(str("Viltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: "))
+                        print("Viltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
+                        save_input = input(str(self.USER_INPUT))
                         print()
                     if save_input == "1":   
                         if make_input == "1": #Ef það er valið flugmann
