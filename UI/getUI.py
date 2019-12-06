@@ -22,7 +22,7 @@ class GetUI():
         while get_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja"))/2)*" " +  "Sækja"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
-            print(self.QUIT+ " "*5 + self.GO_BACK +"\n")
+            print(self.GO_BACK +"\n")
             print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flugvél" + "\n" + "'5' - Flug/vinnutímar" + "\n")
             get_input = input(self.USER_INPUT)
             print()
