@@ -34,7 +34,9 @@ class MainUI():
     ###########################################################################
     def main_menu(self):
         user_input = ""
+
         while user_input != "q":
+            sys.stdout.flush()
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("NaN Air"))/2)*" " +  "NaN Air"  +   "\n" + self.BORDER * self.WITDH ) # prints the header 
             print(self.PICK + "\n")
             print(self.QUIT+ "\n\n")
