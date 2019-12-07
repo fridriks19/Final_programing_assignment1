@@ -2,5 +2,6 @@ id,destination,flighttime,distance,contact,emergencyphonenumber
 LYR,Longyearbyean,04:00,1750km,H Thug,8654932
 GOH,Nuuk,03:00,1200km,safjkasdhafks jlfajl,8654931
 KUS,Kulusuk,02:00,875km,Janus Jónsson,8654930
-FAE,Thorshavn,01:00,1000km,Mari Þykkastur,dfafsLWK,Tingwall,02:00,1300km,Héðinn Granít Breyðfjörð,8654934
+FAE,Thorshavn,01:00,1000km,Mari Þykkastur,dfafs
+LWK,Tingwall,02:00,1300km,Héðinn Granít Breyðfjörð,8654934
 KEF,Keflavik,00:00,0,Jón Jónsson,8654935
