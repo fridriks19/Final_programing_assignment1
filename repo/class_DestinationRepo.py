@@ -8,6 +8,7 @@ class DestinationRepo(Destination):
         for line in open_file:
             line = line.strip().split(",")
             self.dest_list.append(line)
+        open_file.close()
         
     def get_alldest(self):
         prnt_str = ""
@@ -40,7 +41,8 @@ class DestinationRepo(Destination):
         for line in open_file:
             line = line.split(",")
             id_key = Destination(line)  
-            dest_dictionary[id_key.get_destinationId()] = line 
+            dest_dictionary[id_key.get_destinationId()] = line
+        open_file.close()
 
         dest_dictionary[dest][int(choice)+3] = change #Finna starfsmanninn sem á að breyta og breyta því sem var valið í choice í change gerum + 3 vegna þess að það sem user inputar er í rauninni 3 sætum fyrir neðan
         for key in dest_dictionary.keys():  # go through all the values so we can add them to a new string 
