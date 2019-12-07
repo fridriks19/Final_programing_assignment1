@@ -4,6 +4,13 @@ from models.class_employee import Employee
 class EmployeeRepository:
     def __init__(self, empl_str =""):
         self.empl_str = empl_str
+        self.open_file = open("./data/crew2.csv", "r")
+        self.empl_list = []
+        for line in self.open_file:
+            line = line.strip()
+            line = line.split(",")
+           # output = Employee(line)  #Svo við getum sótt réttar staðsetningar úr model clasanum 
+            self.empl_list.append(line)
         
     
     def add_employee(self, new_empl):
@@ -41,6 +48,9 @@ class EmployeeRepository:
             return_str +=  "{}: {}, {} \n".format(output.get_ssn(),output.get_name(),output.get_role())
             open_file.close()
         return return_str
+    
+    def get_allemployees_list(self):
+        return self.empl_list[0]
 
     def change_employee(self, choice, change, ssn): 
         crew_dictionary = {}

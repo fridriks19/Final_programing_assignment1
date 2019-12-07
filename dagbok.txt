@@ -66,4 +66,6 @@ Eggert og Friðrik, fór yfir IO klasa UI klasa. Síðan fóru Davíð og Friðr
 
 6. desember: 
 Davíð og Friðrik voru að vinna í UI virkni og tengja klasa saman. Eggert og Héðinn voru að vinna í "repository" til að "savea" og sækja gögn 
-frá notendanum, ef þeir klára það ætla þeir að fara yfir hvaða kröfur við erum búnir að klára og hverju við viljum bæta við.
+frá notendanum, ef þeir klára það ætla þeir að fara yfir hvaða kröfur við erum búnir að klára og hverju við viljum bæta við. Eggert og Héðinn 
+kláruðu næstum því að sjá lista yfir þá starfsmenn sem eru að vinna og þá sem eru ekki að vinna á ákveðnum degi/dögum. Það er allt komið vel
+á veg, fyrir utan vinnuferð. Að skrá getUI er einnig eftir en við teljum það ekki vera eitthvað sem muni þvælast fyrir okkur.
