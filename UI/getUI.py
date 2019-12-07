@@ -1,6 +1,7 @@
 from repo.class_EmployeeRepository import EmployeeRepository
 from repo.class_Aircraft_typeRepository import AircraftRepository
 from repo.class_FlightRepository import FlightRepository
+from repo.class_voyageRepo import VoyageRepo
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
 class GetUI():
