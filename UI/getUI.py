@@ -27,7 +27,7 @@ class GetUI():
             get_input = input(self.USER_INPUT)
             print()
             if get_input == "1":
-                pass   
+                
             if get_input == "2":
                 pass
             if get_input == "3":

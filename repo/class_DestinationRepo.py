@@ -9,7 +9,14 @@ class DestinationRepo(Destination):
             line = line.strip().split(",")
             self.dest_list.append(line)
         open_file.close()
-        
+    
+    def add_dest(self, dest_str):
+        self.dest_str = dest_str
+        open_file = open("./data/Destination2.csv", "a")
+        open_file.write(self.dest_str + "\n")
+        open_file.close()
+        return "Áfangastaður vistaður"
+
     def get_alldest(self):
         prnt_str = ""
         counter = 1

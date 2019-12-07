@@ -9,7 +9,8 @@ class Destination():  #xid,destination,flighttime,distance,contact,emergencyphon
         self.__phone = self.destination_info_list[5]
 
     def __str__(self):
-        return "{}".format(self.destination_info_list)
+        prnt_str = ",".join(self.destination_info_list)
+        return prnt_str
     
     def get_destinationId(self):
         return self.__destinationId
