@@ -4,7 +4,7 @@ class AircraftRepository:
     def __init__(self, aircr_type_str =""):
         self.aircr_type_str = aircr_type_str
     
-    def add_aircraft_type(self,add_airc_str =""):
+    def add_aircraft_type(self,add_airc_str):
         self.add_airc_str = add_airc_str
         open_file = open("./data/AircraftType.csv", "a")
         open_file.write(self.add_airc_str + "\n")
@@ -38,8 +38,3 @@ class AircraftRepository:
             prnt_str += "{}\n".format(aircraft.get_airctaftId())
         open_file.close()
         return prnt_str
-
-
-a1 = AircraftRepository("")
-#print(a1.save_aircraft_type())
-print(a1.get_all_aircraft_types())
