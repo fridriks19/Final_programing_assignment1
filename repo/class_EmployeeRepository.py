@@ -33,9 +33,38 @@ class EmployeeRepository:
             if employee[0] == self.fnd_empl_ssn:
                 open_file.close()
                 return employee
-        
         return False
                 
+    def get_pilots(self):
+        return_str  = " "
+        open_file = open("./data/crew2.csv", "r")
+        open_file_list = []
+        for line in open_file:
+            line = line.strip()
+            line = line.split(",") 
+            open_file_list.append(line)  
+        for pilot in open_file_list:   
+            output = Employee(pilot)
+            if pilot[2] == "Pilot":
+                return_str += "{}: {}, {}, {} \n".format(output.get_ssn(),output.get_name(),output.get_role(), output.get_rank())
+        open_file.close()
+        return return_str
+
+    def get_flightattendants(self):
+        return_str  = " "
+        open_file = open("./data/crew2.csv", "r")
+        open_file_list = []
+        for line in open_file:
+            line = line.strip()
+            line = line.split(",") 
+            open_file_list.append(line)  
+        for pilot in open_file_list:   
+            output = Employee(pilot)
+            if pilot[2] == "Cabincrew":
+                return_str += "{}: {}, {}, {} \n".format(output.get_ssn(),output.get_name(),output.get_role(), output.get_rank())
+        open_file.close()
+        return return_str
+
     def get_allemployees(self):
         return_str  = ""
         open_file = open("./data/crew2.csv", "r")
@@ -46,7 +75,7 @@ class EmployeeRepository:
             output = Employee(line)  #Svo við getum sótt réttar staðsetningar úr model clasanum 
             open_file_list.append(line) # ÞARF ÞETTA ??????????
             return_str +=  "{}: {}, {} \n".format(output.get_ssn(),output.get_name(),output.get_role())
-            open_file.close()
+        open_file.close()  
         return return_str
     
     def get_allemployees_list(self):

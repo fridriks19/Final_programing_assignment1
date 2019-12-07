@@ -4,7 +4,7 @@ class Destination_service():
     def __init__(self):
         self.__destination_repo = DestinationRepo()
 
-    def add_destination(self, dest_str = ""):
+    def add_destination(self, dest_str= ""):
         self.dest_str = dest_str
         if self.is_dest_valid(self.dest_str):
             return self.__destination_repo.add_dest(self.dest_str)

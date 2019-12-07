@@ -144,6 +144,13 @@ class MakeUI():
             elif make_input == "4":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá flugvél"))/2)*" " +  "Nýskrá flugvél"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
+                print(self.GO_BACK +"\n")
+                print("Veldu tegund")
+                print("'1' - NAFokkerF100")
+                print("'2' - NABAE146")
+                print("'3' - NAFokkerF28")
+                make_input 
+
                 Planetypeid = input("Nafn: ")
                 manufacturer = input("Framleiðandi: ")
                 model = input("Tegund: ")
