@@ -17,12 +17,20 @@ class Employee_service():
             empl_change = self.__employee_repo.change_employee(self.choice, self.change, self.ssn)
             return empl_change
 
+    def get_pilots(self):
+        return self.__employee_repo.get_pilots()
+    
+    def get_flightattendants(self):
+        return self.__employee_repo.get_flightattendants()
+
     def get_employee(self, ssn):
         self.ssn = ssn
         if self.is_valid_employee(self.ssn):
             empl_info = self.__employee_repo.get_employee(self.ssn)
             return empl_info
-        
+    
+    def get_allemployees(self):
+        return self.__employee_repo.get_allemployees()
 
     def is_valid_employee_change(self, choice, change):
         return True
