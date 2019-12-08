@@ -3,6 +3,7 @@ from class_flight import Flight
 from class_FlightRepository import FlightRepository
 from class_aircraft_service import Aircraft_service
 from class_upcoming_flight_service import Upcoming_flight_service
+from class_Aircraft_typeRepository import AircraftRepository
 import datetime
 
 class Voyage_service:
@@ -10,6 +11,31 @@ class Voyage_service:
     def __init__(self):
         self.voyage_repo = VoyageRepo()
         self.flight_repo = FlightRepository()
+
+    def add_date(self, date_list):
+        self.date_list = date_list
+        year = self.date_list[0]
+        month = self.date_list[1]
+        day = self.date_list[2]
+        hours = self.date_list[3]
+        mins = self.date_list[4]
+        secs = self.date_list[5]
+        date = datetime.datetime(year,month,day,hours,mins,secs)
+        if date.is_valid_date():
+            return date.strftime("%Y-%m-%dT%H:%M:%S")
+    
+    def is_valid_date(self):
+        True
+
+    def get_aircraft(self):
+        aircraft_list = AircraftRepository().get_all_aircraft_types()
+        aircraft_info_list = []
+        for aircraft in aircraft_list[1:]:
+            pair_list = []
+            pair_list = [aircraft[0], aircraft[1]]
+            aircraft_info_list.append(pair_list)
+        return aircraft_info_list
+
 
     def add_voyage(self, voyage_str):
         self.voyage_str = voyage_str
@@ -59,31 +85,31 @@ class Voyage_service:
         printed_flight_num = "NA{0:0=3d}".format(counter)
         return printed_flight_num
     
-    # def get_avail_aircraft(self, date1, date2):
-    #     self.date1 = date1
-    #     self.date2 = date2
-    #     dt_str1 = datetime.datetime.strptime(self.date1, "%Y-%m-%dT%H:%M:%S")
-    #     dt_str2 = datetime.datetime.strptime(self.date2, "%Y-%m-%dT%H:%M:%S")
-    #     margin = dt_str2 - dt_str1
-    #     print(margin)
-    #     margin_date = datetime.timedelta(days = 1)
-    #     avail_list = []
-    #     aircraft_list = Aircraft_service().get_aircrafts()
-    #     upc_flights_list = FlightRepository().get_upcomingflights()
-    #     for aircraft in aircraft_list:
-    #         for flight in upc_flights_list:
-    #             if aircraft[0] in flight:
-    #                 if self.date1 == flight[3] or self.date2 == flight[4]:
-    #                     avail_pairing = [aircraft[0], "Upptekin"]
-    #                     avail_list.append(avail_pairing)
-    #                     break
-    #         else:
-    #             not_avail_pairing = [aircraft[0], "Laus"]
-    #             avail_list.append(not_avail_pairing)
-    #     return avail_list
+    def get_avail_aircraft(self, date1, date2):
+        self.date1 = date1
+        self.date2 = date2
+        dt_str1 = datetime.datetime.strptime(self.date1, "%Y-%m-%dT%H:%M:%S")
+        dt_str2 = datetime.datetime.strptime(self.date2, "%Y-%m-%dT%H:%M:%S")
+        margin = dt_str2 - dt_str1
+        print(margin)
+        margin_date = datetime.timedelta(days = 1)
+        avail_list = []
+        aircraft_list = Aircraft_service().get_aircrafts()
+        upc_flights_list = FlightRepository().get_upcomingflights()
+        for aircraft in aircraft_list:
+            for flight in upc_flights_list:
+                if aircraft[0] in flight:
+                    if self.date1 == flight[3] or self.date2 == flight[4]:
+                        avail_pairing = [aircraft[0], "Upptekin"]
+                        avail_list.append(avail_pairing)
+                        break
+            else:
+                not_avail_pairing = [aircraft[0], "Laus"]
+                avail_list.append(not_avail_pairing)
+        return avail_list
                     
 
     def is_valid_voyage(self, voyage_str):
         return True
 
-print(Voyage_service().get_avail_aircraft("2019-12-26T09:27:00", "2019-12-26T12:27:00"))
+#print(Voyage_service().get_avail_aircraft("2019-12-26T09:27:00", "2019-12-26T12:27:00"))
