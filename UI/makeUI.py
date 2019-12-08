@@ -6,6 +6,8 @@ from models.class_flight_attendant import flight_attendant
 from services.class_employee_service import Employee_service
 from repo.class_DestinationRepo import DestinationRepo
 from repo.class_voyageRepo import VoyageRepo
+from models.class_destination import Destination
+from services.class_destination_service import Destination_service
 
 
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
@@ -16,7 +18,7 @@ class MakeUI():
         self.__new_employee = Employee_service()
         self.__show_dest = DestinationRepo()
         self.__new_voyage = VoyageRepo()
-        #self.__new_destination = DestinationRepository()
+        self.__new_destination = Destination_service()
         self.__new_aircraft = AircraftRepository()
         self.WITDH = 50
         self.BORDER = "*"
@@ -84,35 +86,24 @@ class MakeUI():
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá áfangastað"))/2)*" " +  "Nýskrá áfangastað"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
                 print(self.GO_BACK +"\n")
-                destination = input("Áfangastaður: ")
                 airportID = input("Flugvöllur: ")
+                destination = input("Áfangastaður: ")
                 flight_time = input("Flugtími: ")
                 distance = input("Fjarlægð: ")
                 contact = input("Tengiliður: ")
                 emergency_phone = input("Neyðarsími: ")
-
-###################VINNUFERÐ VALIN ################
-            if make_input == "3":
-                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
-                print(self.PICK +"\n")
-                voyage_list = []
-                print("'1' - Áfangastaður")
-                date_time = "'2' - Dagsetning og tími"
-                airplane = "'3' - Flugvél"
-                employee = "'4' - Starfsmenn"
-                make_input = input(self.USER_INPUT).lower()
-                if make_input == "1":
-                    save_input = ""
-                    if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-                        print("\nViltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
-                        save_input = input(str(self.USER_INPUT))
-                        print()
-                    if save_input == "1":
-                        new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
-                        new_destination = destination(new_list)
-                        self.__new_destination.add_destination(new_employee)
-                    else:
-                        print("Áfangastaður ekki vistaður")
+                save_input = ""
+                if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                    print("\nViltu vista áfangastað \n'1' - Já: \n'2' - Nei: ")
+                    save_input = input(str(self.USER_INPUT))
+                    print()
+                if save_input == "1":
+                    new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
+                    new_destination = Destination(new_list)
+                    print(new_destination)
+                    self.__new_destination.add_destination(str(new_destination))
+                else:
+                    print("Áfangastaður ekki vistaður")
 
 ###################VINNUFERÐ VALIN ################################################################################################################  
             elif make_input == "3":
@@ -153,6 +144,19 @@ class MakeUI():
             elif make_input == "4":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá flugvél"))/2)*" " +  "Nýskrá flugvél"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
+                print(self.GO_BACK +"\n")
+                print("Veldu tegund")
+                print("'1' - NAFokkerF100")
+                print("'2' - NABAE146")
+                print("'3' - NAFokkerF28")
+                make_input 
+
+                Planetypeid = input("Nafn: ")
+                manufacturer = input("Framleiðandi: ")
+                model = input("Tegund: ")
+                capacity = input("Fjöldi farþegasæta: ")
+
+                
 ###################FLUG OG VINNUTÍMAR VALIN ################################################################################################################  
             elif make_input == "5":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá flug/vinnutíma"))/2)*" " +  "Nýskrá flug/vinnutíma"  +   "\n" + self.BORDER * self.WITDH )

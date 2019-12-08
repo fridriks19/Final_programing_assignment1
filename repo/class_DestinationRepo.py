@@ -8,7 +8,15 @@ class DestinationRepo(Destination):
         for line in open_file:
             line = line.strip().split(",")
             self.dest_list.append(line)
-        
+        open_file.close()
+    
+    def add_dest(self, dest_str):
+        self.dest_str = dest_str
+        open_file = open("./data/Destination2.csv", "a")
+        open_file.write(self.dest_str + "\n")
+        open_file.close()
+        return "Áfangastaður vistaður"
+
     def get_alldest(self):
         prnt_str = ""
         counter = 1
@@ -40,7 +48,8 @@ class DestinationRepo(Destination):
         for line in open_file:
             line = line.split(",")
             id_key = Destination(line)  
-            dest_dictionary[id_key.get_destinationId()] = line 
+            dest_dictionary[id_key.get_destinationId()] = line
+        open_file.close()
 
         dest_dictionary[dest][int(choice)+3] = change #Finna starfsmanninn sem á að breyta og breyta því sem var valið í choice í change gerum + 3 vegna þess að það sem user inputar er í rauninni 3 sætum fyrir neðan
         for key in dest_dictionary.keys():  # go through all the values so we can add them to a new string 
