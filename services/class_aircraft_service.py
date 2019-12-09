@@ -1,5 +1,5 @@
-from class_Aircraft_typeRepository import AircraftRepository
-from class_aircraft import Aircraft
+from repo.class_Aircraft_typeRepository import AircraftRepository
+from models.class_aircraft import Aircraft
 
 class Aircraft_service():
     def __init__(self):

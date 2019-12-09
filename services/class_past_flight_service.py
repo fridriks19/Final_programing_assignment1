@@ -1,5 +1,5 @@
 import datetime
-from class_FlightRepository import *
+from repo.class_FlightRepository import *
 
 class Past_flight_service:
 

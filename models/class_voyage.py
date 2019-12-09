@@ -1,4 +1,4 @@
-from class_flight import Flight
+from models.class_flight import Flight
 
 class Voyage(Flight):
 

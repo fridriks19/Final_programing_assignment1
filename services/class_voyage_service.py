@@ -1,8 +1,8 @@
-from class_voyageRepo import VoyageRepo
-from class_flight import Flight
-from class_FlightRepository import FlightRepository
-from class_aircraft_service import Aircraft_service
-from class_upcoming_flight_service import Upcoming_flight_service
+from repo.class_voyageRepo import VoyageRepo
+from models.class_flight import Flight
+from repo.class_FlightRepository import FlightRepository
+from service.class_aircraft_service import Aircraft_service
+from service.class_upcoming_flight_service import Upcoming_flight_service
 import datetime
 
 class Voyage_service:
