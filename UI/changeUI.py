@@ -69,16 +69,19 @@ class ChangeUI():
                             print(self.GO_BACK +"\n")
                             the_change = input("Skráðu breytingu: ")
                             if the_change != "r":
-                                print(self.__change_employee.change_employee(change_employee_input, the_change, employee_ssn_input))
+                                save_input = ""
+                                if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                                    print("\nViltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
+                                    save_input = input(str(self.USER_INPUT))
+                                    print()
+                                if save_input == "1":  
+                                    print(self.__change_employee.change_employee(change_employee_input, the_change, employee_ssn_input))
                             else:
                                 self.change_menu()   #til að fara til baka úr loopunni 
                         else:
                             self.change_menu()
                     else:
                         self.change_menu()
-                else:
-                    self.change_menu()
-            
 ################################## VINNUFERÐ VALINN###########################################################
             if change_input == "2":
                 pass
@@ -91,10 +94,13 @@ class ChangeUI():
                     print("'2' - Dagsetning og tími: {}".format(Voyage()))
                     print("'4' - Starfsmenn: {}".format(Voyage()))
                     change_input = input(self.USER_INPUT).lower()
-################################## VINNUFERÐ VALINN###########################################################               
+################################## Áfangastað VALINN###########################################################               
             if change_input == "3":
                 while change_input != "r":
+                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta vinnuferð"))/2)*" " +  "Breyta vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
+                    print(self.PICK +"\n")
                     self.__change_dest.get_alldest()   # prentar út listan af öllum löndunum
+                    print(self.GO_BACK +"\n")
                     change_input = input("Veldu áfangastað: ")      # nr á áfangastað 
                     if change_input != "r":
                         print()
@@ -117,7 +123,7 @@ class ChangeUI():
                             if the_change != "r":
                                 save_input = ""
                                 if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-                                    print("\nViltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
+                                    print("\nViltu vista áfangastað \n'1' - Já: \n'2' - Nei: ")
                                     save_input = input(str(self.USER_INPUT))
                                     print()
                                 if save_input == "1":
