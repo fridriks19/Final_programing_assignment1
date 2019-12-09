@@ -12,7 +12,7 @@ class AircraftRepository:
         return "Flugvél vistuð"
 
     def get_aircraft_type(self):
-        open_file = open("./data/AircraftType.csv", "r")
+        open_file = open("./data/Aircraft.csv", "r")
         open_file_list = []
         for line in open_file:
             line = line.strip()
@@ -26,15 +26,10 @@ class AircraftRepository:
         return "Flugvél fannst ekki"
     
     def get_all_aircraft_types(self):
-        open_file = open("./data/AircraftType.csv", "r")
+        open_file = open("./data/Aircraft.csv", "r")
         open_file_list = []
         for line in open_file:
             line = line.strip()
             line = line.split(",")
             open_file_list.append(line)
-        prnt_str = ""
-        for aircraft in open_file_list[1:]:
-            aircraft = Aircraft(aircraft)
-            prnt_str += "{}\n".format(aircraft.get_airctaftId())
-        open_file.close()
-        return prnt_str
+        return open_file_list

@@ -1,4 +1,4 @@
-from class_worktime_service import Worktime_service
+from services.class_worktime_service import Worktime_service
 
 class Voyage_crew_service:
 

@@ -28,6 +28,9 @@ class DestinationRepo(Destination):
             prnt_str += ("'{}' - {}\n".format(counter, dest_dict[key]))   
             counter += 1
         print(str(prnt_str))
+    
+    def get_all_dest_list(self):
+        return self.dest_list[1:]
 
     def get_dest(self, user_input):  #Gets the destination and id 
         self.user_input = int(user_input)
@@ -59,7 +62,4 @@ class DestinationRepo(Destination):
         open_file.close()
         return "Upplýsingum breytt"
 
-
-   
-        
 

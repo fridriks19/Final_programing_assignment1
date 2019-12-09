@@ -79,7 +79,7 @@ class EmployeeRepository:
         return return_str
     
     def get_allemployees_list(self):
-        return self.empl_list[0]
+        return self.empl_list[1:]
 
     def change_employee(self, choice, change, ssn): 
         crew_dictionary = {}
