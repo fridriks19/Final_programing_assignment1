@@ -169,7 +169,7 @@ class MakeUI():
 
                             print()
                             user_chosen_date = [year,month,day,hour,mint,0]
-                            depart_date = self.__new_voyage.add_date(user_chosen_date)   # dat1
+                            depart_date = self.__new_voyage.add_date(user_chosen_date)  # Gáum hvort dagsettningin sé leyfileg.
                             if depart_date != False:
                                 arrival_date = self.__new_voyage.get_arrival_time(chosen_destination,depart_date)  #date 2
                                 return_depart = self.__new_voyage.get_return_flight_time(chosen_destination, arrival_date)  #date3
@@ -200,11 +200,20 @@ class MakeUI():
                     elif make_input == "3":
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá flugvél vinnuferðar"))/2)*" " +  "Nýskrá flugvél vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
                         print(self.PICK +"\n")
-                        print(self.__new_voyage.print_avail_aircraft(depart_date,return_arrival))
-                        print("Veldu nafn flugvélar")
-                        aircraft_choice = input("TF-:")  # aafs   AAA
-                        
-
+                        while make_input != "r":
+                            print(self.__new_voyage.print_avail_aircraft(depart_date,return_arrival))
+                            print(self.GO_BACK +"\n")
+                            make_input = input("Veldu nafn flugvélar: ") 
+                            valid_or_not = self.__new_aircraft.is_valid_aircraft(make_input)
+                            if valid_or_not == True:
+                                save_input = ""
+                                if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                                    print(self.GO_BACK +"\n")
+                                    print("\nViltu vista dagsetningar \n'1' - Já: \n'2' - Nei: ")
+                                    save_input = input(str(self.USER_INPUT))
+                                    print()
+                            else:
+                                print("Vinsamlegast veldu flugvél úr listanum!")
 
                     elif make_input =="4":
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )

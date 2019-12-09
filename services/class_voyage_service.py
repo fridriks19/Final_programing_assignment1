@@ -161,4 +161,4 @@ class Voyage_service:
     def is_valid_voyage(self, voyage_str):
         return True
 
-print(Voyage_service.print_avail_aircraft("2019-11-28T00:00:00", "2019-11-18T03:00:00"))
+
