@@ -204,7 +204,7 @@ class MakeUI():
                             print(self.__new_voyage.print_avail_aircraft(depart_date,return_arrival))
                             print(self.GO_BACK +"\n")
                             make_input = input("Veldu nafn flugvélar: ") 
-                            valid_or_not = self.__new_aircraft.is_valid_aircraft(make_input)
+                            valid_or_not = self.__new_aircraft.is_valid_aircraft(make_input,depart_date,return_arrival)
                             if valid_or_not == True:
                                 save_input = ""
                                 if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 

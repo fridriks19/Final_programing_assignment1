@@ -13,6 +13,7 @@ class Voyage_service:
         self.voyage_repo = VoyageRepo()
         self.flight_repo = FlightRepository()
         self.dest_list = DestinationRepo().get_all_dest_list()
+        self.aircraft_service = Aircraft_service()
 
     def add_date(self, date_list):
         self.date_list = date_list
@@ -108,7 +109,7 @@ class Voyage_service:
         self.date1 = self.date1.split("T")
         self.date2 = self.date2.split("T")
         avail_list = []
-        aircraft_list = Aircraft_service().get_aircrafts()
+        aircraft_list = self.aircraft_service.get_aircrafts()
         upc_flights_list = FlightRepository().get_upcomingflights()
         for aircraft in aircraft_list:
             for flight in upc_flights_list:
