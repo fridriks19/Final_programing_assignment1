@@ -16,18 +16,27 @@ class Voyage_service:
 
     def add_date(self, date_list):
         self.date_list = date_list
-        year = self.date_list[0]
-        month = self.date_list[1]
-        day = self.date_list[2]
-        hours = self.date_list[3]
-        mins = self.date_list[4]
-        secs = self.date_list[5]
-        date = datetime.datetime(year,month,day,hours,mins,secs)
-        if date.is_valid_date():
-            return date.strftime("%Y-%m-%dT%H:%M:%S")
+        year = int(self.date_list[0])
+        month = int(self.date_list[1])
+        day = int(self.date_list[2])
+        hours = int(self.date_list[3])
+        mins = int(self.date_list[4])
+        secs = int(self.date_list[5])
+        try:
+            date = datetime.datetime(year,month,day,hours,mins,secs)
+        except ValueError:
+            return False
+        if Voyage_service().is_valid_date(date):
+           return date.strftime("%Y-%m-%dT%H:%M:%S")
+        else:
+            return False
     
-    def is_valid_date(self):
-        True
+    def is_valid_date(self, date):
+        self.date = date
+        if self.date >= date.today():
+            return True
+        else:
+            return False
 
     def get_aircraft(self):
         aircraft_list = AircraftRepository().get_all_aircraft_types()
@@ -83,15 +92,15 @@ class Voyage_service:
         return self.voyage_repo.get_voyage_list()
 
     # def add_flight_num(self, destination):
-        # flights_list = self.flight_repo.get_upcomingflights()
-        # current_flight_num = flights_list[-1][0]
-        # current_flight_num = current_flight_num.split("A")
+    #     flights_list = self.flight_repo.get_upcomingflights()
+    #     current_flight_num = flights_list[-1][0]
+    #     current_flight_num = current_flight_num.split("A")
         
-        # for dest in self.dest_list:
-        #     if dest[0] == destination:
-        # counter = int(current_flight_num[1]) + 1
-        # printed_flight_num = "NA{0:0=3d}".format(counter)
-        # return printed_flight_num
+    #     for dest in self.dest_list:
+    #         if dest[0] == destination:
+    #     counter = int(current_flight_num[1]) + 1
+    #     printed_flight_num = "NA{0:0=3d}".format(counter)
+    #     return printed_flight_num
     
     def get_avail_aircraft(self, date1, date2):
         self.date1 = date1
@@ -143,4 +152,5 @@ class Voyage_service:
     def is_valid_voyage(self, voyage_str):
         return True
 
-print(Voyage_service().get_arrival_time("LYR","2019-12-20T23:45:00"))
+l1 = [2019, 12, 15, 0, 0, 0]
+print(Voyage_service().add_date(l1))
