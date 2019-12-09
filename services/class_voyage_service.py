@@ -162,3 +162,10 @@ class Voyage_service:
         return True
 
 
+    def prnt_str(self,empl_list):
+        print_str = ""
+        counter = 1
+        for employee in empl_list:
+            print_str +=  "'{}' - Kt: {}, {}.\n".format(counter, employee[0], employee[1])
+            counter += 1
+        return print_str

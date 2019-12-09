@@ -1,4 +1,4 @@
-from models.class_aircraft import Aircraft
+#from models.class_aircraft import Aircraft
 
 class AircraftRepository:
     def __init__(self, aircr_type_str =""):
@@ -41,3 +41,13 @@ class AircraftRepository:
             line = line.strip().split(",")
             aircraft_list.append(line)
         return aircraft_list[1:]
+
+    def find_air_id(self, aircraft_name):  # We are seeing what the id is for the aircraft the user choice so we can find employees with licneces 
+        aircraft_str = ""
+        open_file = open("./data/Aircraft.csv", "r")
+        for line in open_file:
+            line = line.strip()
+            line = line.split(",")
+            if aircraft_name in line:
+                aircraft_str = line[1]            
+        return aircraft_str

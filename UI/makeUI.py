@@ -1,23 +1,22 @@
 from models.class_pilot import pilot
 from models.class_flight_attendant import flight_attendant
 from services.class_employee_service import Employee_service
-from repo.class_voyageRepo import VoyageRepo
 from models.class_destination import Destination
 from services.class_destination_service import Destination_service
 from services.class_aircraft_service import Aircraft_service
 from services.class_voyage_service import Voyage_service
+from services.class_voyage_crew_service import Voyage_crew_service
+from services.class_aircraft_service import Aircraft_service
 import datetime
 
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
 class MakeUI():
     def __init__(self):
-        
         self.__new_employee = Employee_service()
         self.__new_destination = Destination_service()
         self.__new_aircraft = Aircraft_service()
         self.__new_voyage = Voyage_service()
-
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
@@ -127,7 +126,7 @@ class MakeUI():
                         all_dest_str, dest_counter = self.__new_destination.get_alldest()  # prentum út öll löndin svo user getur valið áfangastað
                         print(all_dest_str)
                         dest_input = input(self.PICK)
-                        while dest_input.isdigit() == False or dest_input =="r" or int(dest_input) < 1 or int(dest_input) > int(dest_counter) or int(dest_input) == "r":
+                        while dest_input.isdigit() == False or dest_input =="r" or int(dest_input) < 1 or int(dest_input) > int(dest_counter):   # or int(dest_input) == "r"
                             if dest_input == "r":
                                     self.make_menu()
                             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
@@ -196,7 +195,7 @@ class MakeUI():
                                 save_input = ""
                                 if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
                                     print(self.GO_BACK +"\n")
-                                    print("\nViltu vista dagsetningar \n'1' - Já: \n'2' - Nei: ")
+                                    print("Viltu vista dagsetningar \n'1' - Já: \n'2' - Nei: ")
                                     save_input = input(str(self.USER_INPUT))
                                     print()
                                 if save_input == "1":   # ef .að er saveað þá fyllum við í listana með viðeigandi upplýsingum 
@@ -227,24 +226,67 @@ class MakeUI():
                                     save_input = ""
                                     if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
                                         print(self.GO_BACK +"\n")
-                                        print("\nViltu vista flugvél? \n'1' - Já: \n'2' - Nei: ")
+                                        print("Viltu vista flugvél? \n'1' - Já: \n'2' - Nei: ")
                                         save_input = input(str(self.USER_INPUT))
                                         print()
                                         if save_input =="1":
                                             depart_voyage_info[5] = air_choice
                                             arriv_voyage_info[5] = air_choice
                                             print("Flugvél vistuð.")
-                                            air_choice = "r"
+                                            air_choice = "r"  # To go back automatically
+
                                         else:
                                             print("Flugvél ekki vistuð")
                                             air_choice = "r"
+                                            
                                 else:
                                     print("Vinsamlegast veldu flugvél úr listanum!")
+                                    air_choice = "r"
 
                     elif make_input =="4":
-                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
-                        print(self.PICK +"\n")
-                        
+                        empl_pick = make_input
+                        while empl_pick != "r":
+                            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
+                            print(self.PICK +"\n")
+                            print("'1' - Veldu flugstjóra")
+                            print("'2' - Veldu aðstoðarflugmann")
+                            #We use the datetime to get rid of the T so we can send a normal date to the service
+                            empl_pick = input(self.PICK)
+                            if empl_pick == "1":
+                                capt_list = Voyage_crew_service(depart_voyage_info[3],depart_voyage_info[5]).get_captain()  # Send the departure date and the aircraft choice to get the pilots that are available on that date and have a liscence on that plane 
+                                print(self.__new_voyage.prnt_str(capt_list))
+                                empl_pick = input(self.PICK) 
+                                print()
+                                while empl_pick.isdigit() == False or int(empl_pick) > len(capt_list) or int(empl_pick) < 1:  # the inputed integer has to be in the capt list range
+                                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
+                                    print(self.PICK +"\n")
+                                    print("Veldu flugstjóra úr listanum!")
+                                    print(self.__new_voyage.prnt_str(capt_list))
+                                    empl_pick = input(self.PICK) 
+
+                                else: 
+                                    save_input = ""
+                                    empl_pick =int(empl_pick)
+                                    if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                                        print(self.GO_BACK +"\n")
+                                        print("Viltu vista flugstjóran? \n'1' - Já: \n'2' - Nei: ")
+                                        save_input = input(str(self.USER_INPUT))
+                                        print()
+                                        if save_input =="1":
+                                            depart_voyage_info[6] = capt_list[empl_pick][0]
+                                            arriv_voyage_info[6] = capt_list[empl_pick][0]
+                                            print("Flugstjóri vistaður")
+                                            print()
+                                        else:
+                                            empl_pick = "r"
+                                            print("Flugstjóri ekki vistaður")
+                                        
+                                
+        
+        
+        
+   
+
                         
 
 
@@ -265,4 +307,4 @@ class MakeUI():
                 capacity = input("Fjöldi farþegasæta: ")
 
                 
-###################FLUG OG VINNUTÍMAR VALIN ################################################################################################################  
+###################################################################################################################################  

@@ -1,10 +1,11 @@
 from services.class_worktime_service import Worktime_service
+from repo.class_Aircraft_typeRepository import AircraftRepository
 
 class Voyage_crew_service:
 
-    def __init__(self, date, planename):
+    def __init__(self, date , planename):
         self.date = date
-        self.planename = planename
+        self.planename = AircraftRepository().find_air_id(planename)
         self.date = self.date.split("T")
         self.date.pop(1)
         self.not_working_list = Worktime_service(self.date).not_working_list()
@@ -37,3 +38,5 @@ class Voyage_crew_service:
             if employee[3] == "Flight Attendant":
                 fa_list.append(employee)
         return fa_list
+
+   

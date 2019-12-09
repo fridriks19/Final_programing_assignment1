@@ -37,3 +37,13 @@ class Aircraft_service():
                         return True
         else:
             return False
+
+    def find_air_id(self, aircraft_name):
+        aircraft_str = ""
+        open_file = open("./data/Aircraft.csv", "r")
+        for line in open_file:
+            if aircraft_name in line:
+                aircraft_str = line[0]                
+        return aircraft_str[1]
+
+        
