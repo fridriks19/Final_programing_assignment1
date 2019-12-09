@@ -8,7 +8,7 @@ from repo.class_DestinationRepo import DestinationRepo
 from repo.class_voyageRepo import VoyageRepo
 from models.class_destination import Destination
 from services.class_destination_service import Destination_service
-
+from services.class_aircraft_service import Aircraft_service
 
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
@@ -19,7 +19,7 @@ class MakeUI():
         self.__new_voyage = VoyageRepo()
         self.__new_destination = Destination_service()
         self.__new_aircraft = AircraftRepository()
-        self.__new_aircraft = AircraftService()
+        self.__new_aircraft = Aircraft_service()
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
