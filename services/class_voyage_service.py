@@ -23,11 +23,11 @@ class Voyage_service:
         mins = self.date_list[4]
         secs = self.date_list[5]
         date = datetime.datetime(year,month,day,hours,mins,secs)
-        if date.is_valid_date():
+        if Voyage_service().is_valid_date(str(date)):
             return date.strftime("%Y-%m-%dT%H:%M:%S")
     
-    def is_valid_date(self):
-        True
+    def is_valid_date(self,date):
+        return True
 
     def get_aircraft(self):
         aircraft_list = AircraftRepository().get_all_aircraft_types()
@@ -129,16 +129,16 @@ class Voyage_service:
         # Input 0,0,0,0 in timedelta to get the right format for output
         datetime_flighttime = datetime.timedelta(0,0,0,0,int(flighttime[1]), int(flighttime[0]))
         arrival_time = datetime_flighttime + datetime_input_date
-        return arrival_time
+        return arrival_time.strftime("%Y-%m-%dT%H:%M:%S")
     
     def get_return_flight_time(self, destination, arrival_time):
         self.destination = destination
         self.arrival_time = arrival_time
         hour_delay = datetime.timedelta(hours=1)
-        datetime_arrival_time = datetime.datetime.strptime(self.arrival_time, "%Y-%m-%dT%H:%M:%S")
+        datetime_arrival_time = datetime.datetime.strptime(str(self.arrival_time), "%Y-%m-%dT%H:%M:%S")
         # Add one hour to time to get the return flight time, since theres always an hour delay
         return_flight_time = datetime_arrival_time + hour_delay
-        return return_flight_time
+        return return_flight_time.strftime("%Y-%m-%dT%H:%M:%S")
         
     def is_valid_voyage(self, voyage_str):
         return True
