@@ -131,8 +131,8 @@ class Voyage_service:
         self.date2 = date2
         prnt_str = ""
         avail_aircrafts = Voyage_service().get_avail_aircraft(self.date1, self.date2)
-        for pairs in avail_aicrafts:
-            prnt_str += "{} - {}".format(avail_aircrafts[0], avail_aircrafts[1])
+        for pairs in avail_aircrafts:
+            prnt_str += "{} - {}\n".format(pairs[0], pairs[1])
         return prnt_str
                     
     def get_arrival_time(self, destination, input_date):
