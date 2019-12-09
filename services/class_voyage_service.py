@@ -151,6 +151,3 @@ class Voyage_service:
         
     def is_valid_voyage(self, voyage_str):
         return True
-
-l1 = [2019, 12, 15, 0, 0, 0]
-print(Voyage_service().add_date(l1))

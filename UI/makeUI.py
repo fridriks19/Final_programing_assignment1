@@ -1,10 +1,6 @@
-from repo.class_EmployeeRepository import EmployeeRepository
-from repo.class_Aircraft_typeRepository import AircraftRepository
-from repo.class_FlightRepository import FlightRepository
 from models.class_pilot import pilot
 from models.class_flight_attendant import flight_attendant
 from services.class_employee_service import Employee_service
-from repo.class_DestinationRepo import DestinationRepo
 from repo.class_voyageRepo import VoyageRepo
 from models.class_destination import Destination
 from services.class_destination_service import Destination_service
@@ -18,9 +14,7 @@ class MakeUI():
     def __init__(self):
         
         self.__new_employee = Employee_service()
-       #self.__new_voyage = VoyageRepo()
         self.__new_destination = Destination_service()
-        #self.__new_aircraft = AircraftRepository()
         self.__new_aircraft = Aircraft_service()
         self.__new_voyage = Voyage_service()
         self.WITDH = 50
@@ -111,7 +105,8 @@ class MakeUI():
 ###################VINNUFERÐ VALIN ################################################################################################################  
             elif make_input == "3":
                 chosen_destination = ""
-                new_dest_list = [0,1,2,3,4,5,6,7,8,9,10]
+                depart_voyage_info = [0,"KEF",2,3,4,5,"","","","",""]   # Höfum autt("") fyrir starfsmenn svo hægt sé að fylla inn í seinna 
+                arriv_voyage_info = [0,1,"KEF",3,4,5,"","","","",""]
                 while make_input != "r":
                     print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                     print(self.PICK +"\n")
@@ -165,16 +160,17 @@ class MakeUI():
                             hour = input("Sláðu inn klukkustund brottfarar: ")
                             while hour.isdigit() == False:
                                 print("Vinsamlegast skráðu klukkutíma!")
-                                hour = int(input("Sláðu inn klukkustund brottfarar: "))
+                                hour = input("Sláðu inn klukkustund brottfarar: ")
 
                             mint = input("Sláðu inn mínútu brottfarar: ")
                             while mint.isdigit() == False:
                                 print("Vinsamlegast skráðu mínútur!")
-                                mint = int(input("Sláðu inn mínútu brottfarar: "))
+                                mint = input("Sláðu inn mínútu brottfarar: ")
+
                             print()
                             user_chosen_date = [year,month,day,hour,mint,0]
                             depart_date = self.__new_voyage.add_date(user_chosen_date)   # dat1
-                            if depart_date == True:
+                            if depart_date != False:
                                 arrival_date = self.__new_voyage.get_arrival_time(chosen_destination,depart_date)  #date 2
                                 return_depart = self.__new_voyage.get_return_flight_time(chosen_destination, arrival_date)  #date3
                                 return_arrival = self.__new_voyage.get_arrival_time(chosen_destination,return_depart)  #date4
@@ -188,19 +184,28 @@ class MakeUI():
                                     print("\nViltu vista dagsetningar \n'1' - Já: \n'2' - Nei: ")
                                     save_input = input(str(self.USER_INPUT))
                                     print()
-                                if save_input == "1":
-                                    pass
-                                    
+                                if save_input == "1":   # ef .að er saveað þá fyllum við í listana með viðeigandi upplýsingum 
+                                    depart_voyage_info[2] = chosen_destination 
+                                    depart_voyage_info[3] = depart_date
+                                    depart_voyage_info[4] = arrival_date
+                                    arriv_voyage_info[1] = chosen_destination
+                                    arriv_voyage_info[3] = return_depart
+                                    arriv_voyage_info[4] = return_arrival
                                 else:
                                     make_input =="3"   # senda til baka 
 
-
+                            else:
+                                print("Ógild dagsettning vinsamlegast reyndu aftur.")
 
                     elif make_input == "3":
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá flugvél vinnuferðar"))/2)*" " +  "Nýskrá flugvél vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
                         print(self.PICK +"\n")
-                        self.__new_voyage.get_avail_aircraft(depart_date,return_arrival)
-                    
+                        print(self.__new_voyage.print_avail_aircraft(depart_date,return_arrival))
+                        print("Veldu nafn flugvélar")
+                        aircraft_choice = input("TF-:")  # aafs   AAA
+                        
+
+
                     elif make_input =="4":
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
                         print(self.PICK +"\n")
