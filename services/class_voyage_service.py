@@ -125,6 +125,15 @@ class Voyage_service:
                 not_avail_pairing = [aircraft[0], "Laus"]
                 avail_list.append(not_avail_pairing)
         return avail_list
+
+    def print_avail_aircraft(self, date1, date2):
+        self.date1 = date1
+        self.date2 = date2
+        prnt_str = ""
+        avail_aircrafts = Voyage_service().get_avail_aircraft(self.date1, self.date2)
+        for pairs in avail_aicrafts:
+            prnt_str += "{} - {}".format(avail_aircrafts[0], avail_aircrafts[1])
+        return prnt_str
                     
     def get_arrival_time(self, destination, input_date):
         self.destination = destination
@@ -152,5 +161,4 @@ class Voyage_service:
     def is_valid_voyage(self, voyage_str):
         return True
 
-l1 = [2019, 12, 15, 0, 0, 0]
-print(Voyage_service().add_date(l1))
+print(Voyage_service.print_avail_aircraft("2019-11-28T00:00:00", "2019-11-18T03:00:00"))
