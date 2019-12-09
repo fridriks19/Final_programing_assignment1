@@ -16,10 +16,10 @@ class MakeUI():
     def __init__(self):
         
         self.__new_employee = Employee_service()
-        self.__show_dest = DestinationRepo()
         self.__new_voyage = VoyageRepo()
         self.__new_destination = Destination_service()
         self.__new_aircraft = AircraftRepository()
+        self.__new_aircraft = AircraftService()
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
@@ -35,7 +35,7 @@ class MakeUI():
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá"))/2)*" " +  "Nýskrá"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
             print(self.GO_BACK +"\n")
-            print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flugvél" + "\n" + "'5' - Flug/vinnutímar" + "\n")
+            print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flugvél" + "\n")
             make_input = input(self.USER_INPUT).lower()
             print()
 ###################STARFSMAÐUR VALIN ################################################################################################################  
@@ -107,6 +107,8 @@ class MakeUI():
 
 ###################VINNUFERÐ VALIN ################################################################################################################  
             elif make_input == "3":
+                chosen_destination = ""
+                new_dest_list = [0,1,2,3,4,5,6,7,8,9,10]
                 while make_input != "r":
                     print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                     print(self.PICK +"\n")
@@ -115,25 +117,40 @@ class MakeUI():
                     print("'2' - Dagsetning og tími")
                     print("'3' - Flugvél")
                     print("'4' - Starfsmenn")
+                    print(chosen_destination)
                     make_input = input(self.USER_INPUT).lower()
-
                     if make_input == "1":  # Arriving at 
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                         print(self.PICK +"\n")
                         print("Veldu áfangastað: ")
-                        self.__show_dest.get_alldest()  # prentum út öll löndin svo user getur valið áfangastað
+                        self.__new_destination.get_alldest()  # prentum út öll löndin svo user getur valið áfangastað
                         make_input = input("Veldu áfangastað: ")
                         print()
-                        chosen_dest = self.__show_dest.get_dest(make_input) # Sendum valið frá user í get_dest til að láta destinationið í listan sem heldur utan um allar upplýsingar um vinnuferð
-                        print(chosen_dest)
+                        chosen_dest = self.__new_destination.get_dest(make_input) # Sendum valið frá user í get_dest til að láta destinationið í listan sem heldur utan um allar upplýsingar um vinnuferð
+                        print("Áfangastaður: {}\nFlugvöllur: {}\nFlugtími: {}\nFjarlægð: {}\nTengiliður: {}\nNeyðarsímanúmer: {}".format(chosen_dest[1],chosen_dest[0], chosen_dest[2],chosen_dest[3],chosen_dest[4],chosen_dest[5]))
+                        save_input = ""
+                        if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                            print("\nViltu velja þennan áfangastað \n'1' - Já: \n'2' - Nei: ")
+                            save_input = input(str(self.USER_INPUT))
+                            print()
+                        if save_input == "1":
+                            chosen_destination = chosen_dest
 
                     elif make_input == "2": # DATE/TIME
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá dags/tíma vinnuferðar"))/2)*" " +  "Nýskrá dags/tíma vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
-                        print(self.PICK +"\n")
+                        print("Skráðu dagsetningu vinnuferðar: ")
+                        year = input(int("Sláðu inn ár: "))
+                        month = input(int("Sláðu inn mánuð"))
+                        day = input(int("Sláðu inn dagsetningu"))
+                        hour = input(int("Sláðu inn klukkustund brottfarar: "))
+                        mint = input(int("Sláðu inn mínútu brottfarar: "))
+                        date = [year,month,day,hour,mint]
+
                     
                     elif make_input == "3":
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá flugvél vinnuferðar"))/2)*" " +  "Nýskrá flugvél vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
                         print(self.PICK +"\n")
+
                     
                     elif make_input =="4":
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
@@ -158,9 +175,3 @@ class MakeUI():
 
                 
 ###################FLUG OG VINNUTÍMAR VALIN ################################################################################################################  
-            elif make_input == "5":
-                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá flug/vinnutíma"))/2)*" " +  "Nýskrá flug/vinnutíma"  +   "\n" + self.BORDER * self.WITDH )
-                print(self.PICK +"\n")
-                pass
-        else:
-            return ""
