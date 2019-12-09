@@ -73,4 +73,10 @@ kláruðu næstum því að sjá lista yfir þá starfsmenn sem eru að vinna og
 
 7. desember:
 Friðrik var að vinna í service klasa sem tengir virkni við UI hjá okkur. Eggert og Héðinn héldu áfram að vinna í "repository" klasanum.
-Davíð byrjaði að vinna í vinnuferð klasa og hvaða kröfur eru í klasanum. 
+Davíð byrjaði að vinna í vinnuferð klasa og hvaða kröfur eru í klasanum.
+
+
+9. desember:
+Eggert og Héðinn byrjuðu að vinna í vinnuferð "repository klasanum".
+Davíð og Friðrik voru að vinna í vinnuferð UI. 
+

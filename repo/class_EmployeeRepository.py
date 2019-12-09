@@ -36,7 +36,7 @@ class EmployeeRepository:
         return False
                 
     def get_pilots(self):
-        return_str  = " "
+        return_str  = ""
         open_file = open("./data/crew2.csv", "r")
         open_file_list = []
         for line in open_file:
@@ -51,7 +51,7 @@ class EmployeeRepository:
         return return_str
 
     def get_flightattendants(self):
-        return_str  = " "
+        return_str  = ""
         open_file = open("./data/crew2.csv", "r")
         open_file_list = []
         for line in open_file:
@@ -79,7 +79,7 @@ class EmployeeRepository:
         return return_str
     
     def get_allemployees_list(self):
-        return self.empl_list[0]
+        return self.empl_list[1:]
 
     def change_employee(self, choice, change, ssn): 
         crew_dictionary = {}

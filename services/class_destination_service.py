@@ -12,7 +12,7 @@ class Destination_service():
     def get_dest(self, user_input): 
         self.user_input = user_input
         if self.is_dest_valid(self.user_input):
-            return self.__destination_repo.get_dest_change(self.user_input)
+            return self.__destination_repo.get_dest(self.user_input)
 
     def get_alldest(self):
         return self.__destination_repo.get_alldest()

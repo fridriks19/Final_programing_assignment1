@@ -15,12 +15,14 @@ from models.class_employee import Employee
 class GetUI():
     def __init__(self):
         self.__getemployee = Employee_service()
+        self.__getdestination = Destination_service()
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
         self.GO_BACK = "'r' - Til baka"
         self.PICK = "Veldu skipun:"
         self.USER_INPUT = ("Valin skipun: ")
+        
         
 
                 
@@ -63,21 +65,21 @@ class GetUI():
                         print(self.GO_BACK +"\n")
                         get_input = input(self.USER_INPUT)
 
-                if get_input == "2":
+                if get_input == "2":     #Get only pilots 
                     print()
                     print(self.__getemployee.get_pilots())
                     while get_input != "r":
                         print(self.GO_BACK +"\n")
                         get_input = input(self.USER_INPUT)
 
-                if get_input == "3":
+                if get_input == "3":     #Get flight attendants 
                     print()
                     print(self.__getemployee.get_flightattendants())
                     while get_input != "r":
                         print(self.GO_BACK +"\n")
                         get_input = input(self.USER_INPUT)
                 
-                if get_input == "4":
+                if get_input == "4":    # Get one employee by his ssn number and the user inputs the ssn
                     print()
                     print(self.GO_BACK +"\n") 
                     employee_ssn_input = input("Kennitala starfsmanns: ")
@@ -112,7 +114,30 @@ class GetUI():
                 
 
             if get_input == "2":
-                pass
+                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja áfangastað"))/2)*" " +  "Sækja áfangastað"  +   "\n" + self.BORDER * self.WITDH )
+                print(self.PICK +"\n")
+                print(self.GO_BACK +"\n")
+                while get_input != "r":
+                    self.__getdestination.get_alldest()   # prentar út listan af öllum löndunum
+                    get_input = input("Veldu áfangastað: ")      # nr á áfangastað 
+                    if get_input != "r":
+                        print()
+                        chosen_dest = self.__getdestination.get_dest(get_input) #tökum þá tölu sem notandi valdi og sendum í DestinationRepo og þar í get_dest fallið 
+                        output = Destination(chosen_dest)
+                        print("Áfangastaður: {}".format(output.get_destinationName()))
+                        print("Flugvöllur: {}".format(output.get_destinationId()))
+                        print("Flugtími: {}".format(output.get_flighttime()))
+                        print("Fjarlægð: {}".format(output.get_distance()))
+                        print("Tengiliður: {}".format(output.get_contact()))
+                        print("Neyðarsímanúmer: {}".format(output.get_phone()))
+                        while get_input != "r":
+                            print(self.GO_BACK +"\n")
+                            get_input = input(self.USER_INPUT)
+                    else:
+                        self.get_menu()
+                        
+
+
             if get_input == "3":
                 pass
             if get_input == "4":
