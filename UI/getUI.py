@@ -65,21 +65,21 @@ class GetUI():
                         print(self.GO_BACK +"\n")
                         get_input = input(self.USER_INPUT)
 
-                if get_input == "2":
+                if get_input == "2":     #Get only pilots 
                     print()
                     print(self.__getemployee.get_pilots())
                     while get_input != "r":
                         print(self.GO_BACK +"\n")
                         get_input = input(self.USER_INPUT)
 
-                if get_input == "3":
+                if get_input == "3":     #Get flight attendants 
                     print()
                     print(self.__getemployee.get_flightattendants())
                     while get_input != "r":
                         print(self.GO_BACK +"\n")
                         get_input = input(self.USER_INPUT)
                 
-                if get_input == "4":
+                if get_input == "4":    # Get one employee by his ssn number and the user inputs the ssn
                     print()
                     print(self.GO_BACK +"\n") 
                     employee_ssn_input = input("Kennitala starfsmanns: ")
@@ -130,7 +130,9 @@ class GetUI():
                         print("Fjarlægð: {}".format(output.get_distance()))
                         print("Tengiliður: {}".format(output.get_contact()))
                         print("Neyðarsímanúmer: {}".format(output.get_phone()))
-                        get_input = input(self.USER_INPUT)
+                        while get_input != "r":
+                            print(self.GO_BACK +"\n")
+                            get_input = input(self.USER_INPUT)
                     else:
                         self.get_menu()
                         
