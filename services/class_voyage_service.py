@@ -1,10 +1,15 @@
-from repo.class_voyageRepo import VoyageRepo
-from model.class_flight import Flight
+from class_voyageRepo import VoyageRepo
+from class_flight import Flight
+from class_FlightRepository import FlightRepository
+from class_aircraft_service import Aircraft_service
+from class_upcoming_flight_service import Upcoming_flight_service
+import datetime
 
 class Voyage_service:
 
     def __init__(self):
         self.voyage_repo = VoyageRepo()
+        self.flight_repo = FlightRepository()
 
     def add_voyage(self, voyage_str):
         self.voyage_str = voyage_str
@@ -46,6 +51,39 @@ class Voyage_service:
     def get_all_voyages(self):
         return self.voyage_repo.get_voyage_list()
 
+    def add_flight_num(self):
+        flights_list = self.flight_repo.get_upcomingflights()
+        current_flight_num = flights_list[-1][0]
+        current_flight_num = current_flight_num.split("A")
+        counter = int(current_flight_num[1]) + 1
+        printed_flight_num = "NA{0:0=3d}".format(counter)
+        return printed_flight_num
+    
+    # def get_avail_aircraft(self, date1, date2):
+    #     self.date1 = date1
+    #     self.date2 = date2
+    #     dt_str1 = datetime.datetime.strptime(self.date1, "%Y-%m-%dT%H:%M:%S")
+    #     dt_str2 = datetime.datetime.strptime(self.date2, "%Y-%m-%dT%H:%M:%S")
+    #     margin = dt_str2 - dt_str1
+    #     print(margin)
+    #     margin_date = datetime.timedelta(days = 1)
+    #     avail_list = []
+    #     aircraft_list = Aircraft_service().get_aircrafts()
+    #     upc_flights_list = FlightRepository().get_upcomingflights()
+    #     for aircraft in aircraft_list:
+    #         for flight in upc_flights_list:
+    #             if aircraft[0] in flight:
+    #                 if self.date1 == flight[3] or self.date2 == flight[4]:
+    #                     avail_pairing = [aircraft[0], "Upptekin"]
+    #                     avail_list.append(avail_pairing)
+    #                     break
+    #         else:
+    #             not_avail_pairing = [aircraft[0], "Laus"]
+    #             avail_list.append(not_avail_pairing)
+    #     return avail_list
+                    
 
     def is_valid_voyage(self, voyage_str):
         return True
+
+print(Voyage_service().get_avail_aircraft("2019-12-26T09:27:00", "2019-12-26T12:27:00"))

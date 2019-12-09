@@ -1,9 +1,9 @@
 import datetime
-from repo.class_FlightRepository import FlightRepository
-from repo.class_voyageRepo import VoyageRepo
-from repo.class_EmployeeRepository import EmployeeRepository
+from class_FlightRepository import FlightRepository
+from class_voyageRepo import VoyageRepo
+from class_EmployeeRepository import EmployeeRepository
 
-class Worktime:
+class Worktime_service:
 
     def __init__(self, work_date):
         self.work_date = work_date
@@ -33,3 +33,5 @@ class Worktime:
         for i in not_working_list:
             prnt_str += i+"\n"
         return prnt_str
+
+print(Worktime_service().is_working("2019-12-26T12:27:00"))
