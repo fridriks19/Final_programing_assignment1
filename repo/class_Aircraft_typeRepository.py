@@ -33,3 +33,11 @@ class AircraftRepository:
             line = line.split(",")
             open_file_list.append(line)
         return open_file_list
+        
+    def get_aircrafts(self):
+        aircraft_list = []
+        open_file = open("./data/Aircraft.csv", "r")
+        for line in open_file:
+            line = line.strip().split(",")
+            aircraft_list.append(line)
+        return aircraft_list[1:]

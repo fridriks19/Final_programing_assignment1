@@ -20,10 +20,10 @@ class Aircraft_service():
 
     def add_aircraft(self, air_str = ""):
         self.air_str = air_str
-        if self.is_valid_aircraft(self.air_str):
-            aircraft = self.__aircraftrepo.add_aircraft_type(self.air_str)
-            return aircraft
-    
+        aircraft = self.__aircraftrepo.add_aircraft_type(self.air_str)
+        return aircraft
+
+
     def is_valid_aircraft(self, chosen_aircr, date1, date2):
         self.chosen_aircr = chosen_aircr
         self.date1 = date1
@@ -33,7 +33,7 @@ class Aircraft_service():
         for aircraft in aircraft_list:
             if self.chosen_aircr == aircraft[0]:
                 for aircrafts in available_aircrafts:
-                    if aircraft[0] == chosen_aircr and aircraft[1] == "Laus":
+                    if aircrafts[0] == chosen_aircr and aircrafts[1] == "Laus":
                         return True
         else:
             return False
