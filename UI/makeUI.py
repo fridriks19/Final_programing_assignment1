@@ -9,6 +9,8 @@ from repo.class_voyageRepo import VoyageRepo
 from models.class_destination import Destination
 from services.class_destination_service import Destination_service
 from services.class_aircraft_service import Aircraft_service
+from services.class_voyage_service import Voyage_service
+import datetime
 
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
@@ -16,10 +18,11 @@ class MakeUI():
     def __init__(self):
         
         self.__new_employee = Employee_service()
-        self.__new_voyage = VoyageRepo()
+       #self.__new_voyage = VoyageRepo()
         self.__new_destination = Destination_service()
-        self.__new_aircraft = AircraftRepository()
+        #self.__new_aircraft = AircraftRepository()
         self.__new_aircraft = Aircraft_service()
+        self.__new_voyage = Voyage_service()
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
@@ -126,31 +129,77 @@ class MakeUI():
                         self.__new_destination.get_alldest()  # prentum út öll löndin svo user getur valið áfangastað
                         make_input = input("Veldu áfangastað: ")
                         print()
-                        chosen_dest = self.__new_destination.get_dest(make_input) # Sendum valið frá user í get_dest til að láta destinationið í listan sem heldur utan um allar upplýsingar um vinnuferð
-                        print("Áfangastaður: {}\nFlugvöllur: {}\nFlugtími: {}\nFjarlægð: {}\nTengiliður: {}\nNeyðarsímanúmer: {}".format(chosen_dest[1],chosen_dest[0], chosen_dest[2],chosen_dest[3],chosen_dest[4],chosen_dest[5]))
+                        user_chosen_dest = self.__new_destination.get_dest(make_input) # Sendum valið frá user í get_dest til að láta destinationið í listan sem heldur utan um allar upplýsingar um vinnuferð
+                        print("Áfangastaður: {}\nFlugvöllur: {}\nFlugtími: {}\nFjarlægð: {}\nTengiliður: {}\nNeyðarsímanúmer: {}".format(user_chosen_dest[1],user_chosen_dest[0], user_chosen_dest[2],user_chosen_dest[3],user_chosen_dest[4],user_chosen_dest[5]))
                         save_input = ""
                         if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
                             print("\nViltu velja þennan áfangastað \n'1' - Já: \n'2' - Nei: ")
                             save_input = input(str(self.USER_INPUT))
                             print()
                         if save_input == "1":
-                            chosen_destination = chosen_dest
-
+                            chosen_destination = self.__new_destination.get_dest(make_input)  #LYR  chosen_destination[0]
+                            chosen_destination = chosen_destination[0] # We only need the destination ID
+                            print(chosen_destination)
                     elif make_input == "2": # DATE/TIME
-                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá dags/tíma vinnuferðar"))/2)*" " +  "Nýskrá dags/tíma vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
-                        print("Skráðu dagsetningu vinnuferðar: ")
-                        year = input(int("Sláðu inn ár: "))
-                        month = input(int("Sláðu inn mánuð"))
-                        day = input(int("Sláðu inn dagsetningu"))
-                        hour = input(int("Sláðu inn klukkustund brottfarar: "))
-                        mint = input(int("Sláðu inn mínútu brottfarar: "))
-                        date = [year,month,day,hour,mint]
+                        if chosen_destination =="":  # To make sure that there is a chosend destination to find out all the dates and times 
+                            print("Veldu fyrst áfangarstað")
+                        else:
+                            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá dags/tíma vinnuferðar"))/2)*" " +  "Nýskrá dags/tíma vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
+                            print("Skráðu dagsetningu vinnuferðar: ")
+                            print()
+                            year = input("Sláðu inn ár: ")      #Input aa year 
+                            while year.isdigit() == False:     # if its not a number then let them try again
+                                print("Vinsamlegast skráðu ár!")
+                                year = input("Sláðu inn ár: ")
 
-                    
+                            month = input("Sláðu inn númer mánaðar")
+                            while month.isdigit() == False:
+                                print("Vinsamlegast skráðu númer mánaðar!")
+                                month = input("Sláðu inn númer mánaðar: ")
+
+                            day = input("Sláðu inn dagsetningu: ")
+                            while day.isdigit() == False:
+                                print("Vinsamlegast skráðu dagsettningu!")
+                                day = input("Sláðu inn dagsettningu: ")
+
+                            hour = input("Sláðu inn klukkustund brottfarar: ")
+                            while hour.isdigit() == False:
+                                print("Vinsamlegast skráðu klukkutíma!")
+                                hour = int(input("Sláðu inn klukkustund brottfarar: "))
+
+                            mint = input("Sláðu inn mínútu brottfarar: ")
+                            while mint.isdigit() == False:
+                                print("Vinsamlegast skráðu mínútur!")
+                                mint = int(input("Sláðu inn mínútu brottfarar: "))
+                            print()
+                            user_chosen_date = [year,month,day,hour,mint,0]
+                            depart_date = self.__new_voyage.add_date(user_chosen_date)   # dat1
+                            if depart_date == True:
+                                arrival_date = self.__new_voyage.get_arrival_time(chosen_destination,depart_date)  #date 2
+                                return_depart = self.__new_voyage.get_return_flight_time(chosen_destination, arrival_date)  #date3
+                                return_arrival = self.__new_voyage.get_arrival_time(chosen_destination,return_depart)  #date4
+                                print("Brottfarartími frá Íslandi:", datetime.datetime.strptime(depart_date, "%Y-%m-%dT%H:%M:%S"))
+                                print("Lendingartími á áfangarstað:",datetime.datetime.strptime(arrival_date, "%Y-%m-%dT%H:%M:%S"))
+                                print("Brottfarartími frá áfangarstað:",datetime.datetime.strptime(return_depart, "%Y-%m-%dT%H:%M:%S"))
+                                print("Lendingartími á Íslandi:", datetime.datetime.strptime(return_arrival, "%Y-%m-%dT%H:%M:%S"))
+                                save_input = ""
+                                if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                                    print(self.GO_BACK +"\n")
+                                    print("\nViltu vista dagsetningar \n'1' - Já: \n'2' - Nei: ")
+                                    save_input = input(str(self.USER_INPUT))
+                                    print()
+                                if save_input == "1":
+                                    pass
+                                    
+                                else:
+                                    make_input =="3"   # senda til baka 
+
+
+
                     elif make_input == "3":
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá flugvél vinnuferðar"))/2)*" " +  "Nýskrá flugvél vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
                         print(self.PICK +"\n")
-
+                        self.__new_voyage.get_avail_aircraft(depart_date,return_arrival)
                     
                     elif make_input =="4":
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )

@@ -1,4 +1,4 @@
-from class_employee import Employee
+from models.class_employee import Employee
 
 class flight_attendant(Employee):
     def __init__(self, empl_info_list):
