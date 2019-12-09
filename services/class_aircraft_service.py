@@ -23,5 +23,11 @@ class Aircraft_service():
             aircraft = self.__aircraftrepo.add_aircraft_type(self.air_str)
             return aircraft
     
-    def is_valid_aircraft(self, air_str):
-        return True 
+    def is_valid_aircraft(self, chosen_aircr):
+        self.chosen_aircr = chosen_aircr
+        aircraft_list = Aircraft_service().get_aircrafts()
+        for aircraft in aircraft_list:
+            if self.chosen_aircr == aircraft[0]:
+                return True
+        else:
+            return False
