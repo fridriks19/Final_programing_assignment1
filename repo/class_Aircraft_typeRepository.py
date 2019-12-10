@@ -42,7 +42,7 @@ class AircraftRepository:
             aircraft_list.append(line)
         return aircraft_list[1:]
 
-    def find_air_id(self, aircraft_name):  # We are seeing what the id is for the aircraft the user choice so we can find employees with licneces 
+    def find_air_id(self, aircraft_name):  # We are seeing what the id for the aircraft is from what the user chooses so we can find employees with licences.
         aircraft_str = ""
         open_file = open("./data/Aircraft.csv", "r")
         for line in open_file:
