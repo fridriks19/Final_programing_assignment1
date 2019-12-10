@@ -1,12 +1,14 @@
 #from models.class_aircraft import Aircraft
 
 class AircraftRepository:
+    """Data about Aircafts planeInsignia, planeTypeId, manufacturer, model, capacity"""
+
     def __init__(self, aircr_type_str =""):
         self.aircr_type_str = aircr_type_str
     
     def add_aircraft_type(self,add_airc_str):
         self.add_airc_str = add_airc_str
-        open_file = open("./data/AircraftType.csv", "a")
+        open_file = open("./data/Aircraft.csv", "a")
         open_file.write(self.add_airc_str + "\n")
         open_file.close()
         return "Flugvél vistuð"
@@ -42,7 +44,7 @@ class AircraftRepository:
             aircraft_list.append(line)
         return aircraft_list[1:]
 
-    def find_air_id(self, aircraft_name):  # We are seeing what the id is for the aircraft the user choice so we can find employees with licneces 
+    def find_air_id(self, aircraft_name):  # We are seeing what the id for the aircraft is from what the user chooses so we can find employees with licences.
         aircraft_str = ""
         open_file = open("./data/Aircraft.csv", "r")
         for line in open_file:

@@ -7,7 +7,7 @@ class Worktime_service:
 
     def __init__(self, work_date):
         self.work_date = work_date
-        self.voyage_list = VoyageRepo().get_voyage_list()
+        self.voyage_list = VoyageRepo().get_upc_voyage_list()
         self.crew_list = EmployeeRepository().get_allemployees_list()
     
     def is_working_list(self):
