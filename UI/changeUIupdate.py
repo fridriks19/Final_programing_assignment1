@@ -116,7 +116,8 @@ class ChangeUI():
         while change_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta áfangastað"))/2)*" " +  "Breyta áfangastað"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
-            self.__change_dest.get_alldest()   # prentar út listan af öllum löndunum
+            prnt_str, counter = self.__change_dest.get_alldest()   # prentar út listan af öllum löndunum
+            print(prnt_str)
             print(self.GO_BACK +"\n")
             change_input = input("Veldu áfangastað: ")      # nr á áfangastað 
             if change_input != "r":
