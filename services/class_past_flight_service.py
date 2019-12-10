@@ -36,4 +36,5 @@ class Past_flight_service:
                 return prnt_str
         return "Flug fannst ekki"
 
-print(Past_flight_service().get_pastflight("2019-11-28T06:25:00"))
+
+#print(Past_flight_service().get_pastflight("2019-11-28T06:25:00"))

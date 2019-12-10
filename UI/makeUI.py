@@ -163,7 +163,7 @@ class MakeUIupd():
             else:
                 print("Veldu áfangastað sem er í boði")
                 self.voyage_destination()
-        elif dest_input.isdigit() == True or int(dest_input) >= 1 or int(dest_input) <= int(dest_counter):   # or int(dest_input) == "r"
+        elif int(dest_input) >= 1 and int(dest_input) <= int(dest_counter):   # or int(dest_input) == "r"
             print()
             user_chosen_dest = self.__new_destination.get_dest(dest_input) # Sendum valið frá user í get_dest til að láta destinationið í listan sem heldur utan um allar upplýsingar um vinnuferð
             print("Áfangastaður: {}\nFlugvöllur: {}\nFlugtími: {}\nFjarlægð: {}\nTengiliður: {}\nNeyðarsímanúmer: {}".format(user_chosen_dest[1],user_chosen_dest[0], user_chosen_dest[2],user_chosen_dest[3],user_chosen_dest[4],user_chosen_dest[5]))
