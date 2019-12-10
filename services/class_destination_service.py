@@ -24,6 +24,10 @@ class Destination_service():
         if self.is_dest_valid_change(self.choice, self.change):
             destination_change = self.__destination_repo.change_dest(self.choice, self.change, self.dest)
             return destination_change
+    
+    def get_all_dest_list(self):
+        return self.__destination_repo.get_all_dest_list()
+
 
     def is_dest_valid(self, user_input):
         #safas

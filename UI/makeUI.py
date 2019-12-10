@@ -466,10 +466,12 @@ class MakeUIupd():
                 save_input = input(str(self.USER_INPUT))
                 print()
                 if save_input =="1":
-                    self.__new_voyage.add_flight_nums(self.depart_voyage_info[2])
+                    flight_nums = self.__new_voyage.add_flight_nums(self.depart_voyage_info[2])
+                    self.depart_voyage_info[0] = flight_nums[0]
+                    self.arriv_voyage_info[0] = flight_nums[1]
                     the_voyage_str = Voyage(self.depart_voyage_info, self.arriv_voyage_info) #turn the lists into to strings 
                     self.__new_voyage.add_voyage(str(the_voyage_str))
-                    
+                
                 else:
                     print("Vinnuferð ekki vistuð.")
                     self.voyage_menu()

@@ -4,6 +4,7 @@ from repo.class_FlightRepository import FlightRepository
 from services.class_upcoming_flight_service import Upcoming_flight_service
 from repo.class_Aircraft_typeRepository import AircraftRepository
 from repo.class_DestinationRepo import DestinationRepo
+from services.class_destination_service import Destination_service
 import datetime
 
 class Voyage_service:
