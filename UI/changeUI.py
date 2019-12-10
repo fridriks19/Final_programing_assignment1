@@ -85,15 +85,15 @@ class ChangeUI():
 ################################## VINNUFERÐ VALINN###########################################################
             if change_input == "2":
                 pass
-                while change_input != "r":
-                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta vinnuferð"))/2)*" " +  "Breyta vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
-                    print(self.PICK +"\n")
-                    print(self.GO_BACK +"\n")
-                    print("Áfangastaður: {}".format(Voyage()))
-                    print("Flugvél: {}".format(Voyage()))
-                    print("'2' - Dagsetning og tími: {}".format(Voyage()))
-                    print("'4' - Starfsmenn: {}".format(Voyage()))
-                    change_input = input(self.USER_INPUT).lower()
+                # while change_input != "r":
+                #     print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta vinnuferð"))/2)*" " +  "Breyta vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
+                #     print(self.PICK +"\n")
+                #     print(self.GO_BACK +"\n")
+                #     print("Áfangastaður: {}".format(Voyage()))
+                #     print("Flugvél: {}".format(Voyage()))
+                #     print("'2' - Dagsetning og tími: {}".format(Voyage()))
+                #     print("'4' - Starfsmenn: {}".format(Voyage()))
+                #     change_input = input(self.USER_INPUT).lower()
 ################################## Áfangastað VALINN###########################################################               
             if change_input == "3":
                 while change_input != "r":
