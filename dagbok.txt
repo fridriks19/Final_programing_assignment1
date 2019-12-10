@@ -82,4 +82,5 @@ Davíð og Friðrik voru að vinna í vinnuferð UI.
  
 
 10. desember:
-Davíð og Friðrik halda áfram með UI. 
+Davíð og Friðrik halda áfram með UI. Eggert var að vinna í Voyage klasa og Héðinn var að vinna í að commenta og fara yfir kóðan. 
+ 
