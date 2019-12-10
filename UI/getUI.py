@@ -1,15 +1,11 @@
-from repo.class_EmployeeRepository import EmployeeRepository
-from repo.class_Aircraft_typeRepository import AircraftRepository
-from repo.class_FlightRepository import FlightRepository
 from models.class_pilot import pilot
 from models.class_flight_attendant import flight_attendant
 from services.class_employee_service import Employee_service
-from repo.class_DestinationRepo import DestinationRepo
-from repo.class_voyageRepo import VoyageRepo
 from models.class_destination import Destination
 from services.class_destination_service import Destination_service
 from models.class_employee import Employee
 from services.class_voyage_service import Voyage_service
+from services.class_aircraft_service import
 
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
@@ -170,7 +166,7 @@ class GetUI():
                 print("Vinsamlegast veldu eitt af eftirfarandi!")
                 self.voyage_menu()
             if get_input =="1":
-                pass
+                
             if get_input =="2":
                 pass
    
