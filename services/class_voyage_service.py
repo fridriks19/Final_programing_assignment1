@@ -91,16 +91,35 @@ class Voyage_service:
     def get_all_voyages(self):
         return self.voyage_repo.get_voyage_list()
 
-    # def add_flight_num(self, destination):
-    #     flights_list = self.flight_repo.get_upcomingflights()
-    #     current_flight_num = flights_list[-1][0]
-    #     current_flight_num = current_flight_num.split("A")
-        
-    #     for dest in self.dest_list:
-    #         if dest[0] == destination:
-    #     counter = int(current_flight_num[1]) + 1
-    #     printed_flight_num = "NA{0:0=3d}".format(counter)
-    #     return printed_flight_num
+    def add_flight_nums(self, destination):
+        self.destination = destination
+        destination_list = Destination_service().get_all_dest_list()
+        for dest in destination_list:
+            if dest[0] == self.destination:
+                dest_num = destination_list.index(dest) + 1
+        flights_list = self.flight_repo.get_upcomingflights()
+        flights_list = flights_list[::-1]
+        for flight in flights_list:
+            if flight[1] == self.destination:
+                current_flight_num = flight[0]
+                break
+        current_flight_num = list(current_flight_num)
+        if current_flight_num[2] == "0":
+            if current_flight_num[3] == str(dest_num):
+                current_flight_num[-1] = int(current_flight_num[-1]) + 1
+                next_flight = current_flight_num[:]
+                current_flight_num[-1] = str(current_flight_num[-1])
+                next_flight[-1] = int(next_flight[-1]) + 1
+                next_flight[-1] = str(next_flight[-1])
+                current_flight_num = "".join(current_flight_num)
+                next_flight = "".join(next_flight)
+                both_flight_nums = [current_flight_num, next_flight]
+                return both_flight_nums
+        else:
+            current_flight_num = "NA0"+str(dest_num)+"0"
+            next_flight = "NA0"+str(dest_num)+"1"
+            both_flight_nums = [current_flight_num, next_flight]
+        return both_flight_nums
     
     def get_avail_aircraft(self, date1, date2):
         self.date1 = date1
