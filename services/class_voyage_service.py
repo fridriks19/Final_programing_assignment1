@@ -1,7 +1,6 @@
 from repo.class_voyageRepo import VoyageRepo
 from models.class_flight import Flight
 from repo.class_FlightRepository import FlightRepository
-from services.class_aircraft_service import Aircraft_service
 from services.class_upcoming_flight_service import Upcoming_flight_service
 from repo.class_Aircraft_typeRepository import AircraftRepository
 from repo.class_DestinationRepo import DestinationRepo
@@ -13,7 +12,7 @@ class Voyage_service:
         self.voyage_repo = VoyageRepo()
         self.flight_repo = FlightRepository()
         self.dest_list = DestinationRepo().get_all_dest_list()
-        self.aircraft_service = Aircraft_service()
+        self.aircraft_repo = AircraftRepository()
 
     def add_date(self, date_list):
         self.date_list = date_list
@@ -109,7 +108,7 @@ class Voyage_service:
         self.date1 = self.date1.split("T")
         self.date2 = self.date2.split("T")
         avail_list = []
-        aircraft_list = self.aircraft_service.get_aircrafts()
+        aircraft_list = self.aircraft_repo.get_aircrafts()
         upc_flights_list = FlightRepository().get_upcomingflights()
         for aircraft in aircraft_list:
             for flight in upc_flights_list:
@@ -163,3 +162,10 @@ class Voyage_service:
         return True
 
 
+    def prnt_str(self,empl_list):
+        print_str = ""
+        counter = 1
+        for employee in empl_list:
+            print_str +=  "'{}' - Kt: {}, {}.\n".format(counter, employee[0], employee[1])
+            counter += 1
+        return print_str
