@@ -1,6 +1,8 @@
 from models.class_destination import Destination
 
 class DestinationRepo(Destination):
+    """Data about Destination"""
+
     def __init__(self, dest_str=""):
         self.dest_str = dest_str
         self.dest_list = [] 
