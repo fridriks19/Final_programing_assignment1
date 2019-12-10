@@ -60,7 +60,8 @@ class ChangeUI():
         if employee_ssn_input != "r":
             empl_info_lst = self.__change_employee.get_employee(employee_ssn_input)
             if empl_info_lst != False:
-                while change_employee_input != "r" :    
+                while change_employee_input != "r" :
+                    empl_info_lst = self.__change_employee.get_employee(employee_ssn_input)    
                     info_output = Employee(empl_info_lst)  
                     print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta starfsmanni"))/2)*" " +  "Breyta starfsmanni"  +   "\n" + self.BORDER * self.WITDH )
                     print(self.PICK +"\n")
