@@ -1,4 +1,6 @@
-class Destination():  """xid,destination,flighttime,distance,contact,emergencyphonenumber"""
+class Destination():  
+    """Destination has id,destination,flighttime,distance,contact,emergencyphonenumber"""
+
     def __init__(self, destination_info_list):
         self.destination_info_list = destination_info_list
         self.__destinationId = self.destination_info_list[0]

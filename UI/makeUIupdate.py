@@ -7,6 +7,7 @@ from services.class_aircraft_service import Aircraft_service
 from services.class_voyage_service import Voyage_service
 from services.class_voyage_crew_service import Voyage_crew_service
 from services.class_aircraft_service import Aircraft_service
+from models.class_voyage import Voyage
 import datetime
 
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
@@ -117,8 +118,8 @@ class MakeUIupd():
 ###################VINNUFERÐ VALIN ################################################################################################################  
     def voyage_menu(self):
         self.chosen_destination = ""
-        self.depart_voyage_info = [0,"KEF",2,3,4,5,"","","","",""]   # Höfum autt("") fyrir starfsmenn svo hægt sé að fylla inn í seinna 
-        self.arriv_voyage_info = [0,1,"KEF",3,4,5,"","","","",""]   # Vitum að öll flug departa frá og arriva at KEF
+        self.depart_voyage_info = ["flightnum1","KEF",2,3,4,5,"","","",""," "]   # Höfum autt("") fyrir starfsmenn svo hægt sé að fylla inn í seinna 
+        self.arriv_voyage_info = ["flightnum2",1,"KEF",3,4,5,"","","",""," "]   # Vitum að öll flug departa frá og arriva at KEF
         make_input = ""
         while make_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
@@ -266,54 +267,102 @@ class MakeUIupd():
                     air_choice = "r"
 
     def voyage_employees(self):
-        empl_pick =""
-        while empl_pick != "r":
-            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
-            print(self.PICK +"\n")
-            print("'1' - Veldu flugstjóra")
-            print("'2' - Veldu aðstoðarflugmann")
-            print("'3' - Veldu yfir flugþjón")
-            print("'4' - Veldu flugþjón 2")
-            print("'5' - Veldu flugþjón 3")
-            print(self.GO_BACK + "\n")
-            #We use the datetime to get rid of the T so we can send a normal date to the service
-            empl_pick = input(self.PICK)
-            if empl_pick == "1":
-                capt_list = Voyage_crew_service(self.depart_voyage_info[3],self.depart_voyage_info[5]).get_captain()  # Send the departure date and the aircraft choice to get the pilots that are available on that date and have a liscence on that plane 
-                print(self.__new_voyage.prnt_str(capt_list))
-                empl_pick = input(self.PICK) 
-                print()
-                while empl_pick.isdigit() == False or int(empl_pick) > len(capt_list) or int(empl_pick) < 1:  # the inputed integer has to be in the capt list range
-                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
-                    print(self.PICK +"\n")
-                    print("Veldu flugstjóra úr listanum!")
+        if self.chosen_destination =="":  # To make sure that there is a chosend destination to find out all the dates and times 
+            print("Veldu fyrst áfangarstað")
+        if self.arriv_voyage_info[4] == 4:
+            print("Skráðu fyrst dagsetningu brottfarar.")
+        if self.arriv_voyage_info[5] == 4:
+            print("Skráðu fyrst flugvél vinnuferðar")
+        else:
+            empl_pick =""
+            while empl_pick != "r":
+                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
+                print(self.PICK +"\n")
+                print("'1' - Veldu flugstjóra")
+                print("'2' - Veldu aðstoðarflugmann")
+                print("'3' - Veldu yfir flugþjón")
+                print("'4' - Veldu flugþjón 2")
+                print("'5' - Veldu flugþjón 3")
+                print(self.GO_BACK + "\n")
+                #We use the datetime to get rid of the T so we can send a normal date to the service
+                empl_pick = input(self.PICK)
+                if empl_pick == "1":
+                    capt_list = Voyage_crew_service(self.depart_voyage_info[3],self.depart_voyage_info[5]).get_captain()  # Send the departure date and the aircraft choice to get the pilots that are available on that date and have a liscence on that plane 
                     print(self.__new_voyage.prnt_str(capt_list))
                     empl_pick = input(self.PICK) 
+                    print()
+                    while empl_pick.isdigit() == False or int(empl_pick) > len(capt_list) or int(empl_pick) < 1:  # the inputed integer has to be in the capt list range
+                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
+                        print(self.PICK +"\n")
+                        print("Veldu flugstjóra úr listanum!")
+                        print(self.__new_voyage.prnt_str(capt_list))
+                        empl_pick = input(self.PICK) 
 
-                else: 
-                    save_input = ""
-                    empl_pick =int(empl_pick)
-                    if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-                        print(self.GO_BACK +"\n")
-                        print("Viltu vista flugstjóran? \n'1' - Já: \n'2' - Nei: ")
-                        save_input = input(str(self.USER_INPUT))
-                        print()
-                        if save_input =="1":
-                            empl_pick = int(empl_pick)-1  # þar sem staðsetningar í lista telja frá 0 og upp ekki 1 og upp
-                            self.depart_voyage_info[6] = capt_list[empl_pick][0]
-                            self.arriv_voyage_info[6] = capt_list[empl_pick][0]
-                            print("Flugstjóri vistaður")
+                    else: 
+                        save_input = ""
+                        empl_pick =int(empl_pick)
+                        if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                            print(self.GO_BACK +"\n")
+                            print("Viltu vista flugstjóran? \n'1' - Já: \n'2' - Nei: ")
+                            save_input = input(str(self.USER_INPUT))
                             print()
-                        else:
-                            empl_pick = "r"
-                            print("Flugstjóri ekki vistaður")
-                        
-    def save_voyage(self):   
+                            if save_input =="1":
+                                empl_pick = int(empl_pick)-1  # þar sem staðsetningar í lista telja frá 0 og upp ekki 1 og upp
+                                self.depart_voyage_info[6] = capt_list[empl_pick][0]
+                                self.arriv_voyage_info[6] = capt_list[empl_pick][0]
+                                print("Flugstjóri vistaður")
+                                print()
+                            else:
+                                empl_pick = "r"
+                                print("Flugstjóri ekki vistaður")
+
+                if empl_pick == "2":
+                    copilot_list = Voyage_crew_service(self.depart_voyage_info[3],self.depart_voyage_info[5]).get_copilot()
+                    print(self.__new_voyage.prnt_str(copilot_list))
+                    empl_pick = input(self.PICK) 
+                    print()
+                    while empl_pick.isdigit() == False or int(empl_pick) > len(copilot_list) or int(empl_pick) < 1:  # the inputed integer has to be in the capt list range
+                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
+                        print(self.PICK +"\n")
+                        print("Veldu aðstoðarflugmann úr listanum!")
+                        print(self.__new_voyage.prnt_str(copilot_list))
+                        empl_pick = input(self.PICK) 
+
+                    else: 
+                        save_input = ""
+                        empl_pick =int(empl_pick)
+                        if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                            print(self.GO_BACK +"\n")
+                            print("Viltu vista flugstjóran? \n'1' - Já: \n'2' - Nei: ")
+                            save_input = input(str(self.USER_INPUT))
+                            print()
+                            if save_input =="1":
+                                empl_pick = int(empl_pick)-1  # þar sem staðsetningar í lista telja frá 0 og upp ekki 1 og upp
+                                self.depart_voyage_info[7] = copilot_list[empl_pick][0]
+                                self.arriv_voyage_info[7] = copilot_list[empl_pick][0]
+                                print("Aðstoðarflugmaður vistaður")
+                                print()
+                            else:
+                                empl_pick = "r"
+                                print("Aðstoðarflugmaður ekki vistaður")
+                if empl_pick == "3":
+                    pass
+                if empl_pick == "4":
+                    pass
+                if empl_pick == "5":
+                    pass         
+
+    def save_voyage(self):
+        #First the user has to pick a destination, date and aricraft so that he can save the voyage 
+        if self.arriv_voyage_info[5] == 4:
+            print("Skráðu fyrst flugvél vinnuferðar")   
         if self.arriv_voyage_info[4] == 4:
             print("Skráðu fyrst dagsetningu brottfarar.")
         if self.chosen_destination =="":  # To make sure that there is a chosend destination to find out all the dates and times 
             print("Veldu fyrst áfangarstað")
         else:
+            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
+            print(self.PICK +"\n")
             print("Viltu vista vinnuferð með eftirfarandi upplýsingum ")
             print()
             print("Brottfarartími frá Íslandi: {}".format(self.depart_voyage_info[1]))
@@ -334,7 +383,9 @@ class MakeUIupd():
                 save_input = input(str(self.USER_INPUT))
                 print()
                 if save_input =="1":
-                    self.__new_voyage.add_voyage(self.depart_voyage_info, self.arriv_voyage_info)
+                    the_voyage_str = Voyage(self.depart_voyage_info, self.arriv_voyage_info) #turn the lists into to strings 
+                    self.__new_voyage.add_voyage(str(the_voyage_str))
+                    
                 else:
                     print("Flugstjóri ekki vistaður")
                     self.voyage_menu()

@@ -81,23 +81,26 @@ class ChangeUI():
                 print()
                 self.change_employee_input = input(self.USER_INPUT)   # Input what attribute you whant to change 
                 print()
-                if self.change_employee_input != "r":   # Go back if you dont whant to edit what you picked
-                    print(self.GO_BACK +"\n")
-                    the_change = input("Skráðu breytingu: ")
-                    if the_change != "r":
-                        save_input = ""
-                        if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-                            print("\nViltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
-                            save_input = input(str(self.USER_INPUT))
-                            print()
-                        if save_input == "1":  
-                            print(self.__change_employee.change_employee(self.change_employee_input, the_change, employee_ssn_input))
+                if 5>= int(self.change_employee_input) >= 1:
+                    if self.change_employee_input != "r":   # Go back if you dont whant to edit what you picked
+                        print(self.GO_BACK +"\n")
+                        the_change = input("Skráðu breytingu: ")
+                        if the_change != "r":
+                            save_input = ""
+                            if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                                print("\nViltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
+                                save_input = input(str(self.USER_INPUT))
+                                print()
+                            if save_input == "1":  
+                                print(self.__change_employee.change_employee(self.change_employee_input, the_change, employee_ssn_input))
+                            else:
+                                self.change_menu()
                     else:
-                        self.change_menu()   #til að fara til baka úr loopunni 
+                        self.change_menu()
                 else:
-                    self.change_menu()
-            else:
-                self.change_menu()
+                    print("Skipun ekki til. Vinsmlegast reyndu aftur!")
+                    self.employee_menu()
+                        
 ################################## VINNUFERÐ VALINN###########################################################
     def voyage_menu(self):
         pass
