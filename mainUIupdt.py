@@ -1,6 +1,6 @@
-from getuiupdate import GetUI
+from UI.makeUIupdate import MakeUIupd
 
 def main():
-    ui = GetUI()
+    ui = MakeUIupd()
     #ui.main_menu()
 main()

@@ -128,6 +128,7 @@ class MakeUIupd():
             print("'2' - Dagsetning og tími")
             print("'3' - Flugvél")
             print("'4' - Starfsmenn")
+            print("'5' - Vista vinnuferðina, án eða með starfsmönnum")
             print(self.chosen_destination)
             make_input = input(self.USER_INPUT).lower()
             if make_input == "1":
@@ -138,7 +139,11 @@ class MakeUIupd():
                 self.voyage_aircraft()
             if make_input == "4":
                 self.voyage_employees()
-            else:
+            if make_input == "5":
+                self.save_voyage()
+            if make_input == "r":
+                make_input = "r"
+            if make_input != "1" or make_input != "2" or make_input != "3" or make_input != "4" or make_input != "r":
                 print("Vinsamlegast veldu eitt af eftifarandi valmöguleikum!")
 
     def voyage_destination(self):
@@ -168,7 +173,7 @@ class MakeUIupd():
         if save_input == "1":
             self.chosen_destination = self.__new_destination.get_dest(dest_input)  #LYR  self.chosen_destination[0]
             self.chosen_destination = self.chosen_destination[0] # We only need the destination ID
-            print(self.chosen_destination)
+            self.chosen_destination
 
     def voyage_date(self):
         if self.chosen_destination =="":  # To make sure that there is a chosend destination to find out all the dates and times 
@@ -267,6 +272,10 @@ class MakeUIupd():
             print(self.PICK +"\n")
             print("'1' - Veldu flugstjóra")
             print("'2' - Veldu aðstoðarflugmann")
+            print("'3' - Veldu yfir flugþjón")
+            print("'4' - Veldu flugþjón 2")
+            print("'5' - Veldu flugþjón 3")
+            print(self.GO_BACK + "\n")
             #We use the datetime to get rid of the T so we can send a normal date to the service
             empl_pick = input(self.PICK)
             if empl_pick == "1":
@@ -290,6 +299,7 @@ class MakeUIupd():
                         save_input = input(str(self.USER_INPUT))
                         print()
                         if save_input =="1":
+                            empl_pick = int(empl_pick)-1  # þar sem staðsetningar í lista telja frá 0 og upp ekki 1 og upp
                             self.depart_voyage_info[6] = capt_list[empl_pick][0]
                             self.arriv_voyage_info[6] = capt_list[empl_pick][0]
                             print("Flugstjóri vistaður")
@@ -298,8 +308,36 @@ class MakeUIupd():
                             empl_pick = "r"
                             print("Flugstjóri ekki vistaður")
                         
-                
-
+    def save_voyage(self):   
+        if self.arriv_voyage_info[4] == 4:
+            print("Skráðu fyrst dagsetningu brottfarar.")
+        if self.chosen_destination =="":  # To make sure that there is a chosend destination to find out all the dates and times 
+            print("Veldu fyrst áfangarstað")
+        else:
+            print("Viltu vista vinnuferð með eftirfarandi upplýsingum ")
+            print()
+            print("Brottfarartími frá Íslandi: {}".format(self.depart_voyage_info[1]))
+            print("Lendingartími á áfangarstað: {}".format(self.depart_voyage_info[2]))
+            print("Brottfarartími frá áfangarstað: {}".format(self.arriv_voyage_info[3]))
+            print("Lendingartími á Íslandi: {}".format(self.arriv_voyage_info[4]))
+            print("Flugvél: {}".format(self.depart_voyage_info[5]))
+            print("Flugstjóri: {}".format(self.depart_voyage_info[6]))
+            print("Aðstoðarflugmaður: {}".format(self.depart_voyage_info[7]))
+            print("Yfir flugþjónn: {}".format(self.depart_voyage_info[8]))
+            print("Flugþjónn: {}".format(self.depart_voyage_info[9]))
+            print("Flugþjónn 3: {}".format(self.depart_voyage_info[10]))
+            print()
+            save_input = ""
+            if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                print(self.GO_BACK +"\n")
+                print("Viltu vista Vinnuferð \n'1' - Já: \n'2' - Nei: ")
+                save_input = input(str(self.USER_INPUT))
+                print()
+                if save_input =="1":
+                    self.__new_voyage.add_voyage(self.depart_voyage_info, self.arriv_voyage_info)
+                else:
+                    print("Flugstjóri ekki vistaður")
+                    self.voyage_menu()
     
     
 
