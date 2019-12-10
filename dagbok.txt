@@ -8,26 +8,26 @@
 25. nóvember: 
 Samræður um verkefnið og hvernig við viljum framkvæma það. Planið er að byrja á notendahópum, greiningu á þeim, 
 use cases og byrja á klasariti og mögulega stöðuriti. Allir voru að hjálpa öllum, enginn sérstök verkefni. 
-Við komumst aðeins á stað með klasaritið og gerðu allir nokkrar kröfur í kröfulistan. 
+Við komumst aðeins af stað með klasaritið og gerðu allir nokkrar kröfur í kröfulistann. 
 
 
 26. nóvember: 
 Í dag ætlum við að halda áfram með klasa- og stöðurit, Friðrik og Davíð klára klasaritið á meðan 
-Héðinn og Eggert klára stöðuritið. Einnig ætlum við að vinna í use caseunum og notkunartilvinum. 
-Friðrik gerði grunnmyndir af nokkurm stöðuritum út frá virknikröfunum sem á eftir að klára og vanda betur, Davíð og Héðinn löguðu 
-og bættu við Notkunartilvikum og kröfum í kröfulistan, Eggert vann að klasaritinu og erum við í smá vandræðum með að setja 
+Héðinn og Eggert klára stöðuritið. Einnig ætlum við að vinna í notkunartilvikunum. 
+Friðrik gerði grunnmyndir af nokkrum stöðuritum út frá virknikröfunum sem á eftir að klára og vanda betur, Davíð og Héðinn löguðu 
+og bættu við notkunartilvikum og kröfum í kröfulistann, Eggert vann að klasaritinu og erum við í smá vandræðum með að setja 
 þau almennilega upp í 3-laga hönnun eins og kom fram í fyrirlestrinum. Byrjuðum að tala um og skissa hvernig gagnagrunnurinn
 á að líta út.
 
 
 27. nóvember:
-Planið er að Friðrik og Davíð ætla að gera góða wireframe mynd sem ætti lýta út eins og endaloks vinnan. Eggert ætlar að reyna að gera 3- laga hönnun 
-skv því sem Gylfi sagði á piazza. Héðinn ætlar að vinna í að setja upp skýrsluna. 
-Eggert komst langleiðinna með klasaritið. Wireframeið/TUI-ið er nánast tilbúið og á bara eftir að prófa það. Skýrslan 
+Planið er að Friðrik og Davíð ætla að gera góða wireframe myndir sem ættu að lýta út eins og endanleg útkoma af forritinu. 
+Eggert ætlar að reyna að gera 3- laga hönnun skv því sem Gylfi sagði á piazza. Héðinn ætlar að vinna í að setja upp skýrsluna. 
+Eggert komst langleiðina með klasaritið. Wireframeið/TUI-ið er nánast tilbúið og á bara eftir að prófa það. Skýrslan 
 er byrjuð að lýta vel út. 
 
 
-28. nNóvember:
+28. nóvember:
 Planið í dag er að reyna að klára sem mest af verkefninu. Friðrik og Davíð ætla að reyna að klára happy path, Héðinn ætlar að fara í 
 innganginn, og svo ætlum við allir að fara saman yfir stöðu- og klasaritin, klára þau og fínpússa. Eggert fer yfir use case til að samræma 
 við happy path. Kláruðum lang flest, eigum eftir að setja inn uppfærð use case og klasaritið. Ætlum heim og klára rest.
@@ -78,5 +78,9 @@ Davíð byrjaði að vinna í vinnuferð klasa og hvaða kröfur eru í klasanum
 
 9. desember:
 Eggert og Héðinn byrjuðu að vinna í vinnuferð "repository klasanum".
-Davíð og Friðrik voru að vinna í vinnuferð UI. 
+Davíð og Friðrik voru að vinna í vinnuferð UI.
+ 
 
+10. desember:
+Davíð og Friðrik halda áfram með UI. Eggert var að vinna í Voyage klasa og Héðinn var að vinna í að commenta og fara yfir kóðan. 
+ 
