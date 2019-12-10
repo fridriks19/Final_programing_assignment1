@@ -22,7 +22,7 @@ class GetUI():
         self.GO_BACK = "'r' - Til baka"
         self.PICK = "Veldu skipun:"
         self.USER_INPUT = ("Valin skipun: ")
-        self.get_menu()
+        # self.get_menu()
         
         
 
@@ -155,7 +155,28 @@ class GetUI():
                     
 
     def voyage_menu(self):
-        pass
+        get_input = ""
+        while get_input != "r":
+            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja vinnuferðir"))/2)*" " +  "Sækja vinnuferðir"  +   "\n" + self.BORDER * self.WITDH )
+            print(self.PICK +"\n")
+            print(self.GO_BACK +"\n")
+            print("'1' - Til að sjá gamlar vinnuferðir")
+            print("'2' - Til að sjá áætlaðir vinnuferðir")
+            get_input = input(self.PICK)
+            if get_input != "1" or get_input != "2" or get_input != "r":
+                print("Vinsamlegast veldu eitt af eftirfarandi!")
+                self.voyage_menu()
+            if get_input =="1":
+                pass
+            if get_input =="2":
+                pass
+
+                
+                
 
     def aircraft_menu(self):
-        pass
+        get_input = ""
+        while get_input != "r":
+            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja flugvélar"))/2)*" " +  "Sækja flugvélar"  +   "\n" + self.BORDER * self.WITDH )
+            print(self.PICK +"\n")
+            print(self.GO_BACK +"\n")

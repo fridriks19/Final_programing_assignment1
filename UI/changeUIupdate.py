@@ -24,7 +24,7 @@ class ChangeUI():
         self.GO_BACK = "'r' - Til baka"
         self.PICK = "Veldu skipun:"
         self.USER_INPUT = ("Valin skipun: ")
-        self.change_menu()
+        # self.change_menu()
 
 
     ###########################################################################
@@ -151,3 +151,5 @@ class ChangeUI():
                     self.change_menu()
             else:
                 self.change_menu()
+        else:
+            self.change_menu()
