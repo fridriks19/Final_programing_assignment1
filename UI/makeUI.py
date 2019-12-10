@@ -157,26 +157,25 @@ class MakeUIupd():
         all_dest_str, dest_counter = self.__new_destination.get_alldest()  # prentum út öll löndin svo user getur valið áfangastað
         print(all_dest_str)
         dest_input = input(self.PICK)
-        while dest_input.isdigit() == False or dest_input =="r" or int(dest_input) < 1 or int(dest_input) > int(dest_counter):   # or int(dest_input) == "r"
-            if dest_input == "r":
-                    self.make_menu()
-            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
-            print(self.PICK +"\n")
-            print("Vinsamlegast veldu leyfilegan áfangastað!")
-            print(all_dest_str)
-            dest_input = input(self.PICK)
-        print()
-        user_chosen_dest = self.__new_destination.get_dest(dest_input) # Sendum valið frá user í get_dest til að láta destinationið í listan sem heldur utan um allar upplýsingar um vinnuferð
-        print("Áfangastaður: {}\nFlugvöllur: {}\nFlugtími: {}\nFjarlægð: {}\nTengiliður: {}\nNeyðarsímanúmer: {}".format(user_chosen_dest[1],user_chosen_dest[0], user_chosen_dest[2],user_chosen_dest[3],user_chosen_dest[4],user_chosen_dest[5]))
-        save_input = ""
-        if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-            print("\nViltu velja þennan áfangastað \n'1' - Já: \n'2' - Nei: ")
-            save_input = input(str(self.USER_INPUT))
+        if dest_input.isdigit() == False:  # if the user doesnt input a number then send him back
+            if dest_input =="r":
+                pass
+            else:
+                print("Veldu áfangastað sem er í boði")
+                self.voyage_destination()
+        elif dest_input.isdigit() == True or int(dest_input) >= 1 or int(dest_input) <= int(dest_counter):   # or int(dest_input) == "r"
             print()
-        if save_input == "1":
-            self.chosen_destination = self.__new_destination.get_dest(dest_input)  #LYR  self.chosen_destination[0]
-            self.chosen_destination = self.chosen_destination[0] # We only need the destination ID
-            self.chosen_destination
+            user_chosen_dest = self.__new_destination.get_dest(dest_input) # Sendum valið frá user í get_dest til að láta destinationið í listan sem heldur utan um allar upplýsingar um vinnuferð
+            print("Áfangastaður: {}\nFlugvöllur: {}\nFlugtími: {}\nFjarlægð: {}\nTengiliður: {}\nNeyðarsímanúmer: {}".format(user_chosen_dest[1],user_chosen_dest[0], user_chosen_dest[2],user_chosen_dest[3],user_chosen_dest[4],user_chosen_dest[5]))
+            save_input = ""
+            if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                print("\nViltu velja þennan áfangastað \n'1' - Já: \n'2' - Nei: ")
+                save_input = input(str(self.USER_INPUT))
+                print()
+            if save_input == "1":
+                self.chosen_destination = self.__new_destination.get_dest(dest_input)  #LYR  self.chosen_destination[0]
+                self.chosen_destination = self.chosen_destination[0] # We only need the destination ID
+                self.chosen_destination
 
     def voyage_date(self):
         if self.chosen_destination =="":  # To make sure that there is a chosend destination to find out all the dates and times 
