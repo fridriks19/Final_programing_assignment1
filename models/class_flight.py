@@ -17,6 +17,7 @@ class Flight():
     def __str__(self):
         prnt_str = ""
         for item in self.flight_info_list:
+            item = str(item)
             if self.flight_info_list.index(item) == 10:
                 prnt_str += item
             else:

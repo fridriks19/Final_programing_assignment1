@@ -1,8 +1,8 @@
-from class_flight import Flight
+from models.class_flight import Flight
 
 class Voyage(Flight):
 
-    def __init__(self, departing_flight_list, arriving_flight):
+    def __init__(self, departing_flight_list, arriving_flight_list):
         self.departing_flight_list = departing_flight_list
         self.arriving_flight_list = arriving_flight_list
         self.departing_flight = Flight(self.departing_flight_list)
