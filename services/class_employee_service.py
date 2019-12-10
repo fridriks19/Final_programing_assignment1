@@ -25,9 +25,8 @@ class Employee_service():
 
     def get_employee(self, ssn):
         self.ssn = ssn
-        if self.is_valid_employee(self.ssn):
-            empl_info = self.__employee_repo.get_employee(self.ssn)
-            return empl_info
+        empl_info = self.__employee_repo.get_employee(self.ssn)
+        return empl_info
     
     def get_allemployees(self):
         return self.__employee_repo.get_allemployees()

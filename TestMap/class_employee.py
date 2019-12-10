@@ -1,6 +1,6 @@
 
 class Employee:
-
+    """Employee has ssn, name, role, rank, licence, address, phone"""
     def __init__(self, empl_info_list):
         #self.stm_dict = {}
         self.empl_info_list = empl_info_list

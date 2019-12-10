@@ -3,7 +3,6 @@ from models.class_flight import Flight
 from repo.class_FlightRepository import FlightRepository
 from services.class_upcoming_flight_service import Upcoming_flight_service
 from repo.class_Aircraft_typeRepository import AircraftRepository
-from repo.class_DestinationRepo import DestinationRepo
 from services.class_destination_service import Destination_service
 import datetime
 
@@ -11,8 +10,8 @@ class Voyage_service:
 
     def __init__(self):
         self.voyage_repo = VoyageRepo()
-        self.flight_repo = FlightRepository()
-        self.dest_list = DestinationRepo().get_all_dest_list()
+        self.flights = FlightRepository()
+        self.dest_list = Destination_service().get_all_dest_list()
         self.aircraft_repo = AircraftRepository()
 
     def add_date(self, date_list):
@@ -53,7 +52,7 @@ class Voyage_service:
         self.voyage_str = voyage_str
         # Checks for valid input before sending to the repository
         if self.is_valid_voyage(voyage_str):
-            self.voyage_repo.add_voyage(voyage_str)
+            self.flights.add_voyage(voyage_str)
 
     def get_voyage(self, voyage_dep, voyage_arr):
         self.voyage_dep = voyage_dep
@@ -98,7 +97,7 @@ class Voyage_service:
         for dest in destination_list:
             if dest[0] == self.destination:
                 dest_num = destination_list.index(dest) + 1
-        flights_list = self.flight_repo.get_upcomingflights()
+        flights_list = self.flights.get_upcomingflights_list()
         flights_list = flights_list[::-1]
         for flight in flights_list:
             if flight[1] == self.destination:

@@ -9,6 +9,10 @@ class Upcoming_flight_service:
 
     def get_all_upcomingflights(self):
         return none
+
+    def add_upc_flight(self, flight_str):
+        self.flight_str = flight_str
+        return FlightRepository().add_upcomingflight(self.flight_str)
     
     def get_upcomingflights(self, date_1, date_2):
         self.date_1 = date_1
@@ -29,6 +33,9 @@ class Upcoming_flight_service:
             prnt_str += "Flug: {}\nFrá: {}\nTil: {}\nDags: {}\n\n".format(flight[0], flight[1], flight[2], flight_time)
         return prnt_str
     
+    def get_upcomingflights_list(self):
+        return FlightRepository().get_upcomingflights()
+
     def get_upcomingflight(self, upc_date):
         self.upc_date = upc_date
         for flight in self.upcoming_list:

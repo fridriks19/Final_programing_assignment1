@@ -7,12 +7,15 @@ class Worktime_service:
 
     def __init__(self, work_date):
         self.work_date = work_date
-        self.voyage_list = VoyageRepo().get_voyage_list()
+        self.work_date = self.work_date.split("T")
+        self.work_date = self.work_date[0]
+        self.flight_list = FlightRepository().get_upcomingflights()
         self.crew_list = EmployeeRepository().get_allemployees_list()
     
     def is_working_list(self):
         empl_list = []
-        for flight in self.voyage_list[1:]:
+        print(self.work_date)
+        for flight in self.flight_list[1:]:
             flight[3] = flight[3].split("T")
             if flight[3][0] == self.work_date:
                 for employee in flight[6:]:
