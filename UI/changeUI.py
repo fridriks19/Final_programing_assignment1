@@ -115,45 +115,45 @@ class ChangeUI():
     #         change_input = input(self.USER_INPUT).lower()
 ################################## Áfangastað VALINN###########################################################               
     def destination_menu(self):
-        change_input = ""
-        while change_input != "r":
+    
+        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta áfangastað"))/2)*" " +  "Breyta áfangastað"  +   "\n" + self.BORDER * self.WITDH )
+        print(self.PICK +"\n")
+        prnt_str, counter = self.__change_dest.get_alldest()   # prentar út listan af öllum löndunum
+        print(prnt_str)
+        print(self.GO_BACK +"\n")
+        change_input = input("Veldu áfangastað: ")      # nr á áfangastað 
+        if change_input != "r":
+            print()
+            chosen_dest = self.__change_dest.get_dest(change_input) #tökum þá tölu sem notandi valdi og sendum í DestinationRepo og þar í get_dest fallið 
+            output = Destination(chosen_dest)
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta áfangastað"))/2)*" " +  "Breyta áfangastað"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
-            prnt_str, counter = self.__change_dest.get_alldest()   # prentar út listan af öllum löndunum
-            print(prnt_str)
             print(self.GO_BACK +"\n")
-            change_input = input("Veldu áfangastað: ")      # nr á áfangastað 
-            if change_input != "r":
-                print()
-                chosen_dest = self.__change_dest.get_dest(change_input) #tökum þá tölu sem notandi valdi og sendum í DestinationRepo og þar í get_dest fallið 
-                output = Destination(chosen_dest)
-                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta áfangastað"))/2)*" " +  "Breyta áfangastað"  +   "\n" + self.BORDER * self.WITDH )
-                print(self.PICK +"\n")
-                print(self.GO_BACK +"\n")
-                print("Áfangastaður: {}".format(output.get_destinationName()))
-                print("Flugvöllur: {}".format(output.get_destinationId()))
-                print("Flugtími: {}".format(output.get_flighttime()))
-                print("Fjarlægð: {}".format(output.get_distance()))
-                print("'1' - Tengiliður: {}".format(output.get_contact()))
-                print("'2' - Neyðarsímanúmer: {}".format(output.get_phone()))
-                print()
-                change_input = input(self.USER_INPUT).lower() # 1 eða 2  til að velja hvað á að breyta     
-                print()
-                if change_input == "1" or change_input == "2":  # contact
-                    the_change = input("Skráðu breytingu: ") 
-                    if the_change != "r":
-                        save_input = ""
-                        if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-                            print("\nViltu vista áfangastað \n'1' - Já: \n'2' - Nei: ")
-                            save_input = input(str(self.USER_INPUT))
-                            print()
-                        if save_input == "1":
-                            print(self.__change_dest.change_dest(change_input, the_change, chosen_dest[0]))   # geri chosen dest til að taka bara nafnið á áfangastaðnum og senda inn í clasan
+            print("Áfangastaður: {}".format(output.get_destinationName()))
+            print("Flugvöllur: {}".format(output.get_destinationId()))
+            print("Flugtími: {}".format(output.get_flighttime()))
+            print("Fjarlægð: {}".format(output.get_distance()))
+            print("'1' - Tengiliður: {}".format(output.get_contact()))
+            print("'2' - Neyðarsímanúmer: {}".format(output.get_phone()))
+            print()
+            change_input = input(self.USER_INPUT).lower() # 1 eða 2  til að velja hvað á að breyta     
+            print()
+            if change_input == "1" or change_input == "2":  # contact
+                the_change = input("Skráðu breytingu: ") 
+                if the_change != "r":
+                    save_input = ""
+                    if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                        print("\nViltu vista áfangastað \n'1' - Já: \n'2' - Nei: ")
+                        save_input = input(str(self.USER_INPUT))
+                        print()
+                    if save_input == "1":
+                        print("Áfangastaður vistaður ")
+                        print(self.__change_dest.change_dest(change_input, the_change, chosen_dest[0]))   # geri chosen dest til að taka bara nafnið á áfangastaðnum og senda inn í clasan
+                                
                     else:
-                        self.change_menu()
+                        print("Áfangastaður ekki vistaður ")
+                        self.destination_menu()
                 else:
-                    self.change_menu()
-            else:
-                self.change_menu()
+                    self.destination_menu()  
         else:
-            self.change_menu()
+            self.destination_menu()
