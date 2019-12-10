@@ -46,4 +46,32 @@ class Upcoming_flight_service:
                 return prnt_str
         return "Flug fannst ekki"
 
+
+
+
+
+
+
+
+
+    def add_date(self, date_list):
+        self.date_list = date_list
+        year = int(self.date_list[0])
+        month = int(self.date_list[1])
+        day = int(self.date_list[2])
+        hours = int(self.date_list[3])
+        mins = int(self.date_list[4])
+        secs = int(self.date_list[5])
+        try:
+            date = datetime.datetime(year,month,day,hours,mins,secs)
+        except ValueError:
+            return False
+        if Upcoming_flight_service().is_valid_date(date):
+           return date.strftime("%Y-%m-%dT%H:%M:%S")
+        else:
+            return False
+
+    def is_valid_date(self, date):
+        return True
+
 #print(Upcoming_flight_service().get_upcomingflight("2019-12-26T09:27:00"))

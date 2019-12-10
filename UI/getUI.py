@@ -5,14 +5,18 @@ from models.class_destination import Destination
 from services.class_destination_service import Destination_service
 from models.class_employee import Employee
 from services.class_voyage_service import Voyage_service
-from services.class_aircraft_service import
-
-#from services.class_upcoming_flightsIO import Upcoming_flightsIO
+from services.class_aircraft_service import Aircraft_service
+from services.class_past_flight_service import Past_flight_service
+from services.class_upcoming_flight_service import Upcoming_flight_service
+from services.class_voyage_service import Voyage_service
 
 class GetUI():
     def __init__(self):
         self.__getemployee = Employee_service()
         self.__getdestination = Destination_service()
+        self.__get_pastflight = Past_flight_service()
+        self.__get_upcflight = Upcoming_flight_service()
+        self.__get_voyage = Voyage_service()
 
         self.WITDH = 50
         self.BORDER = "*"
@@ -21,10 +25,7 @@ class GetUI():
         self.PICK = "Veldu skipun:"
         self.USER_INPUT = ("Valin skipun: ")
         # self.get_menu()
-        
-        
-
-                
+         
     ###########################################################################
     ############################### get sub menu ##############################
     ###########################################################################
@@ -46,7 +47,7 @@ class GetUI():
             if get_input == "4":
                 self.aircraft_menu()
             if get_input == "r":
-                get_input = "r"
+                pass
             else:
                 print("Vinsamlegast veldu eitt af eftirfarandi!")
                 self.get_menu()
@@ -158,17 +159,57 @@ class GetUI():
         while get_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja vinnuferðir"))/2)*" " +  "Sækja vinnuferðir"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
-            print(self.GO_BACK +"\n")
             print("'1' - Til að sjá gamlar vinnuferðir")
             print("'2' - Til að sjá áætlaðir vinnuferðir")
-            get_input = input(self.PICK)
-            if get_input != "1" or get_input != "2" or get_input != "r":
+            print()
+            get_input = input(self.PICK +"\n")
+            if get_input != "1" and get_input != "2" and get_input != "r":
                 print("Vinsamlegast veldu eitt af eftirfarandi!")
                 self.voyage_menu()
-            if get_input =="1":
-                
-            if get_input =="2":
-                pass
+                   
+            elif get_input =="1":
+                print("'1' - Sjá gamla vinnuferðir á tímabili")
+                print("'2' - Sjá gamla vinnuferðir á ákveðni dagsetningu")
+                print(self.GO_BACK +"\n")
+                old_voyage = input(self.PICK)
+                if old_voyage != "1" and old_voyage != "2" and old_voyage != "r":
+                    print("Vinsamlegast veldu eitt af eftirfarandi!")
+                elif old_voyage == "1":
+                    first_date = "Skráðu fyrri dagsetningu tímabilsins"
+                    next_date = "Skráðu seinni dagsetning tímabilsins "
+                    date1 = self.get_date_voyage(first_date)
+                    date2 = self.get_date_voyage(next_date)
+                    past_flightss = self.__get_pastflight.get_pastflights(date1,date2)
+                    print(past_flightss)
+                elif old_voyage == "2":
+                    only_date = "Skráðu dagsetnungu vinnuferða"
+                    date = self.get_date_voyage(only_date)
+                    past_flight = self.__get_pastflight.get_pastflight(date)
+                    print(past_flight)
+
+            elif get_input =="2":
+                print("'1' - Sjá áætlaðar vinnuferðir á tímabili")
+                print("'2' - Sjá áætlaðar vinnuferðor á ákveðni dagsetningu")
+                print(self.GO_BACK +"\n")
+                upcm_voyage = input(self.PICK)
+                if upcm_voyage != "1" and upcm_voyage != "2" and upcm_voyage != "r":
+                    print("Vinsamlegast veldu eitt af eftirfarandi!")
+                elif upcm_voyage == "1":   
+                    first_date = "Skráðu fyrri dagsetningu tímabilsins"
+                    next_date = "Skráðu seinni dagsetning tímabilsins "
+                    date1 = self.get_date_voyage(first_date)
+                    date2 = self.get_date_voyage(next_date)
+                    upc_flightss = self.__get_upcflight.get_upcomingflights(date1,date2)
+                    print()
+                    print(upc_flightss)
+                elif upcm_voyage == "2":
+                    only_date = "Skráðu dagsetningu vinnuferða"
+                    date = self.get_date_voyage(only_date)
+                    upc_flight = self.__get_upcflight.get_upcomingflight(date)
+                    print()
+                    print(upc_flight)
+    
+
    
 
     def aircraft_menu(self):
@@ -177,3 +218,37 @@ class GetUI():
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja flugvélar"))/2)*" " +  "Sækja flugvélar"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
             print(self.GO_BACK +"\n")
+
+
+
+
+
+    def get_date_voyage(self, prnt_str):
+        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja vinnuferðir"))/2)*" " +  "Sækja vinnuferðir"  +   "\n" + self.BORDER * self.WITDH )
+        print(self.PICK +"\n")
+        self.prnt_str = prnt_str
+        print(prnt_str)   
+        print()
+        year = input("Sláðu inn ár: ")      #Input aa year 
+        while year.isdigit() == False:     # if its not a number then let them try again
+            print("Vinsamlegast skráðu ár!")
+            year = input("Sláðu inn ár: ")
+        month = input("Sláðu inn númer mánaðar")
+        while month.isdigit() == False:
+            print("Vinsamlegast skráðu númer mánaðar!")
+            month = input("Sláðu inn númer mánaðar: ")
+        day = input("Sláðu inn dagsetningu: ")
+        while day.isdigit() == False:
+            print("Vinsamlegast skráðu dagsettningu!")
+            day = input("Sláðu inn dagsettningu: ")
+        hour = input("Sláðu inn klukkustund brottfarar: ")
+        while hour.isdigit() == False:
+            print("Vinsamlegast skráðu klukkutíma!")
+            hour = input("Sláðu inn klukkustund brottfarar: ")
+        mint = input("Sláðu inn mínútu brottfarar: ")
+        while mint.isdigit() == False:
+            print("Vinsamlegast skráðu mínútur!")
+            mint = input("Sláðu inn mínútu brottfarar: ")
+        user_chosen_date = [year,month,day,hour,mint,0]
+        date = self.__get_upcflight.add_date(user_chosen_date)
+        return date
