@@ -49,40 +49,36 @@ class ChangeUI():
                 change_input = "r"
             else:
                 print("Vinsamlegast veldu eitt af eftir farandi möguleikum")
-                self.change_menu()
+                
             
 
  ################################## STARFSMENN VALINN ###########################################################       
     def employee_menu(self):
-        self.change_employee_input = ""
+        change_employee_input = ""
         print(self.GO_BACK +"\n") 
         employee_ssn_input = input("Kennitala starfsmanns: ")
-        while employee_ssn_input != "r":
+        if employee_ssn_input != "r":
             empl_info_lst = self.__change_employee.get_employee(employee_ssn_input)
-            while empl_info_lst == False:
-                print(self.GO_BACK +"\n") 
-                print("Starfmaður ekki til! Vitlaus kennitala.")
-                employee_ssn_input = input("Kennitala starfsmanns: ")
-                empl_info_lst = self.__change_employee.get_employee(employee_ssn_input)
-                if employee_ssn_input == "r":
-                    self.change_menu()  
-            if self.change_employee_input != "r" :    
-                info_output = Employee(empl_info_lst)  
-                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta starfsmanni"))/2)*" " +  "Breyta starfsmanni"  +   "\n" + self.BORDER * self.WITDH )
-                print(self.PICK +"\n")
-                print(self.GO_BACK +"\n")  
-                print("Kennitala: {}".format(info_output.get_ssn()))        
-                print("Nafn: {}".format(info_output.get_name())) 
-                print("'1' - Starfsheiti: {}".format(info_output.get_role()))
-                print("'2' - Stöðugildi: {}".format(info_output.get_rank()))
-                print("'3' - Leyfi: {}".format(info_output.get_licence()))
-                print("'4' - Heimilisfang: {}".format(info_output.get_address()))
-                print("'5' - Símanúmer: {}".format(info_output.get_phone()))
-                print()
-                self.change_employee_input = input(self.USER_INPUT)   # Input what attribute you whant to change 
-                print()
-                if 5>= int(self.change_employee_input) >= 1:
-                    if self.change_employee_input != "r":   # Go back if you dont whant to edit what you picked
+            if empl_info_lst != False:
+                while change_employee_input != "r" :    
+                    info_output = Employee(empl_info_lst)  
+                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta starfsmanni"))/2)*" " +  "Breyta starfsmanni"  +   "\n" + self.BORDER * self.WITDH )
+                    print(self.PICK +"\n")
+                    print(self.GO_BACK +"\n")  
+                    print("Kennitala: {}".format(info_output.get_ssn()))        
+                    print("Nafn: {}".format(info_output.get_name())) 
+                    print("'1' - Starfsheiti: {}".format(info_output.get_role()))
+                    print("'2' - Stöðugildi: {}".format(info_output.get_rank()))
+                    print("'3' - Leyfi: {}".format(info_output.get_licence()))
+                    print("'4' - Heimilisfang: {}".format(info_output.get_address()))
+                    print("'5' - Símanúmer: {}".format(info_output.get_phone()))
+                    print()
+                    change_employee_input = input(self.USER_INPUT)   # Input what attribute you whant to change 
+                    print()
+                    if change_employee_input != "1" and change_employee_input != "2" and change_employee_input != "3" and change_employee_input != "4" and change_employee_input != "5" :
+                        pass
+                    else:
+                                                # Go back if you dont whant to edit what you picked
                         print(self.GO_BACK +"\n")
                         the_change = input("Skráðu breytingu: ")
                         if the_change != "r":
@@ -92,15 +88,20 @@ class ChangeUI():
                                 save_input = input(str(self.USER_INPUT))
                                 print()
                             if save_input == "1":  
-                                print(self.__change_employee.change_employee(self.change_employee_input, the_change, employee_ssn_input))
+                                print(self.__change_employee.change_employee(change_employee_input, the_change, employee_ssn_input))
                             else:
-                                self.change_menu()
-                    else:
-                        self.change_menu()
+                                pass
                 else:
                     print("Skipun ekki til. Vinsmlegast reyndu aftur!")
                     self.employee_menu()
-                        
+            # else:
+            #     self.change_menu()
+            else:
+                if employee_ssn_input == "r":
+                    self.change_menu()      
+                print("Starfmaður ekki til! Vitlaus kennitala.")
+                self.employee_menu()    
+                       
 ################################## VINNUFERÐ VALINN###########################################################
     def voyage_menu(self):
         pass

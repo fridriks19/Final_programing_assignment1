@@ -1,7 +1,7 @@
 
-from UI.MakeUI import MakeUIupd
-from UI.GetUI import GetUI
-from UI.ChangeUI import ChangeUI
+from UI.makeUI import MakeUIupd
+from UI.getUI import GetUI
+from UI.changeUI import ChangeUI
 import time
 import sys
 

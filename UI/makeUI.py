@@ -56,9 +56,11 @@ class MakeUIupd():
         print(self.GO_BACK +"\n")
         print ("'1' - Skrá flugmann" + "\n" + "'2' - Skrá flugþjón")   #Gefur valmöguleika um hvort það vilji skrá flugmann eða flugþjón
         make_input = input(self.USER_INPUT).lower()
-        while make_input != "1" and make_input != "2" :  # Svo það sé einungis hægt að velja 1 eða 2 til að halda áfram
-            make_input = input(self.USER_INPUT).lower()
-            
+        while make_input != "1" and make_input != "2" or make_input !="r" :  # Svo það sé einungis hægt að velja 1 eða 2 til að halda áfram
+            if make_input =="r":
+                self.make_menu()
+            else:
+                make_input = input(self.USER_INPUT).lower()
         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH ) 
         print(self.PICK +"\n")
         # new_list = EmployeeMaker()

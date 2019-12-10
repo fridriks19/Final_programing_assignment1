@@ -1,4 +1,4 @@
-from UI.MainUI import MainUI
+from UI.mainUI import MainUI
 
 def main():
     ui = MainUI()
