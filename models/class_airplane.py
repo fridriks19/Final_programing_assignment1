@@ -1,6 +1,6 @@
 class Airplane:
-    """Aiplane has planeTypeId,planeType,model,capacity,emptyWeight,maxTakeoffWeight,
-        unitThrust,serviceCeiling,length,height,wingspan"""
+    """Aiplane has planeTypeId, planeType, model, capacity, emptyWeight, maxTakeoffWeight, 
+        unitThrust, serviceCeiling, length, height, wingspan"""
 
     def __init__(self, airplane_info_list):
         self.airplane_info_list = airplane_info_list
