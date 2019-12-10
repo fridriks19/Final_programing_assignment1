@@ -1,6 +1,6 @@
-from UI.mainUI import MainUI
+from UI.MainUI import MainUI
 
 def main():
     ui = MainUI()
-    #ui.main_menu()
+    ui.main_menu()
 main()

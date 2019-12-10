@@ -1,7 +1,7 @@
 
-from UI.makeUIupdate import MakeUIupd
-from UI.getuiupdate import GetUI
-from UI.changeUIupdate import ChangeUI
+from UI.makeUI import MakeUI
+from UI.getUI import GetUI
+from UI.changeUI import ChangeUI
 import time
 import sys
 
@@ -21,7 +21,7 @@ class MainUI():
     def __init__(self):
         self.__change = ChangeUI()
         self.__get = GetUI()
-        self.__make = MakeUIupd()
+        self.__make = MakeUI()
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
@@ -67,3 +67,6 @@ class MainUI():
             animate()
             print()
             return self.BORDER * self.WITDH 
+
+ui = MainUI()
+print(ui.main_menu())
