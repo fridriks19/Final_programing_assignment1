@@ -1,23 +1,15 @@
-from repo.class_EmployeeRepository import EmployeeRepository
-from repo.class_Aircraft_typeRepository import AircraftRepository
-from repo.class_FlightRepository import FlightRepository
+
 from models.class_employee import Employee
-from repo.class_DestinationRepo import DestinationRepo
 from services.class_employee_service import Employee_service
 from models.class_destination import Destination
 from services.class_destination_service import Destination_service
 from services.class_voyage_service import Voyage_service
-#from UI.mainUI import MainUI
-#from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
 class ChangeUI():
     def __init__(self):  
-        #self.__change_employee = EmployeeRepository()
         self.__change_employee = Employee_service()
-        #self.__change_dest = DestinationRepo()
         self.__change_dest = Destination_service()
         self.__change_voyage = Voyage_service()
-        #self.__mainui = MainUI()
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
@@ -126,7 +118,7 @@ class ChangeUI():
             print(prnt_str)
             print(self.GO_BACK +"\n")
             change_input = input("Valin skipun: ")      # nr á áfangastað 
-            if change_input.isdigit() == False:
+            if change_input.isdigit() == False:  # if the user doesnt input a number then send him back
                 if change_input == "r":
                     # self.change_menu()
                     change_input = "r"
