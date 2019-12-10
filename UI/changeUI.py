@@ -163,7 +163,6 @@ class ChangeUI():
                         if save_input == "1":
                             print("Áfangastaður vistaður ")
                             print(self.__change_dest.change_dest(change_input, the_change, chosen_dest[0]))   # geri chosen dest til að taka bara nafnið á áfangastaðnum og senda inn í clasan
-                                    
                         else:
                             print("Áfangastaður ekki vistaður ")
                             pass
