@@ -125,6 +125,15 @@ class Voyage_service:
                 not_avail_pairing = [aircraft[0], "Laus"]
                 avail_list.append(not_avail_pairing)
         return avail_list
+
+    def print_avail_aircraft(self, date1, date2):
+        self.date1 = date1
+        self.date2 = date2
+        prnt_str = ""
+        avail_aircrafts = Voyage_service().get_avail_aircraft(self.date1, self.date2)
+        for pairs in avail_aircrafts:
+            prnt_str += "{} - {}\n".format(pairs[0], pairs[1])
+        return prnt_str
                     
     def get_arrival_time(self, destination, input_date):
         self.destination = destination
@@ -138,19 +147,18 @@ class Voyage_service:
         # Input 0,0,0,0 in timedelta to get the right format for output
         datetime_flighttime = datetime.timedelta(0,0,0,0,int(flighttime[1]), int(flighttime[0]))
         arrival_time = datetime_flighttime + datetime_input_date
-        return arrival_time
+        return arrival_time.strftime("%Y-%m-%dT%H:%M:%S")
     
     def get_return_flight_time(self, destination, arrival_time):
         self.destination = destination
         self.arrival_time = arrival_time
         hour_delay = datetime.timedelta(hours=1)
-        datetime_arrival_time = datetime.datetime.strptime(self.arrival_time, "%Y-%m-%dT%H:%M:%S")
+        datetime_arrival_time = datetime.datetime.strptime(str(self.arrival_time), "%Y-%m-%dT%H:%M:%S")
         # Add one hour to time to get the return flight time, since theres always an hour delay
         return_flight_time = datetime_arrival_time + hour_delay
-        return return_flight_time
+        return return_flight_time.strftime("%Y-%m-%dT%H:%M:%S")
         
     def is_valid_voyage(self, voyage_str):
         return True
 
-l1 = [2019, 12, 15, 0, 0, 0]
-print(Voyage_service().add_date(l1))
+print(Voyage_service().print_avail_aircraft("2019-12-26T09:27:00", "2019-12-26T12:27:00"))

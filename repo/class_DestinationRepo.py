@@ -30,7 +30,7 @@ class DestinationRepo(Destination):
         for key in dest_dict:
             prnt_str += ("'{}' - {}\n".format(counter, dest_dict[key]))   
             counter += 1
-        print(str(prnt_str))
+        return str(prnt_str), counter
     
     def get_all_dest_list(self):
         return self.dest_list[1:]
