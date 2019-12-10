@@ -115,6 +115,8 @@ class ChangeUI():
     #         print("'4' - Starfsmenn: {}".format(self.__change_voyage()))
     #         change_input = input(self.USER_INPUT).lower()
 ################################## Áfangastað VALINN###########################################################               
+
+
     def destination_menu(self):
         change_input = ""
         while change_input != "r":
@@ -123,18 +125,15 @@ class ChangeUI():
             prnt_str, counter = self.__change_dest.get_alldest()   # prentar út listan af öllum löndunum
             print(prnt_str)
             print(self.GO_BACK +"\n")
-            change_input = input("Veldu áfangastað: ")      # nr á áfangastað 
-
-            while change_input.isdigit() == False or change_input =="r" or int(change_input) < 1 or int(change_input) > int(counter):
+            change_input = input("Valin skipun: ")      # nr á áfangastað 
+            if change_input.isdigit() == False:
                 if change_input == "r":
-                    self.change_menu()
-                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá vinnuferð"))/2)*" " +  "Nýskrá vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
-                print(self.PICK +"\n")
-                print("Vinsamlegast veldu leyfilegan áfangastað!")
-                print(prnt_str)
-                print(self.GO_BACK +"\n")
-                change_input = input(self.PICK)
-            else:
+                    # self.change_menu()
+                    change_input = "r"
+                else:
+                    print("Veldu áfangastað sem er í boði!")
+                    self.destination_menu()
+            elif change_input.isdigit() == True or int(change_input) >= 1 or int(change_input) <= int(counter):
                 print()
                 chosen_dest = self.__change_dest.get_dest(change_input) #tökum þá tölu sem notandi valdi og sendum í DestinationRepo og þar í get_dest fallið 
                 output = Destination(chosen_dest)
@@ -150,7 +149,10 @@ class ChangeUI():
                 print()
                 change_input = input(self.USER_INPUT).lower() # 1 eða 2  til að velja hvað á að breyta     
                 print()
-                if change_input == "1" or change_input == "2":  # contact
+                if change_input != "1" and change_input != "2":  # contact
+                    pass
+                else:
+                    print(self.GO_BACK +"\n")
                     the_change = input("Skráðu breytingu: ") 
                     if the_change != "r":
                         save_input = ""
@@ -164,8 +166,8 @@ class ChangeUI():
                                     
                         else:
                             print("Áfangastaður ekki vistaður ")
-                            self.destination_menu()
+                            pass
                     else:
-                        self.destination_menu() 
-                else:
-                    self.destination_menu() 
+                        print("Skipun ekki til. Vinsmlegast reyndu aftur!")
+                        self.destination_menu()
+            
