@@ -1,12 +1,14 @@
 #from models.class_aircraft import Aircraft
 
 class AircraftRepository:
+    """Data about Aircafts planeInsignia, planeTypeId, manufacturer, model, capacity"""
+
     def __init__(self, aircr_type_str =""):
         self.aircr_type_str = aircr_type_str
     
     def add_aircraft_type(self,add_airc_str):
         self.add_airc_str = add_airc_str
-        open_file = open("./data/AircraftType.csv", "a")
+        open_file = open("./data/Aircraft.csv", "a")
         open_file.write(self.add_airc_str + "\n")
         open_file.close()
         return "Flugvél vistuð"
