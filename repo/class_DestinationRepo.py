@@ -28,9 +28,9 @@ class DestinationRepo(Destination):
             output = Destination(line)
             dest_dict[output.get_destinationId()] = output.get_destinationName()
         for key in dest_dict:
-            prnt_str += ("'{}' - {}\n".format(counter, dest_dict[key]))   
+            prnt_str += ("'{}' - {} \n".format(counter, dest_dict[key]))   
             counter += 1
-        return str(prnt_str), counter
+        return prnt_str, counter
     
     def get_all_dest_list(self):
         return self.dest_list[1:]

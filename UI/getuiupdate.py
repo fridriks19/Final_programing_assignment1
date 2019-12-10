@@ -9,6 +9,7 @@ from repo.class_voyageRepo import VoyageRepo
 from models.class_destination import Destination
 from services.class_destination_service import Destination_service
 from models.class_employee import Employee
+from services.class_voyage_service import Voyage_service
 
 #from services.class_upcoming_flightsIO import Upcoming_flightsIO
 
@@ -16,6 +17,7 @@ class GetUI():
     def __init__(self):
         self.__getemployee = Employee_service()
         self.__getdestination = Destination_service()
+
         self.WITDH = 50
         self.BORDER = "*"
         self.QUIT = "'q' - Hætta"
@@ -135,7 +137,8 @@ class GetUI():
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja áfangastað"))/2)*" " +  "Sækja áfangastað"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
             print(self.GO_BACK +"\n")
-            self.__getdestination.get_alldest()   # prentar út listan af öllum löndunum
+            prnt_str, counter = self.__getdestination.get_alldest()  # prentar út listan af öllum löndunum
+            print(prnt_str)
             get_input = input("Veldu áfangastað: ")      # nr á áfangastað 
             if get_input != "r":
                 print()
@@ -170,9 +173,7 @@ class GetUI():
                 pass
             if get_input =="2":
                 pass
-
-                
-                
+   
 
     def aircraft_menu(self):
         get_input = ""
