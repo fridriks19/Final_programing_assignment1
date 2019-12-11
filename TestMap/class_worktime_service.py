@@ -36,3 +36,5 @@ class Worktime_service:
     #     prnt_list = []
     #     for empl in not_working_list:
     #         print(empl[0])
+
+print(Worktime_service("2019-12-20T06:45:00").not_working_list())

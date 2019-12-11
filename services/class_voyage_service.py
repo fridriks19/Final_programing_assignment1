@@ -139,11 +139,12 @@ class Voyage_service:
                     # If an aircraft has a flight on these dates the aircraft gets marked "Upptekið"
                     if self.date1[0] == flight[3][0] or self.date2[0] == flight[4][0]:
                         if [aircraft[0], "Upptekin"] not in avail_list:
-                            avail_pairing = [aircraft[0], "Upptekin"]
-                            avail_list.append(avail_pairing)
+                            not_avail_pairing = [aircraft[0], "Upptekin"]
+                            avail_list.append(not_avail_pairing)
             else:
-                not_avail_pairing = [aircraft[0], "Laus"]
-                avail_list.append(not_avail_pairing)
+                avail_pairing = [aircraft[0], "Laus"]
+                if [aircraft[0], "Upptekin"] not in avail_list:
+                    avail_list.append(avail_pairing)
         return avail_list
 
     def print_avail_aircraft(self, date1, date2):
