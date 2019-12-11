@@ -33,7 +33,7 @@ class FlightRepository():
     
     def save_changed_upc_flights(self, new_upc_list):
         self.new_upc_list = new_upc_list
-         self.writable_upc = open("./data/UpcomingFlights.csv", "w")
+        self.writable_upc = open("./data/UpcomingFlights.csv", "w")
         for flight in new_upc_list:
             self.writable_upc.write(str(flight))
             self.writable_upc.write("\n")

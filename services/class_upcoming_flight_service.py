@@ -55,14 +55,17 @@ class Upcoming_flight_service:
                 flight2 = self.upcoming_list[flight2_index+1]
         return flight1, flight2
 
-    def change_upcoming_flight(self, upc_date):
+    def change_upcoming_voyage(self, original_upc_flight, upd_upc_flight):
         self.upc_date = upc_date
-        for flight in self.upcoming_list:
-            if flight[3] == self.upc_date:
-                # Checks if flight is within set date parameters
-                flight_time = datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S")
-                prnt_str = "Flug: {}\nFrá:  {}\nTil:  {}\nDags: {}".format(flight[0], flight[1], flight[2], flight_time)
-                return prnt_str
+        upc_voyages = Upcoming_flight_service().get_upcomingflights_list()
+        for flight in upc_voyages:
+            if flight == str(original_upc_flight[0])
+            flight_index = upc_voyages.index(flight)
+            upc_voyages[flight_index + 1] = str(upd_upc_flight[1])
+            flight = str(upd_upc_flight[0])
+        FlightRepository().save_changed_upc_flights(upc_voyages)
+        return "Breytingar Vistaðar"
+
 
 
     def add_date(self, date_list):
