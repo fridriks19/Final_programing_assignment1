@@ -109,8 +109,8 @@ class ChangeUI():
             if change_input == "r":
                 self.change_menu()
             a_prnt_str = "Veldu dagsetningu vinnuferðar sem þú vilt breyta"
-            date = self.get_date_voyage(a_prnt_str)
-            print(date)
+            date = self.get_date_voyage(a_prnt_str)   # Fáum til baka dagsettningu á því formi sem við viljum svo hægt sé að leita af réttri ferð í csv skránni
+
             change_flight = self.__get_upcflight.get_upcomingflight(date)
             print(change_flight)
             print("Áfangastaður: {}".format(self.__change_voyage()))
