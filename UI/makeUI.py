@@ -320,9 +320,12 @@ class MakeUIupd():
 
                 if empl_pick == "2":  # Copilot
                     copilot_list = Voyage_crew_service(self.depart_voyage_info[3],self.depart_voyage_info[5]).get_copilot()
-                    print(self.__new_voyage.prnt_str(copilot_list))
-                    empl_pick = input(self.PICK) 
-                    print()
+                    if copilot_list == []:
+                        print("Engir lausir aðstoðarflugmenn fyrir þessa vél")
+                    else:
+                        print(self.__new_voyage.prnt_str(copilot_list))
+                        empl_pick = input(self.PICK) 
+                        print()
                     while empl_pick.isdigit() == False or int(empl_pick) > len(copilot_list) or int(empl_pick) < 1:  # the inputed integer has to be in the capt list range
                         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
                         print(self.PICK +"\n")

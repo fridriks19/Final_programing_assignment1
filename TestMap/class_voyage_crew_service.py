@@ -1,5 +1,5 @@
-from services.class_worktime_service import Worktime_service
-from repo.class_Aircraft_typeRepository import AircraftRepository
+from class_worktime_service import Worktime_service
+from class_Aircraft_typeRepository import AircraftRepository
 
 class Voyage_crew_service:
 
@@ -12,6 +12,7 @@ class Voyage_crew_service:
 
     def get_captain(self):
         capt_list = []
+        print(self.not_working_list)
         for employee in self.not_working_list:
             if employee[3] == "Captain" and employee[4] == self.planename:
                 capt_list.append(employee)
@@ -39,4 +40,4 @@ class Voyage_crew_service:
                 fa_list.append(employee)
         return fa_list
 
-   
+#print(Voyage_crew_service("2019-12-24T05:24:00", "TF-TYQ").get_captain())
