@@ -437,8 +437,8 @@ class MakeUIupd():
                                 print("Yfirflugþjón ekki vistaður")    
 
     def save_voyage(self):
-        #First the user has to pick a destination, date and aricraft so that he can save the voyage 
-        if self.arriv_voyage_info[5] == 4:
+        #First the user has to pick a destination, dated aricraft so that he can save the voyage 
+        if self.arriv_voyage_info[5] == 5:
             print("Skráðu fyrst flugvél vinnuferðar")   
         if self.arriv_voyage_info[4] == 4:
             print("Skráðu fyrst dagsetningu brottfarar.")
