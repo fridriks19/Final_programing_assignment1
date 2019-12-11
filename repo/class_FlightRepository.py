@@ -14,6 +14,15 @@ class FlightRepository():
         self.open_upcoming.close()
         return self.flight_list[1:]
     
+    def get_upcomingflights_plusheader(self):
+        self.open_upcoming = open("./data/UpcomingFlights.csv", "r")
+        for line in self.open_upcoming:
+            line = line.strip()
+            line = line.split(",")
+            self.flight_list.append(line)
+        self.open_upcoming.close()
+        return self.flight_list
+    
     def add_upcomingflight(self, flight_str):
         self.flight_str = flight_str
         open_file = open("./data/UpcomingFlights.csv", "a")
