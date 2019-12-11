@@ -165,6 +165,7 @@ class ChangeUI():
                                         change_input = int(change_input)-1
                                         date1[6] = capt_list[change_input][0]
                                         date2[6] = capt_list[change_input][0]
+                                        self.__get_upcflight.change_upcoming_voyage(date1, date2)
                                         print("Flugstjóri vistaður")
                                         print()
                                     else:
@@ -199,6 +200,7 @@ class ChangeUI():
                                         change_input = int(change_input)-1
                                         date1[7] = copilot_list[change_input][0]
                                         date2[7] = copilot_list[change_input][0]
+                                        self.__get_upcflight.change_upcoming_voyage(date1, date2)
                                         print("Flugstjóri vistaður")
                                         print()
                                     else:
@@ -233,6 +235,7 @@ class ChangeUI():
                                         change_input = int(change_input)-1
                                         date1[8] = flight_service_m_list[change_input][0]
                                         date2[8] = flight_service_m_list[change_input][0]
+                                        self.__get_upcflight.change_upcoming_voyage(date1, date2)
                                         print("Yfirflugþjónn vistaður")
                                         print()
                                     else:
@@ -267,6 +270,7 @@ class ChangeUI():
                                         change_input = int(change_input)-1
                                         date1[9] = flight_attendant_list[change_input][0]
                                         date2[9] = flight_attendant_list[change_input][0]
+                                        self.__get_upcflight.change_upcoming_voyage(date1, date2)
                                         print("Flugþjónn  vistaður")
                                         print()
                                     else:
@@ -301,6 +305,7 @@ class ChangeUI():
                                         change_input = int(change_input)-1
                                         date1[10] = flight_attendant_list[change_input][0]
                                         date2[10] = flight_attendant_list[change_input][0]
+                                        self.__get_upcflight.change_upcoming_voyage(date1, date2)
                                         print("Flugþjónn  vistaður")
                                         print()
                                     else:
