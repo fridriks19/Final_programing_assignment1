@@ -56,6 +56,7 @@ class Upcoming_flight_service:
         return flight1, flight2
 
     def change_upcoming_voyage(self, original_upc_flight, upd_upc_flight):
+        #self.upc_date = upc_date
         self.original_upc_flight = original_upc_flight
         self.upd_upc_flight = upd_upc_flight
         upc_voyages = Upcoming_flight_service().get_upcomingflights_list()

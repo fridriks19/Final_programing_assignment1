@@ -35,7 +35,8 @@ class FlightRepository():
         self.new_upc_list = new_upc_list
         self.writable_upc = open("./data/UpcomingFlights.csv", "w")
         for flight in new_upc_list:
-            self.writable_upc.write(str(flight))
+            flight = str(flight)
+            self.writable_upc.write(flight)
             self.writable_upc.write("\n")
         self.writable_upc.close()
 
