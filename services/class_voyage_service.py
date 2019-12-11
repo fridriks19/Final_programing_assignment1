@@ -52,7 +52,7 @@ class Voyage_service:
         self.voyage_str = voyage_str
         # Checks for valid input before sending to the repository
         if self.is_valid_voyage(voyage_str):
-            self.flights.add_voyage(voyage_str)
+            self.flights.add_upcomingflight(voyage_str)
 
     def get_voyage(self, voyage_dep, voyage_arr):
         self.voyage_dep = voyage_dep
@@ -97,7 +97,7 @@ class Voyage_service:
         for dest in destination_list:
             if dest[0] == self.destination:
                 dest_num = destination_list.index(dest) + 1
-        flights_list = self.flights.get_upcomingflights_list()
+        flights_list = self.flights.get_upcomingflights()
         flights_list = flights_list[::-1]
         for flight in flights_list:
             if flight[1] == self.destination:

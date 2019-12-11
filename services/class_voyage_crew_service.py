@@ -8,7 +8,7 @@ class Voyage_crew_service:
         self.planename = AircraftRepository().find_air_id(planename)
         self.date = self.date.split("T")
         self.date.pop(1)
-        self.not_working_list = Worktime_service(self.date).not_working_list()
+        self.not_working_list = Worktime_service(str(self.date)).not_working_list()
 
     def get_captain(self):
         capt_list = []

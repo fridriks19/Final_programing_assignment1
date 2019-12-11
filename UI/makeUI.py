@@ -317,7 +317,7 @@ class MakeUIupd():
                                 empl_pick = "r"
                                 print("Flugstjóri ekki vistaður")
 
-                if empl_pick == "2":
+                if empl_pick == "2":  # Copilot
                     copilot_list = Voyage_crew_service(self.depart_voyage_info[3],self.depart_voyage_info[5]).get_copilot()
                     print(self.__new_voyage.prnt_str(copilot_list))
                     empl_pick = input(self.PICK) 
@@ -437,12 +437,12 @@ class MakeUIupd():
                                 print("Yfirflugþjón ekki vistaður")    
 
     def save_voyage(self):
-        #First the user has to pick a destination, dated aricraft so that he can save the voyage 
+        #First the user has to pick a destination, date and aricraft so that he can save the voyage 
         if self.arriv_voyage_info[5] == 5:
             print("Skráðu fyrst flugvél vinnuferðar")   
-        if self.arriv_voyage_info[4] == 4:
+        elif self.arriv_voyage_info[4] == 4:
             print("Skráðu fyrst dagsetningu brottfarar.")
-        if self.chosen_destination =="":  # To make sure that there is a chosend destination to find out all the dates and times 
+        elif self.chosen_destination =="":  # To make sure that there is a chosend destination to find out all the dates and times 
             print("Veldu fyrst áfangarstað")
         else:
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
