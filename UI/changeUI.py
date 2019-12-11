@@ -113,11 +113,12 @@ class ChangeUI():
 
             change_flight = self.__get_upcflight.get_upcomingflight(date)
             print(change_flight)
-            print("Áfangastaður: {}".format(self.__change_voyage()))
-            print("Flugvél: {}".format(self.__change_voyage()))
-            print("'1' - Dagsetning og tími: {}".format(self.__change_voyage()))
-            print("'2' - Starfsmenn: {}".format(self.__change_voyage()))
+            print()
+            print("'1' - Dagsetning og tími")
+            print("'2' - Starfsmenn")
+            print()
             change_input = input(self.USER_INPUT).lower()
+                
 ################################## Áfangastað VALINN###########################################################               
 
 
@@ -188,7 +189,7 @@ class ChangeUI():
         self.prnt_str = prnt_str
         print(prnt_str)   
         print()
-        year = input("Sláðu inn ár: ")      #Input aa year 
+        year = input("Sláðu inn ár: ")      #Input a year 
         while year.isdigit() == False:     # if its not a number then let them try again
             print("Vinsamlegast skráðu ár!")
             year = input("Sláðu inn ár: ")
