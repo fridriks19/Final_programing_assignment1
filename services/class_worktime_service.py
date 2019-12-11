@@ -14,7 +14,6 @@ class Worktime_service:
     
     def is_working_list(self):
         empl_list = []
-        print(self.work_date)
         for flight in self.flight_list[1:]:
             flight[3] = flight[3].split("T")
             if flight[3][0] == self.work_date:

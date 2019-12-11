@@ -48,7 +48,7 @@ class MakeUIupd():
             if make_input == "r":
                 make_input = "r"
             else:
-                print("Vinsamlegast veldu eitt af eftifarandi valmöguleikum!")
+                print("Vinsamlegast veldu einn af eftifarandi valmöguleikum!")
 ###################STARFSMAÐUR VALIN ################################################################################################################  
     def employee_menu(self):
         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH )
@@ -264,7 +264,7 @@ class MakeUIupd():
                             air_choice = "r"
                             
                 else:
-                    print("Vinsamlegast veldu flugvél úr listanum!")
+                    print("Vinsamlegast veldu lausa flugvél úr listanum!")
                     air_choice = "r"
 
     def voyage_employees(self):
