@@ -272,7 +272,7 @@ class MakeUIupd():
             print("Veldu fyrst áfangarstað")
         if self.arriv_voyage_info[4] == 4:
             print("Skráðu fyrst dagsetningu brottfarar.")
-        if self.arriv_voyage_info[5] == 4:
+        if self.arriv_voyage_info[5] == 5:
             print("Skráðu fyrst flugvél vinnuferðar")
         else:
             empl_pick =""
@@ -288,6 +288,7 @@ class MakeUIupd():
                 #We use the datetime to get rid of the T so we can send a normal date to the service
                 empl_pick = input(self.PICK)
                 if empl_pick == "1":
+                    print(self.depart_voyage_info[3],self.depart_voyage_info[5])
                     capt_list = Voyage_crew_service(self.depart_voyage_info[3],self.depart_voyage_info[5]).get_captain()  # Send the departure date and the aircraft choice to get the pilots that are available on that date and have a liscence on that plane 
                     print(self.__new_voyage.prnt_str(capt_list))
                     empl_pick = input(self.PICK) 

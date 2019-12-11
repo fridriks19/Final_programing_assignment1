@@ -12,7 +12,6 @@ class Voyage_crew_service:
 
     def get_captain(self):
         capt_list = []
-        print(self.not_working_list)
         for employee in self.not_working_list:
             if employee[3] == "Captain" and employee[4] == self.planename:
                 capt_list.append(employee)

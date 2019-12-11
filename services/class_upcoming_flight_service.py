@@ -42,12 +42,18 @@ class Upcoming_flight_service:
             if flight[3] == self.upc_date:
                 # Checks if flight is within set date parameters
                 flight_time = datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S")
-                print("aaa", flight_time)
                 prnt_str = "Flug: {}\nFrá:  {}\nTil:  {}\nDags: {}".format(flight[0], flight[1], flight[2], flight_time)
                 return prnt_str
         return "Flug fannst ekki"
 
-    # def change_upcoming_flight(self, )
+    def change_upcoming_flight(self, upc_date):
+        self.upc_date = upc_date
+        for flight in self.upcoming_list:
+            if flight[3] == self.upc_date:
+                # Checks if flight is within set date parameters
+                flight_time = datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S")
+                prnt_str = "Flug: {}\nFrá:  {}\nTil:  {}\nDags: {}".format(flight[0], flight[1], flight[2], flight_time)
+                return prnt_str
 
 
     def add_date(self, date_list):
