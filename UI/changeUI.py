@@ -38,7 +38,7 @@ class ChangeUI():
             if change_input == "3":
                 self.destination_menu()
             if change_input == "r":
-                pass
+                change_input = "r"
             else:
                 print("Vinsamlegast veldu eitt af eftir farandi möguleikum")
                 
