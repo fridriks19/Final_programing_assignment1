@@ -30,9 +30,12 @@ class Worktime_service:
             if employee[0] not in work_crew:
                 not_working_list.append(employee)
         return not_working_list
-    
+
+
     # def not_working_print(self):
     #     not_working_list = Worktime_service(self.work_date).not_working_list()
     #     prnt_list = []
     #     for empl in not_working_list:
     #         print(empl[0])
+
+

@@ -13,6 +13,7 @@ class Voyage_service:
         self.flights = FlightRepository()
         self.dest_list = Destination_service().get_all_dest_list()
         self.aircraft_repo = AircraftRepository()
+        self.upcflights = Upcoming_flight_service()
 
     def add_date(self, date_list):
         self.date_list = date_list
@@ -188,3 +189,31 @@ class Voyage_service:
             print_str +=  "'{}' - Kt: {}, {}.\n".format(counter, employee[0], employee[1])
             counter += 1
         return print_str
+
+    def get_date_voyage(self, prnt_str):
+        self.prnt_str = prnt_str
+        print(prnt_str)   
+        print()
+        year = input("Sláðu inn ár: ")      #Input aa year 
+        while year.isdigit() == False:     # if its not a number then let them try again
+            print("Vinsamlegast skráðu ár!")
+            year = input("Sláðu inn ár: ")
+        month = input("Sláðu inn númer mánaðar")
+        while month.isdigit() == False:
+            print("Vinsamlegast skráðu númer mánaðar!")
+            month = input("Sláðu inn númer mánaðar: ")
+        day = input("Sláðu inn dagsetningu: ")
+        while day.isdigit() == False:
+            print("Vinsamlegast skráðu dagsettningu!")
+            day = input("Sláðu inn dagsettningu: ")
+        hour = input("Sláðu inn klukkustund brottfarar: ")
+        while hour.isdigit() == False:
+            print("Vinsamlegast skráðu klukkutíma!")
+            hour = input("Sláðu inn klukkustund brottfarar: ")
+        mint = input("Sláðu inn mínútu brottfarar: ")
+        while mint.isdigit() == False:
+            print("Vinsamlegast skráðu mínútur!")
+            mint = input("Sláðu inn mínútu brottfarar: ")
+        user_chosen_date = [year,month,day,hour,mint,0]
+        date = self.upcflights.add_date(user_chosen_date)
+        return date
