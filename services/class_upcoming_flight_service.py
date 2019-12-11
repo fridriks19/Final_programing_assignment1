@@ -30,7 +30,7 @@ class Upcoming_flight_service:
                 pf_list.append(flight)
         for flight in pf_list:
             flight_time = datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S")
-            prnt_str += "Flug: {}\nFrá: {}\nTil: {}\nDags: {}\n\n".format(flight[0], flight[1], flight[2], flight_time)
+            prnt_str += "Flug: {}\nFrá: {}\nTil: {}\nDags: {}\nFlugstjóri: {}\nAðstoðarflugmaður: {}\nYfirflugþjónn: {}\nFlugþjónn 1: {}\nFlugþjónn 2: {}\n\n".format(flight[0], flight[1], flight[2], flight_time, flight[6], flight [7], flight[8], flight[9], flight[10])
         return prnt_str
     
     def get_upcomingflights_list(self):
@@ -42,7 +42,7 @@ class Upcoming_flight_service:
             if flight[3] == self.upc_date:
                 # Checks if flight is within set date parameters
                 flight_time = datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S")
-                prnt_str = "Flug: {}\nFrá:  {}\nTil:  {}\nDags: {}".format(flight[0], flight[1], flight[2], flight_time)
+                prnt_str = "Flug: {}\nFrá: {}\nTil: {}\nDags: {}\nFlugstjóri: {}\nAðstoðarflugmaður: {}\nYfirflugþjónn: {}\nFlugþjónn 1: {}\nFlugþjónn 2: {}\n\n".format(flight[0], flight[1], flight[2], flight_time, flight[6], flight [7], flight[8], flight[9], flight[10])
                 return prnt_str
         return "Flug fannst ekki"
     
@@ -59,13 +59,17 @@ class Upcoming_flight_service:
         self.upc_flight1 = upc_flight1
         self.upc_flight2 = upc_flight2
         upc_voyages = FlightRepository().get_upcomingflights_plusheader()
+        new_upc_voyages = []
         for flight in upc_voyages:
             if flight[0] == upc_flight1[0]:
                 flight = self.upc_flight1
-            if flight[0] == upc_flight2[0]:
+                new_upc_voyages.append(flight)
+            elif flight[0] == upc_flight2[0]:
                 flight = self.upc_flight2
-        print(upc_voyages)
-        FlightRepository().save_changed_upc_flights(upc_voyages)
+                new_upc_voyages.append(flight)
+            else:
+                new_upc_voyages.append(flight)
+        FlightRepository().save_changed_upc_flights(new_upc_voyages)
         return "Breytingar Vistaðar"
 
 
