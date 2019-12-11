@@ -164,7 +164,9 @@ class ChangeUI():
                                     if save_input == "1":
                                         change_input = int(change_input)-1
                                         date1[6] = capt_list[change_input][0]
+                                        print(date1)
                                         date2[6] = capt_list[change_input][0]
+                                        print(date2)
                                         print("Flugstjóri vistaður")
                                         print()
                                     else:
