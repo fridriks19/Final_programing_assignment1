@@ -5,6 +5,7 @@ from models.class_destination import Destination
 from services.class_destination_service import Destination_service
 from services.class_voyage_service import Voyage_service
 from services.class_upcoming_flight_service import Upcoming_flight_service
+from services.class_voyage_crew_service import Voyage_crew_service
 
 class ChangeUI():
     def __init__(self):  
@@ -112,48 +113,85 @@ class ChangeUI():
             a_prnt_str = "Veldu dagsetningu vinnuferðar sem þú vilt breyta"
             date = self.get_date_voyage(a_prnt_str)   # Fáum til baka dagsettningu á því formi sem við viljum svo hægt sé að leita af réttri ferð í csv skránni
             change_flight = self.__get_upcflight.get_upcomingflight(date)
-            date1, date2 = self.__get_upcflight.get_upcoming_voyage(date)
-            while change_input != "r":
-                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta vinnuferð"))/2)*" " +  "Breyta vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
-                print(self.PICK +"\n")
+            if change_flight == "Flug fannst ekki":
                 print(change_flight)
-                print()
-                print("Starfsmenn vinnuferðar")
-                print("'1' - Flugstjóri: {}".format(date1[6]))
-                print("'2' - Aðstoðarflugmaður:  {}".format(date1[7]))
-                print("'3' - Yfirflugþjónn: {}".format(date1[8]))
-                print("'4' - Flugþjónn 1: {}".format(date1[9]))
-                print("'5' - Flugþjónn 2: {}".format(date1[10]))
-                print(self.GO_BACK + "\n")
-                change_input = input(self.USER_INPUT).lower()
-                if change_input != "1" and change_input != "2" and change_input != "3" and change_input != "4" and change_input != "5": 
-                    if change_input == "r":
-                        self.voyage_menu()
-                    else:
-                        print("Vinsamlegast veldu starfsmann til að breyta/skrá í vinnuferð!") 
-                        pass      
-                else: 
-                    if change_input == "1":
-                        print("Breyta/skrá  flugmanni.")
-                        pass
+            else:
+                date1, date2 = self.__get_upcflight.get_upcoming_voyage(date)
+                while change_input != "r":
+                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta vinnuferð"))/2)*" " +  "Breyta vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
+                    print(self.PICK +"\n")
+                    print(change_flight)
+                    print()
+                    print("Starfsmenn vinnuferðar")
+                    print("'1' - Flugstjóri: {}".format(date1[6]))
+                    print("'2' - Aðstoðarflugmaður:  {}".format(date1[7]))
+                    print("'3' - Yfirflugþjónn: {}".format(date1[8]))
+                    print("'4' - Flugþjónn 1: {}".format(date1[9]))
+                    print("'5' - Flugþjónn 2: {}".format(date1[10]))
+                    print(self.GO_BACK + "\n")
+                    change_input = input(self.USER_INPUT).lower()
+                    if change_input != "1" and change_input != "2" and change_input != "3" and change_input != "4" and change_input != "5": 
+                        if change_input == "r":
+                            self.voyage_menu()
+                        else:
+                            print("Vinsamlegast veldu starfsmann til að breyta/skrá í vinnuferð!") 
+                            pass      
+                    else: 
+                        if change_input == "1":
+                            print("Breyta/skrá  yfirflugmanni.")
+                            capt_list = Voyage_crew_service(date1[3],date1[5]).get_captain()
+                            if capt_list == []:
+                                print("Engir lausir flugstjórar fyrir þessa vél, vinsamlegast veldu aðra vél")
+                                pass
+                            else:
+                                print(self.__change_voyage.prnt_str(capt_list))
+                                change_input = input(self.PICK)
+                                print()
+                                while change_input.isdigit() == False or int(change_input) > len(change_input) or int(change_input) < 1:
+                                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta vinnuferð"))/2)*" " +  "Breyta vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
+                                    print(self.PICK +"\n")
+                                    print("Veldu flugstjóra úr listanum!")
+                                    print(self.__change_voyage.prnt_str(capt_list))
+                                    change_input = input(self.PICK)
+                                else:
+                                    save_input = ""
+                                    change_input = int(change_input)
+                                    if save_input != "1" and save_input != "2":
+                                        print(self.GO_BACK +"\n")
+                                        print("Viltu vista flugstjóran? \n'1' - Já: \n'2' - Nei: ")
+                                        save_input = input(str(self.USER_INPUT))
+                                        print()
+                                    if save_input == "1":
+                                        change_input = int(change_input)-1
+                                        date1[6] = capt_list[change_input][0]
+                                        date2[6] = capt_list[change_input][0]
+                                        print("Flugstjóri vistaður")
+                                        print()
+                                    else:
+                                        empl_pick = "r"
+                                        print("Flugstjóri ekki vistaður")
 
-                    if change_input == "2":
-                        print("Breyta/skrá  aðstoðarflugmanni.")
-                        pass
+                        if change_input == "2":
+                            print("Breyta/skrá  aðstoðarflugmanni.")
+                            _list = Voyage_crew_service(date1[3],date1[5]).get_captain()
+                            pass
 
-                    if change_input == "3":
-                        print("Breyta/skrá  yfirflugþjóni.")
-                        pass
+                        if change_input == "3":
+                            print("Breyta/skrá  yfirflugþjóni.")
+                            pass
 
-                    if change_input == "4":
-                        print("Breyta/skrá flugþjóni 1.")
-                        pass
+                        if change_input == "4":
+                            print("Breyta/skrá flugþjóni 1.")
+                            pass
 
-                    if change_input == "5":
-                        print("Breyta/skrá  flugjóni 2.")
-                        pass
+                        if change_input == "5":
+                            print("Breyta/skrá  flugjóni 2.")
+                            pass
 
                 
+
+
+
 ################################## Áfangastað VALINN###########################################################               
 
 
