@@ -50,7 +50,7 @@ class Upcoming_flight_service:
         self.upc_date = upc_date
         for flight in self.upcoming_list:
             if flight[3] == self.upc_date:
-                flight1 = flight[3]
+                flight1 = flight
                 flight2_index = self.upcoming_list.index(flight)
                 flight2 = self.upcoming_list[flight2_index+1]
         return flight1, flight2

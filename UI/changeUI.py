@@ -71,6 +71,7 @@ class ChangeUI():
                     change_employee_input = input(self.USER_INPUT)   # Input what attribute you whant to change 
                     print()
                     if change_employee_input != "1" and change_employee_input != "2" and change_employee_input != "3" and change_employee_input != "4" and change_employee_input != "5" :
+                        print("Vinsamlegast veldu það sem þú vilt breyta!")
                         pass
                     else:
                                                 # Go back if you dont whant to edit what you picked
@@ -110,14 +111,48 @@ class ChangeUI():
                 self.change_menu()
             a_prnt_str = "Veldu dagsetningu vinnuferðar sem þú vilt breyta"
             date = self.get_date_voyage(a_prnt_str)   # Fáum til baka dagsettningu á því formi sem við viljum svo hægt sé að leita af réttri ferð í csv skránni
-
             change_flight = self.__get_upcflight.get_upcomingflight(date)
-            print(change_flight)
-            print()
-            print("'1' - Dagsetning og tími")
-            print("'2' - Starfsmenn")
-            print()
-            change_input = input(self.USER_INPUT).lower()
+            date1, date2 = self.__get_upcflight.get_upcoming_voyage(date)
+            while change_input != "r":
+                print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta vinnuferð"))/2)*" " +  "Breyta vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
+                print(self.PICK +"\n")
+                print(change_flight)
+                print()
+                print("Starfsmenn vinnuferðar")
+                print("'1' - Flugstjóri: {}".format(date1[6]))
+                print("'2' - Aðstoðarflugmaður:  {}".format(date1[7]))
+                print("'3' - Yfirflugþjónn: {}".format(date1[8]))
+                print("'4' - Flugþjónn 1: {}".format(date1[9]))
+                print("'5' - Flugþjónn 2: {}".format(date1[10]))
+                print(self.GO_BACK + "\n")
+                change_input = input(self.USER_INPUT).lower()
+                if change_input != "1" and change_input != "2" and change_input != "3" and change_input != "4" and change_input != "5": 
+                    if change_input == "r":
+                        self.voyage_menu()
+                    else:
+                        print("Vinsamlegast veldu starfsmann til að breyta/skrá í vinnuferð!") 
+                        pass      
+                else: 
+                    if change_input == "1":
+                        print("Breyta/skrá  flugmanni.")
+                        pass
+
+                    if change_input == "2":
+                        print("Breyta/skrá  aðstoðarflugmanni.")
+                        pass
+
+                    if change_input == "3":
+                        print("Breyta/skrá  yfirflugþjóni.")
+                        pass
+
+                    if change_input == "4":
+                        print("Breyta/skrá flugþjóni 1.")
+                        pass
+
+                    if change_input == "5":
+                        print("Breyta/skrá  flugjóni 2.")
+                        pass
+
                 
 ################################## Áfangastað VALINN###########################################################               
 
