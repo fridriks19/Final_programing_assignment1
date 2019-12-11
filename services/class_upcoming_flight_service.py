@@ -57,11 +57,13 @@ class Upcoming_flight_service:
 
     def change_upcoming_voyage(self, original_upc_flight, upd_upc_flight):
         self.upc_date = upc_date
+        self.original_upc_flight = original_upc_flight
+        self.upd_upc_flight = upd_upc_flight
         upc_voyages = Upcoming_flight_service().get_upcomingflights_list()
         for flight in upc_voyages:
-            if flight == str(original_upc_flight[0])
-            flight_index = upc_voyages.index(flight)
-            upc_voyages[flight_index + 1] = str(upd_upc_flight[1])
+            if flight == str(self.original_upc_flight[0])
+            flight_index = self.upc_voyages.index(flight)
+            upc_voyages[flight_index + 1] = str(self.upd_upc_flight[1])
             flight = str(upd_upc_flight[0])
         FlightRepository().save_changed_upc_flights(upc_voyages)
         return "Breytingar Vistaðar"
