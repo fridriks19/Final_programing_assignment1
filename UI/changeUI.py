@@ -115,6 +115,8 @@ class ChangeUI():
             change_flight = self.__get_upcflight.get_upcomingflight(date)
             if change_flight == "Flug fannst ekki":
                 print(change_flight)
+            if change_flight[1] != "KEF":    # To make sure that the user inputs a departing date
+                print("Veldu réttan brottfarartíma ")
             else:
                 date1, date2 = self.__get_upcflight.get_upcoming_voyage(date)
                 while change_input != "r":
