@@ -14,7 +14,6 @@ class Worktime_service:
     
     def is_working_list(self):
         empl_list = []
-        print(self.work_date)
         for flight in self.flight_list[1:]:
             flight[3] = flight[3].split("T")
             if flight[3][0] == self.work_date:
@@ -30,11 +29,14 @@ class Worktime_service:
             if employee[0] not in work_crew:
                 not_working_list.append(employee)
         return not_working_list
-    
+
+
     # def not_working_print(self):
     #     not_working_list = Worktime_service(self.work_date).not_working_list()
     #     prnt_list = []
     #     for empl in not_working_list:
     #         print(empl[0])
 
-print(Worktime_service("2019-12-20T06:45:00").not_working_list())
+# f1 = Worktime_service("2019-12-24T05:24:00").not_working_list()
+# for i in f1:
+#     print(i)
