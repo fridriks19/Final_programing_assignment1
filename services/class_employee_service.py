@@ -1,42 +1,74 @@
 from repo.class_EmployeeRepository import EmployeeRepository
+from models.class_employee import Employee
 
 class Employee_service():
     def __init__(self):
         self.__employee_repo = EmployeeRepository()
+        self.empl_list = self.__employee_repo.get_allemployees_list()
 
     def add_employee(self, empl_str):
         self.empl_str = empl_str
         if self.is_valid_employee(self.empl_str):
             self.__employee_repo.add_employee(self.empl_str)
+        else:
+            print("Upplýsingar ekki gildar fyrir starfsmann")
+            print("Passaðu að allar upplýsingar séu rétt skráðar")
+            print("Starfsmaður ekki vistaður")
 
     def change_employee(self, choice, change, ssn): #Change er breytan og choice er nr á því sem á að breyta 
         self.choice = choice
         self.change = change
         self.ssn = ssn
-        if self.is_valid_employee_change(self.choice, self.change):
-            empl_change = self.__employee_repo.change_employee(self.choice, self.change, self.ssn)
-            return empl_change
+        empl_change = self.__employee_repo.write_change_employee(self.choice, self.change, self.ssn)
+        return empl_change
 
     def get_pilots(self):
-        return self.__employee_repo.get_pilots()
+        """Get a list of all the pilots and print out their SSN, names, roles and ranks"""
+        return_str = ""
+        for empl in self.empl_list:   
+            output = Employee(empl)
+            if empl[2] == "Pilot":
+                return_str += "{}: {}, {}, {} \n".format(output.get_ssn(),output.get_name(),output.get_role(), output.get_rank())
+        return return_str
     
     def get_flightattendants(self):
-        return self.__employee_repo.get_flightattendants()
+        """Get a list of all the flight attendants and print out their SSN, names, roles and ranks"""
+        return_str = ""
+        for empl in self.empl_list:   
+            output = Employee(empl)
+            if empl[2] == "Cabincrew":
+                return_str += "{}: {}, {}, {} \n".format(output.get_ssn(),output.get_name(),output.get_role(), output.get_rank())
+        return return_str
 
     def get_employee(self, ssn):
         self.ssn = ssn
-        empl_info = self.__employee_repo.get_employee(self.ssn)
-        return empl_info
+        for empl in self.empl_list[1:]:
+            if empl[0] == self.ssn:
+                return empl
+        return False
     
     def get_allemployees(self):
         return self.__employee_repo.get_allemployees()
 
-    def is_valid_employee_change(self, choice, change):
-        return True
+    def get_allemployees_list(self):
+        return self.__employee_repo.get_allemployees_list()
 
     def is_valid_employee(self, empl_str):
-        #ssn
-        #gsm
-        #nafn  numbers
-        #
-        return True
+        listed_info = empl_str.split(",")
+        is_valid_ssn = False
+        is_valid_name = False
+        for item in listed_info:
+            if listed_info[0].isdigit():
+                if len(listed_info[0]) == 10:
+                    is_valid_ssn = True
+            else:
+                is_valid_ssn = False
+        for letter in listed_info[1]:
+            if letter.isdigit():
+                return False
+            else:
+                is_valid_name = True
+        if is_valid_ssn == True and is_valid_name == True:
+            return True
+        else:
+            return False
