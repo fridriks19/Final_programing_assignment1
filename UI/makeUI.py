@@ -37,18 +37,18 @@ class MakeUIupd():
             print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" ) 
             make_input = input(self.USER_INPUT).lower()
             print()
-            if make_input == "1":
-                self.employee_menu()
-            if make_input == "2":
-                self.destination_menu()
-            if make_input == "3":
-                self.voyage_menu()
-            if make_input == "4":
-                self.aircraft_menu()
-            if make_input == "r":
-                make_input = "r"
-            else:
-                print("Vinsamlegast veldu einn af eftifarandi valmöguleikum!")
+            if make_input != "r":
+                if make_input == "1":
+                    self.employee_menu()
+                if make_input == "2":
+                    self.destination_menu()
+                if make_input == "3":
+                    self.voyage_menu()
+                # if make_input == "4":
+                #     self.aircraft_menu()
+                else:
+                    print("Vinsamlegast veldu einn af eftifarandi valmöguleikum!")
+            break
 ###################STARFSMAÐUR VALIN ################################################################################################################  
     def employee_menu(self):
         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH )
@@ -244,7 +244,7 @@ class MakeUIupd():
             print(self.GO_BACK +"\n")
             air_choice = input("Veldu nafn flugvélar: ") 
             while air_choice != "r":
-                valid_or_not = self.__new_aircraft.is_valid_aircraft(air_choice,self.depart_date,self.return_arrival)
+                valid_or_not = self.__new_voyage.is_valid_aircraft(air_choice,self.depart_date,self.return_arrival)
                 if valid_or_not == True:
                     save_input = ""
                     if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 

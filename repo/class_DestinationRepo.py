@@ -9,6 +9,7 @@ class DestinationRepo(Destination):
         self.open_file()
         
     def open_file(self):
+        self.dest_list = []
         open_file = open("./data/Destination2.csv", "r")
         for line in open_file:
             line = line.strip().split(",")
@@ -43,7 +44,7 @@ class DestinationRepo(Destination):
 
     def get_dest(self, user_input):
         self.user_input = int(user_input)
-        #print(self.dest_list)
+        self.open_file()
         chosen_dest = self.dest_list[self.user_input]
         return chosen_dest
   
