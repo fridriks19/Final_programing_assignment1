@@ -7,6 +7,7 @@ class Employee_service():
         self.empl_list = self.__employee_repo.get_allemployees_list()
 
     def add_employee(self, empl_str):
+        '''Add employee to csv file if the employee string is valid'''
         self.empl_str = empl_str
         if self.is_valid_employee(self.empl_str):
             self.__employee_repo.add_employee(self.empl_str)
@@ -17,6 +18,7 @@ class Employee_service():
             # print("Starfsmaður ekki vistaður")
 
     def change_employee(self, choice, change, ssn): #"Change" is the variable and "choice" is the number of which thing to change.
+        '''Sends incoming info to the employee repository to overwrite existing info'''
         self.choice = choice
         self.change = change
         self.ssn = ssn
@@ -44,6 +46,7 @@ class Employee_service():
         return return_str
 
     def get_employee(self, ssn):
+        '''Gets an employee with a matching SSN'''
         self.ssn = ssn
         empl_list = self.__employee_repo.get_allemployees_list()
         for empl in empl_list:
@@ -52,12 +55,16 @@ class Employee_service():
         return False
     
     def get_allemployees(self):
+        '''Returns a formatted string with all employees'''
         return self.__employee_repo.get_allemployees()
 
     def get_allemployees_list(self):
+        '''Returns a list with all employees'''
         return self.__employee_repo.get_allemployees_list()
 
     def is_valid_employee(self, empl_str):
+        '''Checks if the input SSN is 10 digits and if there is a digit in the employee name.
+            If not, then returns False'''
         listed_info = empl_str.split(",")
         is_valid_ssn = False
         is_valid_name = False

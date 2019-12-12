@@ -46,6 +46,7 @@ class DestinationRepo(Destination):
         return prnt_str, counter
     
     def get_all_dest_list(self):
+        '''Returns a list with all destinations'''
         dest_list = [] 
         open_file = open("./data/Destinations.csv", "r")
         for line in open_file:
@@ -55,6 +56,7 @@ class DestinationRepo(Destination):
         return dest_list[1:]
 
     def get_dest(self, user_input):
+        '''Returns the destination that matches the user input'''
         self.user_input = int(user_input)
         self.open_file()
         self.dest_list = [] 

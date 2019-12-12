@@ -13,6 +13,7 @@ class Voyage_service:
         self.upcflights = Upcoming_flight_service()
 
     def add_date(self, date_list):
+        '''Returns input date as a valid datetime string'''
         self.date_list = date_list
         year = int(self.date_list[0])
         month = int(self.date_list[1])
@@ -30,6 +31,8 @@ class Voyage_service:
             return False
     
     def is_valid_date(self, date):
+        '''Checks if date is not set after today so 
+            you can't make a voyage that departs after today'''
         self.date = date
         if self.date >= date.today():
             return True
@@ -37,12 +40,14 @@ class Voyage_service:
             return False
 
     def add_voyage(self, voyage_str):
+        '''Sends the voyage string to the Upcoming Flight Repository'''
         self.voyage_str = voyage_str
         # Checks for valid input before sending to the repository
         if self.is_valid_voyage(voyage_str):
             self.flights.add_upcomingflight(voyage_str)
 
     def get_voyage(self, voyage_dep, voyage_arr):
+        '''Finds a voyage and returns a formatted string with info for a selected voyage'''
         self.voyage_dep = voyage_dep
         self.voyage_arr = voyage_arr
         voyage_list = self.flights.get_upcomingflights()
@@ -58,6 +63,7 @@ class Voyage_service:
         return printable_selected_voyage_list
     
     def is_valid_aircraft(self, chosen_aircr, date1, date2):
+        '''Checks if aircraft is available for selected dates'''
         self.chosen_aircr = chosen_aircr
         self.date1 = date1
         self.date2 = date2
@@ -73,6 +79,7 @@ class Voyage_service:
 
     
     def print_voyage(self, selected_voyage_list):
+        '''Returns a formatted string with information for a selected voyage'''
         self.selected_voyage_list = selected_voyage_list
         prnt_str = ""
         self.flight = Flight(self.selected_voyage_list[0])
@@ -91,9 +98,11 @@ class Voyage_service:
         return prnt_str
 
     def get_all_voyages(self):
+        '''Returns a string with information for all upcoming flights'''
         return self.flights.get_upcomingflights()
 
     def add_flight_nums(self, destination):
+        '''Adds a flight number to both departing and arriving flight when making a new voyage'''
         self.destination = destination
         destination_list = Destination_service().get_all_dest_list()
         for dest in destination_list:
@@ -124,6 +133,8 @@ class Voyage_service:
         return both_flight_nums
     
     def get_avail_aircraft(self, date1, date2):
+        '''Gets a list for all aircrafts and returns a list with info 
+        about each aircraft and if its available'''
         self.date1 = date1
         self.date2 = date2
         self.date1 = self.date1.split("T")
@@ -149,6 +160,7 @@ class Voyage_service:
         return avail_list
 
     def print_avail_aircraft(self, date1, date2):
+        '''Returns a formatted string with information about the availability for each aircraft'''
         self.date1 = date1
         self.date2 = date2
         prnt_str = ""
@@ -158,6 +170,7 @@ class Voyage_service:
         return prnt_str
                     
     def get_arrival_time(self, destination, input_date):
+        '''Calculates arrival time for flight depending on the lenght of the flight'''
         self.destination = destination
         self.input_date = input_date
         for dest in self.dest_list:
@@ -172,6 +185,7 @@ class Voyage_service:
         return arrival_time.strftime("%Y-%m-%dT%H:%M:%S")
     
     def get_return_flight_time(self, destination, arrival_time):
+        '''Calculates a return flight for voyage by adding an hour delay at the destination'''
         self.destination = destination
         self.arrival_time = arrival_time
         hour_delay = datetime.timedelta(hours=1)
@@ -181,10 +195,13 @@ class Voyage_service:
         return return_flight_time.strftime("%Y-%m-%dT%H:%M:%S")
         
     def is_valid_voyage(self, voyage_str):
+        '''Unfinished feature. Stay tuned for v.1.0012'''
         return True
 
 
     def prnt_str(self,empl_list):
+        '''Returns a formatted string with employee information 
+        and a number which is used to select that employee'''
         print_str = ""
         counter = 1
         for employee in empl_list:
@@ -193,6 +210,7 @@ class Voyage_service:
         return print_str
     
     def print_list(self,empl_list):
+        '''Returns a formatted string with the SSN for each employee in the incoming list'''
         prnt_str = ""
         for employee in empl_list:
             if len(employee) == 2:   # The list will be of length 2 if it has the destination in it. 
@@ -202,6 +220,8 @@ class Voyage_service:
         return str(prnt_str)
 
     def get_date_voyage(self, prnt_str):
+        '''Gets date from user with a number of inputs,
+        where each input checks if the user inputs only digits'''
         self.prnt_str = prnt_str
         print()
         print(prnt_str)   
