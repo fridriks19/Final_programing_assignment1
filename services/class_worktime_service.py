@@ -30,6 +30,17 @@ class Worktime_service:
                 not_working_list.append(employee)
         return not_working_list
 
+    def working_list_destination(self):   # Returns all the employees that are working on a specific date 
+        empl_list = []
+        empl_and_dest = []
+        for flight in self.flight_list[1:]:
+            flight[3] = flight[3].split("T")
+            if flight[3][0] == self.work_date:
+                for employee in flight[6:]:
+                    if employee not in empl_list:
+                        new_empl = [employee, flight[2]]
+                        empl_list.append(new_empl)
+        return empl_list
 
     # def not_working_print(self):
     #     not_working_list = Worktime_service(self.work_date).not_working_list()
