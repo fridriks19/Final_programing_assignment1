@@ -244,7 +244,7 @@ class MakeUIupd():
             print(self.GO_BACK +"\n")
             air_choice = input("Veldu nafn flugvélar: ") 
             while air_choice != "r":
-                valid_or_not = self.__new_aircraft.is_valid_aircraft(air_choice,self.depart_date,self.return_arrival)
+                valid_or_not = self.__new_voyage.is_valid_aircraft(air_choice,self.depart_date,self.return_arrival)
                 if valid_or_not == True:
                     save_input = ""
                     if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 

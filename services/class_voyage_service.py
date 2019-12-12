@@ -1,18 +1,15 @@
-from repo.class_voyageRepo import VoyageRepo
 from models.class_flight import Flight
 from repo.class_FlightRepository import FlightRepository
 from services.class_upcoming_flight_service import Upcoming_flight_service
-from repo.class_Aircraft_typeRepository import AircraftRepository
 from services.class_destination_service import Destination_service
+from services.class_aircraft_service import Aircraft_service
 import datetime
 
 class Voyage_service:
 
     def __init__(self):
-        self.voyage_repo = VoyageRepo()
         self.flights = FlightRepository()
         self.dest_list = Destination_service().get_all_dest_list()
-        self.aircraft_repo = AircraftRepository()
         self.upcflights = Upcoming_flight_service()
 
     def add_date(self, date_list):
@@ -39,16 +36,6 @@ class Voyage_service:
         else:
             return False
 
-    def get_aircraft(self):
-        aircraft_list = AircraftRepository().get_all_aircraft_types()
-        aircraft_info_list = []
-        for aircraft in aircraft_list[1:]:
-            pair_list = []
-            pair_list = [aircraft[0], aircraft[1]]
-            aircraft_info_list.append(pair_list)
-        return aircraft_info_list
-
-
     def add_voyage(self, voyage_str):
         self.voyage_str = voyage_str
         # Checks for valid input before sending to the repository
@@ -58,7 +45,7 @@ class Voyage_service:
     def get_voyage(self, voyage_dep, voyage_arr):
         self.voyage_dep = voyage_dep
         self.voyage_arr = voyage_arr
-        voyage_list = self.voyage_repo.get_upc_voyage_list()
+        voyage_list = self.flights.get_upcomingflights_list()
         selected_voyage_list = []
         for flight in voyage_list:
             # Gets both flights for the selected voyage
@@ -69,6 +56,20 @@ class Voyage_service:
                     selected_voyage_list.append(voyage_list[next_flight])
         printable_selected_voyage_list = Voyage_service().print_voyage(selected_voyage_list)
         return printable_selected_voyage_list
+    
+    def is_valid_aircraft(self, chosen_aircr, date1, date2):
+        self.chosen_aircr = chosen_aircr
+        self.date1 = date1
+        self.date2 = date2
+        aircraft_list = Aircraft_service().get_aircrafts()
+        available_aircrafts = Voyage_service().get_avail_aircraft(date1, date2)
+        for aircraft in aircraft_list:
+            if self.chosen_aircr == aircraft[0]:
+                for aircrafts in available_aircrafts:
+                    if aircrafts[0] == chosen_aircr and aircrafts[1] == "Laus":
+                        return True
+        else:
+            return False
 
     
     def print_voyage(self, selected_voyage_list):
@@ -128,7 +129,7 @@ class Voyage_service:
         self.date1 = self.date1.split("T")
         self.date2 = self.date2.split("T")
         avail_list = []
-        aircraft_list = self.aircraft_repo.get_aircrafts()
+        aircraft_list = Aircraft_service().get_aircrafts()
         upc_flights_list = FlightRepository().get_upcomingflights()
         for aircraft in aircraft_list:
             for flight in upc_flights_list:
@@ -202,6 +203,7 @@ class Voyage_service:
 
     def get_date_voyage(self, prnt_str):
         self.prnt_str = prnt_str
+        print()
         print(prnt_str)   
         print()
         year = input("Sláðu inn ár: ")      #Input aa year 

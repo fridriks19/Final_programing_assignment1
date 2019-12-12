@@ -1,11 +1,7 @@
-id,destination,flighttime,distance,contact,emergencyphonenumber
+﻿id,destination,flighttime,distance,contact,emergencyphonenumber
 LYR,Longyearbyean,04:00,1750km,asd,8654932
 GOH,Nuuk,03:00,1200km,Frikki skit,6666666KUS,Kulusuk,02:00,875km,Janus Jónsson,8654930
 FAE,Thorshavn,01:00,1000km,Mari Þykkastur,dfafs
 LWK,Tingwall,02:00,1300km,123,8654934
-KEF,Keflavik,00:00,0,api apasson,8654935
-12412412,21412,4124124,124124,12441,41241
-666,666,666,666,breyting 2,666
-qwer,qwer,qwer,qwer,qwer,qwer
-HEE,flug,4:00,10000,hehe,1111
-r,e,e,w,mj´q,4441444
+KEF,Keflavik,00:00,0,api apasson,8654935gfh,fdg,dsf,dfg,fgh,dfg
+fg,ert,sdf,dfg,hbobm,sdf

@@ -1,6 +1,5 @@
 import datetime
 from repo.class_FlightRepository import FlightRepository
-from repo.class_voyageRepo import VoyageRepo
 from repo.class_EmployeeRepository import EmployeeRepository
 
 class Worktime_service:

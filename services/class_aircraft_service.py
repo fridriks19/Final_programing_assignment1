@@ -1,6 +1,5 @@
 from repo.class_Aircraft_typeRepository import AircraftRepository
 from models.class_aircraft import Aircraft
-from services.class_voyage_service import Voyage_service
 
 class Aircraft_service():
     def __init__(self):
@@ -10,11 +9,7 @@ class Aircraft_service():
         pass
 
     def get_aircrafts(self):
-        aircraft_list = []
-        open_file = open("./data/Aircraft.csv", "r")
-        for line in open_file:
-            line = line.strip().split(",")
-            aircraft_list.append(line)
+        aircraft_list = self.__aircraftrepo.get_all_aircraft_types()
         return aircraft_list[1:]
 
 
@@ -24,26 +19,22 @@ class Aircraft_service():
         return aircraft
 
 
-    def is_valid_aircraft(self, chosen_aircr, date1, date2):
-        self.chosen_aircr = chosen_aircr
-        self.date1 = date1
-        self.date2 = date2
-        aircraft_list = Aircraft_service().get_aircrafts()
-        available_aircrafts = Voyage_service().get_avail_aircraft(date1, date2)
-        for aircraft in aircraft_list:
-            if self.chosen_aircr == aircraft[0]:
-                for aircrafts in available_aircrafts:
-                    if aircrafts[0] == chosen_aircr and aircrafts[1] == "Laus":
-                        return True
-        else:
-            return False
+    def get_aircraft(self):
+        aircraft_list = AircraftRepository().get_all_aircraft_types()
+        aircraft_info_list = []
+        for aircraft in aircraft_list[1:]:
+            pair_list = []
+            pair_list = [aircraft[0], aircraft[1]]
+            aircraft_info_list.append(pair_list)
+        return aircraft_info_list
 
     def find_air_id(self, aircraft_name):
         aircraft_str = ""
-        open_file = open("./data/Aircraft.csv", "r")
-        for line in open_file:
-            if aircraft_name in line:
-                aircraft_str = line[0]                
-        return aircraft_str[1]
+        self.aircraft_name = aircraft_name
+        aircraft_list = Aircraft_service().get_aircrafts()
+        for aircraft in aircraft_list:
+            if aircraft_name in aircraft:
+                aircraft_str = str(aircraft[1])                
+        return aircraft_str
 
         
