@@ -90,5 +90,9 @@ og er
  
 11. Eggert og Friðrik voru að vinna í því að bæta við og laga virknina við að búa til og breyta vinnuferðum, það var smá vesen með það
 breyta starfsmanni og að þær upplýsingar uppfærðust samstund en við fundum út úr því. Einnig sáum við að það var alltof mikið um endurtekningar í kóðanum 
-og reyndum við að vinna í því að laga það. Það var farið grimmt í gegnum öll ui-in og fínpússað allt og passað orðaforða. Einnig var commentað og gert
+og reyndum við að vinna í því að laga það. 
+
+12. desember:
+Héðinn og Davíð keyra kerfið og fara yfir villur og hvað vantar upp á, Friðik og Eggert laga og vinna í kóðanum. Förum allir saman yfir 
+kóðann og commenta betur þar sem vantar upp á og laga stafsetningu og annað. Það var farið grimmt í gegnum öll ui-in og fínpússað allt og passað orðaforða. Einnig var commentað og gert
 dicstrings þar sem átti við. 

@@ -28,6 +28,12 @@ class DestinationRepo(Destination):
     def get_alldest(self):
         """Get all destinations from our destinations list"""
 
+        self.dest_list = [] 
+        open_file = open("./data/Destination2.csv", "r")
+        for line in open_file:
+            line = line.strip().split(",")
+            self.dest_list.append(line)
+        open_file.close()
         prnt_str = ""
         counter = 1
         dest_dict = {}
@@ -40,11 +46,23 @@ class DestinationRepo(Destination):
         return prnt_str, counter
     
     def get_all_dest_list(self):
+        self.dest_list = [] 
+        open_file = open("./data/Destination2.csv", "r")
+        for line in open_file:
+            line = line.strip().split(",")
+            self.dest_list.append(line)
+        open_file.close()
         return self.dest_list[1:]
 
     def get_dest(self, user_input):
         self.user_input = int(user_input)
         self.open_file()
+        self.dest_list = [] 
+        open_file = open("./data/Destination2.csv", "r")
+        for line in open_file:
+            line = line.strip().split(",")
+            self.dest_list.append(line)
+        open_file.close()
         chosen_dest = self.dest_list[self.user_input]
         return chosen_dest
   
@@ -59,13 +77,13 @@ class DestinationRepo(Destination):
             id_key = Destination(line)  
             dest_dictionary[id_key.get_destinationId()] = line
         open_file_change.close()
-        dest_dictionary[dest][int(choice)+3] = change # Your choice will become change. The "+3" is because the first option is nut number 1, but it is 3 above.
+        dest_dictionary[dest][int(choice)+3] = change # Your choice will become change
+        #The "+3" is because the first option is nut number 1, but it is 3 above.
         for key in dest_dictionary.keys():  #Go through all the values so we can add them to a new string 
             new_file += ",".join(dest_dictionary[key])  
         open_file_change = open("./data/Destination2.csv", "w")  #We replace the old crew file with the new file 
         open_file_change.write(new_file)
         open_file_change.close()
-        self.open_file()
         return "Upplýsingum breytt"
 
 

@@ -1,6 +1,5 @@
 import datetime
 from repo.class_FlightRepository import FlightRepository
-from repo.class_voyageRepo import VoyageRepo
 from repo.class_EmployeeRepository import EmployeeRepository
 
 class Worktime_service:
@@ -58,18 +57,7 @@ class Worktime_service:
                         staff_list.append(item)
         return prnt_str
 
-    def find_empl_worktime(self, ssn, flight_list):
-        self.ssn = ssn
-        self.flight_list = flight_list
-        empl_flight_list = []
-        prnt_str = ""
-        for flight in flight_list:
-            if self.ssn in flight:
-                empl_flight_list.append(flight)
-        for flight in empl_flight_list:
-            flight_time = datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S")
-            prnt_str += "Flug: {}\nFrá: {}\nTil: {}\nDags: {}\nFlugstjóri: {}\nAðstoðarflugmaður: {}\nYfirflugþjónn: {}\nFlugþjónn 1: {}\nFlugþjónn 2: {}\n\n".format(flight[0], flight[1], flight[2], flight_time, flight[6], flight [7], flight[8], flight[9], flight[10])
-        return prnt_str
+
 
         
 

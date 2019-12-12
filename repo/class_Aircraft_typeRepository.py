@@ -1,5 +1,3 @@
-#from models.class_aircraft import Aircraft
-
 class AircraftRepository:
     """Data about Aircafts planeInsignia, planeTypeId, manufacturer, model, capacity"""
 

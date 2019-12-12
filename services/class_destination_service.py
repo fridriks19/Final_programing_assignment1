@@ -8,11 +8,12 @@ class Destination_service():
         self.dest_str = dest_str
         if self.is_dest_valid(self.dest_str):
             return self.__destination_repo.add_dest(self.dest_str)
+        else:
+            return "Upplýsingar ekki gildar"
 
     def get_dest(self, user_input): 
         self.user_input = user_input
-        if self.is_dest_valid(self.user_input):
-            return self.__destination_repo.get_dest(self.user_input)
+        return self.__destination_repo.get_dest(self.user_input)
 
     def get_alldest(self):
         return self.__destination_repo.get_alldest()
@@ -30,7 +31,14 @@ class Destination_service():
 
 
     def is_dest_valid(self, user_input):
-        #safas
+        self.user_input = user_input
+        user_input_list = self.user_input.split(",")
+        for letter in user_input_list[0]:
+            if letter.isdigit():
+                return False
+        for letter in user_input_list[1]:
+            if letter.isdigit():
+                return False
         return True
 
     def is_dest_valid_change(self, choice, change):
