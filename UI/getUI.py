@@ -105,9 +105,10 @@ class GetUI():
                     prnt_str = ("Skráðu dagsetningu") 
                     date = self.__get_voyage.get_date_voyage(prnt_str)
                     print(date)
-                    working = Worktime_service(date).working_list_destination()
+                    working = Worktime_service(date).print_working_list_destination()
                     print()
-                    print(self.__get_voyage.print_list(working))   # Prints out the list of employees that are working and the destination he is going to on that date 
+                    print(working)
+                    #print(self.__get_voyage.print_list(working))   # Prints out the list of employees that are working and the destination he is going to on that date 
 
                     
 
