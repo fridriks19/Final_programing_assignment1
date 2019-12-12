@@ -46,13 +46,13 @@ class DestinationRepo(Destination):
         return prnt_str, counter
     
     def get_all_dest_list(self):
-        self.dest_list = [] 
+        dest_list = [] 
         open_file = open("./data/Destinations.csv", "r")
         for line in open_file:
             line = line.strip().split(",")
-            self.dest_list.append(line)
+            dest_list.append(line)
         open_file.close()
-        return self.dest_list[1:]
+        return dest_list[1:]
 
     def get_dest(self, user_input):
         self.user_input = int(user_input)

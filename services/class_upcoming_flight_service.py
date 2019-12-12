@@ -8,7 +8,7 @@ class Upcoming_flight_service:
         self.upcoming_list = self.flights.get_upcomingflights()
 
     def get_all_upcomingflights(self):
-        return none
+        return None
 
     def add_upc_flight(self, flight_str):
         self.flight_str = flight_str
@@ -68,7 +68,9 @@ class Upcoming_flight_service:
 
     def get_upcomingflight(self, upc_date):
         self.upc_date = upc_date
-        for flight in self.upcoming_list:
+        upc_list = self.flights.get_upcomingflights()
+        for flight in upc_list:
+        #for flight in self.upcoming_list:
             if flight[3] == self.upc_date:
                 # Checks if flight is within set date parameters
                 flight_time = datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S")
@@ -78,18 +80,22 @@ class Upcoming_flight_service:
     
     def get_upcomingflight_list(self, upc_date):
         self.upc_date = upc_date
-        for flight in self.upcoming_list:
+        upc_list = self.flights.get_upcomingflights()
+        for flight in upc_list:
+        #for flight in self.upcoming_list:
             if flight[3] == self.upc_date:
                 return flight
         return "Flug fannst ekki"
     
     def get_upcoming_voyage(self, upc_date):
         self.upc_date = upc_date
-        for flight in self.upcoming_list:
-            if flight[3] == self.upc_date:
+        upc_list = self.flights.get_upcomingflights()
+        #for flight in self.upcoming_list:
+        for flight in upc_list:
+            if flight[3] == upc_date:
                 flight1 = flight
-                flight2_index = self.upcoming_list.index(flight)
-                flight2 = self.upcoming_list[flight2_index+1]
+                flight2_index = upc_list.index(flight)
+                flight2 = upc_list[flight2_index+1]
         return flight1, flight2
 
     def change_upcoming_voyage(self, upc_flight1, upc_flight2):

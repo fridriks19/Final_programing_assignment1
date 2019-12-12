@@ -25,7 +25,8 @@ class Employee_service():
     def get_pilots(self):
         """Get a list of all the pilots and print out their SSN, names, roles and ranks"""
         return_str = ""
-        for empl in self.empl_list:   
+        empl_list = self.__employee_repo.get_allemployees_list()
+        for empl in empl_list:  
             output = Employee(empl)
             if empl[2] == "Pilot":
                 return_str += "{}: {}, {}, {} \n".format(output.get_ssn(),output.get_name(),output.get_role(), output.get_rank())
@@ -34,7 +35,8 @@ class Employee_service():
     def get_flightattendants(self):
         """Get a list of all the flight attendants and print out their SSN, names, roles and ranks"""
         return_str = ""
-        for empl in self.empl_list:   
+        empl_list = self.__employee_repo.get_allemployees_list()
+        for empl in empl_list:   
             output = Employee(empl)
             if empl[2] == "Cabincrew":
                 return_str += "{}: {}, {}, {} \n".format(output.get_ssn(),output.get_name(),output.get_role(), output.get_rank())
@@ -42,7 +44,8 @@ class Employee_service():
 
     def get_employee(self, ssn):
         self.ssn = ssn
-        for empl in self.empl_list[1:]:
+        empl_list = self.__employee_repo.get_allemployees_list()
+        for empl in empl_list:
             if empl[0] == self.ssn:
                 return empl
         return False

@@ -45,7 +45,7 @@ class Voyage_service:
     def get_voyage(self, voyage_dep, voyage_arr):
         self.voyage_dep = voyage_dep
         self.voyage_arr = voyage_arr
-        voyage_list = self.flights.get_upcomingflights_list()
+        voyage_list = self.flights.get_upcomingflights()
         selected_voyage_list = []
         for flight in voyage_list:
             # Gets both flights for the selected voyage
@@ -91,7 +91,7 @@ class Voyage_service:
         return prnt_str
 
     def get_all_voyages(self):
-        return self.voyage_repo.get_upc_voyage_list()
+        return self.flights.get_upcomingflights()
 
     def add_flight_nums(self, destination):
         self.destination = destination
