@@ -31,7 +31,7 @@ class ChangeUI():
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta"))/2)*" " +  "Breyta"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
             print(self.GO_BACK +"\n")
-            print("'1' - Starfmann" + "\n" + "'2' - Vinnuferð" + "\n" + "'3' - Áfangastað" + "\n")
+            print("'1' - Starfsmann" + "\n" + "'2' - Vinnuferð" + "\n" + "'3' - Áfangastað" + "\n")
             change_input = input(self.USER_INPUT).lower()
             print()
             if change_input != "r":
