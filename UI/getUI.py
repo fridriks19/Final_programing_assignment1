@@ -203,11 +203,13 @@ class GetUI():
                     print(date1)
                     print(date2)
                     past_flightss = self.__get_pastflight.get_pastflights(date1,date2)
+                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                     print(past_flightss)
                 elif old_voyage == "2":
                     only_date = "Skráðu dagsetnungu vinnuferða"
                     date = self.__get_voyage.get_date_voyage(only_date)
                     past_flight = self.__get_pastflight.get_pastflight(date)
+                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                     print(past_flight)
 
             elif get_input =="2":
@@ -223,13 +225,13 @@ class GetUI():
                     date1 = self.__get_voyage.get_date_voyage(first_date)
                     date2 = self.__get_voyage.get_date_voyage(next_date)
                     upc_flightss = self.__get_upcflight.get_upcomingflights(date1,date2)
-                    print()
+                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                     print(upc_flightss)
                 elif upcm_voyage == "2":
                     only_date = "Skráðu dagsetningu vinnuferða"
                     date = self.__get_voyage.get_date_voyage(only_date)
                     upc_flight = self.__get_upcflight.get_upcomingflight(date)
-                    print()
+                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                     print(upc_flight)
     
 
