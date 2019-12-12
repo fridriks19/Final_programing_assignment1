@@ -21,6 +21,8 @@ class EmployeeRepository:
         return "Starfsmaður vistaður"
 
     def get_employee(self,fnd_empl_ssn = ""):
+        """Find a specific employee by using his/hers SSN""" 
+
         self.fnd_empl_ssn = fnd_empl_ssn
         open_file = open("./data/crew2.csv", "r")
         open_file_list = []
@@ -36,6 +38,8 @@ class EmployeeRepository:
         return False
                 
     def get_pilots(self):
+     """Get a list of all the pilots and print out there SSN, names, roles and ranks"""
+
         return_str  = ""
         open_file = open("./data/crew2.csv", "r")
         open_file_list = []
@@ -51,6 +55,8 @@ class EmployeeRepository:
         return return_str
 
     def get_flightattendants(self):
+        """Get a list of all the flight attendants and print out there SSN, names, roles and ranks"""
+
         return_str  = ""
         open_file = open("./data/crew2.csv", "r")
         open_file_list = []
@@ -66,14 +72,16 @@ class EmployeeRepository:
         return return_str
 
     def get_allemployees(self):
+        """Get a list of all the employees and print out there, SSN, names and roles"""
+
         return_str  = ""
         open_file = open("./data/crew2.csv", "r")
         open_file_list = []
         for line in open_file:
             line = line.strip()
             line = line.split(",")
-            output = Employee(line)  #Svo við getum sótt réttar staðsetningar úr model clasanum 
-            open_file_list.append(line) # ÞARF ÞETTA ??????????
+            output = Employee(line)  
+            open_file_list.append(line)
             return_str +=  "{}: {}, {} \n".format(output.get_ssn(),output.get_name(),output.get_role())
         open_file.close()  
         return return_str
@@ -82,15 +90,17 @@ class EmployeeRepository:
         return self.empl_list[1:]
 
     def change_employee(self, choice, change, ssn): 
+        """ Find a employee to change his information by using his/hers SSN"""
+
         crew_dictionary = {}
         new_file = ""
         open_file = open("./data/crew2.csv" , "r")
         for line in open_file:
             line = line.split(",")
             ssn_key = Employee(line)  
-            crew_dictionary[ssn_key.get_ssn()] = line    # make the name the key and the values the rest of line, gerum 
+            crew_dictionary[ssn_key.get_ssn()] = line # make the name the key and the values the rest of line
         
-        crew_dictionary[ssn][int(choice)+1] = change #Finna starfsmanninn sem á að breyta og breyta því sem var valið í choice í change
+        crew_dictionary[ssn][int(choice)+1] = change #Find the specific employee that we are going to change, and change "choice" to "change"
         for key in crew_dictionary.keys():  # go through all the values so we can add them to a new string 
             new_file += ",".join(crew_dictionary[key])  
         open_file = open("./data/crew2.csv", "w")  #We replace the old crew file with the new file 
