@@ -76,6 +76,13 @@ class Upcoming_flight_service:
                 return prnt_str
         return "Flug fannst ekki"
     
+    def get_upcomingflight_list(self, upc_date):
+        self.upc_date = upc_date
+        for flight in self.upcoming_list:
+            if flight[3] == self.upc_date:
+                return flight
+        return "Flug fannst ekki"
+    
     def get_upcoming_voyage(self, upc_date):
         self.upc_date = upc_date
         for flight in self.upcoming_list:

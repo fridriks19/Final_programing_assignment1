@@ -210,7 +210,7 @@ class Voyage_service:
         while year.isdigit() == False:     # if its not a number then let them try again
             print("Vinsamlegast skráðu ár!")
             year = input("Sláðu inn ár: ")
-        month = input("Sláðu inn númer mánaðar")
+        month = input("Sláðu inn númer mánaðar: ")
         while month.isdigit() == False:
             print("Vinsamlegast skráðu númer mánaðar!")
             month = input("Sláðu inn númer mánaðar: ")

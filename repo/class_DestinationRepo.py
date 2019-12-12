@@ -5,6 +5,16 @@ class DestinationRepo(Destination):
 
     def __init__(self, dest_str=""):
         self.dest_str = dest_str
+        self.dest_list = [] 
+        self.open_file()
+        
+    def open_file(self):
+        self.dest_list = []
+        open_file = open("./data/Destination2.csv", "r")
+        for line in open_file:
+            line = line.strip().split(",")
+            self.dest_list.append(line)
+        open_file.close()
 
     def add_dest(self, dest_str):
         """Add an destination to our destinations list"""
@@ -46,6 +56,7 @@ class DestinationRepo(Destination):
 
     def get_dest(self, user_input):
         self.user_input = int(user_input)
+        self.open_file()
         self.dest_list = [] 
         open_file = open("./data/Destination2.csv", "r")
         for line in open_file:

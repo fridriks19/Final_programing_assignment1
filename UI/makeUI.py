@@ -37,18 +37,18 @@ class MakeUIupd():
             print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" ) 
             make_input = input(self.USER_INPUT).lower()
             print()
-            if make_input == "1":
-                self.employee_menu()
-            if make_input == "2":
-                self.destination_menu()
-            if make_input == "3":
-                self.voyage_menu()
-            if make_input == "4":
-                self.aircraft_menu()
-            if make_input == "r":
-                make_input = "r"
-            else:
-                print("Vinsamlegast veldu einn af eftifarandi valmöguleikum!")
+            if make_input != "r":
+                if make_input == "1":
+                    self.employee_menu()
+                if make_input == "2":
+                    self.destination_menu()
+                if make_input == "3":
+                    self.voyage_menu()
+                # if make_input == "4":
+                #     self.aircraft_menu()
+                else:
+                    print("Vinsamlegast veldu einn af eftifarandi valmöguleikum!")
+            break
 ###################STARFSMAÐUR VALIN ################################################################################################################  
     def employee_menu(self):
         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH )
