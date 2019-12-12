@@ -38,7 +38,8 @@ class EmployeeRepository:
         return False
                 
     def get_pilots(self):
-        '''Get a list of all the pilots and print out there SSN, names, roles and ranks'''
+        """Get a list of all the pilots and print out there SSN, names, roles and ranks"""
+
         return_str  = ""
         open_file = open("./data/crew2.csv", "r")
         open_file_list = []
