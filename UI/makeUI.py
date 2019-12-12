@@ -34,7 +34,7 @@ class MakeUIupd():
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá"))/2)*" " +  "Nýskrá"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
             print(self.GO_BACK +"\n")
-            print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flugvél" + "\n")
+            print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" ) 
             make_input = input(self.USER_INPUT).lower()
             print()
             if make_input == "1":
@@ -132,7 +132,6 @@ class MakeUIupd():
             print("'3' - Flugvél")
             print("'4' - Starfsmenn")
             print("'5' - Vista vinnuferðina, án eða með starfsmönnum")
-            print(self.chosen_destination)
             make_input = input(self.USER_INPUT).lower()
             if make_input == "1":
                 self.voyage_destination()
@@ -504,16 +503,16 @@ class MakeUIupd():
 
 
 ###################FLUGVÉL VALIN ################################################################################################################  
-    def aircraft_menu(self):
-        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá flugvél"))/2)*" " +  "Nýskrá flugvél"  +   "\n" + self.BORDER * self.WITDH )
-        print(self.PICK +"\n")
-        print(self.GO_BACK +"\n")
-        print("Veldu tegund")
-        print("'1' - NAFokkerF100")
-        print("'2' - NABAE146")
-        print("'3' - NAFokkerF28")
+    # def aircraft_menu(self):
+    #     print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá flugvél"))/2)*" " +  "Nýskrá flugvél"  +   "\n" + self.BORDER * self.WITDH )
+    #     print(self.PICK +"\n")
+    #     print(self.GO_BACK +"\n")
+    #     print("Veldu tegund")
+    #     print("'1' - NAFokkerF100")
+    #     print("'2' - NABAE146")
+    #     print("'3' - NAFokkerF28")
         
-        Planetypeid = input("Nafn: ")
+    #     Planetypeid = input("Nafn: ")
        
 
             

@@ -37,7 +37,7 @@ class GetUI():
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja"))/2)*" " +  "Sækja"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
             print(self.GO_BACK +"\n")
-            print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Flug/vinnutímar" + "\n")
+            print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Vinnutímar starfsmanna" + "\n")
             get_input = input(self.USER_INPUT)
             print()
             if get_input == "1":
@@ -220,7 +220,7 @@ class GetUI():
             print(self.GO_BACK +"\n")
             print("'1' - Sjá lista yfir alla starfsmenn sem eru ekki að vinna ákveðin dag")
             print("'2' - Sjá lista yfir alla starfsmenn sem eru að vinna ákveðin dag")
-            print("'3' - Sjá vinnuyfirlit fyrir ákveðin starfsmann")
+            print("'3' - Sjá vinnuyfirlit fyrir ákveðins starfsmanns")
             get_input = input(self.PICK)
             if get_input != "1" and get_input !="2" and get_input != "3":
                 print("Vinsamlegast veldu eitthvert af eftirfarandi!")
@@ -256,7 +256,7 @@ class GetUI():
                     # print(upc_flightss)
                     print(self.__get_upcflight.find_empl_worktime(ssn_input, upc_flightss))
                 else:
-                    if employee_ssn_input == "r":
-                        self.change_menu()      
+                    if ssn_input == "r":
+                        self.worktime_menu()      
                     print("Starfmaður ekki til! Vitlaus kennitala.")
                     self.employee_menu()    
