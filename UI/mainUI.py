@@ -16,6 +16,9 @@ def animate():
         sys.stdout.write('\rLogging Out \\')
         time.sleep(0.1)
     sys.stdout.write('\rSuccess!     ')
+    time.sleep(0.3)
+    input("Press any key to exit")
+
 
 class MainUI():
     def __init__(self):
