@@ -48,7 +48,7 @@ class DestinationRepo(Destination):
         return chosen_dest
   
     def change_dest(self, choice, change, dest):
-        """"Get a list of all the destinations, so you can change the "contact" and his "emergency number""""
+        '''Get a list of all the destinations, so you can change the "contact" and his "emergency number"'''
 
         dest_dictionary = {}
         new_file = ""
