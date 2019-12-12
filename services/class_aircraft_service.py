@@ -5,7 +5,7 @@ class Aircraft_service():
     def __init__(self):
         self.__aircraftrepo = AircraftRepository()
 
-    def get_aircraft(self):
+    def get_aircraft(self): #Taka út?
         pass
 
     def get_aircrafts(self):
@@ -14,6 +14,8 @@ class Aircraft_service():
 
 
     def add_aircraft(self, air_str = ""):
+        """Add an aircraft to the aircraft repository"""
+
         self.air_str = air_str
         aircraft = self.__aircraftrepo.add_aircraft_type(self.air_str)
         return aircraft
@@ -29,6 +31,8 @@ class Aircraft_service():
         return aircraft_info_list
 
     def find_air_id(self, aircraft_name):
+        """Finds the id for the aircraft"""
+
         aircraft_str = ""
         self.aircraft_name = aircraft_name
         aircraft_list = Aircraft_service().get_aircrafts()

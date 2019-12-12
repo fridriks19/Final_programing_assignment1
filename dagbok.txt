@@ -84,3 +84,6 @@ Davíð og Friðrik voru að vinna í vinnuferð UI.
 10. desember:
 Davíð og Friðrik halda áfram með UI. Eggert var að vinna í Voyage klasa og Héðinn var að vinna í að commenta og fara yfir kóðan. 
  
+12. desember:
+Héðinn og Davíð keyra kerfið og fara yfir villur og hvað vantar upp á, Friðik og Eggert laga og vinna í kóðanum. Förum allir saman yfir 
+kóðann og commenta betur þar sem vantar upp á og laga stafsetningu og annað.

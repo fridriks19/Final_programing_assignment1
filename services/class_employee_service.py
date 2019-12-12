@@ -15,7 +15,7 @@ class Employee_service():
             print("Passaðu að allar upplýsingar séu rétt skráðar")
             print("Starfsmaður ekki vistaður")
 
-    def change_employee(self, choice, change, ssn): #Change er breytan og choice er nr á því sem á að breyta 
+    def change_employee(self, choice, change, ssn): #"Change" is the variable and "choice" is the number of which thing to change.
         self.choice = choice
         self.change = change
         self.ssn = ssn
