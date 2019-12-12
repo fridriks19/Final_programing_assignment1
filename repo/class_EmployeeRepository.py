@@ -9,7 +9,7 @@ class EmployeeRepository:
         for line in self.open_file:
             line = line.strip()
             line = line.split(",")
-           # output = Employee(line)  #Svo við getum sótt réttar staðsetningar úr model clasanum 
+           # output = Employee(line)  #So we can get the right locations from the model class
             self.empl_list.append(line)
         
     

@@ -7,6 +7,8 @@ class AircraftRepository:
         self.aircr_type_str = aircr_type_str
     
     def add_aircraft_type(self,add_airc_str):
+        """Add aircraft type to the aircraft data file"""
+
         self.add_airc_str = add_airc_str
         open_file = open("./data/Aircraft.csv", "a")
         open_file.write(self.add_airc_str + "\n")
@@ -14,6 +16,8 @@ class AircraftRepository:
         return "Flugvél vistuð"
 
     def get_aircraft_type(self):
+        """Search for a specific aircraft in the aircraft data file"""
+
         open_file = open("./data/Aircraft.csv", "r")
         open_file_list = []
         for line in open_file:
@@ -28,6 +32,8 @@ class AircraftRepository:
         return "Flugvél fannst ekki"
     
     def get_all_aircraft_types(self):
+        """Iterates over all aircrafts in the data file and adds them to a list and returns the list"""
+
         open_file = open("./data/Aircraft.csv", "r")
         open_file_list = []
         for line in open_file:
@@ -37,6 +43,8 @@ class AircraftRepository:
         return open_file_list
         
     def get_aircrafts(self):
+        """Reads the aircrafts in the data file into a list"""
+
         aircraft_list = []
         open_file = open("./data/Aircraft.csv", "r")
         for line in open_file:
@@ -44,7 +52,9 @@ class AircraftRepository:
             aircraft_list.append(line)
         return aircraft_list[1:]
 
-    def find_air_id(self, aircraft_name):  # We are seeing what the id for the aircraft is from what the user chooses so we can find employees with licences.
+    def find_air_id(self, aircraft_name):  
+        """We are seeing what the id for the aircraft is from what the user chooses so we can find employees with licences. """
+      
         aircraft_str = ""
         open_file = open("./data/Aircraft.csv", "r")
         for line in open_file:
