@@ -4,7 +4,16 @@ import datetime
 class FlightRepository():
     def __init__(self):
         self.flight_list = []
+        self.open_file()
     
+    def open_file(self):
+        self.flight_list = []
+        open_file = open("./data/UpcomingFlights.csv", "r")
+        for line in open_file:
+            line = line.strip().split(",")
+            self.flight_list.append(line)
+        open_file.close()
+
     def get_upcomingflights(self):
         self.open_upcoming = open("./data/UpcomingFlights.csv", "r")
         for line in self.open_upcoming:
@@ -32,7 +41,7 @@ class FlightRepository():
 
     
     def get_pastflights(self):
-        self.open_past = open("./data/PastFlights2.csv", "r")
+        self.open_past = open("./data/PastFlights.csv", "r")
         for line in self.open_past:
             line = line.strip()
             line = line.split(",")
