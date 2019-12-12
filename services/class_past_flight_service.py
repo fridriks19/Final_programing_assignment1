@@ -8,6 +8,7 @@ class Past_flight_service:
         self.past_list = self.flights.get_pastflights()
     
     def get_pastflights(self, date_1, date_2):
+        '''Returns a past flight within set date parameters'''
         self.date_1 = date_1
         self.date_2 = date_2
         pf_list = []
@@ -27,6 +28,7 @@ class Past_flight_service:
         return prnt_str
     
     def get_pastflight(self, past_date):
+        '''Returns a past flight that matches the input past date'''
         self.past_date = past_date
         for flight in self.past_list:
             if flight[3] == self.past_date:

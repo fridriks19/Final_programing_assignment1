@@ -5,10 +5,8 @@ class Aircraft_service():
     def __init__(self):
         self.__aircraftrepo = AircraftRepository()
 
-    def get_aircraft(self): #Taka út?
-        pass
-
     def get_aircrafts(self):
+        '''Gets a list with all aircrafts'''
         aircraft_list = self.__aircraftrepo.get_all_aircraft_types()
         return aircraft_list[1:]
 
@@ -22,6 +20,7 @@ class Aircraft_service():
 
 
     def get_aircraft(self):
+        '''Gets a list with all aircrafts, but only limited info'''
         aircraft_list = AircraftRepository().get_all_aircraft_types()
         aircraft_info_list = []
         for aircraft in aircraft_list[1:]:
