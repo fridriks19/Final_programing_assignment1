@@ -24,7 +24,7 @@ class Upcoming_flight_service:
         dt_str2 = datetime.datetime.strptime(self.date_2, "%Y-%m-%dT%H:%M:%S")
         # Sort the list by date
         sorted_list = sorted(self.upcoming_list, key=lambda date: date[3]) 
-        for flight in sorted_list:
+        for flight in sorted_list[:-2]:
             # Checks if flight is within set date parameters
             if datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S") >= dt_str1 and datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S") <= dt_str2:
                 pf_list.append(flight)
