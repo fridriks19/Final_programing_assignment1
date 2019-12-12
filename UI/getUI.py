@@ -248,5 +248,14 @@ class GetUI():
                 next_date = "Skráðu seinni dagsetning tímabilsins "
                 date1 = self.__get_voyage.get_date_voyage(first_date)
                 date2 = self.__get_voyage.get_date_voyage(next_date)
-                upc_flightss = self.__get_upcflight.get_upcomingflights(date1,date2)
-                print(upc_flightss)
+                ssn_input = input("Skráðu kennitölu starfsmanns")
+                if ssn_input != "r":
+                    empl_info_lst = self.__get_employee.get_employee(ssn_input)
+                if empl_info_lst != False:
+                    upc_flightss = self.__get_upcflight.get_upcomingflights(date1,date2)
+                    print(upc_flightss)
+                else:
+                    if employee_ssn_input == "r":
+                        self.change_menu()      
+                    print("Starfmaður ekki til! Vitlaus kennitala.")
+                    self.employee_menu()    
