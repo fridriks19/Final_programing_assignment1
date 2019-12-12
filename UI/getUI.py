@@ -95,10 +95,21 @@ class GetUI():
                 elif get_input == "2":
                     prnt_str = ("Skráðu dagsetningu") 
                     date = self.__get_voyage.get_date_voyage(prnt_str)
-                    not_working = Worktime_service(date).not_working_list
-                    print(str(not_working))
+                    print(date)
+                    not_working = Worktime_service(date).not_working_list()
+                    print("Aaaaa", not_working)
+                    print()
+                    print(self.__get_voyage.print_list(not_working))
+                    
                 elif get_input == "3":
-                    pass
+                    prnt_str = ("Skráðu dagsetningu") 
+                    date = self.__get_voyage.get_date_voyage(prnt_str)
+                    print(date)
+                    working = Worktime_service(date).working_list_destination()
+                    print()
+                    print(self.__get_voyage.print_list(working))   # Prints out the list of employees that are working and the destination he is going to on that date 
+
+                    
 
 
         if get_input == "2":     #Get only pilots 
