@@ -252,8 +252,9 @@ class GetUI():
                 if ssn_input != "r":
                     empl_info_lst = self.__get_employee.get_employee(ssn_input)
                 if empl_info_lst != False:
-                    upc_flightss = self.__get_upcflight.get_upcomingflights(date1,date2)
-                    print(upc_flightss)
+                    upc_flightss = self.__get_upcflight.get_upcomingflights_list_selected_time(date1,date2)
+                    # print(upc_flightss)
+                    print(self.__get_upcflight.find_empl_worktime(ssn_input, upc_flightss))
                 else:
                     if employee_ssn_input == "r":
                         self.change_menu()      
