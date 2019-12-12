@@ -194,10 +194,10 @@ class Voyage_service:
     def print_list(self,empl_list):
         prnt_str = ""
         for employee in empl_list:
-            if len(empl_list) == 2:   # The list will be of length 2 if it has the destination in it. 
+            if len(employee) == 2:   # The list will be of length 2 if it has the destination in it. 
                 prnt_str += "Kennitala starfsmanns: {}, áfangastaður vinnuferðar: {}\n".format(employee[0],employee[1])
             else:    # else the employee list is a part of not working list and we don't print the destination 
-                prnt_str += "Kennitala starfsmanns: {}.\n".format(employee[0])
+                prnt_str += "Kennitala starfsmanns: {}\n".format(employee[0])
         return str(prnt_str)
 
     def get_date_voyage(self, prnt_str):
