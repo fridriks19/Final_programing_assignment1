@@ -6,10 +6,12 @@ class Aircraft_service():
     def __init__(self):
         self.__aircraftrepo = AircraftRepository()
 
-    def get_aircraft(self):
+    def get_aircraft(self): #Taka út?
         pass
 
     def get_aircrafts(self):
+        """Get the aircrafts from the aircraft data file"""
+
         aircraft_list = []
         open_file = open("./data/Aircraft.csv", "r")
         for line in open_file:
@@ -19,12 +21,16 @@ class Aircraft_service():
 
 
     def add_aircraft(self, air_str = ""):
+        """Add an aircraft to the aircraft repository"""
+
         self.air_str = air_str
         aircraft = self.__aircraftrepo.add_aircraft_type(self.air_str)
         return aircraft
 
 
     def is_valid_aircraft(self, chosen_aircr, date1, date2):
+        """Checks if the aircraft is available  """
+
         self.chosen_aircr = chosen_aircr
         self.date1 = date1
         self.date2 = date2
@@ -39,6 +45,8 @@ class Aircraft_service():
             return False
 
     def find_air_id(self, aircraft_name):
+        """Finds the id for the aircraft"""
+
         aircraft_str = ""
         open_file = open("./data/Aircraft.csv", "r")
         for line in open_file:

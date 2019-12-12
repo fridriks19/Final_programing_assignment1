@@ -9,7 +9,7 @@ class Employee_service():
         if self.is_valid_employee(self.empl_str):
             self.__employee_repo.add_employee(self.empl_str)
 
-    def change_employee(self, choice, change, ssn): #Change er breytan og choice er nr á því sem á að breyta 
+    def change_employee(self, choice, change, ssn): #"Change" is the variable and "choice" is the number of which thing to change.
         self.choice = choice
         self.change = change
         self.ssn = ssn
