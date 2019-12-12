@@ -12,9 +12,10 @@ class Employee_service():
         if self.is_valid_employee(self.empl_str):
             self.__employee_repo.add_employee(self.empl_str)
         else:
-            print("Upplýsingar ekki gildar fyrir starfsmann")
-            print("Passaðu að allar upplýsingar séu rétt skráðar")
-            print("Starfsmaður ekki vistaður")
+            return False
+            # print("Upplýsingar ekki gildar fyrir starfsmann")
+            # print("Passaðu að allar upplýsingar séu rétt skráðar")
+            # print("Starfsmaður ekki vistaður")
 
     def change_employee(self, choice, change, ssn): #"Change" is the variable and "choice" is the number of which thing to change.
         '''Sends incoming info to the employee repository to overwrite existing info'''
@@ -73,12 +74,16 @@ class Employee_service():
                     is_valid_ssn = True
             else:
                 is_valid_ssn = False
+
         for letter in listed_info[1]:
             if letter.isdigit():
+                
                 return False
             else:
                 is_valid_name = True
         if is_valid_ssn == True and is_valid_name == True:
             return True
         else:
+            print("Kennitala þarf að innihalda 10 tölustafi!")
+            print("Það geta ekki verið tölur í nafni!")
             return False

@@ -34,7 +34,7 @@ class MakeUIupd():
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá"))/2)*" " +  "Nýskrá"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
             print(self.GO_BACK +"\n")
-            print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" ) 
+            print("'1' - Starfsmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" ) 
             make_input = input(self.USER_INPUT).lower()
             print()
             if make_input != "r":
@@ -55,67 +55,87 @@ class MakeUIupd():
         print(self.PICK +"\n")
         print(self.GO_BACK +"\n")
         print ("'1' - Skrá flugmann" + "\n" + "'2' - Skrá flugþjón")   #Gefur valmöguleika um hvort það vilji skrá flugmann eða flugþjón
+        print()
         make_input = input(self.USER_INPUT).lower()
-        while make_input != "1" and make_input != "2" and make_input !="r" :  # Svo það sé einungis hægt að velja 1 eða 2 til að halda áfram
-            if make_input =="r":
-                self.make_menu()
-            else:
+        if make_input == "r":
+            self.make_menu()
+        else:   
+            while make_input != "1" and make_input != "2":  # Svo það sé einungis hægt að velja 1 eða 2 til að halda áfram
                 make_input = input(self.USER_INPUT).lower()
-        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH ) 
-        print(self.PICK +"\n")
-        # new_list = EmployeeMaker()
-        ssn = input("Kennitala: ")
-        name = input("Nafn: ")
-        rank = input("Stöðugildi: ")
-        liscense = input("Réttindi: ")
-        address = input("Heimilisfang: ")
-        phonenumber = input("GSM-Sími:")
+            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH ) 
+            print(self.PICK +"\n")
+            # new_list = EmployeeMaker()
+            ssn = input("Kennitala: ")
+            name = input("Nafn: ")
+            rank = input("Stöðugildi: ")
+            liscense = input("Réttindi: ")
+            address = input("Heimilisfang: ")
+            phonenumber = input("GSM-Sími: ")
 
-        save_input = ""
-        if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-            print("\nViltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
-            save_input = input(str(self.USER_INPUT))
-            print()
-        if save_input == "1":   
-            if make_input == "1": #Ef það er valið flugmann
-                print("Starfsmaður vistaður")
-                role =  ""
-                new_list = [ssn,name,role,rank,liscense,address,phonenumber] #Gerum lista með öllum inputunum og sendum í pilot clasan og síðan öddum við employe-inum í csv fileið
-                new_employee = pilot(new_list)
-                self.__new_employee.add_employee(str(new_employee))
-            elif make_input == "2": #Ef það er valið flugþjón
-                print("Starfsmaður vistaður")
-                role =  ""
-                new_list = [ssn,name,role,rank,liscense,address,phonenumber]
-                new_employee = flight_attendant(new_list)
-                self.__new_employee.add_employee(str(new_employee))
-        else:
-            print("Starfsmaður ekki vistaður")
-            make_input = "1"  #Ef það er valið nei við að vista upplýsngar er notandi sendur aftur til baka á nýskrá síðu.
-    
+            save_input = ""
+            while save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                print("\nViltu vista starfsmanninn \n'1' - Já \n'2' - Nei ")
+                save_input = input(str(self.USER_INPUT))
+                print()
+            if save_input == "1":   
+                if make_input == "1": #Ef það er valið flugmann
+                    role =  ""
+                    new_list = [ssn,name,role,rank,liscense,address,phonenumber] #Gerum lista með öllum inputunum og sendum í pilot clasan og síðan öddum við employe-inum í csv fileið
+                    new_employee = pilot(new_list)
+                    if self.__new_employee.add_employee(str(new_employee)) == False:
+                        print("Upplýsingar ekki gildar fyrir starfsmann")
+                        print("Passaðu að allar upplýsingar séu rétt skráðar")
+                        print("Starfsmaður ekki vistaður")
+                        self.employee_menu()
+                    else:
+                        self.__new_employee.add_employee(str(new_employee))
+                        print("Starfsmaður vistaður")
+                    
+                elif make_input == "2": #Ef það er valið flugþjón
+                    role =  ""
+                    new_list = [ssn,name,role,rank,liscense,address,phonenumber]
+                    new_employee = flight_attendant(new_list)
+                    if self.__new_employee.add_employee(str(new_employee)) == False:
+                        print("Upplýsingar ekki gildar fyrir starfsmann")
+                        print("Passaðu að allar upplýsingar séu rétt skráðar")
+                        print("Starfsmaður ekki vistaður")
+                        self.employee_menu()
+                    else:
+                        self.__new_employee.add_employee(str(new_employee))
+                        print("Starfsmaður vistaður")
+                    
+            else:
+                print("Starfsmaður ekki vistaður")
+                self.employee_menu()  #Ef það er valið nei við að vista upplýsngar er notandi sendur aftur til baka á nýskrá síðu.
+        
 ###################ÁFANGASTAÐUR VALIN ################################################################################################                  
     def destination_menu(self):
         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá áfangastað"))/2)*" " +  "Nýskrá áfangastað"  +   "\n" + self.BORDER * self.WITDH )
         print(self.PICK +"\n")
         print(self.GO_BACK +"\n")
+        
         airportID = input("Flugvöllur: ")
-        destination = input("Áfangastaður: ")
-        flight_time = input("Flugtími: ")
-        distance = input("Fjarlægð: ")
-        contact = input("Tengiliður: ")
-        emergency_phone = input("Neyðarsími: ")
-        save_input = ""
-        if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-            print("\nViltu vista áfangastað \n'1' - Já: \n'2' - Nei: ")
-            save_input = input(str(self.USER_INPUT))
-            print()
-        if save_input == "1":
-            new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
-            new_destination = Destination(new_list)
-            print(new_destination)
-            self.__new_destination.add_destination(str(new_destination))
-        else:
-            print("Áfangastaður ekki vistaður")
+        if airportID == "r":
+            self.make_menu()
+        else:    
+            destination = input("Áfangastaður: ")
+            flight_time = input("Flugtími: ")
+            distance = input("Fjarlægð: ")
+            contact = input("Tengiliður: ")
+            emergency_phone = input("Neyðarsími: ")
+            save_input = ""
+            if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                print("\nViltu vista áfangastað \n'1' - Já: \n'2' - Nei: ")
+                save_input = input(str(self.USER_INPUT))
+                print()
+            if save_input == "1":
+                new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
+                new_destination = Destination(new_list)
+                self.__new_destination.add_destination(str(new_destination))
+            else:
+                print("Áfangastaður ekki vistaður")
+                self.destination_menu()
+                
 
 ###################VINNUFERÐ VALIN ################################################################################################################  
     def voyage_menu(self):
@@ -132,6 +152,7 @@ class MakeUIupd():
             print("'3' - Flugvél")
             print("'4' - Starfsmenn")
             print("'5' - Vista vinnuferðina, án eða með starfsmönnum")
+            print()
             make_input = input(self.USER_INPUT).lower()
             if make_input == "1":
                 self.voyage_destination()
@@ -144,7 +165,8 @@ class MakeUIupd():
             if make_input == "5":
                 self.save_voyage()
             if make_input == "r":
-                make_input = "r"
+                self.make_menu()
+                break
             if make_input != "1" or make_input != "2" or make_input != "3" or make_input != "4" or make_input != "r":
                 print("Vinsamlegast veldu eitt af eftifarandi valmöguleikum!")
 
@@ -155,7 +177,7 @@ class MakeUIupd():
         print("Veldu áfangastað: ")
         all_dest_str, dest_counter = self.__new_destination.get_alldest()  # prentum út öll löndin svo user getur valið áfangastað
         print(all_dest_str)
-        dest_input = input(self.PICK)
+        dest_input = input(self.USER_INPUT)
         if dest_input.isdigit() == False:  # if the user doesnt input a number then send him back
             if dest_input =="r":
                 pass
@@ -168,7 +190,7 @@ class MakeUIupd():
             print("Áfangastaður: {}\nFlugvöllur: {}\nFlugtími: {}\nFjarlægð: {}\nTengiliður: {}\nNeyðarsímanúmer: {}".format(user_chosen_dest[1],user_chosen_dest[0], user_chosen_dest[2],user_chosen_dest[3],user_chosen_dest[4],user_chosen_dest[5]))
             save_input = ""
             if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
-                print("\nViltu velja þennan áfangastað \n'1' - Já: \n'2' - Nei: ")
+                print("\nViltu velja þennan áfangastað \n'1' - Já \n'2' - Nei ")
                 save_input = input(str(self.USER_INPUT))
                 print()
             if save_input == "1":
@@ -181,13 +203,14 @@ class MakeUIupd():
             print("Veldu fyrst áfangarstað")
         else:
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá dags/tíma vinnuferðar"))/2)*" " +  "Nýskrá dags/tíma vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
+            print(self.PICK + "\n")
             print("Skráðu dagsetningu vinnuferðar: ")
             print()
             year = input("Sláðu inn ár: ")      #Input aa year 
             while year.isdigit() == False:     # if its not a number then let them try again
                 print("Vinsamlegast skráðu ár!")
                 year = input("Sláðu inn ár: ")
-            month = input("Sláðu inn númer mánaðar")
+            month = input("Sláðu inn númer mánaðar: ")
             while month.isdigit() == False:
                 print("Vinsamlegast skráðu númer mánaðar!")
                 month = input("Sláðu inn númer mánaðar: ")
@@ -215,11 +238,12 @@ class MakeUIupd():
                 print("Lendingartími á áfangarstað:",datetime.datetime.strptime(self.arrival_date, "%Y-%m-%dT%H:%M:%S"))
                 print("Brottfarartími frá áfangarstað:",datetime.datetime.strptime(self.return_depart, "%Y-%m-%dT%H:%M:%S"))
                 print("Lendingartími á Íslandi:",datetime.datetime.strptime(self.return_arrival,"%Y-%m-%dT%H:%M:%S"))
+                print()
                 save_input = ""
 
                 if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
                     print(self.GO_BACK +"\n")
-                    print("Viltu vista dagsetningar \n'1' - Já: \n'2' - Nei: ")
+                    print("Viltu vista dagsetningar \n'1' - Já \n'2' - Nei ")
                     save_input = input(str(self.USER_INPUT))
                     print()
                 if save_input == "1":   # ef .að er saveað þá fyllum við í listana með viðeigandi upplýsingum 
@@ -229,8 +253,9 @@ class MakeUIupd():
                     self.arriv_voyage_info[1] = self.chosen_destination
                     self.arriv_voyage_info[3] = self.return_depart
                     self.arriv_voyage_info[4] = self.return_arrival
-                else:
-                    self.voyage_date()   # senda til baka
+                if save_input == "2":
+                    self.voyage_date()  # senda til baka
+                    
             else:
                 print("Ógild dagsettning vinsamlegast reyndu aftur.")
 
@@ -249,7 +274,7 @@ class MakeUIupd():
                     save_input = ""
                     if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
                         print(self.GO_BACK +"\n")
-                        print("Viltu vista flugvél? \n'1' - Já: \n'2' - Nei: ")
+                        print("Viltu vista flugvél? \n'1' - Já \n'2' - Nei ")
                         save_input = input(str(self.USER_INPUT))
                         print()
                         if save_input =="1":
@@ -268,11 +293,11 @@ class MakeUIupd():
 
     def voyage_employees(self):
         if self.chosen_destination =="":  # To make sure that there is a chosend destination to find out all the dates and times 
-            print("Veldu fyrst áfangarstað")
+            print("Veldu fyrst áfangarstað!")
         if self.arriv_voyage_info[4] == 4:
-            print("Skráðu fyrst dagsetningu brottfarar.")
+            print("Skráðu fyrst dagsetningu brottfarar!")
         if self.arriv_voyage_info[5] == 5:
-            print("Skráðu fyrst flugvél vinnuferðar")
+            print("Skráðu fyrst flugvél vinnuferðar!")
         else:
             empl_pick =""
             while empl_pick != "r":
@@ -283,6 +308,7 @@ class MakeUIupd():
                 print("'3' - Veldu yfir flugþjón")
                 print("'4' - Veldu flugþjón 2")
                 print("'5' - Veldu flugþjón 3")
+                print()
                 print(self.GO_BACK + "\n")
                 #We use the datetime to get rid of the T so we can send a normal date to the service
                 empl_pick = input(self.PICK)
@@ -307,7 +333,7 @@ class MakeUIupd():
                             empl_pick =int(empl_pick)
                             if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
                                 print(self.GO_BACK +"\n")
-                                print("Viltu vista flugstjóran? \n'1' - Já: \n'2' - Nei: ")
+                                print("Viltu vista flugstjóran? \n'1' - Já \n'2' - Nei ")
                                 save_input = input(str(self.USER_INPUT))
                                 print()
                                 if save_input =="1":
@@ -341,7 +367,7 @@ class MakeUIupd():
                             empl_pick =int(empl_pick)
                             if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
                                 print(self.GO_BACK +"\n")
-                                print("Viltu vista aðstoðarflugmann? \n'1' - Já: \n'2' - Nei: ")
+                                print("Viltu vista aðstoðarflugmann? \n'1' - Já \n'2' - Nei ")
                                 save_input = input(str(self.USER_INPUT))
                                 print()
                                 if save_input =="1":
@@ -375,7 +401,7 @@ class MakeUIupd():
                             empl_pick =int(empl_pick)
                             if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
                                 print(self.GO_BACK +"\n")
-                                print("Viltu vista yfirflugþjóninn? \n'1' - Já: \n'2' - Nei: ")
+                                print("Viltu vista yfirflugþjóninn? \n'1' - Já \n'2' - Nei ")
                                 save_input = input(str(self.USER_INPUT))
                                 print()
                                 if save_input =="1":
@@ -409,7 +435,7 @@ class MakeUIupd():
                             empl_pick =int(empl_pick)
                             if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
                                 print(self.GO_BACK +"\n")
-                                print("Viltu vista yfirflugþjóninn? \n'1' - Já: \n'2' - Nei: ")
+                                print("Viltu vista yfirflugþjóninn? \n'1' - Já \n'2' - Nei ")
                                 save_input = input(str(self.USER_INPUT))
                                 print()
                                 if save_input =="1":
@@ -458,15 +484,15 @@ class MakeUIupd():
     def save_voyage(self):
         #First the user has to pick a destination, date and aricraft so that he can save the voyage 
         if self.arriv_voyage_info[5] == 5:
-            print("Skráðu fyrst flugvél vinnuferðar")   
+            print("Skráðu fyrst flugvél vinnuferðar!")   
         elif self.arriv_voyage_info[4] == 4:
-            print("Skráðu fyrst dagsetningu brottfarar.")
+            print("Skráðu fyrst dagsetningu brottfarar!")
         elif self.chosen_destination =="":  # To make sure that there is a chosend destination to find out all the dates and times 
-            print("Veldu fyrst áfangarstað")
+            print("Veldu fyrst áfangarstað!")
         else:
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmenn vinnuferðar"))/2)*" " +  "Nýskrá starfsmenn vinnuferðar"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
-            print("Viltu vista vinnuferð með eftirfarandi upplýsingum")
+            print("Viltu vista vinnuferð með eftirfarandi upplýsingum?")
             print()
             print("Brottfarartími frá Íslandi: {}".format(self.depart_voyage_info[1]))
             print("Lendingartími á áfangarstað: {}".format(self.depart_voyage_info[2]))
@@ -482,7 +508,7 @@ class MakeUIupd():
             save_input = ""
             if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
                 print(self.GO_BACK +"\n")
-                print("Viltu vista Vinnuferð \n'1' - Já: \n'2' - Nei: ")
+                print("Viltu vista Vinnuferð \n'1' - Já \n'2' - Nei ")
                 save_input = input(str(self.USER_INPUT))
                 print()
                 if save_input =="1":

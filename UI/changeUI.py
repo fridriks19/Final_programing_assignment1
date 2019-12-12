@@ -95,7 +95,7 @@ class ChangeUI():
             else:
                 if employee_ssn_input == "r":
                     self.change_menu()      
-                print("Starfmaður ekki til! Vitlaus kennitala.")
+                print("Starfsmaður ekki til! Vitlaus kennitala.")
                 self.employee_menu()    
         else:
             self.change_menu()

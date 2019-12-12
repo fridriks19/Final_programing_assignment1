@@ -37,7 +37,7 @@ class GetUI():
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja"))/2)*" " +  "Sækja"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
             print(self.GO_BACK +"\n")
-            print("'1' - Starfmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Vinnutímar starfsmanna" + "\n")
+            print("'1' - Starfsmann" + "\n" + "'2' - Áfangastað" + "\n" + "'3' - Vinnuferð" + "\n" + "'4' - Vinnutímar starfsmanna" + "\n")
             get_input = input(self.USER_INPUT)
             print()
             if get_input != "r":
@@ -113,7 +113,7 @@ class GetUI():
                     empl_info_lst = self.__get_employee.get_employee(employee_ssn_input)
                     while empl_info_lst == False:
                         print(self.GO_BACK +"\n") 
-                        print("Starfmaður ekki til! Vitlaus kennitala.")
+                        print("Starfsmaður ekki til! Vitlaus kennitala.")
                         employee_ssn_input = input("Kennitala starfsmanns: ")
                         empl_info_lst = self.__get_employee.get_employee(employee_ssn_input)
                         if employee_ssn_input == "r":
@@ -316,5 +316,5 @@ class GetUI():
                 else:
                     if ssn_input == "r":
                         self.worktime_menu()      
-                    print("Starfmaður ekki til! Vitlaus kennitala.")
+                    print("Starfsmaður ekki til! Vitlaus kennitala.")
                     self.employee_menu()    
