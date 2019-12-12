@@ -95,9 +95,7 @@ class GetUI():
                 elif get_input == "2":
                     prnt_str = ("Skráðu dagsetningu") 
                     date = self.__get_voyage.get_date_voyage(prnt_str)
-                    print(date)
                     not_working = Worktime_service(date).not_working_list()
-                    print("Aaaaa", not_working)
                     print()
                     print(self.__get_voyage.print_list(not_working))
                     
