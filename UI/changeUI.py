@@ -112,7 +112,9 @@ class ChangeUI():
                 self.change_menu()
             a_prnt_str = "Veldu dagsetningu vinnuferðar sem þú vilt breyta"
             date = self.get_date_voyage(a_prnt_str)   # Fáum til baka dagsettningu á því formi sem við viljum svo hægt sé að leita af réttri ferð í csv skránni
+            print(date)
             change_flight = self.__get_upcflight.get_upcomingflight(date)
+            print(change_flight)
             if change_flight == "Flug fannst ekki":
                 print(change_flight)
             if change_flight[1] != "KEF":    # To make sure that the user inputs a departing date
