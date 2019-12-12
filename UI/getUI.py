@@ -233,9 +233,9 @@ class GetUI():
                     print(upc_flight)
     
 
-    def aircraft_menu(self):
-        get_input = ""
-        while get_input != "r":
-            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja flugvélar"))/2)*" " +  "Sækja flugvélar"  +   "\n" + self.BORDER * self.WITDH )
-            print(self.PICK +"\n")
-            print(self.GO_BACK +"\n")
+    # def aircraft_menu(self):
+    #     get_input = ""
+    #     while get_input != "r":
+    #         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja flugvélar"))/2)*" " +  "Sækja flugvélar"  +   "\n" + self.BORDER * self.WITDH )
+    #         print(self.PICK +"\n")
+    #         print(self.GO_BACK +"\n")
