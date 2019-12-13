@@ -184,8 +184,6 @@ class ChangeUI():
                                             change_input = int(change_input)-1
                                             date1[6] = capt_list[change_input][0]
                                             date2[6] = capt_list[change_input][0]
-                                            print(date1)
-                                            print(date2)
                                             self.__get_upcflight.change_upcoming_voyage(date1, date2)
                                             print("Flugstjóri vistaður")
                                             print()

@@ -41,7 +41,7 @@ class FlightRepository():
         '''Adds the flight string the the csv file'''
         self.flight_str = flight_str
         open_file = open("./data/UpcomingFlights.csv", "a")
-        open_file.write(self.flight_str + "\n")
+        open_file.write("\n" + self.flight_str)
         open_file.close()
         return "Vinnuferð vistuð"
 
