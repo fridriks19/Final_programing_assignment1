@@ -6,6 +6,7 @@ import time
 import sys
 
 def animate():
+    ''' Makes a cool little animation when the user closes the program'''
     for i in range(0,4):
         sys.stdout.write('\rLogging Out |')
         time.sleep(0.1)

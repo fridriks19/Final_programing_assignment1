@@ -204,8 +204,8 @@ class GetUI():
             elif get_input =="1":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
-                print("'1' - Sjá gamla vinnuferðir á tímabili")
-                print("'2' - Sjá gamla vinnuferðir á ákveðni dagsetningu")
+                print("'1' - Sjá gamlar vinnuferðir á tímabili")
+                print("'2' - Sjá gamlar vinnuferðir á ákveðni dagsetningu")
                 print()
                 print(self.GO_BACK +"\n")
                 old_voyage = input(self.USER_INPUT)
@@ -218,9 +218,15 @@ class GetUI():
                     next_date = "Skráðu seinni dagsetning tímabilsins "
                     date1 = self.__get_voyage.get_date_voyage(first_date)
                     date2 = self.__get_voyage.get_date_voyage(next_date)
-                    past_flightss = self.__get_pastflight.get_pastflights(date1,date2)
-                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
-                    print(past_flightss)
+                    if date1 and date2 == False:    # To make sure that the user inputs a departing date
+                        print()
+                        print("Flug fannst ekki!\nSkráðu réttan brottfarartíma!")
+                        self.voyage_menu()
+                        break
+                    else:
+                        past_flightss = self.__get_pastflight.get_pastflights(date1,date2)
+                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
+                        print(past_flightss)
                 elif old_voyage == "2":
                     print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                     print(self.PICK +"\n")
@@ -228,7 +234,9 @@ class GetUI():
                     date = self.__get_voyage.get_date_voyage(only_date)
                     past_flight = self.__get_pastflight.get_pastflight(date)
                     print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
+                    print()
                     print(past_flight)
+                    print()
 
             elif get_input =="2":
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
@@ -248,9 +256,15 @@ class GetUI():
                     next_date = "Skráðu seinni dagsetning tímabilsins "
                     date1 = self.__get_voyage.get_date_voyage(first_date)
                     date2 = self.__get_voyage.get_date_voyage(next_date)
-                    upc_flightss = self.__get_upcflight.get_upcomingflights(date1,date2)
-                    print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
-                    print(upc_flightss)
+                    if date1 and date2 == False:    # To make sure that the user inputs a departing date
+                        print()
+                        print("Flug fannst ekki!\nSkráðu réttan brottfarartíma!")
+                        self.voyage_menu()
+                        break
+                    else:
+                        upc_flightss = self.__get_upcflight.get_upcomingflights(date1,date2)
+                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
+                        print(upc_flightss)
                 elif upcm_voyage == "2":
                     print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
                     print(self.PICK +"\n")
@@ -258,7 +272,9 @@ class GetUI():
                     date = self.__get_voyage.get_date_voyage(only_date)
                     upc_flight = self.__get_upcflight.get_upcomingflight(date)
                     print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Vinnuferð"))/2)*" " +  "Vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
+                    print()
                     print(upc_flight)
+                    print()
     
 
 
