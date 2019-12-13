@@ -338,3 +338,4 @@ class GetUI():
                         self.worktime_menu()      
                     print("Starfsmaður ekki til! Vitlaus kennitala.")
                     self.employee_menu()    
+                    break
