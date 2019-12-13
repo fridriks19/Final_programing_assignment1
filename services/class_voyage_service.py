@@ -175,7 +175,8 @@ class Voyage_service:
         '''Calculates arrival time for flight depending on the lenght of the flight'''
         self.destination = destination
         self.input_date = input_date
-        for dest in self.dest_list:
+        dest_list = Destination_service().get_all_dest_list()
+        for dest in dest_list:
             if dest[0] == self.destination:
                 flighttime = dest[2]
         # Convert string to datetime for calculations
