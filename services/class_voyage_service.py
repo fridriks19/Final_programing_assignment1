@@ -114,6 +114,8 @@ class Voyage_service:
             if flight[1] == self.destination:
                 current_flight_num = flight[0]
                 break
+            else:
+                current_flight_num = "NOTAVAIL"
         current_flight_num = list(current_flight_num)
         if current_flight_num[2] == "0":
             if current_flight_num[3] == str(dest_num):

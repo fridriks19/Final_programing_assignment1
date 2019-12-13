@@ -18,7 +18,7 @@ def animate():
         time.sleep(0.1)
     sys.stdout.write('\rSuccess!     ')
     time.sleep(0.3)
-    input("Press any key to exit")
+    input("Press 'Enter' key to exit")
 
 
 class MainUI():

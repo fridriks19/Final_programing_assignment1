@@ -326,7 +326,7 @@ class GetUI():
                 date1 = self.__get_voyage.get_date_voyage(first_date)
                 date2 = self.__get_voyage.get_date_voyage(next_date)
                 print()
-                ssn_input = input("\nSkráðu kennitölu starfsmanns")
+                ssn_input = input("\nSkráðu kennitölu starfsmanns: ")
                 if ssn_input != "r":
                     empl_info_lst = self.__get_employee.get_employee(ssn_input)
                 if empl_info_lst != False:
@@ -337,5 +337,5 @@ class GetUI():
                     if ssn_input == "r":
                         self.worktime_menu()      
                     print("Starfsmaður ekki til! Vitlaus kennitala.")
-                    self.employee_menu()    
+                    self.worktime_menu()    
                     break

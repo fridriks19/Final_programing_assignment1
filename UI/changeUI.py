@@ -74,7 +74,9 @@ class ChangeUI():
                     print(self.GO_BACK +"\n")  
                     change_employee_input = input(self.USER_INPUT)   # Input what attribute you whant to change 
                     print()
-                    if change_employee_input != "1" and change_employee_input != "2" and change_employee_input != "3" and change_employee_input != "4" and change_employee_input != "5" :
+                    if change_employee_input == "r":
+                            self.change_menu
+                    elif change_employee_input != "1" and change_employee_input != "2" and change_employee_input != "3" and change_employee_input != "4" and change_employee_input != "5" :
                         print("Vinsamlegast veldu það sem þú vilt breyta!")
                         pass
                     else:
