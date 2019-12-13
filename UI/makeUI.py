@@ -51,6 +51,8 @@ class MakeUIupd():
             break
 ###################STARFSMAÐUR VALIN ################################################################################################################  
     def employee_menu(self):
+        ''' The user can make a new employee which will either be a pilot or an flight attendant, and 
+            the employee has to have a ssn,name,rank,liscence,address,phonenumber'''
         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá starfsmann"))/2)*" " +  "Nýskrá starfsmann"  +   "\n" + self.BORDER * self.WITDH )
         print(self.PICK +"\n")
         print(self.GO_BACK +"\n")
@@ -110,6 +112,8 @@ class MakeUIupd():
         
 ###################ÁFANGASTAÐUR VALIN ################################################################################################                  
     def destination_menu(self):
+        ''' The user gets to "make" add a new destination to the system, and the destination must have 
+            a destination name, flight time, distance to the destiation from KEF, contact and emergency phone number'''
         print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Nýskrá áfangastað"))/2)*" " +  "Nýskrá áfangastað"  +   "\n" + self.BORDER * self.WITDH )
         print(self.PICK +"\n")
         print(self.GO_BACK +"\n")
@@ -139,6 +143,10 @@ class MakeUIupd():
 
 ###################VINNUFERÐ VALIN ################################################################################################################  
     def voyage_menu(self):
+        ''' This is were the user can make a voyage. When making a voyage the user must first choose a destination, then he can
+            choose a departing date, after that he can choose a aircraft and the system will shoe him if they are available or not, 
+            then the user can add employees if he whants but he can also add them laiter, then finally he can choose to save the 
+            voyage or not. '''
         self.chosen_destination = ""
         self.depart_voyage_info = ["flightnum1","KEF",2,3,4,5,"","","",""," "]   # Höfum autt("") fyrir starfsmenn svo hægt sé að fylla inn í seinna 
         self.arriv_voyage_info = ["flightnum2",1,"KEF",3,4,5,"","","",""," "]   # Vitum að öll flug departa frá og arriva at KEF

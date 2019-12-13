@@ -23,6 +23,8 @@ def animate():
 
 class MainUI():
     def __init__(self):
+        ''' This is the main user interface and here the user can choose what main action he whants to do
+            change something, get/see some information or make/add something new to the system'''
         self.__change = ChangeUI()
         self.__get = GetUI()
         self.__make = MakeUIupd()
@@ -38,7 +40,6 @@ class MainUI():
     ###########################################################################
     def main_menu(self):
         user_input = ""
-
         while user_input != "q":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("NaN Air"))/2)*" " +  "NaN Air"  +   "\n" + self.BORDER * self.WITDH ) # prints the header 
             print(self.PICK + "\n")

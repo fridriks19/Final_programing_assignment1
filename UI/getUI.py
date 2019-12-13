@@ -70,6 +70,7 @@ class GetUI():
             print("'2' - Flugmenn")
             print("'3' - Flugþjónn")
             print("'4' - Leita af starfsmanni")
+            print()
             get_input = input(self.USER_INPUT)
             while get_input != "1" and get_input != "2" and get_input != "3" and get_input != "4" and get_input != "r":     # We have to make sure that if the user inputs something that is not available there will not be an error
                 print("Innsláttarvilla!\nVinsamlegast veldu aftur")
@@ -83,7 +84,7 @@ class GetUI():
                 get_input = input(self.USER_INPUT)
                     
             if get_input == "1":
-                print(self.__get_employee.get_allemployees())
+                print(self.__get_employee.get_allemployees())  # Prints all the employees, their ssn, name and role 
                 while get_input != "r":
                     print(self.GO_BACK +"\n")
                     get_input = input(self.USER_INPUT)
@@ -111,51 +112,49 @@ class GetUI():
             if get_input == "4":    # Get one employee by his ssn number and the user inputs the ssn
                 print()
                 print(self.GO_BACK +"\n") 
-                employee_ssn_input = input("Kennitala starfsmanns: ")
+                employee_ssn_input = ""
                 while employee_ssn_input != "r":
+                    employee_ssn_input = input("Kennitala starfsmanns: ")
                     empl_info_lst = self.__get_employee.get_employee(employee_ssn_input)
-                    while empl_info_lst == False:
-                        print(self.GO_BACK +"\n") 
-                        print("Starfsmaður ekki til! Vitlaus kennitala.")
-                        employee_ssn_input = input("Kennitala starfsmanns: ")
-                        empl_info_lst = self.__get_employee.get_employee(employee_ssn_input)
-                        if employee_ssn_input == "r":
-                            self.get_menu()  
-                    if get_input != "r":
-                        info_output = Employee(empl_info_lst)  
-                        print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta starfsmanni"))/2)*" " +  "Breyta starfsmanni"  +   "\n" + self.BORDER * self.WITDH )
-                        print(self.PICK +"\n")
-                        print(self.GO_BACK +"\n")  
-                        print("Kennitala: {}".format(info_output.get_ssn()))        
-                        print("Nafn: {}".format(info_output.get_name())) 
-                        print("Starfsheiti: {}".format(info_output.get_role()))
-                        print("Stöðugildi: {}".format(info_output.get_rank()))
-                        print("Leyfi: {}".format(info_output.get_licence()))
-                        print("Heimilisfang: {}".format(info_output.get_address()))
-                        print("Símanúmer: {}".format(info_output.get_phone()))
-                        print()
-                        get_input = input(self.USER_INPUT)
+                    if empl_info_lst != False:     # If empl_info_list returns false then the employee is not in the system/or the ssn was inputed wrong
+                        if get_input != "r":
+                            info_output = Employee(empl_info_lst)  
+                            print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja starfsmann"))/2)*" " +  "Sækja starfsmanni"  +   "\n" + self.BORDER * self.WITDH )
+                            print(self.PICK +"\n")
+                            print(self.GO_BACK +"\n")  
+                            print("Kennitala: {}".format(info_output.get_ssn()))        
+                            print("Nafn: {}".format(info_output.get_name())) 
+                            print("Starfsheiti: {}".format(info_output.get_role()))
+                            print("Stöðugildi: {}".format(info_output.get_rank()))
+                            print("Leyfi: {}".format(info_output.get_licence()))
+                            print("Heimilisfang: {}".format(info_output.get_address()))
+                            print("Símanúmer: {}".format(info_output.get_phone()))
+                            print()
+                            get_input = input(self.USER_INPUT)
+                        else:
+                            self.employee_menu()
                     else:
-                        self.employee_menu()
-                else:
-                    self.employee_menu()
-
-            if get_input =="r":
-                self.get_menu()
+                        if employee_ssn_input == "r":
+                            self.employee_menu()  
+                        print()    
+                        print("Starfsmaður ekki til! Vitlaus kennitala.")
+                        print()
                   
                 
                 
 
     def destination_menu(self):
+        ''' The program prints a list of all the available destinations and the user can choose which one he wants to get more information on
+            he cannot do anything with the infirmation other then look at it'''
         get_input = ""
         while get_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja áfangastað"))/2)*" " +  "Sækja áfangastað"  +   "\n" + self.BORDER * self.WITDH )
             print(self.PICK +"\n")
-            prnt_str, counter = self.__get_destination.get_alldest()  # prentar út listan af öllum löndunum
+            prnt_str, counter = self.__get_destination.get_alldest()  #Prints a list of all the destinations and the counter for how many destinations there are
             print(prnt_str)
             print(self.GO_BACK +"\n")
-            get_input = input(self.USER_INPUT)      # nr á áfangastað 
-            if get_input.isdigit() == False:  # if the user doesnt input a number then send him back
+            get_input = input(self.USER_INPUT)    # User chooses which destination he wants to get more info on 
+            if get_input.isdigit() == False:  # if the user doesnt input a number then make him choose again
                 if get_input == "r":
                     self.get_menu()
                     break
@@ -163,12 +162,12 @@ class GetUI():
                     print("Veldu áfangastað sem er í boði!")
                     self.destination_menu()
                     break
-            elif get_input.isdigit() == True and int(get_input) >= 1 and int(get_input) <= int(counter-1):
+            elif get_input.isdigit() == True and int(get_input) >= 1 and int(get_input) <= int(counter-1):  # the user inputs must be a digit 
                 if get_input != "r":
                     print()
                     print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Áfangastaður"))/2)*" " +  "Áfangastaður"  +   "\n" + self.BORDER * self.WITDH )
                     print(self.PICK +"\n")
-                    chosen_dest = self.__get_destination.get_dest(get_input) #tökum þá tölu sem notandi valdi og sendum í DestinationRepo og þar í get_dest fallið 
+                    chosen_dest = self.__get_destination.get_dest(get_input) #Takes the users input and sends it to get the destinaton he chose 
                     output = Destination(chosen_dest)
                     print("Áfangastaður: {}".format(output.get_destinationName()))
                     print("Flugvöllur: {}".format(output.get_destinationId()))
@@ -189,6 +188,8 @@ class GetUI():
                     
 
     def voyage_menu(self):
+        ''' Here the user can choose to se old or new voyages, and in both of those categories he can choose to se a 
+            voyage on a specific date or to see all voyages in a certain time window that he chooses'''
         get_input = ""
         while get_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja vinnuferðir"))/2)*" " +  "Sækja vinnuferðir"  +   "\n" + self.BORDER * self.WITDH )
@@ -219,9 +220,9 @@ class GetUI():
                     print(self.PICK +"\n")
                     first_date = "Skráðu fyrri dagsetningu tímabilsins"
                     next_date = "Skráðu seinni dagsetning tímabilsins "
-                    date1 = self.__get_voyage.get_date_voyage(first_date)
+                    date1 = self.__get_voyage.get_date_voyage(first_date) # this is a fucntion were the user inputs the dates 
                     date2 = self.__get_voyage.get_date_voyage(next_date)
-                    if date1 and date2 == False:    # To make sure that the user inputs a departing date
+                    if date1 and date2 == False:    # To make sure that the user inputs a date that is available 
                         print()
                         print("Flug fannst ekki!\nSkráðu réttan brottfarartíma!")
                         self.voyage_menu()
@@ -259,7 +260,7 @@ class GetUI():
                     next_date = "Skráðu seinni dagsetning tímabilsins "
                     date1 = self.__get_voyage.get_date_voyage(first_date)
                     date2 = self.__get_voyage.get_date_voyage(next_date)
-                    if date1 and date2 == False:    # To make sure that the user inputs a departing date
+                    if date1 and date2 == False:    
                         print()
                         print("Flug fannst ekki!\nSkráðu réttan brottfarartíma!")
                         self.voyage_menu()
@@ -282,6 +283,8 @@ class GetUI():
 
 
     def worktime_menu(self):
+        ''' The user can choose to see a list of all the employees that are not or are working on a specific date the user can 
+            also see the work summary for one employee'''
         get_input = ""
         while get_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja vinnutíma"))/2)*" " +  "Sækja vinnutíma"  +   "\n" + self.BORDER * self.WITDH )
@@ -298,7 +301,7 @@ class GetUI():
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja vinnutíma"))/2)*" " +  "Sækja vinnutíma"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
                 prnt_str = ("Skráðu dagsetningu") 
-                date = self.__get_voyage.get_date_voyage(prnt_str)
+                date = self.__get_voyage.get_date_voyage(prnt_str)  # User chooses the date 
                 not_working = Worktime_service(date).not_working_list()
                 print()
                 print(self.__get_voyage.print_list(not_working))
@@ -307,8 +310,10 @@ class GetUI():
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja vinnutíma"))/2)*" " +  "Sækja vinnutíma"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
                 prnt_str = ("Skráðu dagsetningu") 
-                date = self.__get_voyage.get_date_voyage(prnt_str)
+                date = self.__get_voyage.get_date_voyage(prnt_str)   # User chooses the date 
                 working = Worktime_service(date).print_working_list_destination()
+                if working == " ":
+                    print("Dagsetning ekki til")
                 print()
                 print(working)
                 #print(self.__get_voyage.print_list(working))   # Prints out the list of employees that are working and the destination he is going to on that date 

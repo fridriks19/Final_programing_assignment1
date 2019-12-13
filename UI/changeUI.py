@@ -50,6 +50,8 @@ class ChangeUI():
 
  ################################## STARFSMENN VALINN ###########################################################       
     def employee_menu(self):
+        ''' The user has to choose a user to change by inputing his ssn. The user can not change the employees name or ssn but
+        he can choose if he wants to change the role, rankm licence, address, phonenumber. '''
         change_employee_input = ""
         print(self.GO_BACK +"\n") 
         employee_ssn_input = input("Kennitala starfsmanns: ")
@@ -103,6 +105,8 @@ class ChangeUI():
                        
 ################################## VINNUFERÐ VALINN###########################################################
     def voyage_menu(self):
+        ''' The user can change what employees are on a voyage. He first has to find a voyage by inputing a specific date, then he 
+        can choose from 5 employee slots to fill in or change employees that were already in the voyage out '''
         change_input = ""
         while change_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta vinnuferð"))/2)*" " +  "Breyta vinnuferð"  +   "\n" + self.BORDER * self.WITDH )
@@ -343,6 +347,7 @@ class ChangeUI():
 
 
     def destination_menu(self):
+        ''' The user can change the contact and emergency phone for all of the destinations. '''
         change_input = ""
         if change_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Breyta áfangastað"))/2)*" " +  "Breyta áfangastað"  +   "\n" + self.BORDER * self.WITDH )
