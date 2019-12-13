@@ -119,7 +119,7 @@ class MakeUIupd():
                 save_input = input(str(self.USER_INPUT))
                 print()
             if save_input == "1":
-                new_list = [destination,airportID,flight_time,distance,contact,emergency_phone]
+                new_list = [airportID,destination,flight_time,distance,contact,emergency_phone]
                 new_destination = Destination(new_list)
                 self.__new_destination.add_destination(str(new_destination))
             else:
