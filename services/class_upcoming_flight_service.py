@@ -11,10 +11,13 @@ class Upcoming_flight_service:
         return None
 
     def add_upc_flight(self, flight_str):
+        '''Sends the incoming flight string to the Flight Repository where it gets added
+            to the csv file'''
         self.flight_str = flight_str
         return FlightRepository().add_upcomingflight(self.flight_str)
     
     def get_upcomingflights(self, date_1, date_2):
+        '''Returns all upcoming flights within set date parameters in a formatted string'''
         self.date_1 = date_1
         self.date_2 = date_2
         upcoming_list = self.flights.get_upcomingflights()
@@ -36,6 +39,7 @@ class Upcoming_flight_service:
         return prnt_str
 
     def get_upcomingflights_list_selected_time(self, date1, date2):
+        '''Returns a list with all upcoming flight within set date parameters'''
         self.date1 = date1
         self.date2 = date2
         uf_list = []
@@ -52,6 +56,8 @@ class Upcoming_flight_service:
         return uf_list
     
     def find_empl_worktime(self, ssn, flight_list):
+        '''Returns info in a formatted string about an upcoming flight that has the 
+            selected employee as a member of the crew'''
         self.ssn = str(ssn)
         self.flight_list = flight_list
         empl_flight_list = []
@@ -66,9 +72,11 @@ class Upcoming_flight_service:
         return prnt_str
     
     def get_upcomingflights_list(self):
+        '''Gets all upcoming flights in  a simple list with the flights as element lists'''
         return FlightRepository().get_upcomingflights()
 
     def get_upcomingflight(self, upc_date):
+        '''Gets an upcoming flight that matches the input date and returns it as a formatted string'''
         self.upc_date = upc_date
         upc_list = self.flights.get_upcomingflights()
         for flight in upc_list:
@@ -81,6 +89,7 @@ class Upcoming_flight_service:
         return "Flug fannst ekki"
     
     def get_upcomingflight_list(self, upc_date):
+        '''Gets an upcoming flight that matches the input date and returns it as a formatted string'''
         self.upc_date = upc_date
         upc_list = self.flights.get_upcomingflights()
         for flight in upc_list:
@@ -90,6 +99,7 @@ class Upcoming_flight_service:
         return "Flug fannst ekki"
     
     def get_upcoming_voyage(self, upc_date):
+        '''Gets an upcoming flight and returns it along with the next flight'''
         self.upc_date = upc_date
         upc_list = self.flights.get_upcomingflights()
         #for flight in self.upcoming_list:
@@ -101,6 +111,8 @@ class Upcoming_flight_service:
         return flight1, flight2
 
     def change_upcoming_voyage(self, upc_flight1, upc_flight2):
+        '''Fetches the upcoming flights list and replaces the upcoming flights that match
+            the date of the two upc_flight lists'''
         self.upc_flight1 = upc_flight1
         self.upc_flight2 = upc_flight2
         upc_voyages = FlightRepository().get_upcomingflights_plusheader()
@@ -120,6 +132,7 @@ class Upcoming_flight_service:
 
 
     def add_date(self, date_list):
+        '''Gets input from user and converts it to a valid datetime string'''
         self.date_list = date_list
         year = int(self.date_list[0])
         month = int(self.date_list[1])

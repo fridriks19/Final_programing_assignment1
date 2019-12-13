@@ -84,28 +84,14 @@ class MakeUIupd():
                     role =  ""
                     new_list = [ssn,name,role,rank,liscense,address,phonenumber] #Gerum lista með öllum inputunum og sendum í pilot clasan og síðan öddum við employe-inum í csv fileið
                     new_employee = pilot(new_list)
-                    if self.__new_employee.add_employee(str(new_employee)) == False:
-                        print("Upplýsingar ekki gildar fyrir starfsmann")
-                        print("Passaðu að allar upplýsingar séu rétt skráðar")
-                        print("Starfsmaður ekki vistaður")
-                        self.employee_menu()
-                    else:
-                        self.__new_employee.add_employee(str(new_employee))
-                        print("Starfsmaður vistaður")
-                    
+                    self.__new_employee.add_employee(str(new_employee))
+  
                 elif make_input == "2": #Ef það er valið flugþjón
                     role =  ""
                     new_list = [ssn,name,role,rank,liscense,address,phonenumber]
                     new_employee = flight_attendant(new_list)
-                    if self.__new_employee.add_employee(str(new_employee)) == False:
-                        print("Upplýsingar ekki gildar fyrir starfsmann")
-                        print("Passaðu að allar upplýsingar séu rétt skráðar")
-                        print("Starfsmaður ekki vistaður")
-                        self.employee_menu()
-                    else:
-                        self.__new_employee.add_employee(str(new_employee))
-                        print("Starfsmaður vistaður")
-                    
+                    self.__new_employee.add_employee(str(new_employee))
+
             else:
                 print("Starfsmaður ekki vistaður")
                 self.employee_menu()  #Ef það er valið nei við að vista upplýsngar er notandi sendur aftur til baka á nýskrá síðu.
@@ -319,7 +305,8 @@ class MakeUIupd():
                 print()
                 print(self.GO_BACK + "\n")
                 #We use the datetime to get rid of the T so we can send a normal date to the service
-                empl_pick = input(self.PICK)
+                empl_pick = input(self.USER_INPUT)
+                print()
                 if empl_pick == "1":
                     capt_list = Voyage_crew_service(self.depart_voyage_info[3],self.depart_voyage_info[5]).get_captain()  # Send the departure date and the aircraft choice to get the pilots that are available on that date and have a liscence on that plane 
                     if capt_list == []:

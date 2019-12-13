@@ -1,5 +1,6 @@
-"""flightNumber, departingFrom, arrivingAt, departure, arrival"""
+
 class Upcoming_flights():
+    """flightNumber, departingFrom, arrivingAt, departure, arrival"""
     def __init__(self, upcoming_flights_info_list):
         self.upcoming_flights_info_list = upcoming_flights_info_list
         self.__flightNumber = self.upcoming_flights_info_list[0]

@@ -1,6 +1,7 @@
 from models.class_employee import Employee
 
 class pilot(Employee):
+    ''' Sets the role for pilots as "Pilot" '''
     def __init__(self, empl_info_list):
         Employee.__init__(self, empl_info_list)
         self.empl_info_list[2] = "Pilot"

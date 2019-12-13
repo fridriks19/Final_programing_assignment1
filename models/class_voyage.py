@@ -1,7 +1,7 @@
 from models.class_flight import Flight
 
 class Voyage(Flight):
-
+    ''' '''
     def __init__(self, departing_flight_list, arriving_flight_list):
         self.departing_flight_list = departing_flight_list
         self.arriving_flight_list = arriving_flight_list

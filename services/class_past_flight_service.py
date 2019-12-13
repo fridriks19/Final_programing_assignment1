@@ -11,13 +11,14 @@ class Past_flight_service:
         '''Returns a past flight within set date parameters'''
         self.date_1 = date_1
         self.date_2 = date_2
+        past_list = self.flights.get_pastflights()
         pf_list = []
         prnt_str = ""
         # Changes the string to a valid datetime format
         dt_str1 = datetime.datetime.strptime(self.date_1, "%Y-%m-%dT%H:%M:%S")
         dt_str2 = datetime.datetime.strptime(self.date_2, "%Y-%m-%dT%H:%M:%S")
         # Sort the list by date
-        sorted_list = sorted(self.past_list, key=lambda date: date[3]) 
+        sorted_list = sorted(past_list, key=lambda date: date[3]) 
         for flight in sorted_list:
             # Checks if flight is within set date parameters
             if datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S") >= dt_str1 and datetime.datetime.strptime(flight[3], "%Y-%m-%dT%H:%M:%S") <= dt_str2:

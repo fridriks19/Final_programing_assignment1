@@ -76,6 +76,9 @@ Friðrik var að vinna í service klasa sem tengir virkni við UI hjá okkur. Eg
 Davíð byrjaði að vinna í vinnuferð klasa og hvaða kröfur eru í klasanum.
 
 
+8. desember: 
+
+
 9. desember:
 Eggert og Héðinn byrjuðu að vinna í vinnuferð "repository klasanum".
 Davíð og Friðrik voru að vinna í vinnuferð UI. Það tók góðan tíma að gera vinnuferðUI-ið þar sem það eru mikið af kröfum sem þarf að uppfylla þar
@@ -83,16 +86,24 @@ eins og það þarf að passa að dagsetningar rekist ekki á og að starfsmenn 
 prenta útskýrangar með ástæðum afhverju það virkar ekki. 
  
 
-10. desember:
+10. desember:   
 Davíð og Friðrik halda áfram með UI. Eggert var að vinna í Voyage klasa og Héðinn var að vinna í að commenta og fara yfir kóðan. 
 UI-ið er tilbúið og eru flestar A-kröfur uppfylltar nema það að geta birta vinnuyfirlitið. Voyage klasin er svolítið stór og mikill 
 og er 
  
-11. Eggert og Friðrik voru að vinna í því að bæta við og laga virknina við að búa til og breyta vinnuferðum, það var smá vesen með það
+
+11. desember:
+Eggert og Friðrik voru að vinna í því að bæta við og laga virknina við að búa til og breyta vinnuferðum, það var smá vesen með það
 breyta starfsmanni og að þær upplýsingar uppfærðust samstund en við fundum út úr því. Einnig sáum við að það var alltof mikið um endurtekningar í kóðanum 
 og reyndum við að vinna í því að laga það. 
+
 
 12. desember:
 Héðinn og Davíð keyra kerfið og fara yfir villur og hvað vantar upp á, Friðik og Eggert laga og vinna í kóðanum. Förum allir saman yfir 
 kóðann og commenta betur þar sem vantar upp á og laga stafsetningu og annað. Það var farið grimmt í gegnum öll ui-in og fínpússað allt og passað orðaforða. Einnig var commentað og gert
 dicstrings þar sem átti við. 
+
+
+13. desember:
+Við teljum að forritið sé tilbúið og lítið hægt að breyta og bæta í það. Við ættlum að klára að laga stöðuritin, klasaritin og passa að user-casin
+séu í samræmi við forritið okkar. Við ætlum að taka upp myndbandið þar sem við ætlum í gegnum forritið. 

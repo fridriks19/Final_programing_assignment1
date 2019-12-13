@@ -1,5 +1,6 @@
-"""flightNumber, departingFrom, arrivingAt, departure, arrival, aircraftID, captain, copilot, fsm, fa1, fa2"""
+
 class Flight():
+    """flightNumber, departingFrom, arrivingAt, departure, arrival, aircraftID, captain, copilot, fsm, fa1, fa2"""
     def __init__(self, flight_info_list=""):
         self.flight_info_list = flight_info_list
         self.__flightNumber = self.flight_info_list[0]

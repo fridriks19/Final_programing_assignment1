@@ -7,6 +7,8 @@ class FlightRepository():
         self.open_file()
     
     def open_file(self):
+        ''' Just opens the file and reads its contents and adds it to a list. This is used so that 
+            the file is refreshed and is always up to date'''
         self.flight_list = []
         open_file = open("./data/UpcomingFlights.csv", "r")
         for line in open_file:
@@ -16,13 +18,13 @@ class FlightRepository():
 
     def get_upcomingflights(self):
         '''Returns a list with all upcoming flights minus the header'''
-        self.open_upcoming = open("./data/UpcomingFlights.csv", "r")
+        open_upcoming = open("./data/UpcomingFlights.csv", "r")
         flight_list = []
-        for line in self.open_upcoming:
+        for line in open_upcoming:
             line = line.strip()
             line = line.split(",")
             flight_list.append(line)
-        self.open_upcoming.close()
+        open_upcoming.close()
         return flight_list[1:]
     
     def get_upcomingflights_plusheader(self):
@@ -46,13 +48,14 @@ class FlightRepository():
     
     def get_pastflights(self):
         '''Returns a list with all past flights'''
-        self.open_past = open("./data/PastFlights.csv", "r")
-        for line in self.open_past:
+        open_past = open("./data/PastFlights.csv", "r")
+        flight_list = []
+        for line in open_past:
             line = line.strip()
             line = line.split(",")
-            self.flight_list.append(line)
-        self.open_past.close()
-        return self.flight_list[1:]
+            flight_list.append(line)
+        open_past.close()
+        return flight_list[1:]
     
     def save_changed_upc_flights(self, new_upc_list):
         '''Saves all changes made to the upcoming flight in the csv file'''

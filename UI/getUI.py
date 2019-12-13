@@ -222,9 +222,9 @@ class GetUI():
                     next_date = "Skráðu seinni dagsetning tímabilsins "
                     date1 = self.__get_voyage.get_date_voyage(first_date) # this is a fucntion were the user inputs the dates 
                     date2 = self.__get_voyage.get_date_voyage(next_date)
-                    if date1 and date2 == False:    # To make sure that the user inputs a date that is available 
+                    if date1 == False or date2 == False:    # To make sure that the user inputs a date that is available 
                         print()
-                        print("Flug fannst ekki!\nSkráðu réttan brottfarartíma!")
+                        print("Vitlausar dagsetningar!\nSkráðu réttan brottfarartíma!")
                         self.voyage_menu()
                         break
                     else:
@@ -260,9 +260,9 @@ class GetUI():
                     next_date = "Skráðu seinni dagsetning tímabilsins "
                     date1 = self.__get_voyage.get_date_voyage(first_date)
                     date2 = self.__get_voyage.get_date_voyage(next_date)
-                    if date1 and date2 == False:    
+                    if date1 == False or date2 == False:    
                         print()
-                        print("Flug fannst ekki!\nSkráðu réttan brottfarartíma!")
+                        print("Vitlausar dagsetningar!\nSkráðu réttan brottfarartíma!")
                         self.voyage_menu()
                         break
                     else:
@@ -283,7 +283,7 @@ class GetUI():
 
 
     def worktime_menu(self):
-        ''' The user can choose to see a list of all the employees that are not or are working on a specific date the user can 
+        ''' The user can choose to see a list of all the employees that are not / or are working on a specific date the user can 
             also see the work summary for one employee'''
         get_input = ""
         while get_input != "r":
