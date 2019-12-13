@@ -17,12 +17,13 @@ class FlightRepository():
     def get_upcomingflights(self):
         '''Returns a list with all upcoming flights minus the header'''
         self.open_upcoming = open("./data/UpcomingFlights.csv", "r")
+        flight_list = []
         for line in self.open_upcoming:
             line = line.strip()
             line = line.split(",")
-            self.flight_list.append(line)
+            flight_list.append(line)
         self.open_upcoming.close()
-        return self.flight_list[1:]
+        return flight_list[1:]
     
     def get_upcomingflights_plusheader(self):
         '''Returns a list with all upcoming flights, including the header'''
