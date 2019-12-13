@@ -60,6 +60,8 @@ class FlightRepository():
     def save_changed_upc_flights(self, new_upc_list):
         '''Saves all changes made to the upcoming flight in the csv file'''
         self.new_upc_list = new_upc_list
+        header = ["flightNumber","departingFrom","arrivingAt","departure","arrival","aircraftID","captain","copilot","fsm","fa1","fa2"]
+        self.new_upc_list.insert(0, header)
         self.writable_upc = open("./data/UpcomingFlights.csv", "w")
         for flight in new_upc_list:
             flight = ",".join(flight)
