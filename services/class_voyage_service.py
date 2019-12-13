@@ -248,4 +248,4 @@ class Voyage_service:
             mint = input("Sláðu inn mínútu brottfarar: ")
         user_chosen_date = [year,month,day,hour,mint,0]
         date = self.upcflights.add_date(user_chosen_date)
-        return date
+        return user_chosen_date

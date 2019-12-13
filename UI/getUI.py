@@ -58,6 +58,9 @@ class GetUI():
 
 
     def employee_menu(self):
+        ''' If the user inputed '1' he gets to the employee menu. Here the user can choose what information he whants to see
+            he can choose to see all employees in a list, only the pilots, only the flight attendants or look up a specific employee
+            by his ssn number '''
         get_input = ""
         if get_input != "r":
             print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja starfsmann"))/2)*" " +  "Sækja starfsmann"  +   "\n" + self.BORDER * self.WITDH )
@@ -68,8 +71,8 @@ class GetUI():
             print("'3' - Flugþjónn")
             print("'4' - Leita af starfsmanni")
             get_input = input(self.USER_INPUT)
-            while get_input != "1" and get_input != "2" and get_input != "3" and get_input != "4" and get_input != "r":
-                print("Innsláttarvilla!\nVinsamlegast veldu '1','2', eða '3'")
+            while get_input != "1" and get_input != "2" and get_input != "3" and get_input != "4" and get_input != "r":     # We have to make sure that if the user inputs something that is not available there will not be an error
+                print("Innsláttarvilla!\nVinsamlegast veldu aftur")
                 print(self.BORDER * self.WITDH +"\n" + int((self.WITDH - len("Sækja starfsmann"))/2)*" " +  "Sækja starfsmann"  +   "\n" + self.BORDER * self.WITDH )
                 print(self.PICK +"\n")
                 print(self.GO_BACK +"\n")
