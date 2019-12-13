@@ -85,7 +85,7 @@ class ChangeUI():
                         the_change = input("Skráðu breytingu: ")
                         if the_change != "r":
                             save_input = ""
-                            if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                            if save_input != "1" and save_input != "2": 
                                 print("\nViltu vista starfsmanninn \n'1' - Já: \n'2' - Nei: ")
                                 save_input = input(str(self.USER_INPUT))
                                 print()
@@ -122,7 +122,7 @@ class ChangeUI():
                 break
             else:
                 a_prnt_str = "Veldu dagsetningu vinnuferðar sem þú vilt breyta"
-                date = self.get_date_voyage(a_prnt_str)   # Fáum til baka dagsettningu á því formi sem við viljum svo hægt sé að leita af réttri ferð í csv skránni
+                date = self.get_date_voyage(a_prnt_str)   
                 the_flight = self.__get_upcflight.get_upcomingflight_list(date)
                 if the_flight[1] != "KEF":    # To make sure that the user inputs a departing date
                     print()
@@ -355,7 +355,7 @@ class ChangeUI():
             prnt_str, counter = self.__change_dest.get_alldest()   # prints out a list of all available destinations
             print(prnt_str)
             print(self.GO_BACK +"\n")
-            change_input = input(self.USER_INPUT)      # nr á áfangastað 
+            change_input = input(self.USER_INPUT)     
             if change_input.isdigit() == False:  # if the user doesnt input a number then send him back
                 if change_input == "r":
                     self.change_menu()
@@ -364,7 +364,7 @@ class ChangeUI():
                     self.destination_menu()
             elif change_input.isdigit() == True and int(change_input) >= 1 and int(change_input) <= int(counter):
                 print()
-                chosen_dest = self.__change_dest.get_dest(change_input) #tökum þá tölu sem notandi valdi og sendum í DestinationRepo og þar í get_dest fallið 
+                chosen_dest = self.__change_dest.get_dest(change_input)
                 output = Destination(chosen_dest)
                 change_input = ""
                 while change_input != "1" and change_input != "2":
@@ -381,7 +381,7 @@ class ChangeUI():
                     print("'2' - Neyðarsímanúmer: {}".format(output.get_phone()))
                     print()
                     print(self.GO_BACK +"\n")
-                    change_input = input(self.USER_INPUT).lower() # 1 eða 2  til að velja hvað á að breyta     
+                    change_input = input(self.USER_INPUT).lower()    
                     print()
                     if change_input != "1" and change_input != "2":  # contact
                         print("Skipun ekki til. Vinsmlegast reyndu aftur!")
@@ -391,13 +391,13 @@ class ChangeUI():
                         the_change = input("Skráðu breytingu: ") 
                         if the_change != "r":
                             save_input = ""
-                            if save_input != "1" and save_input != "2": # Ef hvorki 2 né 1 er sleginn inn þá er aftur spurt um input 
+                            if save_input != "1" and save_input != "2": 
                                 print("\nViltu vista áfangastað \n'1' - Já: \n'2' - Nei: ")
                                 save_input = input(str(self.USER_INPUT))
                                 print()
                             if save_input == "1":
                                 print("Áfangastaður vistaður ")
-                                print(self.__change_dest.change_dest(change_input, the_change, chosen_dest[0]))   # geri chosen dest til að taka bara nafnið á áfangastaðnum og senda inn í clasan
+                                print(self.__change_dest.change_dest(change_input, the_change, chosen_dest[0]))   
                                 self.destination_menu()
                                 break
                             else:

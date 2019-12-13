@@ -4,4 +4,3 @@ def main():
     ui = MainUI()
     ui.main_menu()
 main()
-

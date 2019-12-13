@@ -106,4 +106,4 @@ dicstrings þar sem átti við.
 
 13. desember:
 Við teljum að forritið sé tilbúið og lítið hægt að breyta og bæta í það. Við ættlum að klára að laga stöðuritin, klasaritin og passa að user-casin
-séu í samræmi við forritið okkar. Við ætlum að taka upp myndbandið þar sem við ætlum í gegnum forritið. 
+séu í samræmi við forritið okkar. Við ætlum að taka upp myndbandið þar sem við ætlum í gegnum forritið.

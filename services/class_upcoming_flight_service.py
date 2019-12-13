@@ -126,7 +126,6 @@ class Upcoming_flight_service:
                 new_upc_voyages.append(flight)
             else:
                 new_upc_voyages.append(flight)
-        print(new_upc_voyages)
         FlightRepository().save_changed_upc_flights(new_upc_voyages)
         return "Breytingar Vistaðar"
 
